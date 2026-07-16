@@ -80,6 +80,10 @@
   .checklist li { font-family:'Work Sans', sans-serif; font-size:16px; line-height:1.6; padding:10px 0 10px 34px; position:relative; border-bottom:1px dashed var(--khaki); }
   .checklist li:last-child { border-bottom:none; }
   .checklist li::before { content:''; position:absolute; left:0; top:12px; width:20px; height:20px; border:2px solid var(--terracota); border-radius:6px; }
+  .checklist li.check-item { cursor:pointer; user-select:none; }
+  .checklist li.check-item.checked { color:var(--cafe-muted); text-decoration:line-through; }
+  .checklist li.check-item.checked::before { background:var(--terracota); }
+  .checklist li.check-item.checked::after { content:''; position:absolute; left:5px; top:16px; width:10px; height:6px; border-left:2px solid var(--crema); border-bottom:2px solid var(--crema); transform:rotate(-45deg); }
   .stat-banner { background:var(--khaki); background: color-mix(in oklch, var(--khaki) 40%, var(--crema)); border-radius:18px; padding:22px 24px; margin-bottom:16px; text-align:center; }
   .stat-banner .num { font-family:'Bitter', serif; font-weight:900; font-size:34px; color:var(--forest); display:block; }
   .stat-banner p { font-family:'Work Sans', sans-serif; font-size:15px; color:var(--cafe); margin:6px 0 0; }
@@ -279,20 +283,20 @@
       <h3 data-lang="en">Before You Leave Home</h3>
       <h3 data-lang="es" style="display:none">Antes De Salir De Casa</h3>
       <ul class="checklist">
-        <li data-lang="en">Food storage plan confirmed — bear box, canister, or car trunk</li>
-        <li data-lang="es" style="display:none">Plan de almacenamiento de comida confirmado — caja para osos, contenedor, o cajuela del auto</li>
+        <li class="check-item" data-key="food-storage" data-lang="en">Food storage plan confirmed — bear box, canister, or car trunk</li>
+        <li class="check-item" data-key="food-storage" data-lang="es" style="display:none">Plan de almacenamiento de comida confirmado — caja para osos, contenedor, o cajuela del auto</li>
 
-        <li data-lang="en">Kids practiced STOP / STAY / NO RUNNING / BIG &amp; LOUD at least once, like a game</li>
-        <li data-lang="es" style="display:none">Los niños practicaron ALTO / QUÉDATE / NO CORRAS / GRANDE Y FUERTE al menos una vez, como un juego</li>
+        <li class="check-item" data-key="kids-practiced" data-lang="en">Kids practiced STOP / STAY / NO RUNNING / BIG &amp; LOUD at least once, like a game</li>
+        <li class="check-item" data-key="kids-practiced" data-lang="es" style="display:none">Los niños practicaron ALTO / QUÉDATE / NO CORRAS / GRANDE Y FUERTE al menos una vez, como un juego</li>
 
-        <li data-lang="en">Whistle or noisemaker on your body, not in a bag</li>
-        <li data-lang="es" style="display:none">Silbato o algo ruidoso en tu cuerpo, no en una bolsa</li>
+        <li class="check-item" data-key="whistle-body" data-lang="en">Whistle or noisemaker on your body, not in a bag</li>
+        <li class="check-item" data-key="whistle-body" data-lang="es" style="display:none">Silbato o algo ruidoso en tu cuerpo, no en una bolsa</li>
 
-        <li data-lang="en">You know exactly where the bear box or car is from your tent, even in the dark</li>
-        <li data-lang="es" style="display:none">Sabes exactamente dónde está la caja para osos o el auto desde tu tienda, incluso en la oscuridad</li>
+        <li class="check-item" data-key="know-location" data-lang="en">You know exactly where the bear box or car is from your tent, even in the dark</li>
+        <li class="check-item" data-key="know-location" data-lang="es" style="display:none">Sabes exactamente dónde está la caja para osos o el auto desde tu tienda, incluso en la oscuridad</li>
 
-        <li data-lang="en">One phrase ready for yourself: "I know exactly what to do." Say it out loud once — it works better than it sounds like it should.</li>
-        <li data-lang="es" style="display:none">Una frase lista para ti misma: "Sé exactamente qué hacer." Dila en voz alta una vez — funciona mejor de lo que parece.</li>
+        <li class="check-item" data-key="self-phrase" data-lang="en">One phrase ready for yourself: "I know exactly what to do." Say it out loud once — it works better than it sounds like it should.</li>
+        <li class="check-item" data-key="self-phrase" data-lang="es" style="display:none">Una frase lista para ti misma: "Sé exactamente qué hacer." Dila en voz alta una vez — funciona mejor de lo que parece.</li>
       </ul>
     </div>
   </div>
@@ -346,20 +350,20 @@
       <p data-lang="es" style="display:none">Algunas formas fáciles de ayudar a los niños — y a ti — a disfrutar de verdad el bosque:</p>
 
       <ul class="checklist">
-        <li data-lang="en">Nature scavenger hunt: a pinecone, a feather, something round, something that makes a sound</li>
-        <li data-lang="es" style="display:none">Búsqueda del tesoro en la naturaleza: una piña, una pluma, algo redondo, algo que haga ruido</li>
+        <li class="check-item" data-key="scavenger-hunt" data-lang="en">Nature scavenger hunt: a pinecone, a feather, something round, something that makes a sound</li>
+        <li class="check-item" data-key="scavenger-hunt" data-lang="es" style="display:none">Búsqueda del tesoro en la naturaleza: una piña, una pluma, algo redondo, algo que haga ruido</li>
 
-        <li data-lang="en">Let each kid pick one "camp job" — gathering sticks, setting out cups, herding siblings</li>
-        <li data-lang="es" style="display:none">Deja que cada niño elija un "trabajo de campamento" — juntar palitos, poner los vasos, cuidar a sus hermanos</li>
+        <li class="check-item" data-key="camp-job" data-lang="en">Let each kid pick one "camp job" — gathering sticks, setting out cups, herding siblings</li>
+        <li class="check-item" data-key="camp-job" data-lang="es" style="display:none">Deja que cada niño elija un "trabajo de campamento" — juntar palitos, poner los vasos, cuidar a sus hermanos</li>
 
-        <li data-lang="en">One flashlight-lit story after dinner, even a short one</li>
-        <li data-lang="es" style="display:none">Una historia contada con linterna después de cenar, aunque sea corta</li>
+        <li class="check-item" data-key="flashlight-story" data-lang="en">One flashlight-lit story after dinner, even a short one</li>
+        <li class="check-item" data-key="flashlight-story" data-lang="es" style="display:none">Una historia contada con linterna después de cenar, aunque sea corta</li>
 
-        <li data-lang="en">Name three stars or shapes in the sky before bed</li>
-        <li data-lang="es" style="display:none">Nombren tres estrellas o formas en el cielo antes de dormir</li>
+        <li class="check-item" data-key="name-stars" data-lang="en">Name three stars or shapes in the sky before bed</li>
+        <li class="check-item" data-key="name-stars" data-lang="es" style="display:none">Nombren tres estrellas o formas en el cielo antes de dormir</li>
 
-        <li data-lang="en">Bring the ingredients for one over-the-top s'more and let it be messy</li>
-        <li data-lang="es" style="display:none">Lleva los ingredientes para un s'more exagerado y deja que sea un desastre</li>
+        <li class="check-item" data-key="smore" data-lang="en">Bring the ingredients for one over-the-top s'more and let it be messy</li>
+        <li class="check-item" data-key="smore" data-lang="es" style="display:none">Lleva los ingredientes para un s'more exagerado y deja que sea un desastre</li>
       </ul>
     </div>
   </div>
@@ -471,14 +475,14 @@
       <h3 data-lang="en">If Someone Gets Separated</h3>
       <h3 data-lang="es" style="display:none">Si Alguien Se Separa Del Grupo</h3>
       <ul class="checklist">
-        <li data-lang="en">Before the trip, point out your camp neighbors, the bathroom, and one landmark kids can walk back to</li>
-        <li data-lang="es" style="display:none">Antes del viaje, señala a tus vecinos de campamento, el baño, y un punto de referencia al que los niños puedan regresar</li>
+        <li class="check-item" data-key="point-landmarks" data-lang="en">Before the trip, point out your camp neighbors, the bathroom, and one landmark kids can walk back to</li>
+        <li class="check-item" data-key="point-landmarks" data-lang="es" style="display:none">Antes del viaje, señala a tus vecinos de campamento, el baño, y un punto de referencia al que los niños puedan regresar</li>
 
-        <li data-lang="en">Teach kids: if lost, stop walking and stay in one place — moving around makes them harder to find</li>
-        <li data-lang="es" style="display:none">Enséñales a los niños: si se pierden, dejen de caminar y quédense en un solo lugar — moverse los hace más difíciles de encontrar</li>
+        <li class="check-item" data-key="teach-stay-put" data-lang="en">Teach kids: if lost, stop walking and stay in one place — moving around makes them harder to find</li>
+        <li class="check-item" data-key="teach-stay-put" data-lang="es" style="display:none">Enséñales a los niños: si se pierden, dejen de caminar y quédense en un solo lugar — moverse los hace más difíciles de encontrar</li>
 
-        <li data-lang="en">Three loud whistle blasts in a row means "come find me" — teach this to the whole family, kids included</li>
-        <li data-lang="es" style="display:none">Tres pitidos fuertes seguidos significan "ven a buscarme" — enséñaselo a toda la familia, incluyendo a los niños</li>
+        <li class="check-item" data-key="whistle-signal" data-lang="en">Three loud whistle blasts in a row means "come find me" — teach this to the whole family, kids included</li>
+        <li class="check-item" data-key="whistle-signal" data-lang="es" style="display:none">Tres pitidos fuertes seguidos significan "ven a buscarme" — enséñaselo a toda la familia, incluyendo a los niños</li>
       </ul>
     </div>
   </div>
@@ -587,6 +591,24 @@ function searchArea() {
   var url = 'https://www.google.com/search?q=' + encodeURIComponent(q + ' black bear activity sightings');
   window.open(url, '_blank', 'noopener');
 }
+
+document.querySelectorAll('.check-item').forEach(function (li) {
+  var key = 'bearCardCheck_' + li.dataset.key;
+  var saved = null;
+  try { saved = localStorage.getItem(key); } catch (e) {}
+  if (saved === 'true') {
+    document.querySelectorAll('.check-item[data-key="' + li.dataset.key + '"]').forEach(function (twin) {
+      twin.classList.add('checked');
+    });
+  }
+  li.addEventListener('click', function () {
+    var nowChecked = !li.classList.contains('checked');
+    document.querySelectorAll('.check-item[data-key="' + li.dataset.key + '"]').forEach(function (twin) {
+      twin.classList.toggle('checked', nowChecked);
+    });
+    try { localStorage.setItem(key, nowChecked ? 'true' : 'false'); } catch (e) {}
+  });
+});
 
 document.querySelectorAll('.trip-field').forEach(function (inp) {
   var key = 'bearCardTrip_' + inp.dataset.key;
