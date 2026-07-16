@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bear Country Cheat Sheet — Paola Adventurer</title>
+<meta name="description" content="A friendly, bilingual bear-safety cheat sheet for camping families.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,700;0,900;1,700&family=Oswald:wght@500;600;700&family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest: oklch(32% 0.07 150);
+    --terracota: oklch(55% 0.14 35);
+    --crema: oklch(97% 0.014 85);
+    --khaki: oklch(80% 0.045 80);
+    --cafe: oklch(24% 0.02 50);
+    --cafe-muted: oklch(24% 0.02 50 / 0.7);
+    --shadow: 0 6px 20px oklch(24% 0.02 50 / 0.12);
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family:'Work Sans', sans-serif; background:var(--crema); color:var(--cafe); }
+
+  .header { background:var(--forest); color:var(--crema); text-align:center; padding: 40px 20px 24px; }
+
+  .logo-mark { width:110px; height:110px; margin:0 auto 16px; border-radius:50%; background:var(--crema); border:3px solid var(--terracota); display:flex; align-items:center; justify-content:center; }
+  .logo-mark span { font-family:'Bitter', serif; font-weight:900; font-size:34px; color:var(--forest); letter-spacing:1px; }
+
+  .wordmark { font-family:'Oswald', sans-serif; font-weight:600; letter-spacing:4px; font-size:24px; margin:0; }
+  .tagline { font-family:'Oswald', sans-serif; font-weight:500; letter-spacing:3px; font-size:12px; color:var(--khaki); margin-top:10px; }
+
+  .lang-switch { display:flex; gap:8px; justify-content:center; margin-top:22px; }
+  .lang-btn { background:transparent; border:2px solid var(--khaki); color:var(--crema); font-family:'Oswald', sans-serif; font-weight:600; letter-spacing:1.5px; padding:7px 18px; border-radius:100px; cursor:pointer; font-size:12px; transition:.2s; }
+  .lang-btn.active, .lang-btn:hover { background:var(--terracota); border-color:var(--terracota); color:var(--crema); }
+
+  .title-block { text-align:center; padding: 38px 20px 8px; }
+  h1 { font-family:'Bitter', serif; font-weight:900; font-size:40px; margin:0; color:var(--forest); line-height:1.15; }
+  .subtitle { font-family:'Bitter', serif; font-style:italic; font-weight:700; color:var(--terracota); font-size:19px; margin-top:12px; }
+
+  .tabs { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; padding:28px 16px 10px; max-width:640px; margin:0 auto; }
+  .tab-btn { background:var(--crema); border:2px solid var(--khaki); color:var(--forest); font-family:'Oswald', sans-serif; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; padding:13px 20px; border-radius:100px; cursor:pointer; font-size:13px; transition:.2s; }
+  .tab-btn.active, .tab-btn:hover { background:var(--terracota); color:var(--crema); border-color:var(--terracota); }
+
+  .panel { display:none; max-width:600px; margin:0 auto; padding:20px 24px 50px; }
+  .panel.active { display:block; animation: fade .3s ease; }
+  @keyframes fade { from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);} }
+
+  .card { background:#fff; border:1px solid var(--khaki); border-radius:18px; padding:28px; margin-bottom:16px; box-shadow: var(--shadow); }
+  .card h3 { font-family:'Oswald', sans-serif; text-transform:uppercase; color:var(--forest); letter-spacing:2px; font-size:19px; margin-top:0; }
+  .card p { font-family:'Work Sans', sans-serif; line-height:1.65; font-size:16px; color:var(--cafe); }
+  .card p.note { color:var(--cafe-muted); font-size:15px; border-top:1px dashed var(--khaki); padding-top:16px; margin-top:16px; }
+
+  .kid-rule { font-family:'Oswald', sans-serif; font-weight:500; font-size:17px; line-height:2.2; letter-spacing:0.5px; }
+  .kid-rule b { font-family:'Oswald', sans-serif; font-weight:700; color:var(--terracota); }
+
+  .fact { display:flex; gap:14px; align-items:flex-start; margin-bottom:18px; }
+  .fact .icon { background:var(--terracota); color:var(--crema); min-width:32px; height:32px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Oswald', sans-serif; font-weight:700; flex-shrink:0; font-size:14px; }
+  .fact p { margin:2px 0 0; font-family:'Work Sans', sans-serif; }
+
+  .checklist { list-style:none; margin:0; padding:0; }
+  .checklist li { font-family:'Work Sans', sans-serif; font-size:16px; line-height:1.6; padding:10px 0 10px 34px; position:relative; border-bottom:1px dashed var(--khaki); }
+  .checklist li:last-child { border-bottom:none; }
+  .checklist li::before { content:''; position:absolute; left:0; top:12px; width:20px; height:20px; border:2px solid var(--terracota); border-radius:6px; }
+  .stat-banner { background:var(--khaki); background: color-mix(in oklch, var(--khaki) 40%, var(--crema)); border-radius:18px; padding:22px 24px; margin-bottom:16px; text-align:center; }
+  .stat-banner .num { font-family:'Bitter', serif; font-weight:900; font-size:34px; color:var(--forest); display:block; }
+  .stat-banner p { font-family:'Work Sans', sans-serif; font-size:15px; color:var(--cafe); margin:6px 0 0; }
+  .stat-banner p.quote { font-family:'Bitter', serif; font-style:italic; font-weight:700; font-size:17px; color:var(--forest); }
+
+  footer { background:var(--forest); color:var(--crema); text-align:center; padding:36px 20px; }
+  footer .quote { font-family:'Bitter', serif; font-style:italic; font-weight:700; font-size:18px; }
+  footer span { display:block; font-family:'Oswald', sans-serif; font-weight:500; letter-spacing:2px; font-size:11px; color:var(--khaki); margin-top:14px; text-transform:uppercase; }
+</style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="logo-mark"><span>PA</span></div>
+    <p class="wordmark">PAOLA ADVENTURER</p>
+    <p class="tagline">ARCHERY &middot; CAMPING &middot; EXPLORE</p>
+    <div class="lang-switch">
+      <button class="lang-btn active" data-setlang="en" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" data-setlang="es" onclick="setLang('es')">ES</button>
+    </div>
+  </div>
+
+  <div class="title-block">
+    <h1>
+      <span data-lang="en">Bear Country<br>Cheat Sheet</span>
+      <span data-lang="es" style="display:none">Guía Rápida:<br>Zona de Osos</span>
+    </h1>
+    <p class="subtitle">
+      <span data-lang="en">You've got this. Here's exactly what to do.</span>
+      <span data-lang="es" style="display:none">Tú puedes con esto. Aquí está exactamente qué hacer.</span>
+    </p>
+  </div>
+
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab('storage', this)"><span data-lang="en">Store Food Right</span><span data-lang="es" style="display:none">Guarda Bien la Comida</span></button>
+    <button class="tab-btn" onclick="showTab('adults', this)"><span data-lang="en">If You See One</span><span data-lang="es" style="display:none">Si Ves Uno</span></button>
+    <button class="tab-btn" onclick="showTab('kids', this)"><span data-lang="en">For The Kids</span><span data-lang="es" style="display:none">Para Los Niños</span></button>
+    <button class="tab-btn" onclick="showTab('facts', this)"><span data-lang="en">Fun Facts</span><span data-lang="es" style="display:none">Datos Curiosos</span></button>
+    <button class="tab-btn" onclick="showTab('mama', this)"><span data-lang="en">For You, Mama</span><span data-lang="es" style="display:none">Para Ti, Mamá</span></button>
+    <button class="tab-btn" onclick="showTab('confidence', this)"><span data-lang="en">Feel Ready &amp; Enjoy</span><span data-lang="es" style="display:none">Prepárate y Disfruta</span></button>
+  </div>
+
+  <div id="storage" class="panel active">
+    <div class="card">
+      <h3 data-lang="en">Store It Right</h3>
+      <h3 data-lang="es" style="display:none">Guarda Bien La Comida</h3>
+
+      <p data-lang="en">Wherever you're camping, check if your site has a bear box — most established campgrounds in bear country do. Everything scented goes inside: food, trash, toothpaste, deodorant, wipes. Bears smell it long before they see it.</p>
+      <p data-lang="es" style="display:none">Dondequiera que acampes, revisa si tu sitio tiene una caja para osos ("bear box") — la mayoría de los campamentos establecidos en zona de osos la tienen. Todo lo que tenga olor va adentro: comida, basura, pasta de dientes, desodorante, toallitas. Los osos lo huelen mucho antes de verlo.</p>
+
+      <p data-lang="en">Don't eat or sleep in the clothes you cooked in — the smell travels with you.</p>
+      <p data-lang="es" style="display:none">No comas ni duermas con la ropa con la que cocinaste — el olor viaja contigo.</p>
+
+      <p class="note" data-lang="en"><strong>No bear box or canister?</strong> The car works. Trunk is best — fully enclosed, out of sight. No trunk? Cover the food with a blanket so nothing's visible. Windows all the way up, doors locked. Truck beds, tents, and soft-top vehicles don't count — it has to be hard-sided and fully closed.</p>
+      <p class="note" data-lang="es" style="display:none"><strong>¿No tienes caja para osos ni contenedor?</strong> El auto funciona. La cajuela es lo mejor — totalmente cerrada, fuera de la vista. ¿No tienes cajuela? Cubre la comida con una manta para que no se vea nada. Ventanas totalmente cerradas, puertas con seguro. La caja de una camioneta pickup, las tiendas de campaña y los vehículos con techo de lona no cuentan — tiene que ser un espacio rígido y completamente cerrado.</p>
+    </div>
+  </div>
+
+  <div id="adults" class="panel">
+    <div class="card">
+      <h3 data-lang="en">If You See One</h3>
+      <h3 data-lang="es" style="display:none">Si Ves Uno</h3>
+
+      <p data-lang="en">Don't run — you can't outrun a bear, they're built for it. Stand tall, pull the kids in close behind you, and make yourself loud: bang pots, clap, yell. Back away slowly, don't turn your back.</p>
+      <p data-lang="es" style="display:none">No corras — no puedes correr más rápido que un oso, están hechos para eso. Ponte de pie, junta a los niños detrás de ti, y hazte notar: golpea ollas, aplaude, grita. Retrocede despacio, sin darle la espalda.</p>
+
+      <p data-lang="en">Black bears almost always leave on their own once they realize you're not backing down and there's no food to get.</p>
+      <p data-lang="es" style="display:none">Los osos negros casi siempre se van por su cuenta en cuanto notan que no vas a retroceder y que no hay comida que conseguir.</p>
+    </div>
+  </div>
+
+  <div id="kids" class="panel">
+    <div class="card">
+      <h3 data-lang="en">For The Kids</h3>
+      <h3 data-lang="es" style="display:none">Para Los Niños</h3>
+
+      <p data-lang="en">Teach them this before the trip, like a little rule they can remember:</p>
+      <p data-lang="es" style="display:none">Enséñales esto antes del viaje, como una pequeña regla que puedan recordar:</p>
+
+      <p class="kid-rule" data-lang="en">
+        <b>STOP.</b> Freeze like a statue.<br>
+        <b>STAY.</b> Get right next to a grown-up.<br>
+        <b>NO RUNNING.</b> Not even a little.<br>
+        <b>BIG &amp; LOUD.</b> Arms up, big voice.
+      </p>
+      <p class="kid-rule" data-lang="es" style="display:none">
+        <b>ALTO.</b> Quédate quieto como estatua.<br>
+        <b>QUÉDATE.</b> Pégate a un adulto.<br>
+        <b>NO CORRAS.</b> Ni un poquito.<br>
+        <b>GRANDE Y FUERTE.</b> Brazos arriba, voz fuerte.
+      </p>
+
+      <p data-lang="en">Practice it once at home like a game before you go — kids remember what they've practiced, not just what they've been told.</p>
+      <p data-lang="es" style="display:none">Practíquenlo una vez en casa, como un juego, antes de irse — los niños recuerdan lo que han practicado, no solo lo que se les dijo.</p>
+    </div>
+  </div>
+
+  <div id="facts" class="panel">
+    <div class="card">
+      <h3 data-lang="en">Black Bear Fun Facts (California)</h3>
+      <h3 data-lang="es" style="display:none">Datos Curiosos del Oso Negro (California)</h3>
+
+      <div class="fact"><div class="icon">1</div>
+        <p data-lang="en">California has about 60,000 black bears, and the number keeps growing (CA Dept. of Fish &amp; Wildlife).</p>
+        <p data-lang="es" style="display:none">California tiene alrededor de 60,000 osos negros, y la cifra sigue creciendo (Depto. de Pesca y Vida Silvestre de CA).</p>
+      </div>
+      <div class="fact"><div class="icon">2</div>
+        <p data-lang="en">"Black" bear doesn't mean black — they actually range from blonde to brown to jet black.</p>
+        <p data-lang="es" style="display:none">"Oso negro" no significa que sea negro — en realidad varían de rubio a café hasta negro azabache.</p>
+      </div>
+      <div class="fact"><div class="icon">3</div>
+        <p data-lang="en">They're mostly vegetarian — berries, nuts, grass, and insects make up most of their diet.</p>
+        <p data-lang="es" style="display:none">Son principalmente vegetarianos — bayas, nueces, pasto e insectos forman la mayor parte de su dieta.</p>
+      </div>
+      <div class="fact"><div class="icon">4</div>
+        <p data-lang="en">They can run 30+ mph — faster than Usain Bolt's top speed. That's exactly why you never run.</p>
+        <p data-lang="es" style="display:none">Pueden correr a más de 48 km/h — más rápido que la velocidad máxima de Usain Bolt. Por eso nunca debes correr.</p>
+      </div>
+      <div class="fact"><div class="icon">5</div>
+        <p data-lang="en">They can climb 100 feet up a tree in about 30 seconds, so climbing away doesn't work either.</p>
+        <p data-lang="es" style="display:none">Pueden subir 30 metros a un árbol en unos 30 segundos, así que subirte a uno tampoco funciona.</p>
+      </div>
+      <div class="fact"><div class="icon">6</div>
+        <p data-lang="en">They're shy and solitary by nature — a bear near camp is almost always after food, not after you.</p>
+        <p data-lang="es" style="display:none">Son tímidos y solitarios por naturaleza — un oso cerca del campamento casi siempre busca comida, no a ti.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="mama" class="panel">
+    <div class="stat-banner">
+      <span class="num">&lt; 1</span>
+      <p data-lang="en">person per year, on average, across all of North America — out of roughly 750,000 black bears and millions of camper encounters (North American Bear Center). This is one of the safest fears to let go of.</p>
+      <p data-lang="es" style="display:none">persona al año, en promedio, en toda Norteamérica — de entre aproximadamente 750,000 osos negros y millones de encuentros con campistas (North American Bear Center). Este es uno de los miedos más seguros de soltar.</p>
+    </div>
+    <div class="card">
+      <h3 data-lang="en">If You're On Your Own With All Three</h3>
+      <h3 data-lang="es" style="display:none">Si Te Quedas Sola Con Los Tres</h3>
+
+      <p data-lang="en">This is the one that actually keeps you up at night, so let's plan for it directly instead of just hoping it doesn't happen. Before your husband ever walks off, agree on a home base — the fire ring or picnic table — and do a quick headcount out loud, every time, like a habit.</p>
+      <p data-lang="es" style="display:none">Este es el miedo que realmente no te deja dormir, así que vamos a planearlo directamente en lugar de solo esperar que no pase. Antes de que tu esposo se aleje, pónganse de acuerdo en una "base" — la fogata o la mesa de picnic — y hagan un conteo rápido en voz alta, cada vez, como un hábito.</p>
+
+      <p data-lang="en">If your oldest is old enough, give them one small job: "you're in charge of holding hands with your sister on the trail." Kids rise to a role — it's not about them protecting anyone, it's about one more set of eyes.</p>
+      <p data-lang="es" style="display:none">Si tu hija o hijo mayor tiene edad suficiente, dale una pequeña responsabilidad: "tú estás a cargo de tomar de la mano a tu hermana en el sendero." Los niños responden bien a un rol — no se trata de que protejan a nadie, sino de tener un par de ojos más.</p>
+
+      <p data-lang="en">Keep a whistle or something loud clipped to you, not packed in a bag. If you never need it, that's fine. Knowing it's there is what actually lowers the anxiety, not just being told "it'll be fine."</p>
+      <p data-lang="es" style="display:none">Lleva un silbato o algo ruidoso enganchado a ti, no guardado en una bolsa. Si nunca lo necesitas, perfecto. Saber que está ahí es lo que realmente baja la ansiedad, no solo que te digan "todo va a estar bien."</p>
+    </div>
+    <div class="card">
+      <h3 data-lang="en">Before You Leave Home</h3>
+      <h3 data-lang="es" style="display:none">Antes De Salir De Casa</h3>
+      <ul class="checklist">
+        <li data-lang="en">Food storage plan confirmed — bear box, canister, or car trunk</li>
+        <li data-lang="es" style="display:none">Plan de almacenamiento de comida confirmado — caja para osos, contenedor, o cajuela del auto</li>
+
+        <li data-lang="en">Kids practiced STOP / STAY / NO RUNNING / BIG &amp; LOUD at least once, like a game</li>
+        <li data-lang="es" style="display:none">Los niños practicaron ALTO / QUÉDATE / NO CORRAS / GRANDE Y FUERTE al menos una vez, como un juego</li>
+
+        <li data-lang="en">Whistle or noisemaker on your body, not in a bag</li>
+        <li data-lang="es" style="display:none">Silbato o algo ruidoso en tu cuerpo, no en una bolsa</li>
+
+        <li data-lang="en">You know exactly where the bear box or car is from your tent, even in the dark</li>
+        <li data-lang="es" style="display:none">Sabes exactamente dónde está la caja para osos o el auto desde tu tienda, incluso en la oscuridad</li>
+
+        <li data-lang="en">One phrase ready for yourself: "I know exactly what to do." Say it out loud once — it works better than it sounds like it should.</li>
+        <li data-lang="es" style="display:none">Una frase lista para ti misma: "Sé exactamente qué hacer." Dila en voz alta una vez — funciona mejor de lo que parece.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="confidence" class="panel">
+    <div class="card">
+      <h3 data-lang="en">Little Things That Help</h3>
+      <h3 data-lang="es" style="display:none">Pequeñas Cosas Que Ayudan</h3>
+
+      <p data-lang="en">Being ready for bears is one thing. Actually enjoying the trip is the real goal — here are a few small things that make a bigger difference than they sound like they would.</p>
+      <p data-lang="es" style="display:none">Estar lista para los osos es una cosa. Disfrutar el viaje de verdad es la meta real — aquí unas cosas pequeñas que ayudan más de lo que parece.</p>
+
+      <div class="fact"><div class="icon">1</div>
+        <p data-lang="en">Pack one thing that's just for you — tea, a playlist, a book you won't read but like having. You're allowed to be a person on this trip too.</p>
+        <p data-lang="es" style="display:none">Empaca algo que sea solo para ti — té, una lista de música, un libro que no leerás pero te gusta tener. También se te permite ser una persona en este viaje.</p>
+      </div>
+      <div class="fact"><div class="icon">2</div>
+        <p data-lang="en">Test your easiest dinner at home first. The first night isn't the time to learn a new recipe by headlamp.</p>
+        <p data-lang="es" style="display:none">Prueba en casa la cena más fácil primero. La primera noche no es el momento de aprender una receta nueva a luz de linterna.</p>
+      </div>
+      <div class="fact"><div class="icon">3</div>
+        <p data-lang="en">Do a slow walk-through the night before: "flashlight here, whistle here, bear box there." Sleeping on a plan feels different than sleeping on a hope.</p>
+        <p data-lang="es" style="display:none">Haz un recorrido tranquilo la noche anterior: "linterna aquí, silbato aquí, caja para osos allá." Dormir con un plan se siente distinto a dormir solo con esperanza.</p>
+      </div>
+      <div class="fact"><div class="icon">4</div>
+        <p data-lang="en">Say hello to your camp neighbors. Most campers look out for each other — it's one more set of eyes, not a burden.</p>
+        <p data-lang="es" style="display:none">Saluda a tus vecinos de campamento. La mayoría de los campistas se cuidan entre sí — es un par de ojos más, no una carga.</p>
+      </div>
+      <div class="fact"><div class="icon">5</div>
+        <p data-lang="en">Pick one win per day, not ten. A fire that lights, a hike that happens, one good meal. That's a successful trip.</p>
+        <p data-lang="es" style="display:none">Elige un logro al día, no diez. Una fogata que enciende, una caminata que sucede, una buena comida. Eso ya es un viaje exitoso.</p>
+      </div>
+      <div class="fact"><div class="icon">6</div>
+        <p data-lang="en">Text someone your site number and when you'll check in. One less thing to carry alone.</p>
+        <p data-lang="es" style="display:none">Envíale a alguien un mensaje con tu número de sitio y cuándo avisarás que estás bien. Una cosa menos que cargar sola.</p>
+      </div>
+      <div class="fact"><div class="icon">7</div>
+        <p data-lang="en">If the first night is hard — cold, cranky kids, nothing goes right — that's not a sign you're bad at this. That's just camping. It gets easier by night two.</p>
+        <p data-lang="es" style="display:none">Si la primera noche es difícil — frío, niños de mal humor, nada sale bien — eso no significa que se te dé mal. Eso es simplemente acampar. Para la segunda noche, ya es más fácil.</p>
+      </div>
+
+      <p class="note" data-lang="en">Feeling nervous the night before doesn't mean you're not ready. It means you care. Go anyway.</p>
+      <p class="note" data-lang="es" style="display:none">Sentirte nerviosa la noche anterior no significa que no estés lista. Significa que te importa. Ve de todas formas.</p>
+    </div>
+
+    <div class="card">
+      <h3 data-lang="en">Make It Fun, Not Just Safe</h3>
+      <h3 data-lang="es" style="display:none">Que Sea Divertido, No Solo Seguro</h3>
+
+      <p data-lang="en">A few easy ways to help the kids — and you — actually enjoy the woods:</p>
+      <p data-lang="es" style="display:none">Algunas formas fáciles de ayudar a los niños — y a ti — a disfrutar de verdad el bosque:</p>
+
+      <ul class="checklist">
+        <li data-lang="en">Nature scavenger hunt: a pinecone, a feather, something round, something that makes a sound</li>
+        <li data-lang="es" style="display:none">Búsqueda del tesoro en la naturaleza: una piña, una pluma, algo redondo, algo que haga ruido</li>
+
+        <li data-lang="en">Let each kid pick one "camp job" — gathering sticks, setting out cups, herding siblings</li>
+        <li data-lang="es" style="display:none">Deja que cada niño elija un "trabajo de campamento" — juntar palitos, poner los vasos, cuidar a sus hermanos</li>
+
+        <li data-lang="en">One flashlight-lit story after dinner, even a short one</li>
+        <li data-lang="es" style="display:none">Una historia contada con linterna después de cenar, aunque sea corta</li>
+
+        <li data-lang="en">Name three stars or shapes in the sky before bed</li>
+        <li data-lang="es" style="display:none">Nombren tres estrellas o formas en el cielo antes de dormir</li>
+
+        <li data-lang="en">Bring the ingredients for one over-the-top s'more and let it be messy</li>
+        <li data-lang="es" style="display:none">Lleva los ingredientes para un s'more exagerado y deja que sea un desastre</li>
+      </ul>
+    </div>
+  </div>
+
+  <footer>
+    <p class="quote" data-lang="en">"It doesn't have to be perfect, it just has to happen."</p>
+    <p class="quote" data-lang="es" style="display:none">"No tiene que ser perfecto, tiene que pasar."</p>
+    <span data-lang="en">Made with love, for your trip</span>
+    <span data-lang="es" style="display:none">Hecho con cariño, para tu viaje</span>
+  </footer>
+
+<script>
+function showTab(id, btn) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+
+var titles = {
+  en: 'Bear Country Cheat Sheet — Paola Adventurer',
+  es: 'Guía Rápida: Zona de Osos — Paola Adventurer'
+};
+
+function setLang(lang) {
+  document.querySelectorAll('[data-lang]').forEach(function(el) {
+    el.style.display = (el.getAttribute('data-lang') === lang) ? '' : 'none';
+  });
+  document.querySelectorAll('.lang-btn').forEach(function(b) {
+    b.classList.toggle('active', b.dataset.setlang === lang);
+  });
+  document.documentElement.lang = lang;
+  document.title = titles[lang];
+  try { localStorage.setItem('bearCardLang', lang); } catch (e) {}
+}
+
+(function () {
+  var saved = null;
+  try { saved = localStorage.getItem('bearCardLang'); } catch (e) {}
+  if (saved === 'es') setLang('es');
+})();
+</script>
+
+</body>
+</html>
