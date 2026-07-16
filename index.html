@@ -629,6 +629,12 @@ function printCard() {
   }, 500);
 }
 
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('sw.js').catch(function () {});
+  });
+}
+
 var leadForm = document.getElementById('leadForm');
 if (leadForm) {
   leadForm.addEventListener('submit', async function (e) {
