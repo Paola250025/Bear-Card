@@ -28,7 +28,7 @@ No `src/`, no build output — what's in the repo is exactly what's served.
 
 ## Content structure
 9 tabs, ordered by emotional priority (reassurance first, procedural content after) rather than alphabetically or by topic:
-1. **For You, Mama** (default/first tab) — reassurance stat (<1 fatality/year in North America) + solo-parent protocol
+1. **For You, Mama** (default/first tab) — reassurance stat (<1 bear-related death per year in North America, with a bold label directly under the number so it reads at a glance rather than requiring the full paragraph) + solo-parent protocol
 2. **Feel Ready & Enjoy** — confidence tips + "make it fun" activity list
 3. **Staying Calm** — what to do if you see a bear (renamed from "If You See One" — softened wording)
 4. **Store Food Right** — food storage rules (bear box / car trunk)
