@@ -1,13 +1,13 @@
 ---
 name: crear-roadmap
-description: "Usar cuando el usuario tenga una idea de producto, app o herramienta y quiera definir QUÉ construir y EN QUÉ ORDEN: diga \"roadmap\", \"por dónde empiezo\", \"en qué orden desarrollo esto\", \"qué features hago primero\", o pase el contexto de una idea nueva antes de construirla. NO usar para escribir el spec de una feature (para eso está crear-specs), ni para priorizar tareas del día a día."
+description: "Usar cuando el usuario tenga una idea de producto, app o herramienta y quiera definir QUÉ construir y EN QUÉ ORDEN: diga \"roadmap\", \"por dónde empiezo\", \"en qué orden desarrollo esto\", \"qué features hago primero\", o pase el contexto de una idea nueva antes de construirla. NO usar para escribir el spec de una feature (para eso está design-spec), ni para priorizar tareas del día a día."
 ---
 
 # Crear roadmap de desarrollo
 
 ## Objetivo
 
-Convertir una idea (y su contexto) en un `roadmap.md`: la lista ordenada de features por fases, decidiendo qué se construye primero y por qué. El resultado alimenta al skill `crear-specs`: cada fase del roadmap se convierte después en un spec.
+Convertir una idea (y su contexto) en un `roadmap.md`: la lista ordenada de features por fases, decidiendo qué se construye primero y por qué. El resultado alimenta al skill `design-spec`: cada fase del roadmap se convierte después en un spec.
 
 ## Instrucciones
 
@@ -29,7 +29,7 @@ Convertir una idea (y su contexto) en un `roadmap.md`: la lista ordenada de feat
    - **Backlog:** todo lo demás. Nada se pierde, pero nada de aquí bloquea el lanzamiento.
 5. **Cuestiona las features de vanidad.** Si algo suena impresionante pero no acerca al usuario a la acción core (dashboards, gamificación, IA "porque sí"), muévelo al backlog y di por qué.
 6. Guarda el resultado como `roadmap.md` en la carpeta del proyecto.
-7. **Cierra con el siguiente paso:** "La Fase 1 está lista para convertirse en spec — usa /crear-specs y pásale este roadmap como contexto."
+7. **Cierra con el siguiente paso:** "La Fase 1 está lista para convertirse en spec — usa design-spec y pásale este roadmap como contexto."
 
 ## Formato de salida (roadmap.md)
 
@@ -57,7 +57,7 @@ Fecha: [fecha]
 y lo que necesita datos de la Fase 1 para decidirse.]
 
 ## Siguiente paso
-Convertir la Fase 1 en spec con /crear-specs, usando este roadmap
+Convertir la Fase 1 en spec con design-spec, usando este roadmap
 como contexto.
 ```
 
