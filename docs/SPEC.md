@@ -15,6 +15,7 @@ A single-page, self-contained bilingual (EN/ES) web card that helps nervous firs
 ## File structure
 ```
 index.html                        the whole site
+sw.js                              service worker, offline caching
 manifest.json                     PWA manifest (home-screen install)
 apple-touch-icon.png              180x180 iOS home-screen icon
 CNAME                             GitHub Pages custom domain config
@@ -60,7 +61,10 @@ GoatCounter script tag is already wired in with site code `paolaadventurer` — 
 ## PWA / home-screen install
 `manifest.json` + `apple-touch-icon.png` + theme-color meta let visitors add the card to their phone's home screen as an app icon (iOS: Share → Add to Home Screen; Android: ⋮ menu → Add to Home screen), opening full-screen with no browser chrome.
 
-**Known limitation: this is not yet fully offline-capable.** There's no service worker, so the home-screen icon makes it *look* like an app but doesn't guarantee the page loads with zero signal, especially on a first open after being offline. What *does* work offline already (once the page has loaded at least once): all `localStorage` features (checklists, trip-info fields) — those never touch the network at all. What doesn't yet: guaranteed page load itself when opening cold with no signal. Since this card is meant to be used at a campsite, adding a proper service worker (cache the app shell on first visit, so every later open works with zero signal) is a natural next step — discussed with Paola, not yet built. See ROADMAP.md.
+## Offline support
+`sw.js` (service worker) precaches the app shell (HTML, manifest, icons, logo) the first time someone visits with signal, so it keeps working with zero signal after that, not just when installed as a home-screen icon. Strategy: page navigations are network-first with a 3-second timeout race, falling back to the cached copy — this matters for real campsite conditions where the connection isn't fully offline, just slow/spotty, so it doesn't leave someone staring at a blank screen waiting on a stalling request. Every other asset (icons, manifest) is cache-first. Registered from `index.html` via `navigator.serviceWorker.register('sw.js')`, guarded by a feature check so it's a no-op on unsupported browsers. Tested end-to-end (installed, then fully simulated-offline, confirmed the page still renders full content).
+
+To force a fresh cache after a future content update, bump the `CACHE_NAME` version string at the top of `sw.js` (e.g. `bear-card-v1` → `bear-card-v2`) — the `activate` handler automatically deletes old-named caches.
 
 ## Social preview
 Open Graph + Twitter Card meta tags (`og:title`, `og:description`, `og:image`, `twitter:*`) so pasting the link into texts/WhatsApp/social apps shows a real preview card (logo + title + description) instead of a bare link. Image used: `assets/icon-512.png`.
