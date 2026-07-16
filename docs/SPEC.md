@@ -60,6 +60,8 @@ GoatCounter script tag is already wired in with site code `paolaadventurer` — 
 ## PWA / home-screen install
 `manifest.json` + `apple-touch-icon.png` + theme-color meta let visitors add the card to their phone's home screen as an app icon (iOS: Share → Add to Home Screen; Android: ⋮ menu → Add to Home screen), opening full-screen with no browser chrome.
 
+**Known limitation: this is not yet fully offline-capable.** There's no service worker, so the home-screen icon makes it *look* like an app but doesn't guarantee the page loads with zero signal, especially on a first open after being offline. What *does* work offline already (once the page has loaded at least once): all `localStorage` features (checklists, trip-info fields) — those never touch the network at all. What doesn't yet: guaranteed page load itself when opening cold with no signal. Since this card is meant to be used at a campsite, adding a proper service worker (cache the app shell on first visit, so every later open works with zero signal) is a natural next step — discussed with Paola, not yet built. See ROADMAP.md.
+
 ## Social preview
 Open Graph + Twitter Card meta tags (`og:title`, `og:description`, `og:image`, `twitter:*`) so pasting the link into texts/WhatsApp/social apps shows a real preview card (logo + title + description) instead of a bare link. Image used: `assets/icon-512.png`.
 

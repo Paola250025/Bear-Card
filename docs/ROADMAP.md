@@ -19,8 +19,11 @@ Shipped, tested, and shared. Custom domain confirmed working. This is not a "hal
 ## Open loops — need Paola's action, not more building
 These aren't code work, they're account/verification steps on Paola's end:
 1. **Confirm FormSubmit is activated** — check `adventurerpaola@gmail.com` for the one-time activation email and click it, if not already done. Until then, form submissions silently don't arrive.
-2. **Claim the GoatCounter account** — sign up free at goatcounter.com with site code `paolaadventurer` so analytics actually start recording. The script is already live; the account just needs to be claimed.
+2. **Claim the GoatCounter account** — sign up free at goatcounter.com with site code `paolaadventurer` so analytics actually start recording. The script is already live; the account just needs to be claimed. (In progress as of this update — Paola confirmed she'd do this.) To view activity afterward: log in at goatcounter.com → dashboard shows total visits + a graph; the "Events" view shows the custom tracking (`tab-<id>` per tab click, `lead-form-submit` per form conversion).
 3. **Double-check "Enforce HTTPS"** is checked in GitHub → Settings → Pages, now that the custom domain is verified.
+
+## Pending decision — true offline support
+Right now the card is *installable* (home-screen icon via the manifest) but not truly *offline-capable* — there's no service worker, so opening the icon cold with zero signal isn't guaranteed to load. This was flagged to Paola directly (she asked "will this work without signal?") and a fix was proposed: add a service worker to cache the whole app shell on first visit (while she has signal, e.g. before the trip), so every subsequent open works fully offline regardless of connectivity. She hasn't confirmed yet whether to build it — don't build it unprompted, but it's a well-scoped, low-risk addition whenever she says go. This matters more than most polish items here because "works without signal" is core to what this card is actually for (a campsite reference tool).
 
 ## Explicitly decided, not gaps
 Worth remembering these were deliberate calls, so they don't get "fixed" by accident later:
