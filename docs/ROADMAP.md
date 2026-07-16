@@ -14,6 +14,7 @@ Shipped, tested, and shared. Custom domain confirmed working. This is not a "hal
 - Analytics wired in (GoatCounter, code `paolaadventurer`)
 - Social preview tags (Open Graph/Twitter)
 - Custom domain `paolaadventurer.com` live over HTTPS
+- All em dashes removed from card copy (both languages), confirmed by Paola to apply to the full body text, not just tab names. Title separators use the middot (`·`) instead. Note: this only applies to the card itself (`index.html`) — the `docs/` files still use normal prose punctuation since they're internal reference, not mom-facing content.
 
 ## Open loops — need Paola's action, not more building
 These aren't code work, they're account/verification steps on Paola's end:
@@ -26,9 +27,6 @@ Worth remembering these were deliberate calls, so they don't get "fixed" by acci
 - **No static bear-range yes/no lookup** — decided against this for accuracy reasons (see SPEC.md). Don't add one without a genuinely authoritative data source.
 - **No hard sales pitch for the future class** — the lead form is soft ("I'll let you know when it opens"), no price shown anywhere, since no price has been set and none should be invented.
 - **Root domain, not a subdomain** — `paolaadventurer.com` points straight at this card because Paola doesn't have a main website yet (her sales page lives on Payhip). If a full multi-page site gets built on this domain later, this card should move to a subdomain (e.g. `camping.paolaadventurer.com`) to free up the root — see "Later, maybe" below.
-
-## Open question, never resolved
-Em dashes ("—") are used throughout the body copy as a stylistic device. Paola asked to "remove all -" in one message, which was interpreted as scoped to tab names only (which have since been renamed without dashes). It was never confirmed whether she also wants the em dashes removed from the paragraph text. **Ask before doing a full rewrite of the prose style** — that's a large, low-reversibility content change, not a quick fix.
 
 ## Ideas discussed but not built (no action needed unless asked)
 - Native share button (`navigator.share`) — superseded by the lead capture form idea; not built.
