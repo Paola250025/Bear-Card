@@ -86,6 +86,7 @@
   .checklist li.check-item.checked::after { content:''; position:absolute; left:5px; top:16px; width:10px; height:6px; border-left:2px solid var(--crema); border-bottom:2px solid var(--crema); transform:rotate(-45deg); }
   .stat-banner { background:var(--khaki); background: color-mix(in oklch, var(--khaki) 40%, var(--crema)); border-radius:18px; padding:22px 24px; margin-bottom:16px; text-align:center; }
   .stat-banner .num { font-family:'Bitter', serif; font-weight:900; font-size:34px; color:var(--forest); display:block; }
+  .stat-banner p.stat-label { font-family:'Oswald', sans-serif; font-weight:600; text-transform:uppercase; letter-spacing:1px; font-size:14px; color:var(--forest); margin:6px 0 0; }
   .stat-banner p { font-family:'Work Sans', sans-serif; font-size:15px; color:var(--cafe); margin:6px 0 0; }
   .stat-banner p.quote { font-family:'Bitter', serif; font-style:italic; font-weight:700; font-size:17px; color:var(--forest); }
 
@@ -263,8 +264,10 @@
   <div id="mama" class="panel active">
     <div class="stat-banner">
       <span class="num">&lt; 1</span>
-      <p data-lang="en">person per year, on average, across all of North America — out of roughly 750,000 black bears and millions of camper encounters (North American Bear Center). This is one of the safest fears to let go of.</p>
-      <p data-lang="es" style="display:none">persona al año, en promedio, en toda Norteamérica — de entre aproximadamente 750,000 osos negros y millones de encuentros con campistas (North American Bear Center). Este es uno de los miedos más seguros de soltar.</p>
+      <p class="stat-label" data-lang="en">bear-related death per year, across all of North America</p>
+      <p class="stat-label" data-lang="es" style="display:none">muerte relacionada con osos al año, en toda Norteamérica</p>
+      <p data-lang="en">That's out of roughly 750,000 black bears and millions of camper encounters every year (North American Bear Center). This is one of the safest fears to let go of.</p>
+      <p data-lang="es" style="display:none">Eso, de entre aproximadamente 750,000 osos negros y millones de encuentros con campistas cada año (North American Bear Center). Este es uno de los miedos más seguros de soltar.</p>
     </div>
     <div class="card">
       <h3 data-lang="en">If You're On Your Own With The Kids</h3>
