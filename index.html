@@ -95,13 +95,14 @@
   .link-list a:hover { color:var(--terracota); text-decoration:underline; }
   .link-list .desc { display:block; color:var(--cafe-muted); font-size:13px; margin-top:2px; }
 
+  .lead-panel { max-width:600px; margin:0 auto; padding:20px 24px 50px; }
+
   footer { background:var(--forest); color:var(--crema); text-align:center; padding:36px 20px; }
   footer .quote { font-family:'Bitter', serif; font-style:italic; font-weight:700; font-size:18px; }
   footer span { display:block; font-family:'Oswald', sans-serif; font-weight:500; letter-spacing:2px; font-size:11px; color:var(--khaki); margin-top:14px; text-transform:uppercase; }
-  footer .funnel { font-family:'Work Sans', sans-serif; font-size:14px; color:var(--crema); max-width:420px; margin:0 auto 18px; line-height:1.6; opacity:0.9; }
 
   @media print {
-    .lang-switch, .tabs, .print-row { display:none !important; }
+    .lang-switch, .tabs, .print-row, .lead-panel { display:none !important; }
     body { background:#fff; }
     .header { background:#fff !important; color:#000 !important; padding:10px 20px; }
     .tagline, .lang-btn { color:#444 !important; }
@@ -110,7 +111,6 @@
     .panel.print-show { display:block !important; }
     .card { box-shadow:none; border:1px solid #ccc; break-inside:avoid; }
     footer { background:#fff !important; color:#000 !important; }
-    footer .funnel { color:#000 !important; }
   }
 </style>
 </head>
@@ -138,15 +138,15 @@
   </div>
 
   <div class="tabs">
-    <button class="tab-btn active" onclick="showTab('storage', this)"><span data-lang="en">Store Food Right</span><span data-lang="es" style="display:none">Guarda Bien la Comida</span></button>
-    <button class="tab-btn" onclick="showTab('adults', this)"><span data-lang="en">If You See One</span><span data-lang="es" style="display:none">Si Ves Uno</span></button>
-    <button class="tab-btn" onclick="showTab('kids', this)"><span data-lang="en">For The Kids</span><span data-lang="es" style="display:none">Para Los Niños</span></button>
-    <button class="tab-btn" onclick="showTab('facts', this)"><span data-lang="en">Fun Facts</span><span data-lang="es" style="display:none">Datos Curiosos</span></button>
-    <button class="tab-btn" onclick="showTab('mama', this)"><span data-lang="en">For You, Mama</span><span data-lang="es" style="display:none">Para Ti, Mamá</span></button>
+    <button class="tab-btn active" onclick="showTab('mama', this)"><span data-lang="en">For You, Mama</span><span data-lang="es" style="display:none">Para Ti, Mamá</span></button>
     <button class="tab-btn" onclick="showTab('confidence', this)"><span data-lang="en">Feel Ready &amp; Enjoy</span><span data-lang="es" style="display:none">Prepárate y Disfruta</span></button>
-    <button class="tab-btn" onclick="showTab('checkarea', this)"><span data-lang="en">Check Your Area</span><span data-lang="es" style="display:none">Revisa Tu Zona</span></button>
-    <button class="tab-btn" onclick="showTab('help', this)"><span data-lang="en">If You Need Help</span><span data-lang="es" style="display:none">Si Necesitas Ayuda</span></button>
-    <button class="tab-btn" onclick="showTab('faq', this)"><span data-lang="en">FAQ</span><span data-lang="es" style="display:none">Preguntas</span></button>
+    <button class="tab-btn" onclick="showTab('adults', this)"><span data-lang="en">Staying Calm</span><span data-lang="es" style="display:none">Mantén La Calma</span></button>
+    <button class="tab-btn" onclick="showTab('storage', this)"><span data-lang="en">Store Food Right</span><span data-lang="es" style="display:none">Guarda Bien la Comida</span></button>
+    <button class="tab-btn" onclick="showTab('kids', this)"><span data-lang="en">For The Kids</span><span data-lang="es" style="display:none">Para Los Niños</span></button>
+    <button class="tab-btn" onclick="showTab('checkarea', this)"><span data-lang="en">Know Your Area</span><span data-lang="es" style="display:none">Conoce Tu Zona</span></button>
+    <button class="tab-btn" onclick="showTab('help', this)"><span data-lang="en">Just In Case</span><span data-lang="es" style="display:none">Por Si Acaso</span></button>
+    <button class="tab-btn" onclick="showTab('facts', this)"><span data-lang="en">Fun Facts</span><span data-lang="es" style="display:none">Datos Curiosos</span></button>
+    <button class="tab-btn" onclick="showTab('faq', this)"><span data-lang="en">Questions, Answered</span><span data-lang="es" style="display:none">Preguntas Respondidas</span></button>
   </div>
 
   <div class="print-row">
@@ -156,7 +156,7 @@
     </button>
   </div>
 
-  <div id="storage" class="panel active">
+  <div id="storage" class="panel">
     <div class="card">
       <h3 data-lang="en">Store It Right</h3>
       <h3 data-lang="es" style="display:none">Guarda Bien La Comida</h3>
@@ -243,7 +243,7 @@
     </div>
   </div>
 
-  <div id="mama" class="panel">
+  <div id="mama" class="panel active">
     <div class="stat-banner">
       <span class="num">&lt; 1</span>
       <p data-lang="en">person per year, on average, across all of North America — out of roughly 750,000 black bears and millions of camper encounters (North American Bear Center). This is one of the safest fears to let go of.</p>
@@ -492,9 +492,30 @@
     </div>
   </div>
 
+  <div class="lead-panel">
+    <div class="card">
+      <h3 data-lang="en">Want A Hand Before Your First Trip?</h3>
+      <h3 data-lang="es" style="display:none">¿Quieres Ayuda Antes De Tu Primer Viaje?</h3>
+      <p data-lang="en">Leave your email and I'll let you know the moment the beginner camping class opens — no spam, just one note when it's ready.</p>
+      <p data-lang="es" style="display:none">Deja tu correo y te aviso en cuanto abra la clase de camping para principiantes — sin spam, solo un mensaje cuando esté lista.</p>
+
+      <form id="leadForm">
+        <div class="field">
+          <input type="text" id="leadName" placeholder="Your name" data-ph-en="Your name" data-ph-es="Tu nombre">
+        </div>
+        <div class="field">
+          <input type="email" id="leadEmail" required placeholder="Your email" data-ph-en="Your email" data-ph-es="Tu correo">
+        </div>
+        <button type="submit" class="search-btn" style="width:100%; padding:13px 0;">
+          <span data-lang="en">Keep Me Posted</span>
+          <span data-lang="es" style="display:none">Avísame</span>
+        </button>
+      </form>
+      <p id="leadMsg" style="display:none; margin-top:14px; font-size:14px; color:var(--cafe-muted);"></p>
+    </div>
+  </div>
+
   <footer>
-    <p class="funnel" data-lang="en">This cheat sheet is step one. If a simple beginner class before your next trip would help, follow <strong>@paolaadventurer</strong> — camping and archery classes for total beginners are on the way.</p>
-    <p class="funnel" data-lang="es" style="display:none">Esta guía es el primer paso. Si te ayudaría una clase sencilla para principiantes antes de tu próximo viaje, sigue a <strong>@paolaadventurer</strong> — vienen clases de camping y arquería para principiantes.</p>
     <p class="quote" data-lang="en">"It doesn't have to be perfect, it just has to happen."</p>
     <p class="quote" data-lang="es" style="display:none">"No tiene que ser perfecto, tiene que pasar."</p>
     <span data-lang="en">Made with love, for your trip</span>
@@ -520,6 +541,10 @@ function setLang(lang) {
   });
   document.querySelectorAll('.lang-btn').forEach(function(b) {
     b.classList.toggle('active', b.dataset.setlang === lang);
+  });
+  document.querySelectorAll('[data-ph-en]').forEach(function(el) {
+    var ph = el.getAttribute('data-ph-' + lang);
+    if (ph) el.placeholder = ph;
   });
   document.documentElement.lang = lang;
   document.title = titles[lang];
@@ -556,6 +581,42 @@ function printCard() {
   setTimeout(function () {
     document.querySelectorAll('.panel').forEach(function (p) { p.classList.remove('print-show'); });
   }, 500);
+}
+
+var leadForm = document.getElementById('leadForm');
+if (leadForm) {
+  leadForm.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    var lang = document.documentElement.lang || 'en';
+    var name = document.getElementById('leadName').value.trim();
+    var email = document.getElementById('leadEmail').value.trim();
+    var msg = document.getElementById('leadMsg');
+    var btn = leadForm.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    try {
+      var res = await fetch('https://formsubmit.co/ajax/adventurerpaola@gmail.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          name: name,
+          email: email,
+          _subject: 'New Bear Cheat Sheet lead!'
+        })
+      });
+      if (!res.ok) throw new Error('bad response');
+      leadForm.style.display = 'none';
+      msg.style.display = 'block';
+      msg.textContent = (lang === 'es')
+        ? '¡Listo! Te avisaré en cuanto esté lista la clase.'
+        : "You're on the list! I'll let you know the moment it's ready.";
+    } catch (err) {
+      msg.style.display = 'block';
+      msg.textContent = (lang === 'es')
+        ? 'Algo salió mal. Escríbeme directo a adventurerpaola@gmail.com.'
+        : 'Something went wrong. Email me directly at adventurerpaola@gmail.com.';
+      btn.disabled = false;
+    }
+  });
 }
 </script>
 
