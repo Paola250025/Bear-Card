@@ -5,6 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bear Country Cheat Sheet — Paola Adventurer</title>
 <meta name="description" content="A friendly, bilingual bear-safety cheat sheet for camping families.">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://paola250025.github.io/bear-card/">
+<meta property="og:title" content="Bear Country Cheat Sheet — You've Got This">
+<meta property="og:description" content="A friendly, bilingual cheat sheet for camping moms nervous about bears — practical tips, a kid-friendly rule, and real reassurance.">
+<meta property="og:image" content="https://paola250025.github.io/bear-card/assets/icon-512.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Bear Country Cheat Sheet — You've Got This">
+<meta name="twitter:description" content="A friendly, bilingual cheat sheet for camping moms nervous about bears — practical tips, a kid-friendly rule, and real reassurance.">
+<meta name="twitter:image" content="https://paola250025.github.io/bear-card/assets/icon-512.png">
+
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#22432f">
 <link rel="icon" href="assets/icon-192.png" type="image/png">
@@ -15,6 +26,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,700;0,900;1,700&family=Oswald:wght@500;600;700&family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">
+<script data-goatcounter="https://paolaadventurer.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <style>
   :root {
     --forest: oklch(32% 0.07 150);
@@ -75,8 +87,9 @@
 
   .field { margin-bottom:16px; }
   .field label { display:block; font-family:'Oswald', sans-serif; text-transform:uppercase; letter-spacing:1.5px; font-size:12px; color:var(--forest); margin-bottom:6px; }
-  .field input { width:100%; font-family:'Work Sans', sans-serif; font-size:16px; color:var(--cafe); background:var(--crema); border:2px solid var(--khaki); border-radius:10px; padding:11px 14px; }
-  .field input:focus { outline:none; border-color:var(--terracota); }
+  .field input, .field textarea { width:100%; font-family:'Work Sans', sans-serif; font-size:16px; color:var(--cafe); background:var(--crema); border:2px solid var(--khaki); border-radius:10px; padding:11px 14px; }
+  .field textarea { resize:vertical; font-family:inherit; }
+  .field input:focus, .field textarea:focus { outline:none; border-color:var(--terracota); }
 
   .print-row { text-align:center; padding:4px 16px 0; }
   .print-btn { background:transparent; border:2px solid var(--forest); color:var(--forest); font-family:'Oswald', sans-serif; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; padding:10px 22px; border-radius:100px; cursor:pointer; font-size:12px; }
@@ -496,8 +509,8 @@
     <div class="card">
       <h3 data-lang="en">Want A Hand Before Your First Trip?</h3>
       <h3 data-lang="es" style="display:none">¿Quieres Ayuda Antes De Tu Primer Viaje?</h3>
-      <p data-lang="en">Leave your email and I'll let you know the moment the beginner camping class opens — no spam, just one note when it's ready.</p>
-      <p data-lang="es" style="display:none">Deja tu correo y te aviso en cuanto abra la clase de camping para principiantes — sin spam, solo un mensaje cuando esté lista.</p>
+      <p data-lang="en">Leave your email and I'll let you know the moment the beginner camping class opens — no spam, just one note when it's ready. And if you've already been on your trip, I'd love to hear how it went.</p>
+      <p data-lang="es" style="display:none">Deja tu correo y te aviso en cuanto abra la clase de camping para principiantes — sin spam, solo un mensaje cuando esté lista. Y si ya hiciste tu viaje, me encantaría saber cómo te fue.</p>
 
       <form id="leadForm">
         <div class="field">
@@ -505,6 +518,13 @@
         </div>
         <div class="field">
           <input type="email" id="leadEmail" required placeholder="Your email" data-ph-en="Your email" data-ph-es="Tu correo">
+        </div>
+        <div class="field">
+          <label>
+            <span data-lang="en">How did your trip go? (optional)</span>
+            <span data-lang="es" style="display:none">¿Cómo te fue en tu viaje? (opcional)</span>
+          </label>
+          <textarea id="leadMessage" rows="3" placeholder="Tell me your story..." data-ph-en="Tell me your story..." data-ph-es="Cuéntame tu historia..."></textarea>
         </div>
         <button type="submit" class="search-btn" style="width:100%; padding:13px 0;">
           <span data-lang="en">Keep Me Posted</span>
@@ -528,6 +548,9 @@ function showTab(id, btn) {
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   btn.classList.add('active');
+  if (window.goatcounter && window.goatcounter.count) {
+    window.goatcounter.count({ path: 'tab-' + id, title: 'Tab: ' + id, event: true });
+  }
 }
 
 var titles = {
@@ -590,6 +613,7 @@ if (leadForm) {
     var lang = document.documentElement.lang || 'en';
     var name = document.getElementById('leadName').value.trim();
     var email = document.getElementById('leadEmail').value.trim();
+    var story = document.getElementById('leadMessage').value.trim();
     var msg = document.getElementById('leadMsg');
     var btn = leadForm.querySelector('button[type="submit"]');
     btn.disabled = true;
@@ -600,6 +624,7 @@ if (leadForm) {
         body: JSON.stringify({
           name: name,
           email: email,
+          trip_story: story || '(none shared)',
           _subject: 'New Bear Cheat Sheet lead!'
         })
       });
@@ -609,6 +634,9 @@ if (leadForm) {
       msg.textContent = (lang === 'es')
         ? '¡Listo! Te avisaré en cuanto esté lista la clase.'
         : "You're on the list! I'll let you know the moment it's ready.";
+      if (window.goatcounter && window.goatcounter.count) {
+        window.goatcounter.count({ path: 'lead-form-submit', title: 'Lead form submitted', event: true });
+      }
     } catch (err) {
       msg.style.display = 'block';
       msg.textContent = (lang === 'es')
