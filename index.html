@@ -73,9 +73,45 @@
   .stat-banner p { font-family:'Work Sans', sans-serif; font-size:15px; color:var(--cafe); margin:6px 0 0; }
   .stat-banner p.quote { font-family:'Bitter', serif; font-style:italic; font-weight:700; font-size:17px; color:var(--forest); }
 
+  .field { margin-bottom:16px; }
+  .field label { display:block; font-family:'Oswald', sans-serif; text-transform:uppercase; letter-spacing:1.5px; font-size:12px; color:var(--forest); margin-bottom:6px; }
+  .field input { width:100%; font-family:'Work Sans', sans-serif; font-size:16px; color:var(--cafe); background:var(--crema); border:2px solid var(--khaki); border-radius:10px; padding:11px 14px; }
+  .field input:focus { outline:none; border-color:var(--terracota); }
+
+  .print-row { text-align:center; padding:4px 16px 0; }
+  .print-btn { background:transparent; border:2px solid var(--forest); color:var(--forest); font-family:'Oswald', sans-serif; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; padding:10px 22px; border-radius:100px; cursor:pointer; font-size:12px; }
+  .print-btn:hover { background:var(--forest); color:var(--crema); }
+
+  .search-row { display:flex; gap:10px; }
+  .search-row input { flex:1; font-family:'Work Sans', sans-serif; font-size:16px; color:var(--cafe); background:var(--crema); border:2px solid var(--khaki); border-radius:10px; padding:11px 14px; }
+  .search-row input:focus { outline:none; border-color:var(--terracota); }
+  .search-btn { background:var(--terracota); border:2px solid var(--terracota); color:var(--crema); font-family:'Oswald', sans-serif; font-weight:600; letter-spacing:1px; text-transform:uppercase; padding:0 18px; border-radius:10px; cursor:pointer; font-size:13px; white-space:nowrap; }
+  .search-btn:hover { opacity:0.9; }
+
+  .link-list { list-style:none; margin:16px 0 0; padding:0; }
+  .link-list li { border-bottom:1px dashed var(--khaki); padding:12px 0; }
+  .link-list li:last-child { border-bottom:none; }
+  .link-list a { color:var(--forest); font-family:'Work Sans', sans-serif; font-weight:500; font-size:15px; text-decoration:none; }
+  .link-list a:hover { color:var(--terracota); text-decoration:underline; }
+  .link-list .desc { display:block; color:var(--cafe-muted); font-size:13px; margin-top:2px; }
+
   footer { background:var(--forest); color:var(--crema); text-align:center; padding:36px 20px; }
   footer .quote { font-family:'Bitter', serif; font-style:italic; font-weight:700; font-size:18px; }
   footer span { display:block; font-family:'Oswald', sans-serif; font-weight:500; letter-spacing:2px; font-size:11px; color:var(--khaki); margin-top:14px; text-transform:uppercase; }
+  footer .funnel { font-family:'Work Sans', sans-serif; font-size:14px; color:var(--crema); max-width:420px; margin:0 auto 18px; line-height:1.6; opacity:0.9; }
+
+  @media print {
+    .lang-switch, .tabs, .print-row { display:none !important; }
+    body { background:#fff; }
+    .header { background:#fff !important; color:#000 !important; padding:10px 20px; }
+    .tagline, .lang-btn { color:#444 !important; }
+    .wordmark { color:#000; }
+    .panel { display:none; padding:6px 10px 20px; page-break-inside:avoid; }
+    .panel.print-show { display:block !important; }
+    .card { box-shadow:none; border:1px solid #ccc; break-inside:avoid; }
+    footer { background:#fff !important; color:#000 !important; }
+    footer .funnel { color:#000 !important; }
+  }
 </style>
 </head>
 <body>
@@ -108,6 +144,16 @@
     <button class="tab-btn" onclick="showTab('facts', this)"><span data-lang="en">Fun Facts</span><span data-lang="es" style="display:none">Datos Curiosos</span></button>
     <button class="tab-btn" onclick="showTab('mama', this)"><span data-lang="en">For You, Mama</span><span data-lang="es" style="display:none">Para Ti, Mamá</span></button>
     <button class="tab-btn" onclick="showTab('confidence', this)"><span data-lang="en">Feel Ready &amp; Enjoy</span><span data-lang="es" style="display:none">Prepárate y Disfruta</span></button>
+    <button class="tab-btn" onclick="showTab('checkarea', this)"><span data-lang="en">Check Your Area</span><span data-lang="es" style="display:none">Revisa Tu Zona</span></button>
+    <button class="tab-btn" onclick="showTab('help', this)"><span data-lang="en">If You Need Help</span><span data-lang="es" style="display:none">Si Necesitas Ayuda</span></button>
+    <button class="tab-btn" onclick="showTab('faq', this)"><span data-lang="en">FAQ</span><span data-lang="es" style="display:none">Preguntas</span></button>
+  </div>
+
+  <div class="print-row">
+    <button class="print-btn" onclick="printCard()">
+      <span data-lang="en">Print / Save as PDF</span>
+      <span data-lang="es" style="display:none">Imprimir / Guardar como PDF</span>
+    </button>
   </div>
 
   <div id="storage" class="panel active">
@@ -305,7 +351,150 @@
     </div>
   </div>
 
+  <div id="checkarea" class="panel">
+    <div class="card">
+      <h3 data-lang="en">Check Your Camping Area</h3>
+      <h3 data-lang="es" style="display:none">Revisa Tu Zona De Campamento</h3>
+
+      <p data-lang="en">Black bears live across most of Canada and a large part of the U.S. — the Rockies, the upper Midwest, Appalachia, parts of the South, and most of the West Coast. If you're not sure about your exact spot, the safest move is to assume it's bear country and follow this whole guide anyway — it costs you nothing extra, and it's never the wrong call.</p>
+      <p data-lang="es" style="display:none">Los osos negros viven en la mayor parte de Canadá y en gran parte de EE. UU. — las Montañas Rocosas, el medio oeste superior, los Apalaches, partes del sur, y casi toda la costa oeste. Si no estás segura de tu lugar exacto, lo más seguro es asumir que es zona de osos y seguir toda esta guía de todas formas — no cuesta nada extra, y nunca es la decisión equivocada.</p>
+
+      <div class="field" style="margin-top:20px;">
+        <label>
+          <span data-lang="en">Where are you camping? (park, town, or state)</span>
+          <span data-lang="es" style="display:none">¿Dónde vas a acampar? (parque, pueblo o estado)</span>
+        </label>
+        <div class="search-row">
+          <input type="text" id="areaQuery" placeholder="Big Bear Lake, CA">
+          <button class="search-btn" onclick="searchArea()">
+            <span data-lang="en">Search</span>
+            <span data-lang="es" style="display:none">Buscar</span>
+          </button>
+        </div>
+      </div>
+
+      <p class="note" data-lang="en">This opens a search for recent bear activity near that spot. It's a starting point, not a guarantee — always confirm with the campground office or ranger station for what's current right now.</p>
+      <p class="note" data-lang="es" style="display:none">Esto abre una búsqueda de actividad reciente de osos cerca de ese lugar. Es un punto de partida, no una garantía — siempre confirma con la oficina del campamento o la estación de guardabosques para lo más actual.</p>
+
+      <ul class="link-list">
+        <li>
+          <a href="https://www.usgs.gov/media/images/known-range-american-black-bear-ursus-americanus" target="_blank" rel="noopener">
+            <span data-lang="en">USGS: Known Range of the American Black Bear</span>
+            <span data-lang="es" style="display:none">USGS: Rango Conocido del Oso Negro Americano</span>
+          </a>
+          <span class="desc" data-lang="en">Official national range map, U.S. Geological Survey</span>
+          <span class="desc" data-lang="es" style="display:none">Mapa oficial nacional, Servicio Geológico de EE. UU.</span>
+        </li>
+        <li>
+          <a href="https://www.nps.gov/subjects/bears/black-bears.htm" target="_blank" rel="noopener">
+            <span data-lang="en">National Park Service: Black Bears</span>
+            <span data-lang="es" style="display:none">Servicio de Parques Nacionales: Osos Negros</span>
+          </a>
+          <span class="desc" data-lang="en">General behavior and safety info if you're camping in a national park</span>
+          <span class="desc" data-lang="es" style="display:none">Información general de comportamiento y seguridad si acampas en un parque nacional</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="help" class="panel">
+    <div class="card">
+      <h3 data-lang="en">Fill This In Before You Leave</h3>
+      <h3 data-lang="es" style="display:none">Completa Esto Antes De Salir</h3>
+
+      <p data-lang="en">Saved right on your phone — no signal needed once you're there.</p>
+      <p data-lang="es" style="display:none">Se guarda en tu teléfono — no necesitas señal una vez que estés allá.</p>
+
+      <div class="field">
+        <label>
+          <span data-lang="en">Campground &amp; site number</span>
+          <span data-lang="es" style="display:none">Campamento y número de sitio</span>
+        </label>
+        <input type="text" class="trip-field" data-key="campsite">
+      </div>
+      <div class="field">
+        <label>
+          <span data-lang="en">Nearest town or ranger station</span>
+          <span data-lang="es" style="display:none">Pueblo o estación de guardabosques más cercana</span>
+        </label>
+        <input type="text" class="trip-field" data-key="ranger">
+      </div>
+      <div class="field">
+        <label>
+          <span data-lang="en">Emergency contact (name &amp; number)</span>
+          <span data-lang="es" style="display:none">Contacto de emergencia (nombre y número)</span>
+        </label>
+        <input type="text" class="trip-field" data-key="emergency">
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 data-lang="en">Quick First Aid</h3>
+      <h3 data-lang="es" style="display:none">Primeros Auxilios Rápidos</h3>
+
+      <div class="fact"><div class="icon">1</div>
+        <p data-lang="en"><strong>Small cut or scrape:</strong> Rinse with water, pat dry, cover. A fun bandage fixes most tears.</p>
+        <p data-lang="es" style="display:none"><strong>Cortada o raspón pequeño:</strong> Enjuaga con agua, seca con palmaditas, cubre. Una curita divertida arregla la mayoría de los llantos.</p>
+      </div>
+      <div class="fact"><div class="icon">2</div>
+        <p data-lang="en"><strong>Bug bite or sting:</strong> Remove the stinger if visible, apply a cold compress, watch for swelling that spreads.</p>
+        <p data-lang="es" style="display:none"><strong>Picadura de insecto:</strong> Quita el aguijón si es visible, aplica algo frío, vigila si la hinchazón se extiende.</p>
+      </div>
+      <div class="fact"><div class="icon">3</div>
+        <p data-lang="en"><strong>Splinter:</strong> Clean tweezers, pull in the direction it went in, wash after.</p>
+        <p data-lang="es" style="display:none"><strong>Astilla:</strong> Pinzas limpias, jala en la misma dirección en que entró, lava después.</p>
+      </div>
+      <div class="fact"><div class="icon">4</div>
+        <p data-lang="en"><strong>Upset stomach:</strong> Small sips of water, bland food, most trip-tummy troubles pass in a few hours.</p>
+        <p data-lang="es" style="display:none"><strong>Malestar estomacal:</strong> Sorbos pequeños de agua, comida suave, la mayoría de estos malestares pasan en unas horas.</p>
+      </div>
+      <div class="fact"><div class="icon">5</div>
+        <p data-lang="en"><strong>Can't stop crying:</strong> Sit down at their level, give one small next step — "let's get your shoes off." Big feelings need a next step, not a lecture.</p>
+        <p data-lang="es" style="display:none"><strong>No deja de llorar:</strong> Ponte a su nivel, da un pequeño siguiente paso — "vamos a quitarte los zapatos." Los sentimientos grandes necesitan un siguiente paso, no un sermón.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 data-lang="en">If Someone Gets Separated</h3>
+      <h3 data-lang="es" style="display:none">Si Alguien Se Separa Del Grupo</h3>
+      <ul class="checklist">
+        <li data-lang="en">Before the trip, point out your camp neighbors, the bathroom, and one landmark kids can walk back to</li>
+        <li data-lang="es" style="display:none">Antes del viaje, señala a tus vecinos de campamento, el baño, y un punto de referencia al que los niños puedan regresar</li>
+
+        <li data-lang="en">Teach kids: if lost, stop walking and stay in one place — moving around makes them harder to find</li>
+        <li data-lang="es" style="display:none">Enséñales a los niños: si se pierden, dejen de caminar y quédense en un solo lugar — moverse los hace más difíciles de encontrar</li>
+
+        <li data-lang="en">Three loud whistle blasts in a row means "come find me" — teach this to the whole family, kids included</li>
+        <li data-lang="es" style="display:none">Tres pitidos fuertes seguidos significan "ven a buscarme" — enséñaselo a toda la familia, incluyendo a los niños</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="faq" class="panel">
+    <div class="card">
+      <h3 data-lang="en">Real Questions From First-Timers</h3>
+      <h3 data-lang="es" style="display:none">Preguntas Reales De Quienes Van Por Primera Vez</h3>
+
+      <p data-lang="en"><strong>What if it rains the whole trip?</strong><br>Pack one dry outfit per person in a sealed bag, and a tarp over the tent. A rainy afternoon playing cards under the tarp is still a good memory — it doesn't have to be sunny to count.</p>
+      <p data-lang="es" style="display:none"><strong>¿Y si llueve todo el viaje?</strong><br>Empaca un cambio de ropa seca por persona en una bolsa sellada, y un toldo sobre la tienda. Una tarde lluviosa jugando cartas bajo el toldo sigue siendo un buen recuerdo — no tiene que haber sol para que cuente.</p>
+
+      <p data-lang="en"><strong>What if my toddler won't sleep?</strong><br>They probably won't sleep like they do at home, and that's normal. Bring their usual sleep item, keep the bedtime routine the same shape, and let go of "perfect" sleep for a night or two.</p>
+      <p data-lang="es" style="display:none"><strong>¿Y si mi pequeño no quiere dormir?</strong><br>Probablemente no dormirá como en casa, y eso es normal. Lleva su objeto de apego, mantén la misma rutina antes de dormir, y suelta la idea de un sueño "perfecto" por una o dos noches.</p>
+
+      <p data-lang="en"><strong>What if I forget something important?</strong><br>You will forget something — everyone does. Most things are solvable with a nearby store or a neighbor's kindness. The one thing worth double-checking is food storage; everything else is a "make it work" problem, not a trip-ending one.</p>
+      <p data-lang="es" style="display:none"><strong>¿Y si olvido algo importante?</strong><br>Vas a olvidar algo — le pasa a todo el mundo. La mayoría de las cosas se resuelven con una tienda cercana o la amabilidad de un vecino. Lo único que vale la pena revisar dos veces es el almacenamiento de comida; todo lo demás se resuelve sobre la marcha.</p>
+
+      <p data-lang="en"><strong>What if the kids get bored?</strong><br>Boredom is where the good stuff happens outdoors — let it sit a few minutes before jumping in with an activity. If you need one, the scavenger hunt and camp-job list in "Feel Ready &amp; Enjoy" are ready to go.</p>
+      <p data-lang="es" style="display:none"><strong>¿Y si los niños se aburren?</strong><br>El aburrimiento es donde pasan las mejores cosas al aire libre — déjalo estar unos minutos antes de ofrecer una actividad. Si necesitas una, la búsqueda del tesoro y la lista de trabajos de campamento en "Prepárate y Disfruta" están listas.</p>
+
+      <p class="note" data-lang="en"><strong>What if I just don't want to go anymore?</strong><br>That feeling shows up for almost every first-time camping mom, usually a day or two before. It's nerves, not a sign you're not ready. Go anyway — you can always leave early if you need to, and almost no one does.</p>
+      <p class="note" data-lang="es" style="display:none"><strong>¿Y si ya no quiero ir?</strong><br>Ese sentimiento le pasa a casi toda mamá que acampa por primera vez, casi siempre un día o dos antes. Son nervios, no una señal de que no estás lista. Ve de todas formas — siempre puedes irte antes si lo necesitas, y casi nadie lo hace.</p>
+    </div>
+  </div>
+
   <footer>
+    <p class="funnel" data-lang="en">This cheat sheet is step one. If a simple beginner class before your next trip would help, follow <strong>@paolaadventurer</strong> — camping and archery classes for total beginners are on the way.</p>
+    <p class="funnel" data-lang="es" style="display:none">Esta guía es el primer paso. Si te ayudaría una clase sencilla para principiantes antes de tu próximo viaje, sigue a <strong>@paolaadventurer</strong> — vienen clases de camping y arquería para principiantes.</p>
     <p class="quote" data-lang="en">"It doesn't have to be perfect, it just has to happen."</p>
     <p class="quote" data-lang="es" style="display:none">"No tiene que ser perfecto, tiene que pasar."</p>
     <span data-lang="en">Made with love, for your trip</span>
@@ -342,6 +531,32 @@ function setLang(lang) {
   try { saved = localStorage.getItem('bearCardLang'); } catch (e) {}
   if (saved === 'es') setLang('es');
 })();
+
+function searchArea() {
+  var input = document.getElementById('areaQuery');
+  var q = (input.value || '').trim();
+  if (!q) { input.focus(); return; }
+  var url = 'https://www.google.com/search?q=' + encodeURIComponent(q + ' black bear activity sightings');
+  window.open(url, '_blank', 'noopener');
+}
+
+document.querySelectorAll('.trip-field').forEach(function (inp) {
+  var key = 'bearCardTrip_' + inp.dataset.key;
+  var saved = null;
+  try { saved = localStorage.getItem(key); } catch (e) {}
+  if (saved) inp.value = saved;
+  inp.addEventListener('input', function () {
+    try { localStorage.setItem(key, inp.value); } catch (e) {}
+  });
+});
+
+function printCard() {
+  document.querySelectorAll('.panel').forEach(function (p) { p.classList.add('print-show'); });
+  window.print();
+  setTimeout(function () {
+    document.querySelectorAll('.panel').forEach(function (p) { p.classList.remove('print-show'); });
+  }, 500);
+}
 </script>
 
 </body>
