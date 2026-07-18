@@ -16,6 +16,7 @@ A single-page, self-contained bilingual (EN/ES) web card that helps nervous firs
 ```
 index.html                        the whole site
 sw.js                              service worker, offline caching
+version.json                       build id, powers the auto-update check
 manifest.json                     PWA manifest (home-screen install)
 apple-touch-icon.png              180x180 iOS home-screen icon
 CNAME                             GitHub Pages custom domain config
@@ -28,16 +29,17 @@ docs/
 No `src/`, no build output — what's in the repo is exactly what's served.
 
 ## Content structure
-9 tabs, ordered by emotional priority (reassurance first, procedural content after) rather than alphabetically or by topic:
+10 tabs, ordered by emotional priority (reassurance first, procedural content after) rather than alphabetically or by topic. The tab buttons are laid out as a clean 2-column CSS grid (`.tabs { display:grid; grid-template-columns:1fr 1fr }`) so all pills are equal-width and rows stay even — this replaced the earlier ragged `flex-wrap` layout once there were enough tabs to look messy. Panel order in the HTML is independent of tab-button order (panels are shown by `id`), so the buttons can be reordered for looks without touching the content.
 1. **For You, Mama** (default/first tab) — reassurance stat (<1 bear-related death per year in North America, with a bold label directly under the number so it reads at a glance rather than requiring the full paragraph) + solo-parent protocol
-2. **Feel Ready & Enjoy** — confidence tips + "make it fun" activity list
-3. **Staying Calm** — what to do if you see a bear (renamed from "If You See One" — softened wording)
-4. **Store Food Right** — food storage rules (bear box / car trunk)
-5. **For The Kids** — STOP / STAY / NO RUNNING / BIG & LOUD rule
-6. **Know Your Area** — search tool + links to USGS/NPS (see "Why no bear-range database" below)
-7. **Just In Case** — offline-saved trip info fields + first aid + separated-from-group protocol
-8. **Fun Facts** — black bear facts, California-sourced stats
-9. **Questions, Answered** — FAQ for first-timer worries beyond bears (rain, sleep, forgetting gear, boredom, cold feet)
+2. **Essentials** (`id="packing"`) — camping-with-kids packing list, deliberately scoped to the *commonly-forgotten* items (not the obvious tent/sleeping-bag basics), grouped into 5 saveable checklists: bedtime savers, the wet/muddy-kid kit, tiny fix-everything items, kid first-aid, and a "no signal out there" list. Uses the same `.check-item` persistence as the other checklists.
+3. **Feel Ready & Enjoy** — confidence tips + "make it fun" activity list
+4. **For The Kids** — STOP / STAY / NO RUNNING / BIG & LOUD rule
+5. **Store Food Right** — food storage rules (bear box / car trunk)
+6. **Staying Calm** — what to do if you see a bear (renamed from "If You See One" — softened wording)
+7. **Know Your Area** — search tool + links to USGS/NPS (see "Why no bear-range database" below)
+8. **Just In Case** — offline-saved trip info fields + first aid + separated-from-group protocol
+9. **Fun Facts** — black bear facts, California-sourced stats
+10. **Questions, Answered** — FAQ for first-timer worries beyond bears (rain, sleep, forgetting gear, boredom, cold feet)
 
 Below all tabs, persistent across every tab: the lead-capture form ("Want A Hand Before Your First Trip?").
 
@@ -49,7 +51,7 @@ All persistence is via `localStorage` — nothing is sent anywhere except the le
 
 - **Checklists** (`.check-item`, keyed by `data-key`): click to toggle checked/unchecked, persists via `localStorage` key `bearCardCheck_<key>`. EN and ES versions of the same item share one key so state syncs across language toggle.
 - **Trip-info fields** (`.trip-field`, keyed by `data-key`): campsite/site number, nearest ranger station, emergency contact. Persists via `localStorage` key `bearCardTrip_<key>`.
-- **Print / Save as PDF**: `printCard()` forces all 9 panels visible (normally only the active tab shows), triggers `window.print()`, then reverts. Dedicated `@media print` stylesheet strips colors/nav/lead-form for a clean printout.
+- **Print / Save as PDF**: `printCard()` forces all panels visible (normally only the active tab shows), triggers `window.print()`, then reverts. Dedicated `@media print` stylesheet strips colors/nav/lead-form for a clean printout.
 - **Check Your Area**: text input + button that opens a new tab to a Google search for `<query> black bear activity sightings`, plus static links to the USGS official range map and NPS bear safety page.
 
 ## Lead capture form
@@ -64,7 +66,19 @@ GoatCounter script tag is already wired in with site code `paolaadventurer` — 
 ## Offline support
 `sw.js` (service worker) precaches the app shell (HTML, manifest, icons, logo) the first time someone visits with signal, so it keeps working with zero signal after that, not just when installed as a home-screen icon. Strategy: page navigations are network-first with a 3-second timeout race, falling back to the cached copy — this matters for real campsite conditions where the connection isn't fully offline, just slow/spotty, so it doesn't leave someone staring at a blank screen waiting on a stalling request. Every other asset (icons, manifest) is cache-first. Registered from `index.html` via `navigator.serviceWorker.register('sw.js')`, guarded by a feature check so it's a no-op on unsupported browsers. Tested end-to-end (installed, then fully simulated-offline, confirmed the page still renders full content).
 
-To force a fresh cache after a future content update, bump the `CACHE_NAME` version string at the top of `sw.js` (e.g. `bear-card-v1` → `bear-card-v2`) — the `activate` handler automatically deletes old-named caches.
+To force a fresh cache after a future content update, bump the `CACHE_NAME` version string at the top of `sw.js` (currently `bear-card-v2`) — the `activate` handler automatically deletes old-named caches.
+
+## Auto-update (so nobody ever has to clear a cache by hand)
+The problem this solves: an installed home-screen PWA can keep showing a stale version because iOS resumes it from memory without a fresh network navigation, so visitors (and people Paola shares the link with) could sit on old content indefinitely.
+
+How it works:
+- `version.json` holds a single `build` string (e.g. `"2026-07-18-2"`). The same value is hard-coded in `index.html` as `window.APP_BUILD`.
+- On page load, on `focus`, and on `visibilitychange` → visible, the page fetches `version.json` (`cache: 'no-store'` + a `?t=` cache-buster). If the server's `build` differs from `window.APP_BUILD`, it calls `location.reload()` once — which, because navigations are network-first, pulls the fresh HTML.
+- `sw.js` explicitly **bypasses** `version.json` (early `return` in the `fetch` handler) so the version check is never answered from cache.
+- Loop safety: the target build is recorded in `sessionStorage` (`reloadedForBuild`); the page reloads at most once per shipped build, so even if `version.json` and `APP_BUILD` are ever left out of sync, nobody gets trapped in a reload loop.
+- The SW registration also calls `reg.update()` on visibility so the worker itself refreshes too.
+
+**Deploy step for any future content change:** bump BOTH `version.json`'s `build` and `window.APP_BUILD` in `index.html` to the same new value (keep them in sync). That's what makes every open app pick up the change automatically. (Optionally also bump `CACHE_NAME` in `sw.js`, but the version check is the mechanism that actually pushes updates.)
 
 ## Social preview
 Open Graph + Twitter Card meta tags (`og:title`, `og:description`, `og:image`, `twitter:*`) so pasting the link into texts/WhatsApp/social apps shows a real preview card (logo + title + description) instead of a bare link. Image used: `assets/icon-512.png`.
