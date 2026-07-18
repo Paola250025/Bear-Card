@@ -129,6 +129,19 @@
     .card { box-shadow:none; border:1px solid #ccc; break-inside:avoid; }
     footer { background:#fff !important; color:#000 !important; }
   }
+
+  .install-bar { position:fixed; left:12px; right:12px; bottom:12px; z-index:50; background:var(--forest); color:var(--crema); border-radius:16px; box-shadow:0 8px 28px oklch(24% 0.02 50 / 0.35); padding:12px 12px 12px 16px; display:flex; align-items:center; gap:10px; }
+  .install-bar.hidden { display:none; }
+  .install-bar p { margin:0; flex:1; font-family:'Work Sans', sans-serif; font-size:14px; line-height:1.4; }
+  .install-how { background:var(--terracota); color:var(--crema); border:none; border-radius:100px; padding:9px 16px; font-family:'Oswald', sans-serif; font-weight:600; letter-spacing:1px; text-transform:uppercase; font-size:12px; cursor:pointer; white-space:nowrap; }
+  .install-x { background:none; border:none; color:var(--khaki); font-size:24px; line-height:1; cursor:pointer; padding:0 4px; }
+  .install-modal { position:fixed; inset:0; z-index:60; background:oklch(24% 0.02 50 / 0.55); display:flex; align-items:center; justify-content:center; padding:22px; }
+  .install-modal.hidden { display:none; }
+  .install-card { background:#fff; border-radius:18px; padding:26px 24px; max-width:360px; width:100%; box-shadow:var(--shadow); }
+  .install-card h3 { font-family:'Oswald', sans-serif; text-transform:uppercase; color:var(--forest); letter-spacing:2px; font-size:18px; margin:0 0 12px; }
+  .install-card p { font-family:'Work Sans', sans-serif; font-size:15.5px; line-height:1.6; color:var(--cafe); margin:0 0 20px; }
+  .install-done { background:var(--forest); color:var(--crema); border:none; border-radius:100px; padding:11px 22px; font-family:'Oswald', sans-serif; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; font-size:12px; cursor:pointer; width:100%; }
+  @media print { .install-bar, .install-modal { display:none !important; } }
 </style>
 </head>
 <body>
@@ -663,6 +676,28 @@
     <span data-lang="es" style="display:none">Hecho con cariño, para tu viaje</span>
   </footer>
 
+  <div id="installBar" class="install-bar hidden">
+    <p>
+      <span data-lang="en">Save this to your phone so it's one tap away.</span>
+      <span data-lang="es" style="display:none">Guárdalo en tu teléfono para tenerlo a un toque.</span>
+    </p>
+    <button class="install-how" onclick="installHow()">
+      <span data-lang="en">How?</span><span data-lang="es" style="display:none">¿Cómo?</span>
+    </button>
+    <button class="install-x" onclick="dismissInstall()" aria-label="Close">&times;</button>
+  </div>
+
+  <div id="installModal" class="install-modal hidden" onclick="if(event.target===this)closeInstall()">
+    <div class="install-card">
+      <h3 data-lang="en">Add to your phone</h3>
+      <h3 data-lang="es" style="display:none">Agrégalo a tu teléfono</h3>
+      <p id="installTipText"></p>
+      <button class="install-done" onclick="closeInstall()">
+        <span data-lang="en">Got it</span><span data-lang="es" style="display:none">Entendido</span>
+      </button>
+    </div>
+  </div>
+
 <script>
 function showTab(id, btn) {
   document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
@@ -747,7 +782,7 @@ function printCard() {
 
 // The version this page was built with. version.json on the server carries the
 // latest one; when they differ, a newer version has shipped.
-window.APP_BUILD = '2026-07-18-2';
+window.APP_BUILD = '2026-07-18-3';
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function () {
@@ -827,6 +862,65 @@ if (leadForm) {
     }
   });
 }
+
+// Add-to-home-screen helper. Guides each platform, and detects in-app browsers
+// (Instagram / Facebook / etc.) that can't install a home-screen app at all,
+// telling people to open the page in a real browser first. That in-app-browser
+// snag is exactly what tripped up the first person who tried to save it.
+(function () {
+  var ua = navigator.userAgent || '';
+  var inApp = /FBAN|FBAV|FB_IAB|Instagram|Line\/|Twitter|Pinterest|Snapchat|TikTok|musical_ly|MicroMessenger/i.test(ua);
+  var isIOS = /iphone|ipad|ipod/i.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  var standalone = (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) || window.navigator.standalone === true;
+  var deferredPrompt = null;
+  var bar = document.getElementById('installBar');
+  var modal = document.getElementById('installModal');
+
+  var TIPS = {
+    inapp: {
+      en: "You're inside another app like Instagram or Facebook, and it can't save apps to your phone. Open that app's menu, choose 'Open in browser' (Chrome or Safari), then tap How again.",
+      es: "Estás dentro de otra app como Instagram o Facebook, y esa no puede guardar apps en tu teléfono. Abre el menú de esa app, elige 'Abrir en el navegador' (Chrome o Safari), y toca ¿Cómo? otra vez."
+    },
+    ios: {
+      en: "On iPhone, in Safari: tap the Share button at the bottom (a square with an arrow pointing up), scroll down, and tap 'Add to Home Screen'.",
+      es: "En iPhone, en Safari: toca el botón Compartir de abajo (un cuadro con una flecha hacia arriba), baja y toca 'Agregar a inicio'."
+    },
+    android: {
+      en: "On Android, in Chrome: tap the three-dot menu at the top right, then 'Add to Home screen' or 'Install app'.",
+      es: "En Android, en Chrome: toca el menú de tres puntos de arriba a la derecha, luego 'Agregar a pantalla de inicio' o 'Instalar app'."
+    }
+  };
+
+  function lang() { return (document.documentElement.lang === 'es') ? 'es' : 'en'; }
+
+  window.addEventListener('beforeinstallprompt', function (e) {
+    e.preventDefault();
+    deferredPrompt = e;
+  });
+
+  window.installHow = function () {
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then(function () { deferredPrompt = null; dismiss(); });
+      return;
+    }
+    var tip = inApp ? 'inapp' : (isIOS ? 'ios' : 'android');
+    document.getElementById('installTipText').textContent = TIPS[tip][lang()];
+    modal.classList.remove('hidden');
+  };
+  window.closeInstall = function () { modal.classList.add('hidden'); };
+  function dismiss() {
+    bar.classList.add('hidden');
+    try { localStorage.setItem('bearCardInstallDismissed', '1'); } catch (e) {}
+  }
+  window.dismissInstall = dismiss;
+
+  var dismissed = false;
+  try { dismissed = localStorage.getItem('bearCardInstallDismissed') === '1'; } catch (e) {}
+  if (bar && !standalone && !dismissed) {
+    setTimeout(function () { bar.classList.remove('hidden'); }, 1200);
+  }
+})();
 </script>
 
 </body>
