@@ -63,6 +63,16 @@ GoatCounter script tag is already wired in with site code `paolaadventurer` — 
 ## PWA / home-screen install
 `manifest.json` + `apple-touch-icon.png` + theme-color meta let visitors add the card to their phone's home screen as an app icon (iOS: Share → Add to Home Screen; Android: ⋮ menu → Add to Home screen), opening full-screen with no browser chrome.
 
+### Install helper (`#installBar` / `#installModal`)
+Added after a real user couldn't save the card: she'd opened the link **inside Instagram's in-app browser**, which cannot add anything to the home screen — the fix is to open it in a real browser first. Since Instagram is the main traffic source, this hits a lot of visitors, so the page now guides them:
+- A dismissible bottom bar ("Save this to your phone…") appears ~1.2s after load, unless already installed (`display-mode: standalone` / `navigator.standalone`) or previously dismissed (`localStorage` `bearCardInstallDismissed`).
+- Tapping **How?** does the right thing per environment:
+  - **Android/desktop Chrome:** fires the captured `beforeinstallprompt` event for a one-tap native install.
+  - **In-app browser** (detected via UA: `Instagram|FBAN|FBAV|FB_IAB|Line|Twitter|Pinterest|Snapchat|TikTok|musical_ly|MicroMessenger`): a modal telling them to open in Chrome/Safari first.
+  - **iOS Safari:** a modal with the Share → Add to Home Screen steps (iOS never fires `beforeinstallprompt`).
+  - **Other Android:** the ⋮ → Add to Home screen steps.
+- Instruction copy is bilingual (built in JS from a `TIPS` object keyed by tip + language), em-dash-free like the rest of the card. Verified across simulated iPhone Safari, Android Chrome, Instagram in-app, and installed/standalone.
+
 ## Offline support
 `sw.js` (service worker) precaches the app shell (HTML, manifest, icons, logo) the first time someone visits with signal, so it keeps working with zero signal after that, not just when installed as a home-screen icon. Strategy: page navigations are network-first with a 3-second timeout race, falling back to the cached copy — this matters for real campsite conditions where the connection isn't fully offline, just slow/spotty, so it doesn't leave someone staring at a blank screen waiting on a stalling request. Every other asset (icons, manifest) is cache-first. Registered from `index.html` via `navigator.serviceWorker.register('sw.js')`, guarded by a feature check so it's a no-op on unsupported browsers. Tested end-to-end (installed, then fully simulated-offline, confirmed the page still renders full content).
 
