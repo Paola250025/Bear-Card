@@ -745,11 +745,47 @@ function printCard() {
   }, 500);
 }
 
+// The version this page was built with. version.json on the server carries the
+// latest one; when they differ, a newer version has shipped.
+window.APP_BUILD = '2026-07-18-1';
+
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function () {
-    navigator.serviceWorker.register('sw.js').catch(function () {});
+    navigator.serviceWorker.register('sw.js').then(function (reg) {
+      document.addEventListener('visibilitychange', function () {
+        if (document.visibilityState === 'visible') reg.update();
+      });
+    }).catch(function () {});
   });
 }
+
+// Auto-update: whenever the page opens or the user comes back to it, quietly
+// ask the server if there's a newer build. If there is, reload once so nobody
+// (Paola or anyone she shares it with) ever has to clear a cache by hand.
+(function () {
+  var reloading = false;
+  function checkForUpdate() {
+    fetch('./version.json?t=' + Date.now(), { cache: 'no-store' })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (v) {
+        if (reloading || !v || !v.build || v.build === window.APP_BUILD) return;
+        // Safety net: reload at most once per shipped build, so a version
+        // mismatch can never trap anyone in an endless reload loop.
+        var already = null;
+        try { already = sessionStorage.getItem('reloadedForBuild'); } catch (e) {}
+        if (already === v.build) return;
+        try { sessionStorage.setItem('reloadedForBuild', v.build); } catch (e) {}
+        reloading = true;
+        window.location.reload();
+      })
+      .catch(function () {});
+  }
+  document.addEventListener('visibilitychange', function () {
+    if (document.visibilityState === 'visible') checkForUpdate();
+  });
+  window.addEventListener('focus', checkForUpdate);
+  setTimeout(checkForUpdate, 1500);
+})();
 
 var leadForm = document.getElementById('leadForm');
 if (leadForm) {

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'bear-card-v1';
+const CACHE_NAME = 'bear-card-v2';
 const CORE_ASSETS = [
   './',
   './index.html',
@@ -28,6 +28,10 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
   const req = event.request;
   if (req.method !== 'GET') return;
+
+  // Never cache the version file: it's how the page knows an update shipped,
+  // so it always has to come straight from the network.
+  if (new URL(req.url).pathname.endsWith('/version.json')) return;
 
   // Page loads: try the network first so visitors with signal always get
   // the latest content, falling back to the cached copy when offline or
