@@ -56,8 +56,8 @@
   h1 { font-family:'Bitter', serif; font-weight:900; font-size:40px; margin:0; color:var(--forest); line-height:1.15; }
   .subtitle { font-family:'Bitter', serif; font-style:italic; font-weight:700; color:var(--terracota); font-size:19px; margin-top:12px; }
 
-  .tabs { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; padding:28px 16px 10px; max-width:640px; margin:0 auto; }
-  .tab-btn { background:var(--crema); border:2px solid var(--khaki); color:var(--forest); font-family:'Oswald', sans-serif; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; padding:13px 20px; border-radius:100px; cursor:pointer; font-size:13px; transition:.2s; }
+  .tabs { display:grid; grid-template-columns:1fr 1fr; gap:10px; padding:28px 16px 10px; max-width:520px; margin:0 auto; }
+  .tab-btn { background:var(--crema); border:2px solid var(--khaki); color:var(--forest); font-family:'Oswald', sans-serif; font-weight:600; letter-spacing:1px; text-transform:uppercase; padding:14px 12px; border-radius:100px; cursor:pointer; font-size:12.5px; line-height:1.2; text-align:center; transition:.2s; }
   .tab-btn.active, .tab-btn:hover { background:var(--terracota); color:var(--crema); border-color:var(--terracota); }
 
   .panel { display:none; max-width:600px; margin:0 auto; padding:20px 24px 50px; }
@@ -158,9 +158,9 @@
     <button class="tab-btn active" onclick="showTab('mama', this)"><span data-lang="en">For You, Mama</span><span data-lang="es" style="display:none">Para Ti, Mamá</span></button>
     <button class="tab-btn" onclick="showTab('packing', this)"><span data-lang="en">Essentials</span><span data-lang="es" style="display:none">Esenciales</span></button>
     <button class="tab-btn" onclick="showTab('confidence', this)"><span data-lang="en">Feel Ready &amp; Enjoy</span><span data-lang="es" style="display:none">Prepárate y Disfruta</span></button>
-    <button class="tab-btn" onclick="showTab('adults', this)"><span data-lang="en">Staying Calm</span><span data-lang="es" style="display:none">Mantén La Calma</span></button>
-    <button class="tab-btn" onclick="showTab('storage', this)"><span data-lang="en">Store Food Right</span><span data-lang="es" style="display:none">Guarda Bien la Comida</span></button>
     <button class="tab-btn" onclick="showTab('kids', this)"><span data-lang="en">For The Kids</span><span data-lang="es" style="display:none">Para Los Niños</span></button>
+    <button class="tab-btn" onclick="showTab('storage', this)"><span data-lang="en">Store Food Right</span><span data-lang="es" style="display:none">Guarda Bien la Comida</span></button>
+    <button class="tab-btn" onclick="showTab('adults', this)"><span data-lang="en">Staying Calm</span><span data-lang="es" style="display:none">Mantén La Calma</span></button>
     <button class="tab-btn" onclick="showTab('checkarea', this)"><span data-lang="en">Know Your Area</span><span data-lang="es" style="display:none">Conoce Tu Zona</span></button>
     <button class="tab-btn" onclick="showTab('help', this)"><span data-lang="en">Just In Case</span><span data-lang="es" style="display:none">Por Si Acaso</span></button>
     <button class="tab-btn" onclick="showTab('facts', this)"><span data-lang="en">Fun Facts</span><span data-lang="es" style="display:none">Datos Curiosos</span></button>
@@ -747,7 +747,7 @@ function printCard() {
 
 // The version this page was built with. version.json on the server carries the
 // latest one; when they differ, a newer version has shipped.
-window.APP_BUILD = '2026-07-18-1';
+window.APP_BUILD = '2026-07-18-2';
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function () {
