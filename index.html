@@ -168,16 +168,20 @@
   </div>
 
   <div class="tabs">
+    <!-- Emotional / mindset / reassurance first -->
     <button class="tab-btn active" onclick="showTab('mama', this)"><span data-lang="en">For You, Mama</span><span data-lang="es" style="display:none">Para Ti, Mamá</span></button>
-    <button class="tab-btn" onclick="showTab('packing', this)"><span data-lang="en">Essentials</span><span data-lang="es" style="display:none">Esenciales</span></button>
     <button class="tab-btn" onclick="showTab('confidence', this)"><span data-lang="en">Feel Ready &amp; Enjoy</span><span data-lang="es" style="display:none">Prepárate y Disfruta</span></button>
-    <button class="tab-btn" onclick="showTab('kids', this)"><span data-lang="en">For The Kids</span><span data-lang="es" style="display:none">Para Los Niños</span></button>
-    <button class="tab-btn" onclick="showTab('storage', this)"><span data-lang="en">Store Food Right</span><span data-lang="es" style="display:none">Guarda Bien la Comida</span></button>
-    <button class="tab-btn" onclick="showTab('adults', this)"><span data-lang="en">Staying Calm</span><span data-lang="es" style="display:none">Mantén La Calma</span></button>
-    <button class="tab-btn" onclick="showTab('checkarea', this)"><span data-lang="en">Know Your Area</span><span data-lang="es" style="display:none">Conoce Tu Zona</span></button>
-    <button class="tab-btn" onclick="showTab('help', this)"><span data-lang="en">Just In Case</span><span data-lang="es" style="display:none">Por Si Acaso</span></button>
-    <button class="tab-btn" onclick="showTab('facts', this)"><span data-lang="en">Fun Facts</span><span data-lang="es" style="display:none">Datos Curiosos</span></button>
     <button class="tab-btn" onclick="showTab('faq', this)"><span data-lang="en">Questions, Answered</span><span data-lang="es" style="display:none">Preguntas Respondidas</span></button>
+    <button class="tab-btn" onclick="showTab('facts', this)"><span data-lang="en">Fun Facts</span><span data-lang="es" style="display:none">Datos Curiosos</span></button>
+    <!-- Calm how-to -->
+    <button class="tab-btn" onclick="showTab('adults', this)"><span data-lang="en">Staying Calm</span><span data-lang="es" style="display:none">Mantén La Calma</span></button>
+    <button class="tab-btn" onclick="showTab('kids', this)"><span data-lang="en">For The Kids</span><span data-lang="es" style="display:none">Para Los Niños</span></button>
+    <!-- Practical logistics -->
+    <button class="tab-btn" onclick="showTab('storage', this)"><span data-lang="en">Store Food Right</span><span data-lang="es" style="display:none">Guarda Bien la Comida</span></button>
+    <button class="tab-btn" onclick="showTab('checkarea', this)"><span data-lang="en">Know Your Area</span><span data-lang="es" style="display:none">Conoce Tu Zona</span></button>
+    <!-- Lists & emergencies last -->
+    <button class="tab-btn" onclick="showTab('packing', this)"><span data-lang="en">Essentials</span><span data-lang="es" style="display:none">Esenciales</span></button>
+    <button class="tab-btn" onclick="showTab('help', this)"><span data-lang="en">Just In Case</span><span data-lang="es" style="display:none">Por Si Acaso</span></button>
   </div>
 
   <div class="print-row">
@@ -736,7 +740,12 @@ function setLang(lang) {
 (function () {
   var saved = null;
   try { saved = localStorage.getItem('bearCardLang'); } catch (e) {}
-  if (saved === 'es') setLang('es');
+  // If they've picked a language before, honor it.
+  if (saved === 'es' || saved === 'en') { setLang(saved); return; }
+  // First visit: match the phone's own language. Spanish-set phones get Spanish
+  // automatically; everyone else stays in English. They can still tap EN/ES.
+  var pref = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+  if (pref.indexOf('es') === 0) setLang('es');
 })();
 
 function searchArea() {
@@ -785,7 +794,7 @@ function printCard() {
 
 // The version this page was built with. version.json on the server carries the
 // latest one; when they differ, a newer version has shipped.
-window.APP_BUILD = '2026-07-18-4';
+window.APP_BUILD = '2026-07-18-5';
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function () {
