@@ -4,7 +4,8 @@
 Shipped, tested, and shared. Custom domain confirmed working. This is not a "half-done prototype" — treat anything below as optional future work, not a punch list that has to happen before it's usable.
 
 ## Done
-- Full bilingual content, 10 tabs, reordered for emotional priority, laid out as a clean 2-column grid
+- Full bilingual content, 10 tabs, ordered by emotional priority (mindset/reassurance tabs on top, practical lists + emergencies at the bottom), laid out as a clean 2-column grid
+- **Language auto-detect** — first visit matches the phone's language (Spanish phones open in Spanish), still overridable via the always-visible EN/ES buttons and remembered after
 - **Essentials tab** — camping-with-kids packing list focused on the commonly-forgotten items (bedtime savers, wet/muddy-kid kit, tiny fix-everything items, kid first-aid, "no signal" list), 5 saveable checklists
 - **Auto-update** — the page checks `version.json` on open/focus and reloads itself when a newer build ships, so Paola (and anyone she shares the link with) always sees the latest with zero action. Loop-safe. See SPEC.md → "Auto-update"
 - **Install helper** — a per-platform "Save this to your phone" prompt that one-tap-installs on Android Chrome, shows Add-to-Home-Screen steps on iOS Safari, and (key fix) detects Instagram/Facebook in-app browsers that can't install and tells people to open in a real browser first. See SPEC.md → "Install helper"

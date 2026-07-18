@@ -29,22 +29,26 @@ docs/
 No `src/`, no build output — what's in the repo is exactly what's served.
 
 ## Content structure
-10 tabs, ordered by emotional priority (reassurance first, procedural content after) rather than alphabetically or by topic. The tab buttons are laid out as a clean 2-column CSS grid (`.tabs { display:grid; grid-template-columns:1fr 1fr }`) so all pills are equal-width and rows stay even — this replaced the earlier ragged `flex-wrap` layout once there were enough tabs to look messy. Panel order in the HTML is independent of tab-button order (panels are shown by `id`), so the buttons can be reordered for looks without touching the content.
+10 tabs, ordered by emotional priority: the tabs that change a nervous mom's mindset and give her peace of mind come first, and the practical lists and emergency material go last (a deliberate call Paola asked for). Tab-button order (top → bottom of the grid):
 1. **For You, Mama** (default/first tab) — reassurance stat (<1 bear-related death per year in North America, with a bold label directly under the number so it reads at a glance rather than requiring the full paragraph) + solo-parent protocol
-2. **Essentials** (`id="packing"`) — camping-with-kids packing list, deliberately scoped to the *commonly-forgotten* items (not the obvious tent/sleeping-bag basics), grouped into 5 saveable checklists: bedtime savers, the wet/muddy-kid kit, tiny fix-everything items, kid first-aid, and a "no signal out there" list. Uses the same `.check-item` persistence as the other checklists.
-3. **Feel Ready & Enjoy** — confidence tips + "make it fun" activity list
-4. **For The Kids** — STOP / STAY / NO RUNNING / BIG & LOUD rule
-5. **Store Food Right** — food storage rules (bear box / car trunk)
-6. **Staying Calm** — what to do if you see a bear (renamed from "If You See One" — softened wording)
-7. **Know Your Area** — search tool + links to USGS/NPS (see "Why no bear-range database" below)
-8. **Just In Case** — offline-saved trip info fields + first aid + separated-from-group protocol
-9. **Fun Facts** — black bear facts, California-sourced stats
-10. **Questions, Answered** — FAQ for first-timer worries beyond bears (rain, sleep, forgetting gear, boredom, cold feet)
+2. **Feel Ready & Enjoy** — confidence tips + "make it fun" activity list
+3. **Questions, Answered** — FAQ for first-timer worries beyond bears (rain, sleep, forgetting gear, boredom, cold feet)
+4. **Fun Facts** — black bear facts, California-sourced stats (the facts that shrink the fear)
+5. **Staying Calm** — what to do if you see a bear (renamed from "If You See One" — softened wording)
+6. **For The Kids** — STOP / STAY / NO RUNNING / BIG & LOUD rule
+7. **Store Food Right** — food storage rules (bear box / car trunk)
+8. **Know Your Area** — search tool + links to USGS/NPS (see "Why no bear-range database" below)
+9. **Essentials** (`id="packing"`) — camping-with-kids packing list, deliberately scoped to the *commonly-forgotten* items (not the obvious tent/sleeping-bag basics), grouped into 5 saveable checklists: bedtime savers, the wet/muddy-kid kit, tiny fix-everything items (incl. tweezers for splinters/ticks/stingers), kid first-aid, and a "no signal out there" list. Uses the same `.check-item` persistence as the other checklists.
+10. **Just In Case** — offline-saved trip info fields + first aid + separated-from-group protocol (the emergency stuff, intentionally last)
+
+The tab buttons are laid out as a clean 2-column CSS grid (`.tabs { display:grid; grid-template-columns:1fr 1fr }`) so all pills are equal-width and rows stay even — this replaced the earlier ragged `flex-wrap` layout once there were enough tabs to look messy. Panel order in the HTML is independent of tab-button order (panels are shown by `id`), so the buttons can be reordered freely without touching the content.
 
 Below all tabs, persistent across every tab: the lead-capture form ("Want A Hand Before Your First Trip?").
 
 ## Bilingual system
-Every user-facing text node is duplicated with `data-lang="en"` / `data-lang="es"` attributes (not a JS dictionary — deliberate choice so translations sit next to their English original in the source, easy to spot-check). JS `setLang(lang)` toggles `display` on all `[data-lang]` elements, swaps input placeholders via matching `data-ph-en`/`data-ph-es` attributes, and persists the choice to `localStorage` (`bearCardLang`). Default language is English; Spanish is fully translated in neutral (non-regional) Spanish per the brand guide.
+Every user-facing text node is duplicated with `data-lang="en"` / `data-lang="es"` attributes (not a JS dictionary — deliberate choice so translations sit next to their English original in the source, easy to spot-check). JS `setLang(lang)` toggles `display` on all `[data-lang]` elements, swaps input placeholders via matching `data-ph-en`/`data-ph-es` attributes, and persists the choice to `localStorage` (`bearCardLang`). Spanish is fully translated in neutral (non-regional) Spanish per the brand guide.
+
+**Language auto-detect (on first visit):** if the visitor hasn't chosen a language before, the page reads `navigator.language`; a Spanish-set phone (`es*`) opens in Spanish, everyone else stays in English. Once they tap **EN**/**ES** that choice is saved and always wins on later visits. The EN/ES buttons stay visible in the header regardless, so anyone can switch with one tap.
 
 ## Interactive / stateful features
 All persistence is via `localStorage` — nothing is sent anywhere except the lead form (see below). Data stays on the visitor's own device/browser only.
