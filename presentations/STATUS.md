@@ -47,17 +47,32 @@ Format: talking-head (OBS) + b-roll, personal/warm. **Two pieces per set:**
 ## OPEN QUESTION FROM PAOLA (end of day)
 - "why red?" — likely the terracotta brand accent (#C1683F, reads red-orange). If any TRUE red appears, it's AI-added; audit all 20 slides and recolor to brand palette during copy cleanup.
 
+## APPROACH CHANGE (day 2) — IMPORTANT
+Canva's AI auto-generator kept overriding the brand (it produced a RED cover, inserted its
+own stock bow photos, reworded copy, and never used the logo — and its API can't recolor
+shape fills, add text boxes, or place the logo). So we STOPPED using Canva's generator.
+New method: render the cards ourselves as HTML -> PDF/PNG with full pixel control, in exact
+brand colors. Paola has no logo file (pasted images don't save to disk), so I built a
+PAOLA ADVENTURER emblem (SVG coin: mountain/tent/arrow/sun/banner) into every card.
+Build script: presentations/choose-your-bow-en/cards/build-cards.py
+
+## DECK 1 — Choose Your Bow (English) — CARDS DONE ✅
+- 20 brand cards: presentations/choose-your-bow-en/cards/ (PDF + 20 PNGs) — delivered in chat
+- Script PDF: presentations/choose-your-bow-en/ChooseYourBow_EN_Script.pdf — delivered
+- Both use exact brand palette + self-made emblem. NOT Canva.
+
 ## KNOWN CANVA LIMITATIONS
 - Generator REWRITES card text into its own words → must fix each card's copy to exact lines via replace_text.
 - Each generation re-designs layout (why decks looked different across runs). To keep 4 decks consistent, finalize ONE and mirror it.
 - API cannot: add text boxes, delete pages, or write hidden speaker notes.
 - Logo can only be placed once it exists on a slide in Paola's Canva.
 
-## NEXT STEPS (tomorrow)
-1. **Clean the 20 cards' copy** on deck `DAHPze4yIjA` to exact brand copy (currently AI paraphrase); fix any junk slide; audit for off-brand red.
-2. **Place logo** on the 20-card deck (after Paola drops it on Slide 1).
-3. **Clone** the finished look → **Elige Tu Arco (ES)**, **Archery From Zero (EN)**, **Arquería Desde Cero (ES)**.
-4. Produce matching **script PDFs** for the other 3.
+## NEXT STEPS
+1. ~~Deck 1 cards~~ ✅ DONE (self-rendered brand cards).
+2. **Elige Tu Arco (ES)** — Spanish version of the 20 cards (reuse build-cards.py, translate content) + Spanish script PDF.
+3. **Archery From Zero (EN)** — cards from the 10-lesson guide + script PDF.
+4. **Arquería Desde Cero (ES)** — Spanish version + script PDF.
+5. Optional: if Paola ever gets the real logo file to me, swap the emblem for her illustrated badge across all cards.
 
 ## SOURCE MATERIAL (extracted from Paola's PDFs)
 - presentations/source-guides/ELIGE_ARCO.txt — Choose Your Bow full guide (EN+ES, 5 episodes)
