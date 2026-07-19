@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-import subprocess, pathlib, fitz
+import subprocess, pathlib, fitz, base64
+LOGO_URI = "data:image/png;base64," + base64.b64encode(
+    open("/home/user/Bear-Card/assets/logo-badge-transparent.png","rb").read()).decode()
 
 CHROME="/opt/pw-browsers/chromium-1194/chrome-linux/chrome"
 GREEN="#2F5A3F"; DGREEN="#1E2E22"; TERRA="#C1683F"; CREAM="#F6F1E3"; SAGE="#7D8F77"
@@ -30,33 +32,20 @@ tbody tr:nth-child(even){{background:#efe7d6;}}
 tbody tr td:first-child{{color:{TERRA};font-weight:700;font-family:Georgia,serif;}}
 </style>"""
 
-def badge(light=False, size=178):
-    # Self-contained cream "coin" emblem — works on green or cream cards.
-    return f'''<svg width="{size}" height="{size}" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="100" cy="100" r="94" fill="{CREAM}" stroke="{GREEN}" stroke-width="5"/>
-      <circle cx="146" cy="58" r="12" fill="{TERRA}"/>
-      <line x1="100" y1="26" x2="100" y2="150" stroke="{GREEN}" stroke-width="3"/>
-      <polygon points="100,20 93,38 107,38" fill="{GREEN}"/>
-      <polygon points="140,148 132,128 148,128" fill="{TERRA}"/>
-      <rect x="98.5" y="150" width="3" height="26" fill="{TERRA}"/>
-      <polygon points="28,150 72,84 116,150" fill="{SAGE}"/>
-      <polygon points="84,150 130,72 176,150" fill="{GREEN}"/>
-      <polygon points="130,72 119,90 141,90" fill="{CREAM}"/>
-      <polygon points="46,150 37,123 55,123" fill="{GREEN}"/>
-      <polygon points="160,150 152,126 168,126" fill="{GREEN}"/>
-      <polygon points="79,150 100,108 121,150" fill="{CREAM}" stroke="{GREEN}" stroke-width="3"/>
-      <line x1="100" y1="108" x2="100" y2="150" stroke="{GREEN}" stroke-width="2"/>
-      <line x1="22" y1="150" x2="178" y2="150" stroke="{GREEN}" stroke-width="3"/>
-      <rect x="27" y="150" width="146" height="31" fill="{GREEN}"/>
-      <text x="100" y="165" text-anchor="middle" fill="{CREAM}" font-family="Georgia,serif" font-weight="900" font-size="17" letter-spacing="1.5">PAOLA</text>
-      <text x="100" y="177" text-anchor="middle" fill="{CREAM}" font-family="Arial,sans-serif" font-size="8" letter-spacing="3.5">ADVENTURER</text>
-    </svg>'''
+def badge(light=False, h=150):
+    # Paola's real transparent logo. On green cards, sit it on a soft cream disc so the
+    # dark-green outlines of the logo don't disappear into the background.
+    img = f'<img src="{LOGO_URI}" style="height:{h}px;display:block"/>'
+    if light:
+        return img
+    return (f'<div style="background:{CREAM};border-radius:26px;padding:16px 20px;display:inline-flex;'
+            f'box-shadow:0 0 0 3px rgba(193,104,63,.9)">{img}</div>')
 
 def pg(inner): return f"<!doctype html><html><head><meta charset='utf-8'>{STYLE}</head><body>{inner}</body></html>"
 
 def cover():
-    return pg(f"""<div class="card" style="--fr:{TERRA};background:{GREEN};color:{CREAM};display:flex;flex-direction:column;align-items:center;justify-content:center">
-      <div class="frame"></div><div style="position:absolute;top:66px;left:50%;transform:translateX(-50%)">{badge()}</div>
+    return pg(f"""<div class="card" style="--fr:{TERRA};background:{GREEN};color:{CREAM};display:flex;flex-direction:column;align-items:center;justify-content:center;padding-top:150px">
+      <div class="frame"></div><div style="position:absolute;top:60px;left:50%;transform:translateX(-50%)">{badge()}</div>
       <div class="kick" style="color:{TERRA};font-size:26px;letter-spacing:9px;margin-bottom:24px">A 5-Part Mini-Series</div>
       <div class="serif" style="font-size:168px;text-align:center">CHOOSE<br>YOUR BOW</div>
       <div class="arrow" style="margin:42px 0"><div class="ln" style="width:220px"></div><div class="hd"></div></div>
@@ -79,7 +68,7 @@ def listcard(kick,heading,items,footer=None,hsize=86):
                f'<span style="font-size:43px;color:{DGREEN}"><b style="color:{GREEN}">{h}</b>{d}</span></div>')
     foot=(f'<div style="position:absolute;bottom:116px;left:150px;right:150px;font-style:italic;font-size:29px;color:{TERRA}">{footer}</div>') if footer else ""
     return pg(f"""<div class="card" style="--fr:{SAGE};background:{CREAM};color:{DGREEN};padding:108px 150px 0">
-      <div class="frame"></div><div style="position:absolute;top:66px;right:72px">{badge(True)}</div>
+      <div class="frame"></div><div style="position:absolute;top:66px;right:72px">{badge(True, h=140)}</div>
       <div class="kick" style="color:{TERRA};font-size:25px;letter-spacing:7px;margin-bottom:12px">{kick}</div>
       <div class="serif" style="font-size:{hsize}px;color:{GREEN};margin-bottom:38px">{heading}</div>
       {rows}{foot}</div>""")
@@ -90,15 +79,15 @@ def table():
           ("Compound","Hunting, competition","Highest","Needs tuning")]
     body="".join(f"<tr><td>{a}</td><td>{b}</td><td>{c}</td><td>{d}</td></tr>" for a,b,c,d in rows)
     return pg(f"""<div class="card" style="--fr:{SAGE};background:{CREAM};color:{DGREEN};padding:108px 150px 0">
-      <div class="frame"></div><div style="position:absolute;top:66px;right:72px">{badge(True)}</div>
+      <div class="frame"></div><div style="position:absolute;top:66px;right:72px">{badge(True, h=140)}</div>
       <div class="kick" style="color:{TERRA};font-size:25px;letter-spacing:7px;margin-bottom:12px">Episode 5 &middot; At a Glance</div>
       <div class="serif" style="font-size:82px;color:{GREEN};margin-bottom:40px">Quick reference</div>
       <table><thead><tr><th>Bow</th><th>Goal</th><th>Budget</th><th>Space</th></tr></thead><tbody>{body}</tbody></table>
       <div style="position:absolute;bottom:104px;left:150px;font-style:italic;font-size:27px;color:{TERRA}">Pause here any time — this is your cheat sheet.</div></div>""")
 
 def cta():
-    return pg(f"""<div class="card" style="--fr:{TERRA};background:{GREEN};color:{CREAM};display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 160px">
-      <div class="frame"></div><div style="position:absolute;top:60px;left:50%;transform:translateX(-50%)">{badge()}</div>
+    return pg(f"""<div class="card" style="--fr:{TERRA};background:{GREEN};color:{CREAM};display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:140px 160px 0">
+      <div class="frame"></div><div style="position:absolute;top:58px;left:50%;transform:translateX(-50%)">{badge()}</div>
       <div class="kick" style="color:{TERRA};font-size:26px;letter-spacing:8px;margin-bottom:22px">Your Next Step</div>
       <div class="serif" style="font-size:120px">Which one is<br>YOUR bow?</div>
       <div class="arrow" style="margin:40px 0"><div class="ln" style="width:200px"></div><div class="hd"></div></div>
