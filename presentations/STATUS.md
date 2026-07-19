@@ -1,9 +1,9 @@
 # Paola Adventurer — Bilingual Archery Presentations · STATUS
 
-_Last saved: 2026-07-19. This file captures everything so far so nothing is lost._
+_Last saved: 2026-07-19 (end of day 1). Resume here tomorrow._
 
 ## The goal
-Build recording decks + scripts for 2 courses, each in EN and ES (4 sets total):
+Recording decks + scripts for 2 courses, each in EN and ES (4 sets total):
 1. **Choose Your Bow / Elige Tu Arco** — 5-episode mini-series
 2. **Archery From Zero / Arquería Desde Cero** — 10 lessons
 
@@ -12,41 +12,53 @@ Format: talking-head (OBS) + b-roll, personal/warm. **Two pieces per set:**
 - **PDF script** = word-for-word talking-head lines + b-roll cues (Paola records from this).
 
 ## Brand
-- Forest green `#2F5A3F` (primary) · Terracotta `#C1683F` (accent) · Warm cream `#F6F1E3` · Off-white `#FAF9F5` · near-black green `#1E2E22` (text)
+- Forest green `#2F5A3F` (primary) · Terracotta `#C1683F` (accent, a rusty red-orange) · Warm cream `#F6F1E3` · Off-white `#FAF9F5` · near-black green `#1E2E22` (text)
 - Canva brand kit id: `kAF91CJ2p9s`
-- Logo: PENDING — Paola to drop her PA Adventurer logo onto Slide 1 in Canva; then I read its ID and place it on all title cards.
+- Logo: PENDING — Paola drops PA Adventurer logo onto Slide 1 in Canva (on EMPTY space, don't replace a shape); then I read its ID and place it on all title cards.
 
-## DELIVERABLES SO FAR
+## CURRENT DECK — Choose Your Bow (English) — 20 cards  ← USE THIS ONE
+- **Edit:** https://www.canva.com/d/bIZpOGN74FwBbd0
+- **View:** https://www.canva.com/d/PCKJYCfSgt6sdLa
+- design id `DAHPze4yIjA` · 20 slides · generated with Brand Kit
 
-### Deck 1 — Choose Your Bow (English) — DONE (generated, needs copy cleanup + logo)
-- **LEAN 14-card deck (USE THIS ONE):** edit https://www.canva.com/d/0ZJnkTrsR-wI8VQ · view https://www.canva.com/d/aDOrf9Kxtgkew9T · design id `DAHPzfupeHg`
-- Old 30-card version (superseded): https://www.canva.com/d/xzyvmlGENwzej0r · design id `DAHPzQVX4nE`
-- **Script PDF (complete, all beats):** ChooseYourBow_EN_Script.pdf (delivered in chat)
-- Script source: ChooseYourBow_EN_Script_and_Shotlist.md
-- 30-slide build plan (reference): DECK1_ChooseYourBow_EN.md
+### Earlier iterations (superseded — can ignore/delete in Canva)
+- 14-card lean version: edit https://www.canva.com/d/0ZJnkTrsR-wI8VQ · id `DAHPzfupeHg`
+- 30-card first version: edit https://www.canva.com/d/xzyvmlGENwzej0r · id `DAHPzQVX4nE`
 
-### The 14 student-facing cards
-1 Cover · 2 Ep1 title · 3 Three wild facts · 4 Meet the 3 bows · 5 Ep2 title · 6 Recurve parts ·
-7 Ep3 title · 8 Genesis parts · 9 Ep4 title · 10 Compound parts · 11 Ep5 title ·
-12 4-question framework · 13 Quick reference table · 14 Final CTA
+### The 20 cards (student-facing)
+1 Cover · 2 Ep1 title · 3 Three wild facts · 4 Meet the 3 bows ·
+5 Ep2 title · 6 Recurve history · 7 Recurve parts · 8 Recurve who-it's-for ·
+9 Ep3 title · 10 Genesis history · 11 Genesis parts · 12 Genesis who-it's-for ·
+13 Ep4 title · 14 Compound history · 15 Compound parts · 16 Compound who-it's-for ·
+17 Ep5 title · 18 4-question framework · 19 Quick reference table · 20 Final CTA
+
+## SCRIPT (piece #2) — DONE for Choose Your Bow (English)
+- **Branded PDF:** presentations/choose-your-bow-en/ChooseYourBow_EN_Script.pdf (also delivered in chat)
+- Source: presentations/choose-your-bow-en/ChooseYourBow_EN_Script_and_Shotlist.md
+- Covers all beats (word-for-word SAY + B-ROLL). Complete regardless of deck size.
 
 ## KEY DECISIONS (agreed with Paola)
-- Build order: one deck first (Choose Your Bow EN) as master template, then clone the other 3.
-- Slide detail: student deck = 14 clean cards (not 30). PDF keeps all beats.
-- Structure: two pieces (deck of cards + separate PDF script). Keeps teleprompter off students' screens.
-- Deck size chosen: 14 clean cards.
+- Build order: Choose Your Bow (EN) first as master template, then clone the other 3.
+- Deck = student-facing cards only; scripts live in the PDF (keeps teleprompter off students' screens).
+- Deck size: **20 cards** (Paola's choice after seeing 30 and 14).
+- Style: original/brand look using her brand colors (Brand Kit).
+- Reminder for Paola: students never watch "slides" — they watch her VIDEO; the deck cards just pop up on screen ~20 times.
 
-## KNOWN CANVA LIMITATIONS (important)
-- Canva's generator REWRITES text into its own words → I must fix each card's copy back to exact lines via replace_text.
-- API cannot: add new text boxes, delete pages, or write hidden speaker notes. (That's why scripts live in the PDF.)
-- Logo can only be placed once it exists on a slide in Paola's Canva account.
+## OPEN QUESTION FROM PAOLA (end of day)
+- "why red?" — likely the terracotta brand accent (#C1683F, reads red-orange). If any TRUE red appears, it's AI-added; audit all 20 slides and recolor to brand palette during copy cleanup.
 
-## NEXT STEPS (when internet is back)
-1. Deck 1: replace AI copy on the 14 cards with exact brand copy; fix any junk slide.
-2. Place logo on the 14-card deck (after Paola drops it on Slide 1).
-3. Clone Deck 1 style → **Elige Tu Arco (ES)**, **Archery From Zero (EN, ~from 10 lessons)**, **Arquería Desde Cero (ES)**.
-4. Produce matching script PDFs for each of the other 3.
+## KNOWN CANVA LIMITATIONS
+- Generator REWRITES card text into its own words → must fix each card's copy to exact lines via replace_text.
+- Each generation re-designs layout (why decks looked different across runs). To keep 4 decks consistent, finalize ONE and mirror it.
+- API cannot: add text boxes, delete pages, or write hidden speaker notes.
+- Logo can only be placed once it exists on a slide in Paola's Canva.
+
+## NEXT STEPS (tomorrow)
+1. **Clean the 20 cards' copy** on deck `DAHPze4yIjA` to exact brand copy (currently AI paraphrase); fix any junk slide; audit for off-brand red.
+2. **Place logo** on the 20-card deck (after Paola drops it on Slide 1).
+3. **Clone** the finished look → **Elige Tu Arco (ES)**, **Archery From Zero (EN)**, **Arquería Desde Cero (ES)**.
+4. Produce matching **script PDFs** for the other 3.
 
 ## SOURCE MATERIAL (extracted from Paola's PDFs)
-- ELIGE_ARCO.txt — Choose Your Bow full guide (EN+ES scripts, 5 episodes)
-- ARQUERIA_CERO.txt — Archery From Zero full guide (EN+ES scripts, 10 lessons)
+- presentations/source-guides/ELIGE_ARCO.txt — Choose Your Bow full guide (EN+ES, 5 episodes)
+- presentations/source-guides/ARQUERIA_CERO.txt — Archery From Zero full guide (EN+ES, 10 lessons)
