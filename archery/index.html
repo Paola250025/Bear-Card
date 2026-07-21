@@ -191,8 +191,13 @@
     <p class="es" style="color:var(--sun);font-weight:700;font-size:16px;margin:4px 0 0;">Sé la primera en enterarte</p>
     <p style="color:#eaf3e7;font-size:17px;max-width:560px;margin:10px auto 0;">The class launches soon at the special <strong>$37 launch price</strong>. Drop your email and I'll let you know the moment it's ready, plus you'll get first access to the launch deal.</p>
     <p class="es" style="color:#cfe0cc;font-size:15px;max-width:560px;margin:6px auto 0;">La clase se lanza pronto al precio especial de $37. Déjame tu correo y te aviso apenas esté lista, con acceso primero a la oferta de lanzamiento.</p>
-    <form class="waitform" id="waitform" method="POST" action="">
+    <form class="waitform" id="waitform" method="POST" action="https://formsubmit.co/adventurerpaola@gmail.com">
       <input type="email" name="email" required placeholder="you@email.com" aria-label="Your email">
+      <input type="hidden" name="_subject" value="New Archery waitlist signup">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_next" value="https://paolaadventurer.com/archery/?joined=1#waitlist">
+      <input type="text" name="_honey" style="display:none">
       <button class="btn" type="submit">Notify me →</button>
     </form>
     <div class="waitnote">No spam. Just one email when the class goes live. · Sin spam, solo un correo cuando esté lista.</div>
@@ -238,30 +243,13 @@
     }
   });
 
-  /* Waitlist form -> FormSubmit.co (free, no account). Signups are emailed to Paola.
-     First submission triggers a one-time activation email; click it once to turn it on. */
-  var WAITLIST_ENDPOINT = "https://formsubmit.co/ajax/adventurerpaola@gmail.com";
-  var wf = document.getElementById('waitform');
-  if (wf){
-    wf.addEventListener('submit', function(e){
-      e.preventDefault();
-      var inp = wf.querySelector('input[name=email]');
-      var email = inp ? inp.value.trim() : '';
-      if (!email){ return; }
-      var btn = wf.querySelector('button');
-      var orig = btn.textContent;
-      btn.textContent = 'Sending…'; btn.disabled = true;
-      fetch(WAITLIST_ENDPOINT, {
-        method: 'POST',
-        headers: {'Content-Type':'application/json','Accept':'application/json'},
-        body: JSON.stringify({email: email, _subject: 'New Archery waitlist signup 🏹', _template: 'table'})
-      }).then(function(r){ return r.json(); }).then(function(){
-        wf.innerHTML = '<div style="color:var(--sun);font-weight:800;font-size:18px;">You\'re on the list! 🎉 ¡Estás en la lista! I\'ll email you the moment the class is ready.</div>';
-      }).catch(function(){
-        btn.textContent = orig; btn.disabled = false;
-        alert('Hmm, something went wrong. Please try again in a moment. · Algo falló, intenta de nuevo.');
-      });
-    });
+  /* Waitlist form -> FormSubmit.co standard POST (free, no account, reliable activation).
+     After submit, FormSubmit redirects back here with ?joined=1 and we show a thank-you. */
+  if (location.search.indexOf('joined=1') !== -1){
+    var wf = document.getElementById('waitform');
+    if (wf){
+      wf.innerHTML = '<div style="color:var(--sun);font-weight:800;font-size:18px;">You\'re on the list! 🎉 ¡Estás en la lista! I\'ll email you the moment the class is ready.</div>';
+    }
   }
 </script>
 </body>
