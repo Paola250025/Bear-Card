@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Pinterest Pin</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Baloo+2:wght@600;700;800&family=Nunito:wght@700;800&display=swap');
+  :root{
+    --forest:#2f6b45; --forest-deep:#22432f; --orange:#f28b2b; --coral:#ef6b56;
+    --sun:#ffcf3f; --sky:#5ec4e6; --leaf:#8fc93a; --grape:#9b6bc9; --crema:#fffdf5;
+  }
+  *{margin:0;box-sizing:border-box;}
+  .pin{width:1000px;height:1500px;background:var(--forest);position:relative;overflow:hidden;
+    font-family:'Nunito',sans-serif;display:flex;flex-direction:column;align-items:center;}
+  .ribbon{width:100%;height:26px;background:repeating-linear-gradient(90deg,var(--coral) 0 60px,var(--sun) 60px 120px,var(--sky) 120px 180px,var(--leaf) 180px 240px,var(--grape) 240px 300px);}
+
+  .top{text-align:center;padding:44px 60px 8px;}
+  .eyebrow{font-family:'Fredoka';font-weight:600;font-size:26px;letter-spacing:2px;text-transform:uppercase;color:var(--sun);}
+  .hook{font-family:'Fredoka';font-weight:700;color:#fff;font-size:78px;line-height:0.98;margin-top:12px;}
+  .hook .hl{color:var(--sun);}
+  .sub{font-family:'Baloo 2';font-weight:700;color:#eaf3e7;font-size:30px;margin-top:18px;}
+
+  /* image collage */
+  .stage{position:relative;width:100%;height:640px;margin-top:16px;}
+  .stage img{position:absolute;border:8px solid #fff;border-radius:18px;box-shadow:0 20px 50px rgba(0,0,0,.4);}
+  .c1{width:360px;left:90px;top:70px;transform:rotate(-7deg);z-index:2;}
+  .c2{width:360px;right:90px;top:40px;transform:rotate(6deg);z-index:1;}
+  .c3{width:340px;left:50%;transform:translateX(-50%) rotate(-1deg);top:210px;z-index:3;}
+
+  .badge{position:absolute;top:20px;left:50%;transform:translateX(-50%);z-index:5;
+    background:var(--coral);color:#fff;font-family:'Fredoka';font-weight:700;font-size:34px;
+    padding:14px 40px;border-radius:100px;box-shadow:0 8px 0 #c9452f;white-space:nowrap;}
+
+  .bottom{background:var(--crema);width:100%;flex:1;border-top-left-radius:40px;border-top-right-radius:40px;
+    margin-top:auto;padding:40px 60px 30px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+  .title{font-family:'Fredoka';font-weight:700;color:var(--forest-deep);font-size:60px;line-height:1;}
+  .es{font-family:'Baloo 2';font-weight:700;color:var(--orange);font-size:30px;margin-top:6px;}
+  .feats{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin:26px 0 8px;}
+  .feats span{background:#fff;border:3px solid var(--forest);border-radius:100px;padding:12px 24px;
+    font-family:'Baloo 2';font-weight:800;font-size:26px;color:var(--forest-deep);}
+  .price{font-family:'Fredoka';font-weight:700;color:var(--coral);font-size:52px;margin-top:22px;}
+  .price .was{color:#b9b0a0;text-decoration:line-through;font-size:32px;margin-left:12px;}
+  .site{font-family:'Fredoka';font-weight:600;color:var(--forest);font-size:30px;letter-spacing:1px;margin-top:14px;
+    background:var(--sun);padding:12px 34px;border-radius:100px;}
+  .emoji{font-family:'Noto Color Emoji';font-weight:400;}
+</style>
+</head>
+<body>
+<div class="pin">
+  <div class="ribbon"></div>
+  <div class="top">
+    <div class="eyebrow">Screen-Free Kids Activity</div>
+    <div class="hook">Bored Kids?<br><span class="hl">Not Anymore.</span></div>
+    <div class="sub">Printable outdoor games that get them exploring <span class="emoji">🌲</span></div>
+  </div>
+
+  <div class="stage">
+    <div class="badge">11 pages · 6 games</div>
+    <img class="c1" src="scavenger.png" alt="">
+    <img class="c2" src="dares.png" alt="">
+    <img class="c3" src="cover.png" alt="">
+  </div>
+
+  <div class="bottom">
+    <div class="title">Kids' Outdoor<br>Adventure Pack</div>
+    <div class="es">¡Aventura para Niños! · Bilingual</div>
+    <div class="feats">
+      <span><span class="emoji">🔍</span> Scavenger Hunt</span>
+      <span><span class="emoji">🎯</span> Bingo</span>
+      <span><span class="emoji">🃏</span> Dare Cards</span>
+    </div>
+    <div class="price">Just $5 <span class="was">$12</span></div>
+    <div class="site">paolaadventurer.com</div>
+  </div>
+</div>
+</body>
+</html>
