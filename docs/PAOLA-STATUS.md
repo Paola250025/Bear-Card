@@ -32,30 +32,48 @@ sun/gold `#e8b93f`, cream `#faf7f0`, khaki `#d8c9a3`.
 | Kids' Outdoor Adventure Pack | $5 | `/adventure-pack/` | https://payhip.com/b/T3yrk | ✅ Live |
 | Family Camping Planner | $7 (anchor $17) | `/camping-planner/` | https://payhip.com/b/cYHMy | ✅ Live |
 | Camping With Kids Bundle | $9 (anchor $12) | `/bundle/` | https://payhip.com/b/3lRQs | ✅ Live |
-| Archery from Zero (digital video class) | $37 launch (value $97) | `/archery/` | https://payhip.com/b/6MTgl | 🔜 Coming Soon |
+| Archery from Zero — English class | $37 launch (value $97) | `/archery/` | (TWO products, see below) | 🔜 Coming Soon |
+| Archery from Zero — Clase en español | $37 launch (value $97) | `/archery/` | (TWO products, see below) | 🔜 Coming Soon |
 
 Bundle = Family Camping Planner + Kids' Pack together.
 
 Archery is a **self-paced digital video class** (online, watch anytime at
-your own pace), bilingual but taught as **separate English and Spanish
-classes**. Bonus = "Choose
-Your Bow / Elige Tu Bow" mini-class. Audience: adult beginners and
+your own pace). It is **TWO separate Payhip products**, one in English and
+one in Spanish (not one bilingual product). **Focus first on English**, then
+Spanish. Each language product includes its own matching-language bonus:
+"Choose Your Bow" (EN) / "Elige tu Arco" (ES). Audience: adult beginners and
 families. Instructor: USA Archery Level 2 + NASP certified.
+
+The archery page has **two buy buttons** (English + Español), each wired to
+its own link so English can launch while Spanish stays Coming Soon:
+- `archery/index.html` → `CHECKOUT_URL_EN` = English Payhip link
+- `archery/index.html` → `CHECKOUT_URL_ES` = Spanish Payhip link
+
+**Email waitlist:** the archery page collects emails ("Be the first to
+know") and sends each signup to **adventurerpaola@gmail.com** via
+FormSubmit.co (free, no account). ⚠️ **One-time activation:** submit the
+form once yourself with any email; FormSubmit sends an activation link to
+adventurerpaola@gmail.com — click it once and the waitlist is live forever.
+Coming Soon buttons scroll people to this form.
 
 ---
 
 ## What YOU still need to do (Paola)
 
-1. **Set the archery price in Payhip.** Product https://payhip.com/b/6MTgl
-   currently has no pricing plan. Set it to **$37**. When ready to launch,
-   tell Claude to flip archery from "Coming Soon" to live (paste the link
-   into `archery/index.html` `CHECKOUT_URL`).
-2. **Upload your real photos to GitHub** so they show on the site:
+1. **Create the archery Payhip products.** Make **TWO** products, English
+   first: set each to **$37**. Then tell Claude to paste the English link
+   into `CHECKOUT_URL_EN` (and later the Spanish link into `CHECKOUT_URL_ES`)
+   in `archery/index.html` to flip it from Coming Soon to live.
+2. **Activate the archery waitlist** (one time): open the archery page,
+   submit the email form once, then click the activation link FormSubmit
+   sends to adventurerpaola@gmail.com. After that every signup arrives in
+   your inbox automatically.
+3. **Upload your real photos to GitHub** so they show on the site:
    - `assets/paola.jpg` → "Meet Paola" photo on the homepage
    - `assets/paola-archery.jpg` → your photo on the archery page
    - (Until uploaded, the pages show the logo badge as a placeholder — no
      broken images.)
-3. **Connect a payout method in Payhip** (Stripe or PayPal) so you get
+4. **Connect a payout method in Payhip** (Stripe or PayPal) so you get
    paid. One Payhip product = one link; each link can hold multiple files
    (e.g. English + Spanish PDFs + a "Start Here" guide).
 
