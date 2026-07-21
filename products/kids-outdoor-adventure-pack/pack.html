@@ -159,10 +159,14 @@
   .build{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px;}
   .bld{background:#fff;border:3px solid var(--leaf);border-radius:18px;padding:14px;text-align:center;
     box-shadow:3px 4px 0 var(--leaf);display:flex;flex-direction:column;align-items:center;}
-  .bld .bldic{font-size:34pt;line-height:1;}
-  .bld .blden{font-family:'Baloo 2',sans-serif;font-weight:700;font-size:13pt;color:var(--forest-deep);margin-top:6px;}
-  .bld .bldes{font-family:'Nunito';font-weight:700;font-size:9.5pt;color:var(--orange);}
-  .bld .stars{color:var(--sun);font-size:14pt;margin-top:8px;letter-spacing:3px;}
+  .bld .bldic{font-size:30pt;line-height:1;}
+  .bld .blden{font-family:'Baloo 2',sans-serif;font-weight:700;font-size:12.5pt;color:var(--forest-deep);margin-top:4px;line-height:1.05;}
+  .bld .bldes{font-family:'Nunito';font-weight:700;font-size:9pt;color:var(--orange);}
+  .bld .bldhint{font-family:'Nunito';font-weight:700;font-size:9.5pt;color:var(--ink);background:var(--paper);
+    border-radius:10px;padding:6px 9px;margin-top:7px;line-height:1.2;}
+  .bld .bldhint b{color:var(--sky);}
+  .bld .bldhint .hes{display:block;color:var(--orange);font-size:8.5pt;}
+  .bld .stars{color:var(--sun);font-size:14pt;margin-top:7px;letter-spacing:3px;}
 </style>
 </head>
 <body>
@@ -340,14 +344,20 @@
 <section class="page">
   <span class="kicker">Game 6 &middot; The Maker Challenge</span>
   <h2>Build-It Challenges <span class="emoji">&#128296;</span></h2>
-  <div class="sub">Retos para construir: use only what you find! Color a star for each one you finish.</div>
+  <div class="sub">Retos f&aacute;ciles para construir: use only what you find! Copy the idea, then make it YOUR way. Color a star for each one you finish.</div>
   <div class="build">
-    <div class="bld"><span class="bldic emoji">&#127968;</span><span class="blden">A tiny fairy house</span><span class="bldes">una casita de hadas</span><span class="stars">&#9734; &#9734; &#9734;</span></div>
-    <div class="bld"><span class="bldic emoji">&#129704;</span><span class="blden">A rock tower (how high?)</span><span class="bldes">una torre de rocas</span><span class="stars">&#9734; &#9734; &#9734;</span></div>
-    <div class="bld"><span class="bldic emoji">&#127807;</span><span class="blden">A picture made of leaves</span><span class="bldes">un dibujo con hojas</span><span class="stars">&#9734; &#9734; &#9734;</span></div>
-    <div class="bld"><span class="bldic emoji">&#9978;</span><span class="blden">A stick fort or teepee</span><span class="bldes">un fuerte de palos</span><span class="stars">&#9734; &#9734; &#9734;</span></div>
-    <div class="bld"><span class="bldic emoji">&#128758;</span><span class="blden">A boat that floats</span><span class="bldes">un barco que flote</span><span class="stars">&#9734; &#9734; &#9734;</span></div>
-    <div class="bld"><span class="bldic emoji">&#128512;</span><span class="blden">A funny face in the dirt</span><span class="bldes">una cara graciosa</span><span class="stars">&#9734; &#9734; &#9734;</span></div>
+    <div class="bld"><span class="bldic emoji">&#129704;</span><span class="blden">Rock Tower</span><span class="bldes">Torre de rocas</span>
+      <span class="bldhint"><b>Try this:</b> stack 5 rocks, biggest on the bottom.<span class="hes">Apila 5 rocas, la m&aacute;s grande abajo.</span></span><span class="stars">&#9734; &#9734; &#9734;</span></div>
+    <div class="bld"><span class="bldic emoji">&#9728;&#65039;</span><span class="blden">Leaf Sun</span><span class="bldes">Sol de hojas</span>
+      <span class="bldhint"><b>Try this:</b> lay leaves in a circle like sun rays.<span class="hes">Pon hojas en c&iacute;rculo como rayos de sol.</span></span><span class="stars">&#9734; &#9734; &#9734;</span></div>
+    <div class="bld"><span class="bldic emoji">&#9978;</span><span class="blden">Stick Tent</span><span class="bldes">Tienda de palos</span>
+      <span class="bldhint"><b>Try this:</b> lean 3 sticks together into a triangle.<span class="hes">Junta 3 palos en un tri&aacute;ngulo.</span></span><span class="stars">&#9734; &#9734; &#9734;</span></div>
+    <div class="bld"><span class="bldic emoji">&#128512;</span><span class="blden">Dirt Face</span><span class="bldes">Cara en la tierra</span>
+      <span class="bldhint"><b>Try this:</b> 2 rocks for eyes, a stick for a smile.<span class="hes">2 rocas de ojos y un palo de sonrisa.</span></span><span class="stars">&#9734; &#9734; &#9734;</span></div>
+    <div class="bld"><span class="bldic emoji">&#127968;</span><span class="blden">Fairy House</span><span class="bldes">Casita de hadas</span>
+      <span class="bldhint"><b>Try this:</b> a ring of rocks with a big leaf roof.<span class="hes">C&iacute;rculo de rocas con techo de hoja.</span></span><span class="stars">&#9734; &#9734; &#9734;</span></div>
+    <div class="bld"><span class="bldic emoji">&#128027;</span><span class="blden">Stick Friend</span><span class="bldes">Amigo de palo</span>
+      <span class="bldhint"><b>Try this:</b> give a stick pebble eyes + leaf ears.<span class="hes">Dale a un palo ojos de piedritas y orejas de hoja.</span></span><span class="stars">&#9734; &#9734; &#9734;</span></div>
   </div>
   <div class="foot">Kids' Outdoor Adventure Pack &middot; Paola Adventurer</div>
 </section>
@@ -355,13 +365,16 @@
 <!-- CERTIFICATE -->
 <section class="page" style="padding:0.5in;">
   <div class="cert">
-    <span class="star emoji">&#11088;</span>
-    <div class="cap">Official Award &middot; Premio Oficial</div>
-    <h1>Junior Adventurer</h1>
-    <div class="es" style="margin:0;">&iexcl;Aventurero Junior!</div>
+    <span class="star emoji">&#127881;</span>
+    <h1 style="font-size:52pt;color:var(--coral);margin:0;">You Did It!</h1>
+    <div class="es" style="font-size:20pt;margin:2px 0 10px;">&iexcl;Lo Lograste!</div>
+    <div class="cap">This certifies that &middot; Se certifica que</div>
     <div class="name"></div>
     <div class="cap">Write your name here &middot; Escribe tu nombre</div>
-    <p>For exploring the outdoors with courage and curiosity, and keeping the trail safe and clean! <span class="emoji">&#127795;&#128293;&#127796;</span></p>
+    <p style="margin:12px auto 6px;">is now an official <strong style="color:var(--forest-deep);">JUNIOR ADVENTURER</strong> <span class="emoji">&#11088;</span><br>
+    <span style="color:var(--orange);">&iexcl;ya eres un Aventurero Junior!</span></p>
+    <p style="font-size:11.5pt;margin:6px auto;">For exploring with courage and curiosity, and keeping the trail safe and clean. <span class="emoji">&#127795;&#128059;&#127796;</span><br>
+    <span style="color:var(--orange);">Por explorar con valent&iacute;a y cuidar la naturaleza.</span></p>
     <div style="font-family:'Fredoka',sans-serif;font-size:16pt;color:var(--forest-deep);margin-top:10px;"><span class="emoji">&#127794;</span> Paola Adventurer</div>
     <div class="cap">paolaadventurer.com</div>
   </div>
