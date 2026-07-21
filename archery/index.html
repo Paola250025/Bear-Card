@@ -241,19 +241,30 @@
     }
   });
 
-  /* Waitlist form. Paste your email-tool form URL into WAITLIST_ACTION below
-     (Formspree / MailerLite / Kit, etc.). Until you do, it shows a friendly message. */
-  var WAITLIST_ACTION = "";  // e.g. "https://formspree.io/f/xxxxxx"
+  /* Waitlist form -> FormSubmit.co (free, no account). Signups are emailed to Paola.
+     First submission triggers a one-time activation email; click it once to turn it on. */
+  var WAITLIST_ENDPOINT = "https://formsubmit.co/ajax/adventurerpaola@gmail.com";
   var wf = document.getElementById('waitform');
   if (wf){
-    if (WAITLIST_ACTION){
-      wf.setAttribute('action', WAITLIST_ACTION);
-    } else {
-      wf.addEventListener('submit', function(e){
-        e.preventDefault();
-        alert("Thanks! The waitlist opens in a moment. ¡Gracias! La lista de espera se activa muy pronto. 🏹");
+    wf.addEventListener('submit', function(e){
+      e.preventDefault();
+      var inp = wf.querySelector('input[name=email]');
+      var email = inp ? inp.value.trim() : '';
+      if (!email){ return; }
+      var btn = wf.querySelector('button');
+      var orig = btn.textContent;
+      btn.textContent = 'Sending…'; btn.disabled = true;
+      fetch(WAITLIST_ENDPOINT, {
+        method: 'POST',
+        headers: {'Content-Type':'application/json','Accept':'application/json'},
+        body: JSON.stringify({email: email, _subject: 'New Archery waitlist signup 🏹', _template: 'table'})
+      }).then(function(r){ return r.json(); }).then(function(){
+        wf.innerHTML = '<div style="color:var(--sun);font-weight:800;font-size:18px;">You\'re on the list! 🎉 ¡Estás en la lista! I\'ll email you the moment the class is ready.</div>';
+      }).catch(function(){
+        btn.textContent = orig; btn.disabled = false;
+        alert('Hmm, something went wrong. Please try again in a moment. · Algo falló, intenta de nuevo.');
       });
-    }
+    });
   }
 </script>
 </body>
