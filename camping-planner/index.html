@@ -70,7 +70,7 @@
   summary{font-family:'Bitter';font-weight:800;font-size:17px;color:var(--forest-deep);cursor:pointer;list-style:none;}
   summary::-webkit-details-marker{display:none;}
   summary::before{content:"+ ";color:var(--terra);}
-  details[open] summary::before{content:"– ";}
+  details[open] summary::before{content:"× ";}
   details p{margin:10px 0 2px;font-weight:700;color:var(--muted);font-size:15px;}
   .final{background:var(--forest);text-align:center;color:var(--cream);}
   .final h2{color:#fff;}
@@ -191,7 +191,7 @@
   <div class="wrap" style="max-width:800px;">
     <div style="background:#22432f;color:#fff;border-radius:20px;padding:32px 28px;text-align:center;">
       <h2 style="color:#fff;font-size:26px;margin:0 0 8px;">Traveling with kids too? Save with the bundle 🏕️</h2>
-      <p style="opacity:.92;font-size:16px;margin:0 0 20px;">Get this planner + the Kids' Outdoor Adventure Pack together for <strong>$9</strong> — less than buying both.</p>
+      <p style="opacity:.92;font-size:16px;margin:0 0 20px;">Get this planner + the Kids' Outdoor Adventure Pack together for <strong>$9</strong>, less than buying both.</p>
       <a href="/bundle/" style="display:inline-block;background:#e8b93f;color:#22432f;font-family:'Bitter',serif;font-weight:800;font-size:18px;padding:14px 32px;border-radius:100px;text-decoration:none;">See the bundle · $9 →</a>
     </div>
   </div>
@@ -214,12 +214,12 @@
 </footer>
 
 <script>
-  /* STEP 1 — paste your Payhip product link between the quotes.
-     STEP 2 — save. Until then, buttons show a friendly "coming soon" note. */
+  /* STEP 1, paste your Payhip product link between the quotes.
+     STEP 2, save. Until then, buttons show a friendly "coming soon" note. */
   var CHECKOUT_URL = "https://payhip.com/b/cYHMy";
   document.querySelectorAll('[data-buy]').forEach(function(a){
     if (CHECKOUT_URL){ a.href = CHECKOUT_URL; a.target = "_blank"; a.rel = "noopener"; }
-    else { a.addEventListener('click', function(e){ e.preventDefault(); alert("Checkout link coming soon — paste your Payhip link into CHECKOUT_URL to go live."); }); }
+    else { a.addEventListener('click', function(e){ e.preventDefault(); alert("Checkout link coming soon, paste your Payhip link into CHECKOUT_URL to go live."); }); }
   });
 </script>
 </body>
