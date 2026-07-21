@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Family Camping Planner · Paola Adventurer</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,600;0,800;0,900;1,600&family=Nunito:wght@500;600;700;800&display=swap');
+  :root{--forest:#2f6b45;--forest-deep:#22432f;--terra:#b5562f;--khaki:#d8c9a3;--cream:#fffdf5;--paper:#faf5ea;--ink:#3a322a;--line:#cbbb98;--muted:#7c7361;}
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;background:#e7e2d5;color:var(--ink);font-family:'Nunito',sans-serif;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .emoji{font-family:'Noto Color Emoji',sans-serif;}
+  .page{width:8.5in;height:11in;margin:0 auto;background:var(--cream);position:relative;overflow:hidden;page-break-after:always;padding:0.7in 0.7in 0.6in;border:14px solid var(--forest);}
+  .page:last-child{page-break-after:auto;}
+  .eyebrow{font-family:'Nunito';font-weight:800;font-size:10.5pt;letter-spacing:3px;text-transform:uppercase;color:var(--terra);}
+  h2{font-family:'Bitter',serif;font-weight:900;color:var(--forest-deep);font-size:28pt;margin:4px 0 4px;line-height:1;}
+  .sub{font-family:'Bitter',serif;font-style:italic;font-weight:600;color:var(--terra);font-size:13pt;margin:0 0 12px;}
+  .rule{height:2.5px;background:var(--khaki);margin:0 0 18px;border-radius:2px;}
+  .cols{column-count:2;column-gap:34px;}
+  .grp{break-inside:avoid;margin-bottom:16px;}
+  .grp h3{font-family:'Bitter',serif;font-weight:800;color:var(--forest);font-size:13pt;margin:0 0 8px;border-bottom:2px solid var(--khaki);padding-bottom:4px;}
+  ul.cl{list-style:none;margin:0;padding:0;}
+  ul.cl li{display:flex;align-items:center;gap:9px;padding:5px 0;font-size:11.5pt;}
+  .cb{width:16px;height:16px;min-width:16px;border:2px solid var(--forest);border-radius:4px;background:#fff;}
+  .field{margin-bottom:13px;}
+  .field label{display:block;font-family:'Nunito';font-weight:800;font-size:10pt;letter-spacing:1px;text-transform:uppercase;color:var(--forest);margin-bottom:3px;}
+  .fline{border-bottom:2px dotted var(--line);height:0.36in;}
+  .frow{display:flex;gap:20px;}
+  .frow .field{flex:1;}
+  table{width:100%;border-collapse:collapse;margin-top:6px;}
+  th{background:var(--forest);color:var(--cream);font-family:'Nunito';font-weight:800;font-size:10pt;text-transform:uppercase;letter-spacing:1px;padding:9px 8px;text-align:left;}
+  td{border:1.5px solid var(--khaki);height:0.62in;vertical-align:top;padding:6px 8px;}
+  td.day{background:var(--paper);font-family:'Bitter',serif;font-weight:800;color:var(--forest-deep);font-size:11pt;width:1.1in;}
+  .note-box{border:2px solid var(--khaki);border-radius:12px;padding:16px 18px;background:var(--paper);font-size:11.5pt;line-height:1.5;}
+  .steps{list-style:none;counter-reset:s;padding:0;margin:0;}
+  .steps li{counter-increment:s;position:relative;padding:13px 14px 13px 58px;margin-bottom:11px;background:#fff;border-radius:12px;border:2px solid var(--khaki);font-size:11.5pt;break-inside:avoid;line-height:1.35;}
+  .steps li::before{content:counter(s);position:absolute;left:12px;top:50%;transform:translateY(-50%);width:34px;height:34px;background:var(--terra);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Bitter';font-weight:900;font-size:15pt;}
+  .steps li b{color:var(--forest-deep);}
+  .tipcard{break-inside:avoid;margin-bottom:14px;background:#fff;border:2px solid var(--khaki);border-radius:12px;padding:13px 15px;}
+  .tipcard h3{font-family:'Bitter',serif;font-weight:800;color:var(--forest);font-size:12pt;margin:0 0 4px;border:none;padding:0;}
+  .tipcard p{font-size:10.5pt;margin:0;line-height:1.4;}
+  .tipcard.q h3{color:var(--terra);}
+  .foot{position:absolute;bottom:0.28in;left:0;right:0;text-align:center;font-family:'Bitter',serif;font-style:italic;font-size:9pt;color:var(--line);}
+  .cover{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;text-align:center;}
+  .badge{width:1.9in;height:1.9in;border-radius:50%;background:var(--forest);color:var(--cream);display:flex;flex-direction:column;align-items:center;justify-content:center;border:6px solid var(--khaki);margin-bottom:22px;}
+  .badge .be{font-size:30pt;}
+  .badge .bt{font-family:'Bitter',serif;font-weight:900;font-size:12pt;letter-spacing:2px;margin-top:4px;}
+  .cover h1{font-family:'Bitter',serif;font-weight:900;color:var(--forest-deep);font-size:44pt;line-height:1.02;margin:0;}
+  .cover p{font-size:13pt;color:var(--muted);max-width:5in;margin-top:20px;}
+  .tag{display:inline-block;background:var(--terra);color:var(--cream);font-family:'Nunito';font-weight:800;font-size:9.5pt;letter-spacing:2px;text-transform:uppercase;padding:8px 20px;border-radius:100px;margin-bottom:22px;}
+</style>
+</head>
+<body>
+
+<section class="page">
+  <div class="cover">
+    <div class="tag">Paola Adventurer</div>
+    <div class="badge"><span class="be emoji">&#9968;&#65039;</span><div class="bt">CAMP<br>READY</div></div>
+    <h1>Family Camping<br>Planner</h1>
+    <div style="font-family:'Bitter',serif;font-style:italic;color:var(--terra);font-size:15pt;margin:12px 0 0;">Your stress-free starter kit for a first family trip</div>
+    <p>Not another blank checklist. A real outdoorswoman and mom walks you through the whole trip, so nothing gets forgotten and no one panics. Planning, packing, meals, safety, real tips, and what to do when things go sideways.</p>
+  </div>
+  <div class="foot">paolaadventurer.com · Print at home</div>
+</section>
+
+<section class="page">
+  <div class="eyebrow">01 · The Plan</div>
+  <h2>Trip Planner</h2>
+  <div class="rule"></div>
+  <div class="frow">
+    <div class="field"><label>Where we're going</label><div class="fline"></div></div>
+    <div class="field"><label>Campground / site #</label><div class="fline"></div></div>
+  </div>
+  <div class="frow">
+    <div class="field"><label>Arrive</label><div class="fline"></div></div>
+    <div class="field"><label>Leave</label><div class="fline"></div></div>
+    <div class="field"><label>Nights</label><div class="fline"></div></div>
+  </div>
+  <div class="field"><label>Who's coming</label><div class="fline"></div><div class="fline"></div></div>
+  <div class="frow">
+    <div class="field"><label>Reservation confirmed?</label><div class="fline"></div></div>
+    <div class="field"><label>Budget</label><div class="fline"></div></div>
+  </div>
+  <div class="field"><label>Weather forecast &amp; notes</label><div class="fline"></div><div class="fline"></div></div>
+  <div class="field"><label>Nearest town / hospital</label><div class="fline"></div></div>
+  <div class="foot">Family Camping Planner · Paola Adventurer</div>
+</section>
+
+<section class="page">
+  <div class="eyebrow">02 · Before You Go</div>
+  <h2>Pre-Trip Countdown</h2>
+  <div class="sub">Check it off as you go</div>
+  <div class="rule"></div>
+  <div class="cols">
+    <div class="grp"><h3>2 Weeks Before</h3><ul class="cl">
+      <li><span class="cb"></span>Book / confirm the campsite</li>
+      <li><span class="cb"></span>Check the weather</li>
+      <li><span class="cb"></span>Plan the meals</li>
+      <li><span class="cb"></span>Test the tent &amp; gear</li>
+      <li><span class="cb"></span>Charge batteries / power banks</li></ul></div>
+    <div class="grp"><h3>Few Days Before</h3><ul class="cl">
+      <li><span class="cb"></span>Grocery shopping</li>
+      <li><span class="cb"></span>Refill first-aid kit</li>
+      <li><span class="cb"></span>Do the packing lists</li>
+      <li><span class="cb"></span>Freeze water bottles / ice</li>
+      <li><span class="cb"></span>Fill the car with gas</li></ul></div>
+    <div class="grp"><h3>Day Before</h3><ul class="cl">
+      <li><span class="cb"></span>Pack the cooler</li>
+      <li><span class="cb"></span>Load the car</li>
+      <li><span class="cb"></span>Print this planner &amp; the kids' pack</li>
+      <li><span class="cb"></span>Share the plan with a friend</li></ul></div>
+    <div class="grp"><h3>Leaving Day</h3><ul class="cl">
+      <li><span class="cb"></span>Water &amp; snacks in reach</li>
+      <li><span class="cb"></span>Phones charged</li>
+      <li><span class="cb"></span>Trash bags &amp; wipes</li>
+      <li><span class="cb"></span>Lock up the house</li></ul></div>
+  </div>
+  <div class="foot">Family Camping Planner · Paola Adventurer</div>
+</section>
+
+<section class="page">
+  <div class="eyebrow">03 · Pack Smart</div>
+  <h2>Master Packing List</h2>
+  <div class="sub">Check each one you pack</div>
+  <div class="rule"></div>
+  <div class="cols">
+    <div class="grp"><h3>Shelter &amp; Sleep</h3><ul class="cl">
+      <li><span class="cb"></span>Tent + stakes</li>
+      <li><span class="cb"></span>Sleeping bags</li>
+      <li><span class="cb"></span>Pillows &amp; blankets</li>
+      <li><span class="cb"></span>Sleeping pads / air mattress</li>
+      <li><span class="cb"></span>Tarp / ground cover</li></ul></div>
+    <div class="grp"><h3>Camp Kitchen</h3><ul class="cl">
+      <li><span class="cb"></span>Cooler + ice</li>
+      <li><span class="cb"></span>Stove / fuel</li>
+      <li><span class="cb"></span>Pot, pan, spatula</li>
+      <li><span class="cb"></span>Plates, cups, utensils</li>
+      <li><span class="cb"></span>Matches / lighter</li>
+      <li><span class="cb"></span>Dish soap &amp; sponge</li></ul></div>
+    <div class="grp"><h3>Clothing</h3><ul class="cl">
+      <li><span class="cb"></span>Layers &amp; jackets</li>
+      <li><span class="cb"></span>Rain gear</li>
+      <li><span class="cb"></span>Extra socks &amp; shoes</li>
+      <li><span class="cb"></span>Hats &amp; gloves</li>
+      <li><span class="cb"></span>Swimsuits &amp; towels</li></ul></div>
+    <div class="grp"><h3>Tools &amp; Extras</h3><ul class="cl">
+      <li><span class="cb"></span>Flashlights / lantern</li>
+      <li><span class="cb"></span>Power bank</li>
+      <li><span class="cb"></span>Camp chairs</li>
+      <li><span class="cb"></span>Multi-tool / knife</li>
+      <li><span class="cb"></span>Rope / paracord</li>
+      <li><span class="cb"></span>Bug spray &amp; sunscreen</li></ul></div>
+  </div>
+  <div class="foot">Family Camping Planner · Paola Adventurer</div>
+</section>
+
+<section class="page">
+  <div class="eyebrow">04 · For the Kids</div>
+  <h2>Kids &amp; Toiletries List</h2>
+  <div class="rule"></div>
+  <div class="cols">
+    <div class="grp"><h3>Kids</h3><ul class="cl">
+      <li><span class="cb"></span>Comfort item / stuffed animal</li>
+      <li><span class="cb"></span>Extra clothes (they get muddy!)</li>
+      <li><span class="cb"></span>Kids' Outdoor Adventure Pack</li>
+      <li><span class="cb"></span>Water bottles</li>
+      <li><span class="cb"></span>Kid-safe flashlight</li>
+      <li><span class="cb"></span>Sun hat</li>
+      <li><span class="cb"></span>Snacks they love</li></ul></div>
+    <div class="grp"><h3>Toiletries</h3><ul class="cl">
+      <li><span class="cb"></span>Toothbrushes &amp; paste</li>
+      <li><span class="cb"></span>Biodegradable soap</li>
+      <li><span class="cb"></span>Toilet paper</li>
+      <li><span class="cb"></span>Wet wipes</li>
+      <li><span class="cb"></span>Hand sanitizer</li>
+      <li><span class="cb"></span>Towels</li>
+      <li><span class="cb"></span>Medications</li></ul></div>
+  </div>
+  <div class="note-box" style="margin-top:8px;"><strong>Mom tip:</strong> pack one full outfit per kid per day, plus two extras. Kids + dirt = a guarantee.</div>
+  <div class="foot">Family Camping Planner · Paola Adventurer</div>
+</section>
+
+<section class="page">
+  <div class="eyebrow">05 · Feed the Crew</div>
+  <h2>Meal Planner</h2>
+  <div class="rule"></div>
+  <table>
+    <tr><th>Day</th><th>Breakfast</th><th>Lunch</th><th>Dinner</th><th>Snacks</th></tr>
+    <tr><td class="day">Day 1</td><td></td><td></td><td></td><td></td></tr>
+    <tr><td class="day">Day 2</td><td></td><td></td><td></td><td></td></tr>
+    <tr><td class="day">Day 3</td><td></td><td></td><td></td><td></td></tr>
+    <tr><td class="day">Day 4</td><td></td><td></td><td></td><td></td></tr>
+  </table>
+  <div class="note-box" style="margin-top:16px;"><strong>Easy camp dinners:</strong> foil-packet fajitas · hot dogs &amp; beans · pasta &amp; jarred sauce · walking tacos · grilled cheese. And of course... s'mores. <span class="emoji">&#127851;</span></div>
+  <div class="foot">Family Camping Planner · Paola Adventurer</div>
+</section>
+
+<section class="page">
+  <div class="eyebrow">06 · Shop It</div>
+  <h2>Camp Grocery List</h2>
+  <div class="sub">By section, so nothing's forgotten</div>
+  <div class="rule"></div>
+  <div class="cols">
+    <div class="grp"><h3>Proteins</h3><ul class="cl">
+      <li><span class="cb"></span><div class="fline" style="flex:1;height:0.24in;"></div></li><li><span class="cb"></span><div class="fline" style="flex:1;height:0.24in;"></div></li><li><span class="cb"></span><div class="fline" style="flex:1;height:0.24in;"></div></li><li><span class="cb"></span><div class="fline" style="flex:1;height:0.24in;"></div></li></ul></div>
+    <div class="grp"><h3>Produce</h3><ul class="cl">
+      <li><span class="cb"></span><div class="fline" style="flex:1;height:0.24in;"></div></li><li><span class="cb"></span><div class="fline" style="flex:1;height:0.24in;"></div></li><li><span class="cb"></span><div class="fline" style="flex:1;height:0.24in;"></div></li><li><span class="cb"></span><div class="fline" style="flex:1;height:0.24in;"></div></li></ul></div>
+    <div class="grp"><h3>Pantry &amp; Snacks</h3><ul class="cl">
+      <li><span class="cb"></span><div class="fline" style="flex:1;height:0.24in;"></div></li><li><span class="cb"></span><div class="fline" style="flex:1;height:0.24in;"></div></li><li><span class="cb"></span><div class="fline" style="flex:1;height:0.24in;"></div></li><li><span class="cb"></span><div class="fline" style="flex:1;height:0.24in;"></div></li></ul></div>
+    <div class="grp"><h3>Drinks &amp; Extras</h3><ul class="cl">
+      <li><span class="cb"></span><div class="fline" style="flex:1;height:0.24in;"></div></li><li><span class="cb"></span><div class="fline" style="flex:1;height:0.24in;"></div></li><li><span class="cb"></span><div class="fline" style="flex:1;height:0.24in;"></div></li><li><span class="cb"></span><div class="fline" style="flex:1;height:0.24in;"></div></li></ul></div>
+  </div>
+  <div class="foot">Family Camping Planner · Paola Adventurer</div>
+</section>
+
+<section class="page">
+  <div class="eyebrow">07 · Stay Safe</div>
+  <h2>First-Aid &amp; Safety</h2>
+  <div class="rule"></div>
+  <div class="cols">
+    <div class="grp"><h3>First-Aid Kit</h3><ul class="cl">
+      <li><span class="cb"></span>Band-aids &amp; gauze</li>
+      <li><span class="cb"></span>Antiseptic wipes</li>
+      <li><span class="cb"></span>Tweezers (ticks &amp; splinters)</li>
+      <li><span class="cb"></span>Pain / fever medicine</li>
+      <li><span class="cb"></span>Allergy medicine</li>
+      <li><span class="cb"></span>Aloe / burn gel</li>
+      <li><span class="cb"></span>Any personal meds</li></ul></div>
+    <div class="grp"><h3>Safety Check</h3><ul class="cl">
+      <li><span class="cb"></span>Store food away from tent</li>
+      <li><span class="cb"></span>Know the bear rules</li>
+      <li><span class="cb"></span>Fire fully out before bed</li>
+      <li><span class="cb"></span>Kids know the meeting spot</li>
+      <li><span class="cb"></span>Flashlight for each person</li>
+      <li><span class="cb"></span>Emergency contacts saved</li></ul></div>
+  </div>
+  <div class="note-box" style="margin-top:8px;"><strong>Free bonus:</strong> grab our Bear Country Cheat Sheet at paolaadventurer.com before you go.</div>
+  <div class="foot">Family Camping Planner · Paola Adventurer</div>
+</section>
+
+<section class="page">
+  <div class="eyebrow">08 · Just in Case</div>
+  <h2>Family Emergency Card</h2>
+  <div class="sub">Fill it in, keep it in the car</div>
+  <div class="rule"></div>
+  <table>
+    <tr><th>Name</th><th>Age</th><th>Allergies</th><th>Medications</th></tr>
+    <tr><td style="height:0.5in;"></td><td></td><td></td><td></td></tr>
+    <tr><td style="height:0.5in;"></td><td></td><td></td><td></td></tr>
+    <tr><td style="height:0.5in;"></td><td></td><td></td><td></td></tr>
+    <tr><td style="height:0.5in;"></td><td></td><td></td><td></td></tr>
+  </table>
+  <div class="frow" style="margin-top:16px;">
+    <div class="field"><label>Emergency contact</label><div class="fline"></div></div>
+    <div class="field"><label>Their phone</label><div class="fline"></div></div>
+  </div>
+  <div class="frow">
+    <div class="field"><label>Family doctor</label><div class="fline"></div></div>
+    <div class="field"><label>Insurance info</label><div class="fline"></div></div>
+  </div>
+  <div class="frow">
+    <div class="field"><label>Nearest hospital</label><div class="fline"></div></div>
+    <div class="field"><label>Park ranger / office</label><div class="fline"></div></div>
+  </div>
+  <div class="field"><label>Our campsite address / GPS</label><div class="fline"></div></div>
+  <div class="foot">Family Camping Planner · Paola Adventurer</div>
+</section>
+
+<section class="page">
+  <div class="eyebrow">09 · Teamwork</div>
+  <h2>Camp Chore Chart</h2>
+  <div class="sub">Everyone helps, camp runs smooth</div>
+  <div class="rule"></div>
+  <table>
+    <tr><th style="width:2.6in;">Job</th><th>Who's on it</th><th style="width:0.9in;">Done</th></tr>
+    <tr><td class="day" style="width:2.6in;font-size:11pt;">Gather firewood</td><td></td><td></td></tr>
+    <tr><td class="day" style="width:2.6in;font-size:11pt;">Set up / take down tent</td><td></td><td></td></tr>
+    <tr><td class="day" style="width:2.6in;font-size:11pt;">Cook the meal</td><td></td><td></td></tr>
+    <tr><td class="day" style="width:2.6in;font-size:11pt;">Wash the dishes</td><td></td><td></td></tr>
+    <tr><td class="day" style="width:2.6in;font-size:11pt;">Take out the trash</td><td></td><td></td></tr>
+    <tr><td class="day" style="width:2.6in;font-size:11pt;">Refill water</td><td></td><td></td></tr>
+    <tr><td class="day" style="width:2.6in;font-size:11pt;">Tidy the tent</td><td></td><td></td></tr>
+  </table>
+  <div class="note-box" style="margin-top:16px;"><strong>Mom win:</strong> let the kids pick their jobs, they help way more when they choose.</div>
+  <div class="foot">Family Camping Planner · Paola Adventurer</div>
+</section>
+
+<section class="page">
+  <div class="eyebrow">Bonus</div>
+  <h2>5 Easy Campfire Meals</h2>
+  <div class="sub">Kid-approved</div>
+  <div class="rule"></div>
+  <div class="cols">
+    <div class="grp"><h3>Foil-Packet Fajitas</h3><p style="font-size:10.5pt;margin:0;">Sliced chicken or beef + peppers + onion + taco seasoning. Wrap in foil, cook on coals 15-20 min. Serve in tortillas.</p></div>
+    <div class="grp"><h3>Walking Tacos</h3><p style="font-size:10.5pt;margin:0;">Crush a bag of chips, add warm seasoned beef, cheese, lettuce &amp; salsa right in the bag. No dishes!</p></div>
+    <div class="grp"><h3>Campfire Nachos</h3><p style="font-size:10.5pt;margin:0;">Chips + beans + cheese in a foil tray. Cover &amp; heat by the fire until melty. Top with whatever you've got.</p></div>
+    <div class="grp"><h3>Banana Boats</h3><p style="font-size:10.5pt;margin:0;">Slit a banana (in peel), stuff with chocolate &amp; mini marshmallows, wrap in foil, warm 5 min. Dessert!</p></div>
+    <div class="grp"><h3>Breakfast Burritos</h3><p style="font-size:10.5pt;margin:0;">Scramble eggs + cheese + pre-cooked sausage, roll in a tortilla. Make ahead &amp; reheat in foil.</p></div>
+    <div class="grp"><h3>Classic S'mores</h3><p style="font-size:10.5pt;margin:0;">Graham cracker + chocolate + toasted marshmallow. The one everyone remembers. <span class="emoji">&#127851;</span></p></div>
+  </div>
+  <div class="note-box" style="margin-top:8px;"><strong>Prep tip:</strong> chop and season everything at home in labeled bags, camp cooking becomes 10 minutes.</div>
+  <div class="foot">Family Camping Planner · Paola Adventurer</div>
+</section>
+
+<section class="page">
+  <div class="eyebrow">10 · Real Talk</div>
+  <h2>What Nobody Tells You</h2>
+  <div class="sub">The stuff I learned the hard way, so you don't have to</div>
+  <div class="rule"></div>
+  <div class="cols">
+    <div class="tipcard"><h3>Arrive with daylight</h3><p>Get there 2+ hours before dark. Setting up a tent in the dark with tired kids is a special kind of chaos.</p></div>
+    <div class="tipcard"><h3>One bin per category</h3><p>Kitchen in one bin, sleep in another, first-aid in another. No digging through bags at night.</p></div>
+    <div class="tipcard"><h3>Freeze your water bottles</h3><p>They keep the cooler cold AND become drinking water as they melt. Two jobs, one bottle.</p></div>
+    <div class="tipcard"><h3>Baby wipes are the MVP</h3><p>Hands, faces, spills, quick "showers," even dishes. Bring double what you think.</p></div>
+    <div class="tipcard"><h3>A doormat saves your tent</h3><p>A cheap mat at the tent door cuts the dirt inside in half. Shoes off, always.</p></div>
+    <div class="tipcard"><h3>Pack extra socks</h3><p>Wet socks ruin moods faster than anything. Bring way more than seems reasonable.</p></div>
+    <div class="tipcard"><h3>Give each kid a flashlight</h3><p>It becomes their prized possession, and it keeps them close after dark.</p></div>
+    <div class="tipcard"><h3>Familiar pillow = better sleep</h3><p>A pillow and small night-light from home help little ones sleep in a new place.</p></div>
+  </div>
+  <div class="foot">Family Camping Planner · Paola Adventurer</div>
+</section>
+
+<section class="page">
+  <div class="eyebrow">11 · Step by Step</div>
+  <h2>Set Up Camp in Order</h2>
+  <div class="sub">Do it in this order and setup is calm, not chaos</div>
+  <div class="rule"></div>
+  <ul class="steps">
+    <li><b>Pick your spot.</b> Flat ground, not under dead branches, slightly high (water runs downhill if it rains).</li>
+    <li><b>Lay the ground cover / tarp first.</b> It protects the tent floor and keeps it dry.</li>
+    <li><b>Pitch the tent while you have daylight and helpers.</b> This is the big one, do it first.</li>
+    <li><b>Make the beds now.</b> Sleeping bags, pads, and pillows in before it gets dark.</li>
+    <li><b>Set up the kitchen zone.</b> Away from the tent, on a flat surface.</li>
+    <li><b>Store all food in the car or cooler.</b> Never in the tent (bears and ants).</li>
+    <li><b>Gather firewood before sunset.</b> Hunting for wood in the dark is no fun.</li>
+    <li><b>Set out chairs and the lantern.</b> Now sit down, you earned it.</li>
+  </ul>
+  <div class="foot">Family Camping Planner · Paola Adventurer</div>
+</section>
+
+<section class="page">
+  <div class="eyebrow">12 · Plan B</div>
+  <h2>When Things Go Sideways</h2>
+  <div class="sub">Because something always does, here's what to do</div>
+  <div class="rule"></div>
+  <div class="cols">
+    <div class="tipcard q"><h3>It starts raining</h3><p>Move activities under a tarp or into the car. Play cards, do the kids' pack, tell stories. Dry clothes ready for bedtime.</p></div>
+    <div class="tipcard q"><h3>A kid won't sleep</h3><p>Familiar pillow, night-light, and a calm routine. A little white noise (a fan app) covers scary night sounds.</p></div>
+    <div class="tipcard q"><h3>Someone's cold at night</h3><p>Hat on, dry socks, and a layer between them and the ground. Cold comes from below, not just the air.</p></div>
+    <div class="tipcard q"><h3>Too many bugs</h3><p>Bug spray at dusk, long sleeves, and keep food sealed. A citronella candle helps at the table.</p></div>
+    <div class="tipcard q"><h3>You forgot something</h3><p>Breathe. Most things you can improvise or buy at the camp store / nearest town. It's rarely a trip-ender.</p></div>
+    <div class="tipcard q"><h3>A kid is scared</h3><p>Name it, normalize it, give them a "job" (hold the flashlight). Confidence beats fear every time.</p></div>
+  </div>
+  <div class="foot">Family Camping Planner · Paola Adventurer</div>
+</section>
+
+<section class="page">
+  <div class="eyebrow">13 · Remember It</div>
+  <h2>Trip Memories</h2>
+  <div class="rule"></div>
+  <div class="field"><label>Best moment</label><div class="fline"></div><div class="fline"></div></div>
+  <div class="field"><label>Funniest thing that happened</label><div class="fline"></div><div class="fline"></div></div>
+  <div class="field"><label>What we'd do differently next time</label><div class="fline"></div><div class="fline"></div></div>
+  <div class="field"><label>Rate the trip</label><div style="font-family:'Bitter';font-size:22pt;color:var(--khaki);letter-spacing:8px;margin-top:4px;">&#9734; &#9734; &#9734; &#9734; &#9734;</div></div>
+  <div class="field"><label>Where to next?</label><div class="fline"></div></div>
+  <div class="foot">Family Camping Planner · Paola Adventurer</div>
+</section>
+
+</body>
+</html>
