@@ -4,233 +4,365 @@
 <meta charset="UTF-8">
 <title>Kids' Outdoor Adventure Pack · Paola Adventurer</title>
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Baloo+2:wght@500;600;700&family=Nunito:wght@600;700;800&display=swap');
   :root{
-    --forest:#22432f;
-    --terracota:#b5562f;
-    --crema:#faf7f0;
-    --khaki:#d8c9a3;
-    --cafe:#3a322a;
-    --line:#b9a97e;
+    --forest:#2f6b45;
+    --forest-deep:#22432f;
+    --orange:#f28b2b;
+    --coral:#ef6b56;
+    --sun:#ffcf3f;
+    --sky:#5ec4e6;
+    --leaf:#8fc93a;
+    --grape:#9b6bc9;
+    --crema:#fffdf5;
+    --paper:#fef6e4;
+    --ink:#3a322a;
   }
   *{box-sizing:border-box;}
-  html,body{margin:0;padding:0;background:#e9e4d6;color:var(--cafe);
-    font-family:"Helvetica Neue",Arial,sans-serif;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  html,body{margin:0;padding:0;background:#dfe7d6;color:var(--ink);
+    font-family:'Nunito','Baloo 2',sans-serif;font-weight:700;
+    -webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .emoji{font-family:'Noto Color Emoji',sans-serif;font-weight:400;font-style:normal;}
 
   .page{
-    width:8.5in;height:11in;background:var(--crema);margin:0 auto;position:relative;
-    padding:0.7in 0.75in;overflow:hidden;page-break-after:always;
-    border:0.18in solid var(--forest);
+    width:8.5in;height:11in;margin:0 auto;position:relative;overflow:hidden;
+    page-break-after:always;background:var(--crema);
+    border:0.16in solid var(--forest);border-radius:0;
+    padding:0.55in 0.6in 0.75in;
   }
   .page:last-child{page-break-after:auto;}
+  /* colorful dotted top ribbon */
+  .page::before{content:"";position:absolute;top:0;left:0;right:0;height:0.32in;
+    background:repeating-linear-gradient(90deg,var(--coral) 0 0.55in,var(--sun) 0.55in 1.1in,var(--sky) 1.1in 1.65in,var(--leaf) 1.65in 2.2in,var(--grape) 2.2in 2.75in);
+    opacity:.95;}
 
-  .eyebrow{font-size:11pt;letter-spacing:3px;text-transform:uppercase;color:var(--terracota);
-    font-weight:700;text-align:center;margin:0 0 6px;}
-  h1{font-family:Georgia,"Times New Roman",serif;color:var(--forest);text-align:center;
-    font-size:34pt;line-height:1.05;margin:0 0 4px;font-weight:900;}
-  .es{font-family:Georgia,serif;font-style:italic;color:var(--terracota);text-align:center;
-    font-size:15pt;margin:0 0 18px;}
-  h2{font-family:Georgia,serif;color:var(--forest);font-size:22pt;margin:0 0 2px;}
-  .sub{font-style:italic;color:var(--terracota);font-size:12.5pt;margin:0 0 16px;}
+  .kicker{font-family:'Fredoka',sans-serif;font-weight:600;font-size:12pt;letter-spacing:1px;
+    text-transform:uppercase;color:#fff;background:var(--coral);display:inline-block;
+    padding:5px 16px;border-radius:100px;margin:6px 0 6px;}
+  h1{font-family:'Fredoka',sans-serif;font-weight:700;color:var(--forest-deep);
+    font-size:38pt;line-height:1;margin:2px 0 4px;}
+  .es{font-family:'Baloo 2',sans-serif;font-weight:600;color:var(--orange);font-size:15pt;margin:0 0 14px;}
+  h2{font-family:'Fredoka',sans-serif;font-weight:700;color:var(--forest-deep);font-size:27pt;margin:2px 0 0;line-height:1;}
+  .sub{font-family:'Baloo 2',sans-serif;font-weight:600;color:var(--orange);font-size:13.5pt;margin:4px 0 16px;}
 
-  .rule{height:3px;background:var(--terracota);width:70px;margin:10px auto 20px;border-radius:2px;}
+  /* scavenger / list cards */
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .card{display:flex;align-items:center;gap:12px;background:#fff;border:3px solid var(--forest);
+    border-radius:18px;padding:11px 13px;box-shadow:3px 4px 0 var(--forest);}
+  .card .ic{font-size:26pt;line-height:1;}
+  .card .tx{flex:1;}
+  .card .en{font-family:'Baloo 2',sans-serif;font-weight:700;font-size:12.5pt;color:var(--ink);line-height:1.05;display:block;}
+  .card .lil{font-family:'Nunito',sans-serif;font-weight:700;font-size:9.5pt;color:var(--orange);display:block;}
+  .card .box{width:30px;height:30px;min-width:30px;border:3px solid var(--forest);border-radius:9px;background:var(--paper);}
+  .c-sun{border-color:var(--orange);box-shadow:3px 4px 0 var(--orange);}
+  .c-sun .box{border-color:var(--orange);}
+  .c-sky{border-color:var(--sky);box-shadow:3px 4px 0 var(--sky);}
+  .c-sky .box{border-color:var(--sky);}
+  .c-grape{border-color:var(--grape);box-shadow:3px 4px 0 var(--grape);}
+  .c-grape .box{border-color:var(--grape);}
+  .c-coral{border-color:var(--coral);box-shadow:3px 4px 0 var(--coral);}
+  .c-coral .box{border-color:var(--coral);}
 
-  .badge{width:2.3in;height:2.3in;border-radius:50%;background:var(--forest);color:var(--crema);
-    margin:12px auto 18px;display:flex;flex-direction:column;align-items:center;justify-content:center;
-    border:6px solid var(--khaki);text-align:center;}
-  .badge .arrow{font-size:34pt;line-height:1;}
-  .badge .b1{font-family:Georgia,serif;font-weight:900;font-size:15pt;letter-spacing:2px;margin-top:4px;}
-  .badge .b2{font-size:8.5pt;letter-spacing:3px;text-transform:uppercase;color:var(--khaki);margin-top:6px;}
+  /* bingo */
+  .bingo{display:grid;grid-template-columns:1fr 1fr 1fr;gap:11px;margin-top:6px;}
+  .bcell{aspect-ratio:1/1;border:3px solid var(--forest);border-radius:16px;background:#fff;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+    padding:6px;box-shadow:3px 4px 0 var(--forest);}
+  .bcell .bic{font-size:30pt;line-height:1;}
+  .bcell .ben{font-family:'Baloo 2',sans-serif;font-weight:700;font-size:10.5pt;color:var(--ink);line-height:1.05;margin-top:3px;}
+  .bcell .bes{font-family:'Nunito',sans-serif;font-weight:700;font-size:8pt;color:var(--orange);}
+  .bcell.free{background:var(--sun);border-color:var(--orange);box-shadow:3px 4px 0 var(--orange);}
+  .bcell.free .ben{font-size:14pt;color:var(--forest-deep);}
 
-  ul.check{list-style:none;padding:0;margin:0;}
-  ul.check li{display:flex;align-items:center;gap:12px;padding:10px 4px;border-bottom:1.5px dashed var(--line);
-    font-size:13.5pt;}
-  ul.check li:last-child{border-bottom:none;}
-  .box{width:26px;height:26px;min-width:26px;border:2.5px solid var(--forest);border-radius:6px;}
-  .en{font-weight:600;}
-  .lil{color:var(--terracota);font-style:italic;font-size:11.5pt;margin-left:6px;}
+  /* rules */
+  .rules{list-style:none;padding:0;margin:6px 0 0;}
+  .rules li{display:flex;align-items:center;gap:14px;background:#fff;border:3px solid var(--forest);
+    border-radius:16px;padding:12px 16px;margin-bottom:11px;box-shadow:3px 4px 0 var(--forest);}
+  .rules .n{font-family:'Fredoka',sans-serif;font-weight:700;color:#fff;background:var(--coral);
+    width:40px;height:40px;min-width:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18pt;}
+  .rules .rt{flex:1;}
+  .rules .ren{font-family:'Baloo 2',sans-serif;font-weight:700;font-size:13pt;color:var(--ink);display:block;line-height:1.1;}
+  .rules .res{font-family:'Nunito',sans-serif;font-weight:700;font-size:10pt;color:var(--orange);display:block;}
+  .rules .re{font-size:24pt;}
 
-  .grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border:3px solid var(--forest);border-radius:10px;overflow:hidden;margin-top:8px;}
-  .cell{border:1px solid var(--khaki);min-height:1.55in;padding:10px;display:flex;flex-direction:column;
-    align-items:center;justify-content:center;text-align:center;font-size:11.5pt;font-weight:600;color:var(--forest);}
-  .cell .ces{font-weight:400;font-style:italic;color:var(--terracota);font-size:9.5pt;margin-top:4px;}
-  .cell.free{background:var(--khaki);color:var(--forest);}
+  /* journal */
+  .draw{background:#fff;border:4px dashed var(--sky);border-radius:22px;height:3.5in;margin:8px 0;
+    display:flex;align-items:center;justify-content:center;color:#bcd;font-family:'Fredoka',sans-serif;font-size:16pt;}
+  .prompt{font-family:'Baloo 2',sans-serif;font-weight:700;font-size:14pt;color:var(--forest-deep);margin:12px 0 4px;}
+  .prompt .pes{font-weight:600;color:var(--orange);font-size:11pt;}
+  .ln{border-bottom:3px dotted var(--leaf);height:0.42in;}
 
-  .rules-num{list-style:none;padding:0;margin:0;counter-reset:r;}
-  .rules-num li{counter-increment:r;position:relative;padding:14px 14px 14px 62px;margin-bottom:12px;
-    background:#fff;border:2px solid var(--khaki);border-radius:12px;font-size:13pt;}
-  .rules-num li::before{content:counter(r);position:absolute;left:14px;top:50%;transform:translateY(-50%);
-    width:34px;height:34px;background:var(--terracota);color:#fff;border-radius:50%;display:flex;
-    align-items:center;justify-content:center;font-weight:900;font-family:Georgia,serif;font-size:15pt;}
-  .rules-num li .rce{display:block;font-style:italic;color:var(--terracota);font-size:11pt;margin-top:3px;}
+  /* eye-spy tally */
+  .spy{list-style:none;padding:0;margin:6px 0 0;}
+  .spy li{display:flex;align-items:center;gap:14px;background:#fff;border:3px solid var(--forest);
+    border-radius:16px;padding:12px 16px;margin-bottom:12px;box-shadow:3px 4px 0 var(--forest);}
+  .spy .sic{font-size:28pt;}
+  .spy .sen{font-family:'Baloo 2',sans-serif;font-weight:700;font-size:13pt;flex:1;}
+  .spy .sen b{color:var(--orange);font-weight:700;font-size:10pt;display:block;}
+  .spy .tally{font-family:'Fredoka',sans-serif;color:var(--sky);font-size:13pt;}
 
-  .draw{border:2.5px dashed var(--forest);border-radius:12px;height:3.7in;margin:10px 0 6px;
-    display:flex;align-items:flex-start;justify-content:flex-start;padding:10px;color:#cbb98a;font-style:italic;font-size:11pt;}
-  .lines{margin-top:6px;}
-  .lines .ln{border-bottom:1.8px solid var(--line);height:0.42in;}
+  /* certificate */
+  .cert{border:8px dashed var(--orange);border-radius:26px;height:100%;padding:0.5in;text-align:center;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;background:#fff;}
+  .cert h1{font-size:40pt;color:var(--forest-deep);}
+  .star{font-size:40pt;}
+  .cert .name{border-bottom:4px dotted var(--sky);width:78%;height:0.85in;margin:18px auto 4px;}
+  .cert .cap{font-family:'Nunito',sans-serif;font-weight:800;font-size:10pt;letter-spacing:2px;text-transform:uppercase;color:var(--orange);}
+  .cert p{font-family:'Baloo 2',sans-serif;font-weight:600;font-size:13pt;max-width:5.2in;margin:14px auto;color:var(--ink);}
 
-  .prompt{font-size:13pt;font-weight:600;color:var(--forest);margin:4px 0;}
-  .prompt .pes{font-weight:400;font-style:italic;color:var(--terracota);}
+  /* cover */
+  .cover{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;height:100%;}
+  .badge{width:2.2in;height:2.2in;border-radius:50%;background:var(--forest);color:var(--crema);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    border:7px solid var(--sun);text-align:center;box-shadow:5px 6px 0 var(--forest-deep);}
+  .badge .ba{font-size:30pt;}
+  .badge .b1{font-family:'Fredoka',sans-serif;font-weight:700;font-size:15pt;letter-spacing:1px;margin-top:2px;line-height:1;}
+  .badge .b2{font-family:'Nunito',sans-serif;font-weight:800;font-size:8.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--sun);margin-top:5px;}
+  .scene{font-size:30pt;letter-spacing:4px;margin:10px 0;}
+  .cover h1{font-size:46pt;}
 
-  .cert{border:8px double var(--terracota);border-radius:16px;height:100%;padding:0.5in;text-align:center;
-    display:flex;flex-direction:column;align-items:center;justify-content:center;}
-  .cert h1{font-size:40pt;margin-bottom:8px;}
-  .cert .name{border-bottom:3px solid var(--forest);width:75%;height:0.9in;margin:22px auto 6px;}
-  .cert .cap{font-size:11pt;letter-spacing:2px;text-transform:uppercase;color:var(--terracota);}
-  .cert p{font-size:13pt;max-width:5.3in;margin:16px auto;}
+  /* parent note */
+  .note{background:var(--forest);color:var(--crema);border-radius:20px;padding:18px 22px;
+    font-family:'Baloo 2',sans-serif;font-weight:600;font-size:12.5pt;line-height:1.5;}
+  .note b{color:var(--sun);}
+  .lead{font-family:'Baloo 2',sans-serif;font-weight:600;font-size:13.5pt;line-height:1.5;color:var(--ink);}
+  .lead.es2{color:var(--orange);}
+  .safety{border:3px solid var(--coral);border-radius:16px;padding:14px 18px;font-family:'Nunito',sans-serif;
+    font-weight:700;font-size:11pt;color:var(--ink);margin-top:14px;background:#fff;}
+  .safety b{color:var(--coral);}
 
-  .foot{position:absolute;bottom:0.32in;left:0;right:0;text-align:center;font-size:9pt;
-    letter-spacing:2px;text-transform:uppercase;color:var(--line);}
+  .foot{position:absolute;bottom:0.28in;left:0;right:0;text-align:center;font-family:'Fredoka',sans-serif;
+    font-size:9.5pt;letter-spacing:1px;color:var(--leaf);}
 
-  .note{background:var(--forest);color:var(--crema);border-radius:12px;padding:18px 20px;font-size:12pt;line-height:1.5;}
-  .note b{color:var(--khaki);}
-  .two{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
-  p.lead{font-size:13pt;line-height:1.55;}
-  .safety{border:2px solid var(--terracota);border-radius:10px;padding:14px 16px;font-size:11pt;color:var(--cafe);margin-top:14px;}
-  .safety b{color:var(--terracota);}
+  /* dare cards (cut-out) */
+  .dares{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:8px;
+    border:3px dashed var(--coral);border-radius:8px;overflow:hidden;}
+  .dare{border:2px dashed #d9c9a0;padding:16px 14px;min-height:1.5in;text-align:center;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;background:#fff;}
+  .dare .dic{font-size:30pt;line-height:1;}
+  .dare .den{font-family:'Baloo 2',sans-serif;font-weight:700;font-size:12.5pt;color:var(--forest-deep);margin-top:6px;line-height:1.1;}
+  .dare .des{font-family:'Nunito',sans-serif;font-weight:700;font-size:9.5pt;color:var(--orange);margin-top:3px;}
+  .cut{font-family:'Fredoka',sans-serif;color:var(--coral);font-size:10pt;margin:6px 0 0;}
+
+  /* would you rather */
+  .wyr{list-style:none;padding:0;margin:6px 0 0;}
+  .wyr li{background:#fff;border:3px solid var(--forest);border-radius:18px;padding:12px 16px;
+    margin-bottom:12px;box-shadow:3px 4px 0 var(--forest);}
+  .wyr .q{font-family:'Fredoka',sans-serif;font-size:11pt;color:var(--coral);}
+  .wyr .opts{display:flex;align-items:center;gap:10px;margin-top:6px;}
+  .wyr .opt{flex:1;font-family:'Baloo 2',sans-serif;font-weight:700;font-size:12.5pt;color:var(--ink);
+    background:var(--paper);border-radius:12px;padding:8px 12px;text-align:center;}
+  .wyr .opt .oes{display:block;font-family:'Nunito';font-weight:700;font-size:9pt;color:var(--orange);}
+  .wyr .vs{font-family:'Fredoka',sans-serif;color:var(--sky);font-size:13pt;}
+
+  /* build-it */
+  .build{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px;}
+  .bld{background:#fff;border:3px solid var(--leaf);border-radius:18px;padding:14px;text-align:center;
+    box-shadow:3px 4px 0 var(--leaf);display:flex;flex-direction:column;align-items:center;}
+  .bld .bldic{font-size:34pt;line-height:1;}
+  .bld .blden{font-family:'Baloo 2',sans-serif;font-weight:700;font-size:13pt;color:var(--forest-deep);margin-top:6px;}
+  .bld .bldes{font-family:'Nunito';font-weight:700;font-size:9.5pt;color:var(--orange);}
+  .bld .stars{color:var(--sun);font-size:14pt;margin-top:8px;letter-spacing:3px;}
 </style>
 </head>
 <body>
 
 <!-- COVER -->
-<section class="page" style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;">
-  <div class="eyebrow">Paola Adventurer · Archery · Camping · Explore</div>
-  <div class="badge">
-    <div class="arrow">&#8593;</div>
-    <div class="b1">JUNIOR<br>ADVENTURER</div>
-    <div class="b2">Outdoor Kit</div>
+<section class="page">
+  <div class="cover">
+    <div class="kicker">Paola Adventurer</div>
+    <div class="badge">
+      <div class="ba emoji">&#127794;</div>
+      <div class="b1">JUNIOR<br>ADVENTURER</div>
+      <div class="b2">Outdoor Kit</div>
+    </div>
+    <div class="scene emoji">&#9728;&#65039; &#127794; &#9968;&#65039; &#128038; &#127808;</div>
+    <h1>Kids' Outdoor<br>Adventure Pack</h1>
+    <div class="es">&iexcl;El Pack de Aventura para Ni&ntilde;os!</div>
+    <p class="lead" style="max-width:5.4in;">Scavenger hunts, bingo, a nature journal &amp; a REAL award: hours of screen-free outdoor fun! <span class="emoji">&#127881;</span></p>
+    <p class="es" style="font-size:12pt;">B&uacute;squedas del tesoro, bingo, diario de la naturaleza &iexcl;y un premio de verdad!</p>
   </div>
-  <h1>Kids' Outdoor<br>Adventure Pack</h1>
-  <div class="es">El Pack de Aventura al Aire Libre para Ni&ntilde;os</div>
-  <div class="rule"></div>
-  <p class="lead" style="max-width:5.5in;">Scavenger hunts, camp safety, nature journaling, bingo &amp; a real award &mdash; everything you need for screen-free outdoor fun.</p>
-  <p class="es" style="font-size:12pt;max-width:5.2in;">B&uacute;squedas del tesoro, reglas de seguridad, diario de la naturaleza, bingo y un premio de verdad.</p>
-  <div class="foot">paolaadventurer.com &nbsp;&middot;&nbsp; Print at home &middot; Imprime en casa</div>
+  <div class="foot">paolaadventurer.com &middot; Print at home &middot; Imprime en casa</div>
 </section>
 
-<!-- PARENT / HOW TO USE -->
+<!-- PARENT PAGE -->
 <section class="page">
-  <div class="eyebrow">Start Here</div>
-  <h2>Hey, fellow adventure parent</h2>
+  <span class="kicker">Start Here &middot; Empieza Aqu&iacute;</span>
+  <h2>Hey, adventure parent! <span class="emoji">&#128075;</span></h2>
   <div class="sub">Para ti, mam&aacute; o pap&aacute; aventurero</div>
-  <p class="lead">I made this so getting the kids outside feels easy &mdash; no planning, no screens, no "I'm bored." Print the pages you want, grab a pencil and a clipboard, and let them explore. Every activity works in a backyard, a park, or a campsite.</p>
-  <p class="lead" style="color:var(--terracota);font-style:italic;">Lo hice para que sacar a los ni&ntilde;os al aire libre sea f&aacute;cil &mdash; sin pantallas y sin aburrimiento. Imprime las p&aacute;ginas que quieras y deja que exploren.</p>
+  <p class="lead">I made this so getting the kids outside is EASY: no planning, no screens, no "I'm bored." Print the pages, grab a pencil and a clipboard, and let them explore. Works in a backyard, a park, or a campsite!</p>
+  <p class="lead es2">Lo hice para que sacar a los ni&ntilde;os al aire libre sea f&aacute;cil: sin pantallas y sin aburrimiento. &iexcl;Imprime, dale un l&aacute;piz y a explorar!</p>
   <div class="note">
     <b>How to use it &middot; C&oacute;mo usarlo</b><br>
-    1. Print the pages you like (print more than one so siblings each get their own).<br>
-    2. Clip them to a clipboard or fold into a pocket.<br>
-    3. Hand over a pencil and go. Award the certificate at the end!
+    <span class="emoji">&#128462;&#65039;</span> Print the pages you like (one per kid so nobody fights!).<br>
+    <span class="emoji">&#128206;</span> Clip them to a clipboard or fold in a pocket.<br>
+    <span class="emoji">&#9999;&#65039;</span> Hand over a pencil and GO. Give the certificate at the end!
   </div>
   <div class="safety">
-    <b>Safety first &middot; Seguridad primero:</b> Kids should always stay where a grown-up can see them, never taste or touch unknown plants, mushrooms or animals, and wash hands after exploring. In bear country, keep food packed away and stay close together. Adult supervision required at all times.
-    <br><span style="font-style:italic;">Los ni&ntilde;os deben permanecer siempre a la vista de un adulto y nunca tocar ni probar plantas, hongos o animales desconocidos. Se requiere supervisi&oacute;n de un adulto en todo momento.</span>
+    <b>Safety first &middot; Seguridad primero:</b> Kids should stay where a grown-up can see them, never taste or touch unknown plants, mushrooms or animals, and wash hands after. In bear country, keep food packed away. Adult supervision required at all times. <span style="color:var(--orange);">Se requiere supervisi&oacute;n de un adulto en todo momento.</span>
   </div>
   <div class="foot">Kids' Outdoor Adventure Pack &middot; Paola Adventurer</div>
 </section>
 
 <!-- SCAVENGER HUNT -->
 <section class="page">
-  <div class="eyebrow">Activity 1</div>
-  <h2>Nature Scavenger Hunt</h2>
-  <div class="sub">B&uacute;squeda del tesoro en la naturaleza &mdash; check each one you find!</div>
-  <ul class="check">
-    <li><span class="box"></span><span class="en">Something smooth</span><span class="lil">algo liso</span></li>
-    <li><span class="box"></span><span class="en">A feather</span><span class="lil">una pluma</span></li>
-    <li><span class="box"></span><span class="en">Something yellow</span><span class="lil">algo amarillo</span></li>
-    <li><span class="box"></span><span class="en">A funny-shaped rock</span><span class="lil">una roca curiosa</span></li>
-    <li><span class="box"></span><span class="en">An animal track</span><span class="lil">una huella de animal</span></li>
-    <li><span class="box"></span><span class="en">A pinecone</span><span class="lil">una pi&ntilde;a</span></li>
-    <li><span class="box"></span><span class="en">Something that makes noise</span><span class="lil">algo que hace ruido</span></li>
-    <li><span class="box"></span><span class="en">A leaf bigger than your hand</span><span class="lil">una hoja m&aacute;s grande que tu mano</span></li>
-    <li><span class="box"></span><span class="en">A bug (look, don't touch!)</span><span class="lil">un insecto (&iexcl;solo mira!)</span></li>
-    <li><span class="box"></span><span class="en">Something that smells nice</span><span class="lil">algo que huele rico</span></li>
-  </ul>
-  <div class="foot">Kids' Outdoor Adventure Pack &middot; Paola Adventurer</div>
-</section>
-
-<!-- ADVENTURE BINGO -->
-<section class="page">
-  <div class="eyebrow">Activity 2</div>
-  <h2>Adventure Bingo</h2>
-  <div class="sub">Bingo de aventura &mdash; cross a line to win! &iexcl;Completa una l&iacute;nea para ganar!</div>
-  <div class="grid">
-    <div class="cell">See a bird<div class="ces">ver un p&aacute;jaro</div></div>
-    <div class="cell">Hug a tree<div class="ces">abrazar un &aacute;rbol</div></div>
-    <div class="cell">Find a stick shaped like a Y<div class="ces">un palo en forma de Y</div></div>
-    <div class="cell">Hear the wind<div class="ces">o&iacute;r el viento</div></div>
-    <div class="cell free">FREE<div class="ces">gratis</div></div>
-    <div class="cell">Spot a cloud animal<div class="ces">un animal en las nubes</div></div>
-    <div class="cell">Jump over something<div class="ces">saltar algo</div></div>
-    <div class="cell">Find something red<div class="ces">algo rojo</div></div>
-    <div class="cell">Balance on a log<div class="ces">equilibrio en un tronco</div></div>
-    <div class="cell">Smell a flower<div class="ces">oler una flor</div></div>
-    <div class="cell">Count 5 rocks<div class="ces">contar 5 rocas</div></div>
-    <div class="cell">Make a leaf pile<div class="ces">montar hojas</div></div>
-    <div class="cell">Find a heart shape<div class="ces">forma de coraz&oacute;n</div></div>
-    <div class="cell">Wave to a hiker<div class="ces">saludar a alguien</div></div>
-    <div class="cell">Draw in the dirt<div class="ces">dibujar en la tierra</div></div>
+  <span class="kicker">Game 1 &middot; Juego 1</span>
+  <h2>Nature Scavenger Hunt <span class="emoji">&#128269;</span></h2>
+  <div class="sub">B&uacute;squeda del tesoro: check each one you find!</div>
+  <div class="cards">
+    <div class="card"><span class="ic emoji">&#129718;</span><span class="tx"><span class="en">A feather</span><span class="lil">una pluma</span></span><span class="box"></span></div>
+    <div class="card c-sun"><span class="ic emoji">&#127810;</span><span class="tx"><span class="en">A pinecone</span><span class="lil">una pi&ntilde;a</span></span><span class="box"></span></div>
+    <div class="card c-sky"><span class="ic emoji">&#129704;</span><span class="tx"><span class="en">A cool rock</span><span class="lil">una roca curiosa</span></span><span class="box"></span></div>
+    <div class="card c-grape"><span class="ic emoji">&#127810;</span><span class="tx"><span class="en">A big leaf</span><span class="lil">una hoja grande</span></span><span class="box"></span></div>
+    <div class="card c-coral"><span class="ic emoji">&#128375;&#65039;</span><span class="tx"><span class="en">A bug (look only!)</span><span class="lil">un insecto (&iexcl;solo mira!)</span></span><span class="box"></span></div>
+    <div class="card"><span class="ic emoji">&#127800;</span><span class="tx"><span class="en">A flower</span><span class="lil">una flor</span></span><span class="box"></span></div>
+    <div class="card c-sky"><span class="ic emoji">&#128062;</span><span class="tx"><span class="en">An animal track</span><span class="lil">una huella</span></span><span class="box"></span></div>
+    <div class="card c-sun"><span class="ic emoji">&#127807;</span><span class="tx"><span class="en">Something green</span><span class="lil">algo verde</span></span><span class="box"></span></div>
+    <div class="card c-coral"><span class="ic emoji">&#128054;</span><span class="tx"><span class="en">Something soft</span><span class="lil">algo suave</span></span><span class="box"></span></div>
+    <div class="card c-grape"><span class="ic emoji">&#129717;</span><span class="tx"><span class="en">A stick shaped like a Y</span><span class="lil">un palo en Y</span></span><span class="box"></span></div>
   </div>
   <div class="foot">Kids' Outdoor Adventure Pack &middot; Paola Adventurer</div>
 </section>
 
-<!-- CAMP SAFETY RULES FOR KIDS -->
+<!-- BINGO -->
 <section class="page">
-  <div class="eyebrow">Activity 3</div>
-  <h2>My Campsite Safety Rules</h2>
-  <div class="sub">Mis reglas de seguridad &mdash; read them out loud, then be the safety captain!</div>
-  <ul class="rules-num">
-    <li>Stay where a grown-up can see me.<span class="rce">Me quedo donde un adulto me vea.</span></li>
-    <li>Food stays packed away &mdash; never in the tent.<span class="rce">La comida siempre guardada, nunca en la tienda.</span></li>
-    <li>If I see a big animal, I stay calm, don't run, and walk back slowly to a grown-up.<span class="rce">Si veo un animal grande, me quedo tranquilo y regreso despacio con un adulto.</span></li>
-    <li>I never touch or taste plants, berries or mushrooms.<span class="rce">Nunca toco ni pruebo plantas ni hongos.</span></li>
-    <li>I stay on the trail and wear my shoes.<span class="rce">Me quedo en el sendero y uso mis zapatos.</span></li>
-    <li>I wash my hands before I eat.<span class="rce">Me lavo las manos antes de comer.</span></li>
+  <span class="kicker">Game 2 &middot; Juego 2</span>
+  <h2>Adventure Bingo <span class="emoji">&#127919;</span></h2>
+  <div class="sub">Bingo de aventura: complete a line to WIN! &iexcl;Gana una l&iacute;nea!</div>
+  <div class="bingo">
+    <div class="bcell"><span class="bic emoji">&#128038;</span><span class="ben">See a bird</span><span class="bes">ver un p&aacute;jaro</span></div>
+    <div class="bcell"><span class="bic emoji">&#127795;</span><span class="ben">Hug a tree</span><span class="bes">abrazar un &aacute;rbol</span></div>
+    <div class="bcell"><span class="bic emoji">&#9925;</span><span class="ben">Cloud animal</span><span class="bes">animal en las nubes</span></div>
+    <div class="bcell"><span class="bic emoji">&#128168;</span><span class="ben">Hear the wind</span><span class="bes">o&iacute;r el viento</span></div>
+    <div class="bcell free"><span class="bic emoji">&#11088;</span><span class="ben">FREE</span><span class="bes">gratis</span></div>
+    <div class="bcell"><span class="bic emoji">&#129355;</span><span class="ben">Jump over something</span><span class="bes">saltar algo</span></div>
+    <div class="bcell"><span class="bic emoji">&#128308;</span><span class="ben">Find something red</span><span class="bes">algo rojo</span></div>
+    <div class="bcell"><span class="bic emoji">&#129446;</span><span class="ben">Balance on a log</span><span class="bes">equilibrio en tronco</span></div>
+    <div class="bcell"><span class="bic emoji">&#127804;</span><span class="ben">Smell a flower</span><span class="bes">oler una flor</span></div>
+    <div class="bcell"><span class="bic emoji">&#129704;</span><span class="ben">Count 5 rocks</span><span class="bes">contar 5 rocas</span></div>
+    <div class="bcell"><span class="bic emoji">&#127811;</span><span class="ben">Make a leaf pile</span><span class="bes">montar hojas</span></div>
+    <div class="bcell"><span class="bic emoji">&#128149;</span><span class="ben">Find a heart shape</span><span class="bes">forma de coraz&oacute;n</span></div>
+    <div class="bcell"><span class="bic emoji">&#128075;</span><span class="ben">Wave to a hiker</span><span class="bes">saludar a alguien</span></div>
+    <div class="bcell"><span class="bic emoji">&#9999;&#65039;</span><span class="ben">Draw in the dirt</span><span class="bes">dibujar en la tierra</span></div>
+    <div class="bcell"><span class="bic emoji">&#127746;</span><span class="ben">Watch a sunset</span><span class="bes">ver el atardecer</span></div>
+  </div>
+  <div class="foot">Kids' Outdoor Adventure Pack &middot; Paola Adventurer</div>
+</section>
+
+<!-- SAFETY RULES -->
+<section class="page">
+  <span class="kicker">Be a Safety Captain! &middot; &iexcl;S&eacute; el capit&aacute;n!</span>
+  <h2>My Campsite Rules <span class="emoji">&#9968;&#65039;</span></h2>
+  <div class="sub">Mis reglas: read them out loud, then you're in charge!</div>
+  <ul class="rules">
+    <li><span class="n">1</span><span class="rt"><span class="ren">Stay where a grown-up can see me.</span><span class="res">Me quedo donde un adulto me vea.</span></span><span class="re emoji">&#128064;</span></li>
+    <li><span class="n">2</span><span class="rt"><span class="ren">Food stays packed away: never in the tent!</span><span class="res">La comida siempre guardada.</span></span><span class="re emoji">&#127857;</span></li>
+    <li><span class="n">3</span><span class="rt"><span class="ren">See a big animal? Stay calm, don't run, walk back slowly.</span><span class="res">Ante un animal grande: tranquilo, regreso despacio.</span></span><span class="re emoji">&#128059;</span></li>
+    <li><span class="n">4</span><span class="rt"><span class="ren">Never touch or taste plants, berries or mushrooms.</span><span class="res">Nunca toco ni pruebo plantas ni hongos.</span></span><span class="re emoji">&#127812;</span></li>
+    <li><span class="n">5</span><span class="rt"><span class="ren">Stay on the trail and wear my shoes.</span><span class="res">Me quedo en el sendero y uso zapatos.</span></span><span class="re emoji">&#128094;</span></li>
+    <li><span class="n">6</span><span class="rt"><span class="ren">Wash my hands before I eat.</span><span class="res">Me lavo las manos antes de comer.</span></span><span class="re emoji">&#129379;</span></li>
   </ul>
   <div class="foot">Kids' Outdoor Adventure Pack &middot; Paola Adventurer</div>
 </section>
 
-<!-- NATURE JOURNAL -->
+<!-- JOURNAL -->
 <section class="page">
-  <div class="eyebrow">Activity 4</div>
-  <h2>My Nature Journal</h2>
-  <div class="sub">Mi diario de la naturaleza &mdash; draw the coolest thing you saw today</div>
-  <div class="draw">Draw here &middot; Dibuja aqu&iacute;</div>
+  <span class="kicker">My Journal &middot; Mi Diario</span>
+  <h2>My Nature Journal <span class="emoji">&#128221;</span></h2>
+  <div class="sub">Draw the coolest thing you saw today! Dibuja lo mejor de hoy</div>
+  <div class="draw emoji">&#127912;</div>
   <p class="prompt">The best part of today was&hellip; <span class="pes">Lo mejor de hoy fue&hellip;</span></p>
-  <div class="lines">
-    <div class="ln"></div><div class="ln"></div><div class="ln"></div>
-  </div>
-  <p class="prompt" style="margin-top:14px;">A sound I heard: <span class="pes">Un sonido que escuch&eacute;:</span></p>
-  <div class="lines"><div class="ln"></div></div>
+  <div class="ln"></div><div class="ln"></div>
+  <p class="prompt">A sound I heard was&hellip; <span class="pes">Un sonido que escuch&eacute;&hellip;</span></p>
+  <div class="ln"></div>
   <div class="foot">Kids' Outdoor Adventure Pack &middot; Paola Adventurer</div>
 </section>
 
-<!-- I SPY / COUNT -->
+<!-- EYE SPY -->
 <section class="page">
-  <div class="eyebrow">Activity 5</div>
-  <h2>Explorer's Eye-Spy</h2>
-  <div class="sub">Cuenta y observa &mdash; tally how many you spot!</div>
-  <ul class="check">
-    <li><span class="en">Birds &middot; P&aacute;jaros</span><span class="lil" style="margin-left:auto;">Tally / Cuenta: __________________</span></li>
-    <li><span class="en">Squirrels &middot; Ardillas</span><span class="lil" style="margin-left:auto;">Tally / Cuenta: __________________</span></li>
-    <li><span class="en">Different flowers &middot; Flores distintas</span><span class="lil" style="margin-left:auto;">Tally / Cuenta: __________________</span></li>
-    <li><span class="en">Bugs &middot; Insectos</span><span class="lil" style="margin-left:auto;">Tally / Cuenta: __________________</span></li>
-    <li><span class="en">Colors of leaves &middot; Colores de hojas</span><span class="lil" style="margin-left:auto;">Tally / Cuenta: __________________</span></li>
-    <li><span class="en">Airplanes or clouds &middot; Aviones o nubes</span><span class="lil" style="margin-left:auto;">Tally / Cuenta: __________________</span></li>
+  <span class="kicker">Game 3 &middot; Juego 3</span>
+  <h2>Explorer's Eye-Spy <span class="emoji">&#128065;&#65039;</span></h2>
+  <div class="sub">Cuenta y observa: make a tally mark for each one!</div>
+  <ul class="spy">
+    <li><span class="sic emoji">&#128038;</span><span class="sen">Birds<b>P&aacute;jaros</b></span><span class="tally">&#9866;&#9866;&#9866;&#9866;&#9866;&#9866;&#9866;</span></li>
+    <li><span class="sic emoji">&#128063;</span><span class="sen">Squirrels<b>Ardillas</b></span><span class="tally">&#9866;&#9866;&#9866;&#9866;&#9866;&#9866;&#9866;</span></li>
+    <li><span class="sic emoji">&#127804;</span><span class="sen">Flowers<b>Flores</b></span><span class="tally">&#9866;&#9866;&#9866;&#9866;&#9866;&#9866;&#9866;</span></li>
+    <li><span class="sic emoji">&#129419;</span><span class="sen">Bugs<b>Insectos</b></span><span class="tally">&#9866;&#9866;&#9866;&#9866;&#9866;&#9866;&#9866;</span></li>
+    <li><span class="sic emoji">&#127810;</span><span class="sen">Different leaves<b>Hojas distintas</b></span><span class="tally">&#9866;&#9866;&#9866;&#9866;&#9866;&#9866;&#9866;</span></li>
+    <li><span class="sic emoji">&#9925;</span><span class="sen">Fun clouds<b>Nubes divertidas</b></span><span class="tally">&#9866;&#9866;&#9866;&#9866;&#9866;&#9866;&#9866;</span></li>
   </ul>
-  <p class="prompt" style="margin-top:18px;">My grand total of living things: <span class="pes">Mi total de seres vivos:</span> ____________</p>
+  <p class="prompt">My grand total of living things: <span class="pes">Mi total de seres vivos:</span> _______ <span class="emoji">&#127881;</span></p>
+  <div class="foot">Kids' Outdoor Adventure Pack &middot; Paola Adventurer</div>
+</section>
+
+<!-- DARE CARDS -->
+<section class="page">
+  <span class="kicker">Game 4 &middot; The Challenge!</span>
+  <h2>Outdoor Dare Cards <span class="emoji">&#127183;</span></h2>
+  <div class="sub">Cartas de reto: cut them out, shuffle, and dare each other!</div>
+  <div class="dares">
+    <div class="dare"><span class="dic emoji">&#128056;</span><span class="den">Hop like a frog for 10 seconds</span><span class="des">Salta como rana 10 segundos</span></div>
+    <div class="dare"><span class="dic emoji">&#128059;</span><span class="den">Walk like a bear across the grass</span><span class="des">Camina como oso por el pasto</span></div>
+    <div class="dare"><span class="dic emoji">&#128038;</span><span class="den">Make your best bird call</span><span class="des">Haz tu mejor canto de p&aacute;jaro</span></div>
+    <div class="dare"><span class="dic emoji">&#127807;</span><span class="den">Find 3 different shades of green</span><span class="des">Encuentra 3 tonos de verde</span></div>
+    <div class="dare"><span class="dic emoji">&#129769;</span><span class="den">Stand on one leg for 15 seconds</span><span class="des">Par&aacute;te en un pie 15 segundos</span></div>
+    <div class="dare"><span class="dic emoji">&#128064;</span><span class="den">Close your eyes: name 3 sounds</span><span class="des">Cierra los ojos: nombra 3 sonidos</span></div>
+    <div class="dare"><span class="dic emoji">&#127775;</span><span class="den">Make a wish on a leaf, then let it go</span><span class="des">Pide un deseo a una hoja</span></div>
+    <div class="dare"><span class="dic emoji">&#128077;</span><span class="den">Give a tree a high-five</span><span class="des">Choca esos cinco con un &aacute;rbol</span></div>
+  </div>
+  <p class="cut">&#9986; Cut along the dashed lines &middot; Recorta por las l&iacute;neas</p>
+  <div class="foot">Kids' Outdoor Adventure Pack &middot; Paola Adventurer</div>
+</section>
+
+<!-- WOULD YOU RATHER -->
+<section class="page">
+  <span class="kicker">Game 5 &middot; Juego 5</span>
+  <h2>Would You Rather? <span class="emoji">&#129300;</span></h2>
+  <div class="sub">&iquest;Qu&eacute; prefieres?: talk it out on the trail!</div>
+  <ul class="wyr">
+    <li><span class="q">Would you rather&hellip; &iquest;Prefieres&hellip;</span>
+      <div class="opts"><span class="opt">Sleep in a tent <span class="oes">dormir en tienda</span></span><span class="vs">OR</span><span class="opt">Sleep in a treehouse <span class="oes">en casa del &aacute;rbol</span></span></div></li>
+    <li><span class="q">Would you rather&hellip; &iquest;Prefieres&hellip;</span>
+      <div class="opts"><span class="opt">Be a soaring eagle <span class="oes">ser un &aacute;guila</span></span><span class="vs">OR</span><span class="opt">Be a fast rabbit <span class="oes">ser un conejo veloz</span></span></div></li>
+    <li><span class="q">Would you rather&hellip; &iquest;Prefieres&hellip;</span>
+      <div class="opts"><span class="opt">Roast marshmallows <span class="oes">asar malvaviscos</span></span><span class="vs">OR</span><span class="opt">Catch fireflies <span class="oes">atrapar luci&eacute;rnagas</span></span></div></li>
+    <li><span class="q">Would you rather&hellip; &iquest;Prefieres&hellip;</span>
+      <div class="opts"><span class="opt">Hike a big mountain <span class="oes">subir una monta&ntilde;a</span></span><span class="vs">OR</span><span class="opt">Paddle a canoe <span class="oes">remar en canoa</span></span></div></li>
+    <li><span class="q">Would you rather&hellip; &iquest;Prefieres&hellip;</span>
+      <div class="opts"><span class="opt">See a deer <span class="oes">ver un venado</span></span><span class="vs">OR</span><span class="opt">See an owl <span class="oes">ver un b&uacute;ho</span></span></div></li>
+    <li><span class="q">Would you rather&hellip; &iquest;Prefieres&hellip;</span>
+      <div class="opts"><span class="opt">Splash in a creek <span class="oes">chapotear en el arroyo</span></span><span class="vs">OR</span><span class="opt">Climb some rocks <span class="oes">trepar rocas</span></span></div></li>
+  </ul>
+  <div class="foot">Kids' Outdoor Adventure Pack &middot; Paola Adventurer</div>
+</section>
+
+<!-- BUILD-IT CHALLENGES -->
+<section class="page">
+  <span class="kicker">Game 6 &middot; The Maker Challenge</span>
+  <h2>Build-It Challenges <span class="emoji">&#128296;</span></h2>
+  <div class="sub">Retos para construir: use only what you find! Color a star for each one you finish.</div>
+  <div class="build">
+    <div class="bld"><span class="bldic emoji">&#127968;</span><span class="blden">A tiny fairy house</span><span class="bldes">una casita de hadas</span><span class="stars">&#9734; &#9734; &#9734;</span></div>
+    <div class="bld"><span class="bldic emoji">&#129704;</span><span class="blden">A rock tower (how high?)</span><span class="bldes">una torre de rocas</span><span class="stars">&#9734; &#9734; &#9734;</span></div>
+    <div class="bld"><span class="bldic emoji">&#127807;</span><span class="blden">A picture made of leaves</span><span class="bldes">un dibujo con hojas</span><span class="stars">&#9734; &#9734; &#9734;</span></div>
+    <div class="bld"><span class="bldic emoji">&#9978;</span><span class="blden">A stick fort or teepee</span><span class="bldes">un fuerte de palos</span><span class="stars">&#9734; &#9734; &#9734;</span></div>
+    <div class="bld"><span class="bldic emoji">&#128758;</span><span class="blden">A boat that floats</span><span class="bldes">un barco que flote</span><span class="stars">&#9734; &#9734; &#9734;</span></div>
+    <div class="bld"><span class="bldic emoji">&#128512;</span><span class="blden">A funny face in the dirt</span><span class="bldes">una cara graciosa</span><span class="stars">&#9734; &#9734; &#9734;</span></div>
+  </div>
   <div class="foot">Kids' Outdoor Adventure Pack &middot; Paola Adventurer</div>
 </section>
 
 <!-- CERTIFICATE -->
 <section class="page" style="padding:0.5in;">
   <div class="cert">
-    <div class="eyebrow">Official Award &middot; Premio Oficial</div>
+    <span class="star emoji">&#11088;</span>
+    <div class="cap">Official Award &middot; Premio Oficial</div>
     <h1>Junior Adventurer</h1>
-    <div class="es" style="margin-top:-4px;">Aventurero Junior</div>
+    <div class="es" style="margin:0;">&iexcl;Aventurero Junior!</div>
     <div class="name"></div>
-    <div class="cap">This adventurer's name &middot; Nombre</div>
-    <p>For exploring the outdoors with courage and curiosity, and for keeping the trail safe and clean.<br>
-    <span style="font-style:italic;color:var(--terracota);">Por explorar con valent&iacute;a y curiosidad, y cuidar la naturaleza.</span></p>
-    <div style="margin-top:20px;font-family:Georgia,serif;font-size:16pt;color:var(--forest);font-weight:900;">&#8593; Paola Adventurer</div>
+    <div class="cap">Write your name here &middot; Escribe tu nombre</div>
+    <p>For exploring the outdoors with courage and curiosity, and keeping the trail safe and clean! <span class="emoji">&#127795;&#128293;&#127796;</span></p>
+    <div style="font-family:'Fredoka',sans-serif;font-size:16pt;color:var(--forest-deep);margin-top:10px;"><span class="emoji">&#127794;</span> Paola Adventurer</div>
     <div class="cap">paolaadventurer.com</div>
   </div>
 </section>
