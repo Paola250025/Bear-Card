@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Pinterest Pin 3</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Baloo+2:wght@600;700;800&family=Nunito:wght@700;800&display=swap');
+  :root{--forest:#2f6b45;--forest-deep:#22432f;--orange:#f28b2b;--coral:#ef6b56;--sun:#ffcf3f;--sky:#5ec4e6;--leaf:#8fc93a;--grape:#9b6bc9;--crema:#fffdf5;--paper:#fef6e4;--ink:#3a322a;}
+  *{margin:0;box-sizing:border-box;}
+  .pin{width:1000px;height:1500px;background:var(--forest-deep);position:relative;overflow:hidden;font-family:'Nunito',sans-serif;display:flex;flex-direction:column;align-items:center;}
+  .ribbon{width:100%;height:24px;background:repeating-linear-gradient(90deg,var(--coral) 0 60px,var(--sun) 60px 120px,var(--sky) 120px 180px,var(--leaf) 180px 240px,var(--grape) 240px 300px);}
+  .top{text-align:center;padding:60px 70px 0;}
+  .pill{display:inline-block;background:var(--sun);color:var(--forest-deep);font-family:'Fredoka';font-weight:700;font-size:24px;letter-spacing:2px;text-transform:uppercase;padding:12px 32px;border-radius:100px;}
+  .hook{font-family:'Fredoka';font-weight:700;color:#fff;font-size:88px;line-height:0.96;margin-top:26px;}
+  .hook .hl{color:var(--sun);}
+  .sub{font-family:'Baloo 2';font-weight:700;color:#eaf3e7;font-size:32px;margin-top:20px;}
+  .stage{position:relative;width:100%;height:560px;margin-top:26px;}
+  .stage img{position:absolute;border:8px solid #fff;border-radius:18px;box-shadow:0 20px 50px rgba(0,0,0,.45);}
+  .c1{width:400px;left:110px;top:40px;transform:rotate(-6deg);z-index:2;}
+  .c2{width:400px;right:110px;top:120px;transform:rotate(6deg);z-index:1;}
+  .bottom{margin-top:auto;width:100%;background:var(--crema);border-top-left-radius:44px;border-top-right-radius:44px;padding:44px 70px 44px;text-align:center;}
+  .title{font-family:'Fredoka';font-weight:700;color:var(--forest-deep);font-size:56px;line-height:1;}
+  .es{font-family:'Baloo 2';font-weight:700;color:var(--orange);font-size:30px;margin-top:8px;}
+  .feats{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin:24px 0 6px;}
+  .feats span{background:#fff;border:3px solid var(--forest);border-radius:100px;padding:12px 26px;font-family:'Baloo 2';font-weight:800;font-size:26px;color:var(--forest-deep);}
+  .price{font-family:'Fredoka';font-weight:700;color:var(--coral);font-size:50px;margin-top:22px;}
+  .price .was{color:#b9b0a0;text-decoration:line-through;font-size:30px;margin-left:10px;}
+  .site{font-family:'Fredoka';font-weight:600;color:var(--forest);font-size:28px;background:var(--sun);display:inline-block;padding:12px 34px;border-radius:100px;margin-top:16px;}
+  .emoji{font-family:'Noto Color Emoji';font-weight:400;}
+</style>
+</head>
+<body>
+<div class="pin">
+  <div class="ribbon"></div>
+  <div class="top">
+    <span class="pill">Camping With Kids</span>
+    <div class="hook">Print This<br><span class="hl">First. <span class="emoji">⛺</span></span></div>
+    <div class="sub">The boredom-buster every camping mom needs</div>
+  </div>
+  <div class="stage">
+    <img class="c1" src="scavenger.png" alt="">
+    <img class="c2" src="dares.png" alt="">
+  </div>
+  <div class="bottom">
+    <div class="title">Kids' Outdoor<br>Adventure Pack</div>
+    <div class="es">11 pages · 6 games · Bilingual</div>
+    <div class="feats">
+      <span><span class="emoji">🌲</span> Backyard</span>
+      <span><span class="emoji">⛺</span> Campsite</span>
+      <span><span class="emoji">🚗</span> Road trips</span>
+    </div>
+    <div class="price">Just $5 <span class="was">$12</span></div>
+    <div class="site">paolaadventurer.com</div>
+  </div>
+</div>
+</body>
+</html>

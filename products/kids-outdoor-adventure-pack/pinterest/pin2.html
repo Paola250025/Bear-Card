@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Pinterest Pin 2</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Baloo+2:wght@600;700;800&family=Nunito:wght@700;800&display=swap');
+  :root{--forest:#2f6b45;--forest-deep:#22432f;--orange:#f28b2b;--coral:#ef6b56;--sun:#ffcf3f;--sky:#5ec4e6;--leaf:#8fc93a;--grape:#9b6bc9;--crema:#fffdf5;--paper:#fef6e4;--ink:#3a322a;}
+  *{margin:0;box-sizing:border-box;}
+  .pin{width:1000px;height:1500px;background:var(--crema);position:relative;overflow:hidden;font-family:'Nunito',sans-serif;display:flex;flex-direction:column;align-items:center;}
+  .ribbon{width:100%;height:24px;background:repeating-linear-gradient(90deg,var(--coral) 0 60px,var(--sun) 60px 120px,var(--sky) 120px 180px,var(--leaf) 180px 240px,var(--grape) 240px 300px);}
+  .top{text-align:center;padding:56px 70px 0;}
+  .pill{display:inline-block;background:var(--coral);color:#fff;font-family:'Fredoka';font-weight:600;font-size:24px;letter-spacing:2px;text-transform:uppercase;padding:12px 32px;border-radius:100px;}
+  .hook{font-family:'Fredoka';font-weight:700;color:var(--forest-deep);font-size:82px;line-height:0.98;margin-top:26px;}
+  .hook .hl{color:var(--orange);}
+  .sub{font-family:'Baloo 2';font-weight:700;color:var(--ink);font-size:30px;margin-top:18px;}
+  .list{width:100%;padding:40px 90px 0;display:flex;flex-direction:column;gap:20px;}
+  .row{display:flex;align-items:center;gap:22px;background:#fff;border:3px solid var(--forest);border-radius:20px;padding:20px 26px;box-shadow:4px 5px 0 var(--forest);}
+  .row .ic{font-size:44px;}
+  .row .tx{font-family:'Baloo 2';font-weight:800;color:var(--forest-deep);font-size:34px;}
+  .r2{border-color:var(--orange);box-shadow:4px 5px 0 var(--orange);}
+  .r3{border-color:var(--sky);box-shadow:4px 5px 0 var(--sky);}
+  .r4{border-color:var(--grape);box-shadow:4px 5px 0 var(--grape);}
+  .r5{border-color:var(--coral);box-shadow:4px 5px 0 var(--coral);}
+  .r6{border-color:var(--leaf);box-shadow:4px 5px 0 var(--leaf);}
+  .bottom{margin-top:auto;width:100%;background:var(--forest);padding:34px 70px 40px;text-align:center;}
+  .title{font-family:'Fredoka';font-weight:700;color:#fff;font-size:46px;line-height:1;}
+  .price{font-family:'Fredoka';font-weight:700;color:var(--sun);font-size:44px;margin-top:12px;}
+  .price .was{color:#cdd9c9;text-decoration:line-through;font-size:28px;margin-left:10px;}
+  .site{font-family:'Fredoka';font-weight:600;color:var(--forest);font-size:28px;background:var(--sun);display:inline-block;padding:12px 34px;border-radius:100px;margin-top:16px;}
+  .emoji{font-family:'Noto Color Emoji';font-weight:400;}
+</style>
+</head>
+<body>
+<div class="pin">
+  <div class="ribbon"></div>
+  <div class="top">
+    <span class="pill">Screen-Free Fun</span>
+    <div class="hook">6 Games Kids<br><span class="hl">Actually Play</span></div>
+    <div class="sub">Printable outdoor activity pack · Ages 4 to 10</div>
+  </div>
+  <div class="list">
+    <div class="row"><span class="ic emoji">🔍</span><span class="tx">Nature Scavenger Hunt</span></div>
+    <div class="row r2"><span class="ic emoji">🎯</span><span class="tx">Adventure Bingo</span></div>
+    <div class="row r3"><span class="ic emoji">🃏</span><span class="tx">Outdoor Dare Cards</span></div>
+    <div class="row r4"><span class="ic emoji">🤔</span><span class="tx">Would You Rather?</span></div>
+    <div class="row r5"><span class="ic emoji">🔨</span><span class="tx">Build-It Challenges</span></div>
+    <div class="row r6"><span class="ic emoji">⭐</span><span class="tx">"You Did It!" Award</span></div>
+  </div>
+  <div class="bottom">
+    <div class="title">Kids' Outdoor Adventure Pack</div>
+    <div class="price">Just $5 <span class="was">$12</span></div>
+    <div class="site">paolaadventurer.com</div>
+  </div>
+</div>
+</body>
+</html>
