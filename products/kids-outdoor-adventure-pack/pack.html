@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Kids' Outdoor Adventure Pack · Paola Adventurer</title>
+<style>
+  :root{
+    --forest:#22432f;
+    --terracota:#b5562f;
+    --crema:#faf7f0;
+    --khaki:#d8c9a3;
+    --cafe:#3a322a;
+    --line:#b9a97e;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;background:#e9e4d6;color:var(--cafe);
+    font-family:"Helvetica Neue",Arial,sans-serif;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+
+  .page{
+    width:8.5in;height:11in;background:var(--crema);margin:0 auto;position:relative;
+    padding:0.7in 0.75in;overflow:hidden;page-break-after:always;
+    border:0.18in solid var(--forest);
+  }
+  .page:last-child{page-break-after:auto;}
+
+  .eyebrow{font-size:11pt;letter-spacing:3px;text-transform:uppercase;color:var(--terracota);
+    font-weight:700;text-align:center;margin:0 0 6px;}
+  h1{font-family:Georgia,"Times New Roman",serif;color:var(--forest);text-align:center;
+    font-size:34pt;line-height:1.05;margin:0 0 4px;font-weight:900;}
+  .es{font-family:Georgia,serif;font-style:italic;color:var(--terracota);text-align:center;
+    font-size:15pt;margin:0 0 18px;}
+  h2{font-family:Georgia,serif;color:var(--forest);font-size:22pt;margin:0 0 2px;}
+  .sub{font-style:italic;color:var(--terracota);font-size:12.5pt;margin:0 0 16px;}
+
+  .rule{height:3px;background:var(--terracota);width:70px;margin:10px auto 20px;border-radius:2px;}
+
+  .badge{width:2.3in;height:2.3in;border-radius:50%;background:var(--forest);color:var(--crema);
+    margin:12px auto 18px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    border:6px solid var(--khaki);text-align:center;}
+  .badge .arrow{font-size:34pt;line-height:1;}
+  .badge .b1{font-family:Georgia,serif;font-weight:900;font-size:15pt;letter-spacing:2px;margin-top:4px;}
+  .badge .b2{font-size:8.5pt;letter-spacing:3px;text-transform:uppercase;color:var(--khaki);margin-top:6px;}
+
+  ul.check{list-style:none;padding:0;margin:0;}
+  ul.check li{display:flex;align-items:center;gap:12px;padding:10px 4px;border-bottom:1.5px dashed var(--line);
+    font-size:13.5pt;}
+  ul.check li:last-child{border-bottom:none;}
+  .box{width:26px;height:26px;min-width:26px;border:2.5px solid var(--forest);border-radius:6px;}
+  .en{font-weight:600;}
+  .lil{color:var(--terracota);font-style:italic;font-size:11.5pt;margin-left:6px;}
+
+  .grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border:3px solid var(--forest);border-radius:10px;overflow:hidden;margin-top:8px;}
+  .cell{border:1px solid var(--khaki);min-height:1.55in;padding:10px;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;text-align:center;font-size:11.5pt;font-weight:600;color:var(--forest);}
+  .cell .ces{font-weight:400;font-style:italic;color:var(--terracota);font-size:9.5pt;margin-top:4px;}
+  .cell.free{background:var(--khaki);color:var(--forest);}
+
+  .rules-num{list-style:none;padding:0;margin:0;counter-reset:r;}
+  .rules-num li{counter-increment:r;position:relative;padding:14px 14px 14px 62px;margin-bottom:12px;
+    background:#fff;border:2px solid var(--khaki);border-radius:12px;font-size:13pt;}
+  .rules-num li::before{content:counter(r);position:absolute;left:14px;top:50%;transform:translateY(-50%);
+    width:34px;height:34px;background:var(--terracota);color:#fff;border-radius:50%;display:flex;
+    align-items:center;justify-content:center;font-weight:900;font-family:Georgia,serif;font-size:15pt;}
+  .rules-num li .rce{display:block;font-style:italic;color:var(--terracota);font-size:11pt;margin-top:3px;}
+
+  .draw{border:2.5px dashed var(--forest);border-radius:12px;height:3.7in;margin:10px 0 6px;
+    display:flex;align-items:flex-start;justify-content:flex-start;padding:10px;color:#cbb98a;font-style:italic;font-size:11pt;}
+  .lines{margin-top:6px;}
+  .lines .ln{border-bottom:1.8px solid var(--line);height:0.42in;}
+
+  .prompt{font-size:13pt;font-weight:600;color:var(--forest);margin:4px 0;}
+  .prompt .pes{font-weight:400;font-style:italic;color:var(--terracota);}
+
+  .cert{border:8px double var(--terracota);border-radius:16px;height:100%;padding:0.5in;text-align:center;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;}
+  .cert h1{font-size:40pt;margin-bottom:8px;}
+  .cert .name{border-bottom:3px solid var(--forest);width:75%;height:0.9in;margin:22px auto 6px;}
+  .cert .cap{font-size:11pt;letter-spacing:2px;text-transform:uppercase;color:var(--terracota);}
+  .cert p{font-size:13pt;max-width:5.3in;margin:16px auto;}
+
+  .foot{position:absolute;bottom:0.32in;left:0;right:0;text-align:center;font-size:9pt;
+    letter-spacing:2px;text-transform:uppercase;color:var(--line);}
+
+  .note{background:var(--forest);color:var(--crema);border-radius:12px;padding:18px 20px;font-size:12pt;line-height:1.5;}
+  .note b{color:var(--khaki);}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  p.lead{font-size:13pt;line-height:1.55;}
+  .safety{border:2px solid var(--terracota);border-radius:10px;padding:14px 16px;font-size:11pt;color:var(--cafe);margin-top:14px;}
+  .safety b{color:var(--terracota);}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<section class="page" style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;">
+  <div class="eyebrow">Paola Adventurer · Archery · Camping · Explore</div>
+  <div class="badge">
+    <div class="arrow">&#8593;</div>
+    <div class="b1">JUNIOR<br>ADVENTURER</div>
+    <div class="b2">Outdoor Kit</div>
+  </div>
+  <h1>Kids' Outdoor<br>Adventure Pack</h1>
+  <div class="es">El Pack de Aventura al Aire Libre para Ni&ntilde;os</div>
+  <div class="rule"></div>
+  <p class="lead" style="max-width:5.5in;">Scavenger hunts, camp safety, nature journaling, bingo &amp; a real award &mdash; everything you need for screen-free outdoor fun.</p>
+  <p class="es" style="font-size:12pt;max-width:5.2in;">B&uacute;squedas del tesoro, reglas de seguridad, diario de la naturaleza, bingo y un premio de verdad.</p>
+  <div class="foot">paolaadventurer.com &nbsp;&middot;&nbsp; Print at home &middot; Imprime en casa</div>
+</section>
+
+<!-- PARENT / HOW TO USE -->
+<section class="page">
+  <div class="eyebrow">Start Here</div>
+  <h2>Hey, fellow adventure parent</h2>
+  <div class="sub">Para ti, mam&aacute; o pap&aacute; aventurero</div>
+  <p class="lead">I made this so getting the kids outside feels easy &mdash; no planning, no screens, no "I'm bored." Print the pages you want, grab a pencil and a clipboard, and let them explore. Every activity works in a backyard, a park, or a campsite.</p>
+  <p class="lead" style="color:var(--terracota);font-style:italic;">Lo hice para que sacar a los ni&ntilde;os al aire libre sea f&aacute;cil &mdash; sin pantallas y sin aburrimiento. Imprime las p&aacute;ginas que quieras y deja que exploren.</p>
+  <div class="note">
+    <b>How to use it &middot; C&oacute;mo usarlo</b><br>
+    1. Print the pages you like (print more than one so siblings each get their own).<br>
+    2. Clip them to a clipboard or fold into a pocket.<br>
+    3. Hand over a pencil and go. Award the certificate at the end!
+  </div>
+  <div class="safety">
+    <b>Safety first &middot; Seguridad primero:</b> Kids should always stay where a grown-up can see them, never taste or touch unknown plants, mushrooms or animals, and wash hands after exploring. In bear country, keep food packed away and stay close together. Adult supervision required at all times.
+    <br><span style="font-style:italic;">Los ni&ntilde;os deben permanecer siempre a la vista de un adulto y nunca tocar ni probar plantas, hongos o animales desconocidos. Se requiere supervisi&oacute;n de un adulto en todo momento.</span>
+  </div>
+  <div class="foot">Kids' Outdoor Adventure Pack &middot; Paola Adventurer</div>
+</section>
+
+<!-- SCAVENGER HUNT -->
+<section class="page">
+  <div class="eyebrow">Activity 1</div>
+  <h2>Nature Scavenger Hunt</h2>
+  <div class="sub">B&uacute;squeda del tesoro en la naturaleza &mdash; check each one you find!</div>
+  <ul class="check">
+    <li><span class="box"></span><span class="en">Something smooth</span><span class="lil">algo liso</span></li>
+    <li><span class="box"></span><span class="en">A feather</span><span class="lil">una pluma</span></li>
+    <li><span class="box"></span><span class="en">Something yellow</span><span class="lil">algo amarillo</span></li>
+    <li><span class="box"></span><span class="en">A funny-shaped rock</span><span class="lil">una roca curiosa</span></li>
+    <li><span class="box"></span><span class="en">An animal track</span><span class="lil">una huella de animal</span></li>
+    <li><span class="box"></span><span class="en">A pinecone</span><span class="lil">una pi&ntilde;a</span></li>
+    <li><span class="box"></span><span class="en">Something that makes noise</span><span class="lil">algo que hace ruido</span></li>
+    <li><span class="box"></span><span class="en">A leaf bigger than your hand</span><span class="lil">una hoja m&aacute;s grande que tu mano</span></li>
+    <li><span class="box"></span><span class="en">A bug (look, don't touch!)</span><span class="lil">un insecto (&iexcl;solo mira!)</span></li>
+    <li><span class="box"></span><span class="en">Something that smells nice</span><span class="lil">algo que huele rico</span></li>
+  </ul>
+  <div class="foot">Kids' Outdoor Adventure Pack &middot; Paola Adventurer</div>
+</section>
+
+<!-- ADVENTURE BINGO -->
+<section class="page">
+  <div class="eyebrow">Activity 2</div>
+  <h2>Adventure Bingo</h2>
+  <div class="sub">Bingo de aventura &mdash; cross a line to win! &iexcl;Completa una l&iacute;nea para ganar!</div>
+  <div class="grid">
+    <div class="cell">See a bird<div class="ces">ver un p&aacute;jaro</div></div>
+    <div class="cell">Hug a tree<div class="ces">abrazar un &aacute;rbol</div></div>
+    <div class="cell">Find a stick shaped like a Y<div class="ces">un palo en forma de Y</div></div>
+    <div class="cell">Hear the wind<div class="ces">o&iacute;r el viento</div></div>
+    <div class="cell free">FREE<div class="ces">gratis</div></div>
+    <div class="cell">Spot a cloud animal<div class="ces">un animal en las nubes</div></div>
+    <div class="cell">Jump over something<div class="ces">saltar algo</div></div>
+    <div class="cell">Find something red<div class="ces">algo rojo</div></div>
+    <div class="cell">Balance on a log<div class="ces">equilibrio en un tronco</div></div>
+    <div class="cell">Smell a flower<div class="ces">oler una flor</div></div>
+    <div class="cell">Count 5 rocks<div class="ces">contar 5 rocas</div></div>
+    <div class="cell">Make a leaf pile<div class="ces">montar hojas</div></div>
+    <div class="cell">Find a heart shape<div class="ces">forma de coraz&oacute;n</div></div>
+    <div class="cell">Wave to a hiker<div class="ces">saludar a alguien</div></div>
+    <div class="cell">Draw in the dirt<div class="ces">dibujar en la tierra</div></div>
+  </div>
+  <div class="foot">Kids' Outdoor Adventure Pack &middot; Paola Adventurer</div>
+</section>
+
+<!-- CAMP SAFETY RULES FOR KIDS -->
+<section class="page">
+  <div class="eyebrow">Activity 3</div>
+  <h2>My Campsite Safety Rules</h2>
+  <div class="sub">Mis reglas de seguridad &mdash; read them out loud, then be the safety captain!</div>
+  <ul class="rules-num">
+    <li>Stay where a grown-up can see me.<span class="rce">Me quedo donde un adulto me vea.</span></li>
+    <li>Food stays packed away &mdash; never in the tent.<span class="rce">La comida siempre guardada, nunca en la tienda.</span></li>
+    <li>If I see a big animal, I stay calm, don't run, and walk back slowly to a grown-up.<span class="rce">Si veo un animal grande, me quedo tranquilo y regreso despacio con un adulto.</span></li>
+    <li>I never touch or taste plants, berries or mushrooms.<span class="rce">Nunca toco ni pruebo plantas ni hongos.</span></li>
+    <li>I stay on the trail and wear my shoes.<span class="rce">Me quedo en el sendero y uso mis zapatos.</span></li>
+    <li>I wash my hands before I eat.<span class="rce">Me lavo las manos antes de comer.</span></li>
+  </ul>
+  <div class="foot">Kids' Outdoor Adventure Pack &middot; Paola Adventurer</div>
+</section>
+
+<!-- NATURE JOURNAL -->
+<section class="page">
+  <div class="eyebrow">Activity 4</div>
+  <h2>My Nature Journal</h2>
+  <div class="sub">Mi diario de la naturaleza &mdash; draw the coolest thing you saw today</div>
+  <div class="draw">Draw here &middot; Dibuja aqu&iacute;</div>
+  <p class="prompt">The best part of today was&hellip; <span class="pes">Lo mejor de hoy fue&hellip;</span></p>
+  <div class="lines">
+    <div class="ln"></div><div class="ln"></div><div class="ln"></div>
+  </div>
+  <p class="prompt" style="margin-top:14px;">A sound I heard: <span class="pes">Un sonido que escuch&eacute;:</span></p>
+  <div class="lines"><div class="ln"></div></div>
+  <div class="foot">Kids' Outdoor Adventure Pack &middot; Paola Adventurer</div>
+</section>
+
+<!-- I SPY / COUNT -->
+<section class="page">
+  <div class="eyebrow">Activity 5</div>
+  <h2>Explorer's Eye-Spy</h2>
+  <div class="sub">Cuenta y observa &mdash; tally how many you spot!</div>
+  <ul class="check">
+    <li><span class="en">Birds &middot; P&aacute;jaros</span><span class="lil" style="margin-left:auto;">Tally / Cuenta: __________________</span></li>
+    <li><span class="en">Squirrels &middot; Ardillas</span><span class="lil" style="margin-left:auto;">Tally / Cuenta: __________________</span></li>
+    <li><span class="en">Different flowers &middot; Flores distintas</span><span class="lil" style="margin-left:auto;">Tally / Cuenta: __________________</span></li>
+    <li><span class="en">Bugs &middot; Insectos</span><span class="lil" style="margin-left:auto;">Tally / Cuenta: __________________</span></li>
+    <li><span class="en">Colors of leaves &middot; Colores de hojas</span><span class="lil" style="margin-left:auto;">Tally / Cuenta: __________________</span></li>
+    <li><span class="en">Airplanes or clouds &middot; Aviones o nubes</span><span class="lil" style="margin-left:auto;">Tally / Cuenta: __________________</span></li>
+  </ul>
+  <p class="prompt" style="margin-top:18px;">My grand total of living things: <span class="pes">Mi total de seres vivos:</span> ____________</p>
+  <div class="foot">Kids' Outdoor Adventure Pack &middot; Paola Adventurer</div>
+</section>
+
+<!-- CERTIFICATE -->
+<section class="page" style="padding:0.5in;">
+  <div class="cert">
+    <div class="eyebrow">Official Award &middot; Premio Oficial</div>
+    <h1>Junior Adventurer</h1>
+    <div class="es" style="margin-top:-4px;">Aventurero Junior</div>
+    <div class="name"></div>
+    <div class="cap">This adventurer's name &middot; Nombre</div>
+    <p>For exploring the outdoors with courage and curiosity, and for keeping the trail safe and clean.<br>
+    <span style="font-style:italic;color:var(--terracota);">Por explorar con valent&iacute;a y curiosidad, y cuidar la naturaleza.</span></p>
+    <div style="margin-top:20px;font-family:Georgia,serif;font-size:16pt;color:var(--forest);font-weight:900;">&#8593; Paola Adventurer</div>
+    <div class="cap">paolaadventurer.com</div>
+  </div>
+</section>
+
+</body>
+</html>
