@@ -1,7 +1,7 @@
 {
-  "name": "Bear Country Cheat Sheet",
-  "short_name": "Bear Cheat Sheet",
-  "description": "A friendly, bilingual bear-safety cheat sheet for camping families.",
+  "name": "Paola Adventurer",
+  "short_name": "Paola Adventurer",
+  "description": "Camping, outdoors & printables for families. Free bear-safety guide, kids' activities, and a family camping planner.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",

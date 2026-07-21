@@ -1,7 +1,8 @@
-const CACHE_NAME = 'bear-card-v2';
+const CACHE_NAME = 'bear-card-v3';
 const CORE_ASSETS = [
   './',
   './index.html',
+  './bear.html',
   './manifest.json',
   './apple-touch-icon.png',
   './assets/logo-badge-transparent.png',
