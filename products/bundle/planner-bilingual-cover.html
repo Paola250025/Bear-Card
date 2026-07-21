@@ -1,0 +1,43 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><style>
+@import url('https://fonts.googleapis.com/css2?family=Bitter:wght@800;900&family=Nunito:wght@700;800&display=swap');
+:root{--forest:#2f6b45;--forest-deep:#22432f;--terra:#b5562f;--khaki:#d8c9a3;--sun:#e8b93f;--cream:#fffdf5;}
+*{margin:0;box-sizing:border-box;}
+.card{width:1200px;height:1200px;background:var(--forest-deep);position:relative;overflow:hidden;font-family:'Nunito',sans-serif;display:flex;flex-direction:column;align-items:center;}
+.ribbon{width:100%;height:24px;background:repeating-linear-gradient(90deg,var(--terra) 0 70px,var(--sun) 70px 140px,var(--khaki) 140px 210px,var(--forest) 210px 280px);}
+.top{text-align:center;padding:54px 60px 0;}
+.badge{display:inline-block;background:var(--sun);color:var(--forest-deep);font-family:'Bitter',serif;font-weight:900;font-size:24px;letter-spacing:1px;text-transform:uppercase;padding:12px 32px;border-radius:100px;}
+h1{font-family:'Bitter',serif;font-weight:900;color:#fff;font-size:66px;line-height:1;margin:20px 0 6px;}
+.sub{font-family:'Nunito';font-weight:800;color:var(--khaki);font-size:30px;}
+.stage{position:relative;flex:1;width:100%;}
+.stage img{position:absolute;width:400px;border:9px solid #fff;border-radius:14px;box-shadow:0 24px 60px rgba(0,0,0,.5);top:60px;}
+.left{left:120px;transform:rotate(-7deg);z-index:1;}
+.right{right:120px;transform:rotate(7deg);z-index:2;}
+.langtag{position:absolute;top:20px;padding:8px 18px;border-radius:100px;font-family:'Bitter',serif;font-weight:900;font-size:22px;color:#fff;z-index:3;}
+.tag-en{left:175px;background:var(--terra);transform:rotate(-7deg);}
+.tag-es{right:175px;background:var(--forest);transform:rotate(7deg);}
+.bottom{width:100%;background:var(--cream);padding:30px 60px 38px;text-align:center;}
+.price{font-family:'Bitter',serif;font-weight:900;color:var(--terra);font-size:52px;}
+.price .was{color:#b9b0a0;text-decoration:line-through;font-size:30px;margin-left:10px;}
+.langs{font-family:'Nunito';font-weight:800;color:var(--forest);font-size:26px;margin-top:6px;}
+.site{font-family:'Bitter',serif;font-weight:800;color:var(--forest);font-size:24px;margin-top:12px;background:var(--sun);display:inline-block;padding:10px 30px;border-radius:100px;}
+</style></head><body>
+<div class="card">
+  <div class="ribbon"></div>
+  <div class="top">
+    <span class="badge">2 versions included</span>
+    <h1>Family Camping Planner</h1>
+    <div class="sub">English &amp; Español &middot; 17 pages</div>
+  </div>
+  <div class="stage">
+    <div class="langtag tag-en">ENGLISH</div>
+    <img class="left" src="planner-cover.png" alt="">
+    <div class="langtag tag-es">ESPAÑOL</div>
+    <img class="right" src="planner-cover-ES.png" alt="">
+  </div>
+  <div class="bottom">
+    <div class="price">$7 <span class="was">$17</span></div>
+    <div class="langs">Both languages &middot; Print at home</div>
+    <div class="site">paolaadventurer.com</div>
+  </div>
+</div>
+</body></html>
