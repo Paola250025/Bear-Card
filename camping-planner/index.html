@@ -206,7 +206,7 @@
 <script>
   /* STEP 1 — paste your Payhip product link between the quotes.
      STEP 2 — save. Until then, buttons show a friendly "coming soon" note. */
-  var CHECKOUT_URL = "";
+  var CHECKOUT_URL = "https://payhip.com/b/cYHMy";
   document.querySelectorAll('[data-buy]').forEach(function(a){
     if (CHECKOUT_URL){ a.href = CHECKOUT_URL; a.target = "_blank"; a.rel = "noopener"; }
     else { a.addEventListener('click', function(e){ e.preventDefault(); alert("Checkout link coming soon — paste your Payhip link into CHECKOUT_URL to go live."); }); }
