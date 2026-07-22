@@ -130,6 +130,22 @@ moms in, then point them to the paid products.
 
 ---
 
+## Next session (tomorrow) — TO DO
+
+1. **Build a blog** for the site (Paola's request). Ideas: a `/blog/` section
+   with articles that double as SEO + Pinterest content (e.g. "Camping with
+   kids for the first time", "How to teach kids Leave No Trace", "What to pack
+   for a family camping trip"). Each article links to the matching product.
+   Decide: simple static HTML articles vs. a template. Bilingual EN/ES.
+2. **SEO** (see below) — pairs naturally with the blog.
+3. Optional: regenerate the Leave It Better preview cover so it says "with
+   kids" (small consistency fix).
+
+To resume: *"Read docs/PAOLA-STATUS.md and let's build the blog for Paola
+Adventurer."*
+
+---
+
 ## SEO — pending (do tomorrow)
 
 The sales pages already have good titles, meta descriptions, and Open Graph
