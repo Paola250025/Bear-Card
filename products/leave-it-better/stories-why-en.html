@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,700;0,800;0,900;1,700;1,800&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{--forest:#22432f;--forest2:#2f6b45;--terra:#b5562f;--khaki:#d8c9a3;--sun:#e8b93f;--cream:#faf7f0;--ink:#3a322a;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Nunito',sans-serif;}
+  .story{width:1080px;height:1920px;position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;padding:150px 90px 260px;text-align:center;}
+  .brand{position:absolute;top:70px;left:0;right:0;text-align:center;font-family:'Nunito';font-weight:800;letter-spacing:5px;text-transform:uppercase;font-size:26px;}
+  .swipe{position:absolute;bottom:120px;left:0;right:0;text-align:center;font-weight:800;font-size:30px;}
+  .tag{font-weight:800;font-size:40px;padding:20px 40px;border-radius:100px;display:inline-block;margin-top:44px;}
+
+  /* S1 hook */
+  .s1{background:radial-gradient(circle at 50% 32%,#2f6b45,#22432f 68%);color:var(--cream);justify-content:center;}
+  .s1 .brand{color:var(--khaki);}
+  .s1 .em{font-size:140px;margin-bottom:34px;}
+  .s1 h1{font-family:'Bitter',serif;font-weight:900;color:#fff;font-size:88px;line-height:1.1;}
+  .s1 .hi{color:var(--sun);}
+  .s1 .tag{background:var(--sun);color:var(--forest);}
+  .s1 .swipe{color:var(--sun);}
+
+  /* S2 why */
+  .s2{background:var(--cream);color:var(--ink);justify-content:center;}
+  .s2 .brand{color:var(--terra);}
+  .s2 h1{font-family:'Bitter',serif;font-weight:900;color:var(--forest);font-size:76px;line-height:1.15;margin-bottom:36px;}
+  .s2 .small{font-weight:700;color:var(--ink);font-size:44px;line-height:1.4;}
+  .s2 .big{font-family:'Bitter';font-weight:900;color:var(--terra);font-size:120px;margin:30px 0 10px;}
+  .s2 .cap{font-weight:800;color:var(--forest2);font-size:40px;}
+
+  /* S3 turn */
+  .s3{background:var(--forest);color:var(--cream);justify-content:center;}
+  .s3 .brand{color:var(--khaki);}
+  .s3 .em{font-size:120px;margin-bottom:30px;}
+  .s3 h1{font-family:'Bitter',serif;font-weight:900;color:#fff;font-size:80px;line-height:1.12;margin-bottom:30px;}
+  .s3 .small{font-weight:700;color:#eaf3e7;font-size:46px;line-height:1.35;}
+  .s3 .hi{color:var(--sun);}
+
+  /* S4 CTA */
+  .s4{background:radial-gradient(circle at 50% 30%,#2f6b45,#22432f 68%);color:var(--cream);justify-content:center;}
+  .s4 .brand{color:var(--khaki);}
+  .s4 .badge{width:210px;height:210px;border-radius:50%;border:9px solid var(--sun);background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;font-size:110px;margin-bottom:30px;}
+  .s4 h1{font-family:'Bitter',serif;font-weight:900;color:#fff;font-size:82px;line-height:1.08;margin-bottom:24px;}
+  .s4 .price{display:flex;align-items:baseline;gap:22px;justify-content:center;margin-bottom:16px;}
+  .s4 .now{font-family:'Bitter';font-weight:900;font-size:110px;color:var(--sun);}
+  .s4 .was{font-size:50px;color:#cdd9c9;text-decoration:line-through;}
+  .s4 .tags{font-weight:800;font-size:36px;color:#eaf3e7;}
+  .s4 .cta{background:var(--sun);color:var(--forest);font-weight:900;font-size:44px;padding:28px 56px;border-radius:100px;margin-top:40px;display:inline-block;}
+</style>
+</head>
+<body>
+
+<!-- S1 HOOK -->
+<div class="story s1" id="s1">
+  <div class="brand">Paola Adventurer</div>
+  <div class="em">🌲</div>
+  <h1>What your kids see<br>you do at camp…<br><span class="hi">they'll do for life.</span></h1>
+  <div class="tag">Nobody is born knowing this</div>
+  <div class="swipe">Swipe 👉</div>
+</div>
+
+<!-- S2 WHY -->
+<div class="story s2" id="s2">
+  <div class="brand">Paola Adventurer</div>
+  <h1>Nature doesn't<br>clean itself.</h1>
+  <div class="big">20+</div>
+  <div class="cap">years for ONE wrapper to disappear 🌎</div>
+  <div class="small" style="margin-top:36px;">Animals eat it and get sick. The next family deserves to find it beautiful too.</div>
+</div>
+
+<!-- S3 TURN -->
+<div class="story s3" id="s3">
+  <div class="brand">Paola Adventurer</div>
+  <div class="em">💚</div>
+  <h1>But kids don't learn<br>from nagging.</h1>
+  <div class="small">They learn by <span class="hi">playing</span>. Make it a game… and the habit sticks for life.</div>
+</div>
+
+<!-- S4 CTA -->
+<div class="story s4" id="s4">
+  <div class="brand">Paola Adventurer</div>
+  <div class="badge">🌲</div>
+  <h1>Turn them into<br>Junior Rangers</h1>
+  <div class="price"><span class="now">$9</span><span class="was">$24</span></div>
+  <div class="tags">Printable · English + Español · Ages 4-10</div>
+  <div class="cta">Tap the link 👇</div>
+</div>
+
+</body>
+</html>
