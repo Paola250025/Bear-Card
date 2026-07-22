@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Leave It Better — Family Camping Kindness & Clean-Up Kit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,700;0,800;0,900;1,700&family=Nunito:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{--forest:#22432f;--forest2:#2f6b45;--terra:#b5562f;--khaki:#d8c9a3;--sun:#e8b93f;--cream:#faf7f0;--paper:#fffdf7;--ink:#3a322a;--muted:#7c7361;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Nunito',sans-serif;color:var(--ink);background:#ccc;}
+  .page{width:8.5in;height:11in;background:var(--paper);margin:0 auto;padding:0.7in 0.75in;position:relative;overflow:hidden;page-break-after:always;display:flex;flex-direction:column;}
+  h1,h2,h3{font-family:'Bitter',serif;color:var(--forest);line-height:1.1;}
+  p{line-height:1.5;font-weight:600;}
+  .tag{display:inline-block;font-family:'Nunito';font-weight:800;letter-spacing:2px;text-transform:uppercase;font-size:11px;color:var(--terra);}
+  .kicker{font-family:'Nunito';font-weight:800;letter-spacing:2px;text-transform:uppercase;font-size:12px;color:var(--terra);margin-bottom:8px;}
+  .foot{position:absolute;bottom:0.4in;left:0.75in;right:0.75in;display:flex;justify-content:space-between;font-family:'Nunito';font-weight:700;font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;}
+
+  /* COVER */
+  .cover{background:var(--forest);color:var(--cream);align-items:center;justify-content:center;text-align:center;}
+  .cover .badge{width:2.1in;height:2.1in;border-radius:50%;border:6px solid var(--sun);display:flex;align-items:center;justify-content:center;flex-direction:column;margin-bottom:26px;background:rgba(255,255,255,.05);}
+  .cover .badge .em{font-size:74px;line-height:1;}
+  .cover h1{color:#fff;font-size:62px;letter-spacing:-1px;}
+  .cover .sub{font-family:'Bitter';font-style:italic;color:var(--sun);font-size:25px;margin:10px 0 4px;}
+  .cover .desc{font-weight:700;color:#e7efe3;font-size:17px;max-width:5in;margin:16px auto 0;}
+  .cover .pill{margin-top:26px;display:inline-block;background:var(--sun);color:var(--forest);font-weight:900;padding:9px 22px;border-radius:100px;font-size:14px;letter-spacing:1px;text-transform:uppercase;}
+  .cover .site{position:absolute;bottom:0.55in;left:0;right:0;text-align:center;font-family:'Nunito';font-weight:800;letter-spacing:3px;text-transform:uppercase;font-size:12px;color:var(--khaki);}
+
+  h2.big{font-size:34px;margin-bottom:6px;}
+  .lede{color:var(--muted);font-size:15.5px;margin-bottom:18px;}
+  .rule{background:#fff;border:2px solid var(--khaki);border-radius:14px;padding:15px 18px;margin-bottom:12px;display:flex;gap:14px;align-items:flex-start;box-shadow:0 3px 8px rgba(0,0,0,.04);}
+  .rule .ic{font-size:30px;line-height:1;flex:0 0 auto;}
+  .rule h3{font-size:17px;margin-bottom:3px;}
+  .rule p{font-size:13.5px;color:var(--muted);font-weight:600;}
+  .band{background:var(--forest2);color:#fff;border-radius:14px;padding:16px 20px;margin-top:auto;}
+  .band p{font-weight:700;font-size:14px;}
+  .band strong{color:var(--sun);}
+
+  .lnt{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .lnt .item{background:#fff;border:2px solid var(--khaki);border-radius:14px;padding:14px 16px;}
+  .lnt .num{font-family:'Bitter';font-weight:900;color:var(--terra);font-size:22px;}
+  .lnt h3{font-size:15px;margin:2px 0 4px;}
+  .lnt p{font-size:12.5px;color:var(--muted);font-weight:600;line-height:1.4;}
+
+  .badges{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px;}
+  .bcard{background:#fff;border:2px dashed var(--forest2);border-radius:16px;padding:14px;display:flex;gap:12px;align-items:center;}
+  .bcard .circle{width:0.9in;height:0.9in;border-radius:50%;background:var(--sun);display:flex;align-items:center;justify-content:center;font-size:34px;flex:0 0 auto;border:3px solid var(--forest);}
+  .bcard h3{font-size:15px;}
+  .bcard p{font-size:12px;color:var(--muted);font-weight:600;}
+  .bcard .stamp{width:0.5in;height:0.5in;border:2px solid var(--khaki);border-radius:50%;margin-left:auto;flex:0 0 auto;}
+
+  .hunt{background:#fff;border:2px solid var(--khaki);border-radius:14px;padding:6px 18px;}
+  .hunt li{list-style:none;display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px dashed var(--khaki);font-weight:700;font-size:14px;}
+  .hunt li:last-child{border-bottom:none;}
+  .box{width:24px;height:24px;border:2px solid var(--forest2);border-radius:6px;flex:0 0 auto;}
+
+  table.bingo{width:100%;border-collapse:collapse;margin-top:8px;}
+  table.bingo td{border:2px solid var(--forest2);border-radius:8px;height:1.35in;width:20%;text-align:center;vertical-align:middle;padding:6px;font-weight:800;font-size:11.5px;color:var(--ink);}
+  table.bingo td .e{font-size:26px;display:block;margin-bottom:4px;}
+  td.free{background:var(--sun);color:var(--forest);}
+
+  .scen{background:#fff;border:2px solid var(--khaki);border-radius:14px;padding:14px 16px;margin-bottom:11px;}
+  .scen .q{font-weight:800;font-size:14px;color:var(--forest);}
+  .scen .a{font-size:12.5px;color:var(--muted);font-weight:600;margin-top:4px;}
+
+  .voice{display:flex;flex-direction:column;gap:8px;margin-top:8px;}
+  .vlevel{display:flex;align-items:center;gap:12px;background:#fff;border:2px solid var(--khaki);border-radius:12px;padding:10px 14px;}
+  .vlevel .n{font-family:'Bitter';font-weight:900;font-size:24px;width:34px;text-align:center;}
+  .vlevel h3{font-size:15px;}
+  .vlevel p{font-size:12.5px;color:var(--muted);font-weight:600;}
+
+  .check{background:#fff;border:2px solid var(--khaki);border-radius:14px;padding:6px 18px;}
+  .check li{list-style:none;display:flex;align-items:center;gap:12px;padding:8px 0;border-bottom:1px dashed var(--khaki);font-weight:700;font-size:13.5px;}
+  .check li:last-child{border-bottom:none;}
+
+  .pledge{border:3px solid var(--forest);border-radius:18px;padding:24px;text-align:center;background:#fff;}
+  .pledge p{font-size:15px;margin-bottom:14px;}
+  .sign{display:grid;grid-template-columns:1fr 1fr;gap:22px 30px;margin-top:24px;}
+  .sign .line{border-top:2px solid var(--ink);padding-top:6px;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--muted);}
+
+  .cert{border:6px double var(--sun);border-radius:14px;padding:26px;text-align:center;background:#fff;height:4.4in;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+  .cert h2{font-size:34px;}
+  .cutcard{border:2px dashed var(--muted);border-radius:14px;padding:16px;margin-top:14px;display:flex;gap:14px;align-items:center;}
+  .scissors{font-family:'Nunito';font-weight:800;font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:2px;text-align:center;margin-top:10px;}
+
+  .qref{background:var(--forest);color:var(--cream);border-radius:16px;padding:22px;}
+  .qref h3{color:var(--sun);font-size:16px;margin-bottom:8px;}
+  .qref ul{padding-left:18px;}
+  .qref li{font-size:13px;font-weight:700;margin-bottom:5px;color:#eaf3e7;}
+  .safety{border:2px solid var(--terra);border-radius:12px;padding:12px 16px;margin-top:14px;background:#fff;}
+  .safety p{font-size:11.5px;color:var(--muted);font-weight:600;}
+</style>
+</head>
+<body>
+
+<!-- PAGE 1: COVER -->
+<section class="page cover">
+  <div class="badge"><div class="em">🌲</div></div>
+  <h1>Leave It Better</h1>
+  <div class="sub">A Family Camping Kindness &amp; Clean-Up Kit</div>
+  <p class="desc">Teach your kids to care for nature, respect other campers, and leave every campsite better than they found it, one fun mission at a time.</p>
+  <span class="pill">For families · Ages 4 to 10</span>
+  <div class="site">paolaadventurer.com</div>
+</section>
+
+<!-- PAGE 2: WELCOME (PARENTS) -->
+<section class="page">
+  <div class="kicker">For the grown-ups</div>
+  <h2 class="big">Welcome, camp leader 👋</h2>
+  <p class="lede">A quick note before your trip, then the kids take over.</p>
+  <p style="margin-bottom:12px;">Kids do not learn to respect nature from a lecture. They learn it from doing, from small missions that feel like a game and make them feel proud. That is exactly what this kit is.</p>
+  <p style="margin-bottom:12px;">Inside you will find two things working together: <strong>simple ground rules for the whole family</strong> (noise, neighbors, clean-up, wildlife), and <strong>games and badges that turn your kids into "Junior Rangers"</strong> who actually want to pick up litter and keep the campsite calm.</p>
+  <p style="margin-bottom:12px;">You do not need to be perfect or know everything about the outdoors. You just need to show up and do it together. That is the whole secret.</p>
+  <div class="rule"><div class="ic">🖨️</div><div><h3>How to use this kit</h3><p>Print the whole thing, or just the pages you want. Read the family rules together in the car. Let kids earn badges during the trip. Sign the pledge on night one.</p></div></div>
+  <div class="band"><p>💛 <strong>The only rule that matters:</strong> it does not have to be perfect, it just has to happen. Every little action your kids take today becomes a habit that protects the outdoors for their whole life.</p></div>
+  <div class="foot"><span>Leave It Better</span><span>paolaadventurer.com</span></div>
+</section>
+
+<!-- PAGE 3: THE FAMILY CAMP CODE -->
+<section class="page">
+  <div class="kicker">For the grown-ups</div>
+  <h2 class="big">The Good Neighbor Code 🏕️</h2>
+  <p class="lede">A campsite is a shared space. These are the unwritten rules that make you the family everyone is happy to camp next to.</p>
+  <div class="rule"><div class="ic">🔇</div><div><h3>Respect quiet hours</h3><p>Most campgrounds have quiet hours (often 10pm to 7am). Voices, laughter, and car doors carry far at night. Keep it low after dark.</p></div></div>
+  <div class="rule"><div class="ic">🎵</div><div><h3>Music stays at your site</h3><p>If your neighbor can hear your speaker, it is too loud. Many people camp for the quiet of nature. Use low volume, or headphones.</p></div></div>
+  <div class="rule"><div class="ic">🚶</div><div><h3>Do not cut through other sites</h3><p>A campsite is someone's temporary home. Walk the roads and paths, do not shortcut through a neighbor's space, even if it is faster.</p></div></div>
+  <div class="rule"><div class="ic">💡</div><div><h3>Point lights down</h3><p>Bright lanterns and headlamps blind everyone around you. Aim lights at the ground and dim them at night so everyone can see the stars.</p></div></div>
+  <div class="rule"><div class="ic">🐕</div><div><h3>Keep pets leashed and quiet</h3><p>Leash your dog, clean up after it, and do not let it bark all night. Not everyone loves your pet as much as you do, and that is okay.</p></div></div>
+  <div class="rule"><div class="ic">🔥</div><div><h3>Never leave a fire alone</h3><p>An unattended fire is dangerous for the whole campground. Drown it, stir it, and drown it again until it is cold before bed or leaving.</p></div></div>
+  <div class="foot"><span>Leave It Better</span><span>paolaadventurer.com</span></div>
+</section>
+
+<!-- PAGE 4: LEAVE NO TRACE -->
+<section class="page">
+  <div class="kicker">The big idea</div>
+  <h2 class="big">Leave No Trace 🌎</h2>
+  <p class="lede">Seven simple ideas that mean one thing: leave nature exactly as you found it, or better. Read these with your kids.</p>
+  <div class="lnt">
+    <div class="item"><div class="num">1</div><h3>Plan ahead</h3><p>Know the rules of where you are going and pack what you need so you are not caught off guard.</p></div>
+    <div class="item"><div class="num">2</div><h3>Stay on the trail</h3><p>Walk and camp on marked paths and spots so plants and soil stay healthy.</p></div>
+    <div class="item"><div class="num">3</div><h3>Pack out your trash</h3><p>Everything you bring in, you take out. If you packed it, you carry it home, even tiny wrappers.</p></div>
+    <div class="item"><div class="num">4</div><h3>Leave what you find</h3><p>Rocks, flowers, sticks, and bugs belong to nature. Look, enjoy, take a photo, leave it there.</p></div>
+    <div class="item"><div class="num">5</div><h3>Be careful with fire</h3><p>Only in fire rings, keep it small, and make sure it is fully cold before you walk away.</p></div>
+    <div class="item"><div class="num">6</div><h3>Respect wildlife</h3><p>Watch animals from far away. Never feed them, human food makes them sick and unsafe.</p></div>
+  </div>
+  <div class="band" style="margin-top:14px;"><p>🌟 <strong>The 7th rule:</strong> be kind to other people. Share the trail, keep the noise down, and smile. The outdoors belongs to everyone.</p></div>
+  <div class="foot"><span>Leave It Better</span><span>paolaadventurer.com</span></div>
+</section>
+
+<!-- PAGE 5: MEET THE JUNIOR RANGER -->
+<section class="page">
+  <div class="kicker">For the kids</div>
+  <h2 class="big">Become a Junior Ranger! 🏅</h2>
+  <p class="lede">Rangers are the helpers who protect nature. Now it is your turn.</p>
+  <p style="margin-bottom:14px;font-size:15px;">A <strong>Junior Ranger</strong> is a kid who takes care of the outdoors like a real hero. On this trip, you can earn <strong>6 badges</strong>. Do the mission for each badge, then color it in or put a sticker on it. Earn all 6 and you get your official certificate at the end!</p>
+  <div class="rule"><div class="ic">1️⃣</div><div><h3>Do the mission</h3><p>Each badge has one easy job to do while you camp.</p></div></div>
+  <div class="rule"><div class="ic">2️⃣</div><div><h3>Color or sticker your badge</h3><p>When you finish, fill in the badge on the next page.</p></div></div>
+  <div class="rule"><div class="ic">3️⃣</div><div><h3>Earn your certificate</h3><p>Collect all 6 and a grown-up signs your Junior Ranger certificate!</p></div></div>
+  <div class="band"><p>🎒 <strong>Ready, Ranger?</strong> Turn the page to see your 6 badges. You can start the very first minute you arrive at camp!</p></div>
+  <div class="foot"><span>Leave It Better</span><span>paolaadventurer.com</span></div>
+</section>
+
+<!-- PAGE 6: BADGE CHART -->
+<section class="page">
+  <div class="kicker">For the kids</div>
+  <h2 class="big">Your 6 Ranger Badges 🎖️</h2>
+  <p class="lede">Do the mission, then color the badge or add a sticker in the circle.</p>
+  <div class="badges">
+    <div class="bcard"><div class="circle">🗑️</div><div><h3>Clean-Up Hero</h3><p>Pick up 10 pieces of litter (even if they are not yours).</p></div><div class="stamp"></div></div>
+    <div class="bcard"><div class="circle">🤫</div><div><h3>Quiet Camper</h3><p>Use an inside voice after dark for a whole night.</p></div><div class="stamp"></div></div>
+    <div class="bcard"><div class="circle">🦌</div><div><h3>Wildlife Watcher</h3><p>Spot an animal and watch it from far away, no feeding.</p></div><div class="stamp"></div></div>
+    <div class="bcard"><div class="circle">🥾</div><div><h3>Trail Keeper</h3><p>Stay on the path the whole hike, no shortcuts.</p></div><div class="stamp"></div></div>
+    <div class="bcard"><div class="circle">🔥</div><div><h3>Fire Safety Star</h3><p>Help a grown-up check the fire is cold before bed.</p></div><div class="stamp"></div></div>
+    <div class="bcard"><div class="circle">💚</div><div><h3>Kindness Badge</h3><p>Say hi or help a neighbor camper or a family member.</p></div><div class="stamp"></div></div>
+  </div>
+  <div class="foot"><span>Leave It Better</span><span>paolaadventurer.com</span></div>
+</section>
+
+<!-- PAGE 7: TRASH TREASURE HUNT -->
+<section class="page">
+  <div class="kicker">Game 1 · for the kids</div>
+  <h2 class="big">Trash Treasure Hunt ♻️</h2>
+  <p class="lede">A scavenger hunt, but backwards! Instead of taking things FROM nature, you find trash and take it OUT. Use gloves or a bag. Check a box for each thing you find and throw away the right way.</p>
+  <ul class="hunt">
+    <li><span class="box"></span> A candy or snack wrapper</li>
+    <li><span class="box"></span> A plastic bottle or can</li>
+    <li><span class="box"></span> A piece of paper or cardboard</li>
+    <li><span class="box"></span> A bottle cap or bread tie</li>
+    <li><span class="box"></span> A piece of plastic bag</li>
+    <li><span class="box"></span> Something that does not belong in nature</li>
+    <li><span class="box"></span> A tiny piece of litter most people would miss</li>
+    <li><span class="box"></span> BONUS: fill a whole bag with your family!</li>
+  </ul>
+  <div class="band"><p>🏆 <strong>You win when:</strong> you leave your campsite cleaner than you found it. Found 5 or more? You just earned your <strong>Clean-Up Hero</strong> badge!</p></div>
+  <div class="foot"><span>Leave It Better</span><span>paolaadventurer.com</span></div>
+</section>
+
+<!-- PAGE 8: BINGO -->
+<section class="page">
+  <div class="kicker">Game 2 · for the kids</div>
+  <h2 class="big">Leave No Trace Bingo 🌟</h2>
+  <p class="lede">Do a good deed for nature and mark that square. Get 5 in a row, up, down, or sideways, to win!</p>
+  <table class="bingo">
+    <tr>
+      <td><span class="e">🗑️</span>Threw away my trash</td>
+      <td><span class="e">🥾</span>Stayed on the trail</td>
+      <td><span class="e">🌸</span>Left a flower where it grew</td>
+      <td><span class="e">🤫</span>Used a quiet voice at night</td>
+      <td><span class="e">💧</span>Did not waste water</td>
+    </tr>
+    <tr>
+      <td><span class="e">🦌</span>Watched an animal from far</td>
+      <td><span class="e">🔥</span>Kept away from the fire</td>
+      <td><span class="e">👋</span>Said hi to a neighbor</td>
+      <td><span class="e">🪵</span>Left sticks and rocks alone</td>
+      <td><span class="e">🧴</span>Picked up someone else's litter</td>
+    </tr>
+    <tr>
+      <td><span class="e">🍎</span>Ate without feeding animals</td>
+      <td><span class="e">🔦</span>Pointed my light down</td>
+      <td class="free"><span class="e">⭐</span>FREE Ranger space</td>
+      <td><span class="e">🧦</span>Cleaned up my own mess</td>
+      <td><span class="e">🐕</span>Was gentle with pets</td>
+    </tr>
+    <tr>
+      <td><span class="e">🌲</span>Hugged a tree (left it there!)</td>
+      <td><span class="e">🧻</span>Took my bathroom trash with me</td>
+      <td><span class="e">🎒</span>Packed out what I packed in</td>
+      <td><span class="e">😊</span>Was kind to my family</td>
+      <td><span class="e">♻️</span>Sorted a recyclable</td>
+    </tr>
+    <tr>
+      <td><span class="e">🌎</span>Told someone why nature matters</td>
+      <td><span class="e">🥱</span>Went to bed without noise</td>
+      <td><span class="e">🧤</span>Helped clean the campsite</td>
+      <td><span class="e">🐜</span>Let the bugs be</td>
+      <td><span class="e">🚶</span>Did not cut through a site</td>
+    </tr>
+  </table>
+  <div class="foot"><span>Leave It Better</span><span>paolaadventurer.com</span></div>
+</section>
+
+<!-- PAGE 9: SPOT & FIX -->
+<section class="page">
+  <div class="kicker">Game 3 · for the family</div>
+  <h2 class="big">Spot &amp; Fix the Campsite 🔍</h2>
+  <p class="lede">Read each little story together. Ask your kids: what is wrong here, and how would a Junior Ranger fix it? Answers are underneath.</p>
+  <div class="scen"><p class="q">🎵 A family is playing loud music at 10pm and the campers next door cannot sleep.</p><p class="a">Fix: Turn the music down or off after quiet hours. Nature and neighbors need rest too.</p></div>
+  <div class="scen"><p class="q">🍫 Someone dropped a candy wrapper on the trail and kept walking.</p><p class="a">Fix: Pick it up and pack it out. A real Ranger even grabs trash that is not theirs.</p></div>
+  <div class="scen"><p class="q">🦝 A camper is leaving food out to "make friends" with a raccoon.</p><p class="a">Fix: Never feed wild animals. Human food makes them sick. Store food away and watch from afar.</p></div>
+  <div class="scen"><p class="q">🌼 A kid picked a big handful of wildflowers to take home.</p><p class="a">Fix: Leave what you find. Take a photo instead so the next family can enjoy them too.</p></div>
+  <div class="scen"><p class="q">🔥 A family is packing the car with the campfire still smoking.</p><p class="a">Fix: Drown it, stir it, and drown it again until it is cold. Never leave a fire alone.</p></div>
+  <div class="foot"><span>Leave It Better</span><span>paolaadventurer.com</span></div>
+</section>
+
+<!-- PAGE 10: QUIET CAMPER / VOICE LEVELS -->
+<section class="page">
+  <div class="kicker">Mission · for the kids</div>
+  <h2 class="big">The Quiet Camper Mission 🤫</h2>
+  <p class="lede">Sound travels far in nature, especially at night. Learn your "outdoor voice levels" and earn your Quiet Camper badge.</p>
+  <div class="voice">
+    <div class="vlevel"><div class="n" style="color:var(--forest2);">0</div><div><h3>Nature voice</h3><p>Silent. For watching animals and listening to the forest.</p></div></div>
+    <div class="vlevel"><div class="n" style="color:var(--sun);">1</div><div><h3>Whisper</h3><p>Only the person next to you can hear. Perfect after dark.</p></div></div>
+    <div class="vlevel"><div class="n" style="color:var(--terra);">2</div><div><h3>Inside voice</h3><p>Calm and low. Good for talking around the campfire.</p></div></div>
+    <div class="vlevel"><div class="n" style="color:#a33;">3</div><div><h3>Big voice</h3><p>Save it for open trails and daytime play, away from other camps.</p></div></div>
+  </div>
+  <div class="band"><p>🌙 <strong>Your mission:</strong> after the sun goes down, keep your voice at level 1 or 2 for the whole night. Do it and color in your <strong>Quiet Camper</strong> badge!</p></div>
+  <div class="foot"><span>Leave It Better</span><span>paolaadventurer.com</span></div>
+</section>
+
+<!-- PAGE 11: CLEAN-UP CHECKLIST -->
+<section class="page">
+  <div class="kicker">Before you leave · for the family</div>
+  <h2 class="big">Leave It Better Checklist ✅</h2>
+  <p class="lede">The most important pages! Before you drive away, walk the site together and check every box. This is how you leave it better than you found it.</p>
+  <ul class="check">
+    <li><span class="box"></span> All trash picked up and packed out (look under the table!)</li>
+    <li><span class="box"></span> Fire is drowned, stirred, and completely COLD to the touch</li>
+    <li><span class="box"></span> No food scraps or crumbs left on the ground</li>
+    <li><span class="box"></span> Tent spot cleared, nothing left behind</li>
+    <li><span class="box"></span> Rocks, logs, and sticks put back where we found them</li>
+    <li><span class="box"></span> Did a final "sweep" walk looking for tiny litter</li>
+    <li><span class="box"></span> Picked up at least one piece of trash that was not ours</li>
+    <li><span class="box"></span> Said thank you to the forest 🌲</li>
+  </ul>
+  <div class="band"><p>👀 <strong>Ranger challenge:</strong> can a stranger tell your family camped here? If the answer is no, you did it perfectly.</p></div>
+  <div class="foot"><span>Leave It Better</span><span>paolaadventurer.com</span></div>
+</section>
+
+<!-- PAGE 12: FAMILY PLEDGE -->
+<section class="page">
+  <div class="kicker">Sign together · night one</div>
+  <h2 class="big">Our Family Camp Pledge ✍️</h2>
+  <p class="lede">Read this out loud together on your first night, then everyone signs.</p>
+  <div class="pledge">
+    <p style="font-family:'Bitter';font-style:italic;font-size:18px;color:var(--forest);">"On this trip, our family promises to…"</p>
+    <p>🌲 Leave every place better than we found it</p>
+    <p>♻️ Pick up our trash, and some that is not ours</p>
+    <p>🤫 Be quiet and kind to our camp neighbors</p>
+    <p>🦌 Watch wildlife from far away and never feed it</p>
+    <p>🔥 Be safe with fire, water, and each other</p>
+    <p style="font-weight:800;color:var(--terra);">Because the outdoors belongs to everyone. 💛</p>
+    <div class="sign">
+      <div class="line">Grown-up</div>
+      <div class="line">Junior Ranger</div>
+      <div class="line">Junior Ranger</div>
+      <div class="line">Date</div>
+    </div>
+  </div>
+  <div class="foot"><span>Leave It Better</span><span>paolaadventurer.com</span></div>
+</section>
+
+<!-- PAGE 13: CERTIFICATE + BADGE CARD -->
+<section class="page">
+  <div class="kicker">You did it!</div>
+  <h2 class="big">Junior Ranger Certificate 🏆</h2>
+  <div class="cert">
+    <div style="font-size:54px;">🏅</div>
+    <p style="font-family:'Nunito';font-weight:800;letter-spacing:2px;text-transform:uppercase;font-size:12px;color:var(--terra);">This certifies that</p>
+    <div style="border-bottom:3px solid var(--ink);width:70%;height:0.5in;margin:6px auto;"></div>
+    <h2 style="font-size:24px;color:var(--forest);">is an Official Junior Ranger</h2>
+    <p style="font-size:13px;color:var(--muted);max-width:5in;margin:8px auto 0;">for earning all 6 badges and promising to leave the outdoors better than they found it.</p>
+    <div style="display:flex;justify-content:space-around;width:80%;margin-top:22px;">
+      <div style="border-top:2px solid var(--ink);padding-top:5px;font-size:10px;font-weight:800;text-transform:uppercase;">Ranger signature</div>
+      <div style="border-top:2px solid var(--ink);padding-top:5px;font-size:10px;font-weight:800;text-transform:uppercase;">Date</div>
+    </div>
+  </div>
+  <div class="scissors">✂ - - - - - - - - - - cut out your Ranger card - - - - - - - - - -</div>
+  <div class="cutcard"><div style="width:0.8in;height:0.8in;border-radius:50%;background:var(--sun);border:3px solid var(--forest);display:flex;align-items:center;justify-content:center;font-size:32px;flex:0 0 auto;">🌲</div><div><h3 style="font-size:15px;">JUNIOR RANGER</h3><p style="font-size:11.5px;color:var(--muted);font-weight:700;">Name: ________________  ·  I protect the outdoors!</p><p style="font-size:10px;color:var(--terra);font-weight:800;letter-spacing:1px;">paolaadventurer.com</p></div></div>
+  <div class="foot"><span>Leave It Better</span><span>paolaadventurer.com</span></div>
+</section>
+
+<!-- PAGE 14: PARENT QUICK REFERENCE -->
+<section class="page">
+  <div class="kicker">For the grown-ups · print &amp; keep in the cooler</div>
+  <h2 class="big">Quick-Reference Card 📋</h2>
+  <p class="lede">The whole kit in one glance. Snap a photo or print and clip it where you can see it.</p>
+  <div class="qref">
+    <h3>Good neighbor basics</h3>
+    <ul>
+      <li>Quiet hours after dark (usually 10pm–7am)</li>
+      <li>Music low enough to stay at your own site</li>
+      <li>Lights pointed down, dimmed at night</li>
+      <li>Never cut through another family's site</li>
+      <li>Pets leashed, cleaned up after, and quiet</li>
+    </ul>
+    <h3 style="margin-top:12px;">Leave no trace</h3>
+    <ul>
+      <li>Pack out everything you packed in</li>
+      <li>Stay on trails, leave what you find</li>
+      <li>Watch wildlife from afar, never feed it</li>
+      <li>Fire: small, in the ring, cold before you leave</li>
+    </ul>
+  </div>
+  <div class="safety"><p>⚠️ <strong>Safety note:</strong> Always supervise children around fire, water, wildlife, and trails. This kit teaches good habits but does not replace adult supervision or your campground's specific rules. Check local regulations before your trip.</p></div>
+  <p style="text-align:center;margin-top:16px;font-family:'Bitter';font-style:italic;color:var(--forest);font-size:16px;">Thank you for raising kids who love the outdoors. 💛<br>— Paola</p>
+  <div class="foot"><span>Leave It Better</span><span>paolaadventurer.com</span></div>
+</section>
+
+</body>
+</html>

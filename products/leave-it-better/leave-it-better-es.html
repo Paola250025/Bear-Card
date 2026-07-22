@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Déjalo Mejor — Kit Familiar de Respeto y Limpieza en el Campamento</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,700;0,800;0,900;1,700&family=Nunito:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{--forest:#22432f;--forest2:#2f6b45;--terra:#b5562f;--khaki:#d8c9a3;--sun:#e8b93f;--cream:#faf7f0;--paper:#fffdf7;--ink:#3a322a;--muted:#7c7361;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Nunito',sans-serif;color:var(--ink);background:#ccc;}
+  .page{width:8.5in;height:11in;background:var(--paper);margin:0 auto;padding:0.7in 0.75in;position:relative;overflow:hidden;page-break-after:always;display:flex;flex-direction:column;}
+  h1,h2,h3{font-family:'Bitter',serif;color:var(--forest);line-height:1.1;}
+  p{line-height:1.5;font-weight:600;}
+  .tag{display:inline-block;font-family:'Nunito';font-weight:800;letter-spacing:2px;text-transform:uppercase;font-size:11px;color:var(--terra);}
+  .kicker{font-family:'Nunito';font-weight:800;letter-spacing:2px;text-transform:uppercase;font-size:12px;color:var(--terra);margin-bottom:8px;}
+  .foot{position:absolute;bottom:0.4in;left:0.75in;right:0.75in;display:flex;justify-content:space-between;font-family:'Nunito';font-weight:700;font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;}
+
+  .cover{background:var(--forest);color:var(--cream);align-items:center;justify-content:center;text-align:center;}
+  .cover .badge{width:2.1in;height:2.1in;border-radius:50%;border:6px solid var(--sun);display:flex;align-items:center;justify-content:center;flex-direction:column;margin-bottom:26px;background:rgba(255,255,255,.05);}
+  .cover .badge .em{font-size:74px;line-height:1;}
+  .cover h1{color:#fff;font-size:58px;letter-spacing:-1px;}
+  .cover .sub{font-family:'Bitter';font-style:italic;color:var(--sun);font-size:23px;margin:10px 0 4px;}
+  .cover .desc{font-weight:700;color:#e7efe3;font-size:17px;max-width:5.2in;margin:16px auto 0;}
+  .cover .pill{margin-top:26px;display:inline-block;background:var(--sun);color:var(--forest);font-weight:900;padding:9px 22px;border-radius:100px;font-size:14px;letter-spacing:1px;text-transform:uppercase;}
+  .cover .site{position:absolute;bottom:0.55in;left:0;right:0;text-align:center;font-family:'Nunito';font-weight:800;letter-spacing:3px;text-transform:uppercase;font-size:12px;color:var(--khaki);}
+
+  h2.big{font-size:32px;margin-bottom:6px;}
+  .lede{color:var(--muted);font-size:15.5px;margin-bottom:18px;}
+  .rule{background:#fff;border:2px solid var(--khaki);border-radius:14px;padding:15px 18px;margin-bottom:12px;display:flex;gap:14px;align-items:flex-start;box-shadow:0 3px 8px rgba(0,0,0,.04);}
+  .rule .ic{font-size:30px;line-height:1;flex:0 0 auto;}
+  .rule h3{font-size:17px;margin-bottom:3px;}
+  .rule p{font-size:13.5px;color:var(--muted);font-weight:600;}
+  .band{background:var(--forest2);color:#fff;border-radius:14px;padding:16px 20px;margin-top:auto;}
+  .band p{font-weight:700;font-size:14px;}
+  .band strong{color:var(--sun);}
+
+  .lnt{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .lnt .item{background:#fff;border:2px solid var(--khaki);border-radius:14px;padding:14px 16px;}
+  .lnt .num{font-family:'Bitter';font-weight:900;color:var(--terra);font-size:22px;}
+  .lnt h3{font-size:15px;margin:2px 0 4px;}
+  .lnt p{font-size:12.5px;color:var(--muted);font-weight:600;line-height:1.4;}
+
+  .badges{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px;}
+  .bcard{background:#fff;border:2px dashed var(--forest2);border-radius:16px;padding:14px;display:flex;gap:12px;align-items:center;}
+  .bcard .circle{width:0.9in;height:0.9in;border-radius:50%;background:var(--sun);display:flex;align-items:center;justify-content:center;font-size:34px;flex:0 0 auto;border:3px solid var(--forest);}
+  .bcard h3{font-size:14.5px;}
+  .bcard p{font-size:11.5px;color:var(--muted);font-weight:600;}
+  .bcard .stamp{width:0.5in;height:0.5in;border:2px solid var(--khaki);border-radius:50%;margin-left:auto;flex:0 0 auto;}
+
+  .hunt{background:#fff;border:2px solid var(--khaki);border-radius:14px;padding:6px 18px;}
+  .hunt li{list-style:none;display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px dashed var(--khaki);font-weight:700;font-size:14px;}
+  .hunt li:last-child{border-bottom:none;}
+  .box{width:24px;height:24px;border:2px solid var(--forest2);border-radius:6px;flex:0 0 auto;}
+
+  table.bingo{width:100%;border-collapse:collapse;margin-top:8px;}
+  table.bingo td{border:2px solid var(--forest2);border-radius:8px;height:1.35in;width:20%;text-align:center;vertical-align:middle;padding:6px;font-weight:800;font-size:11px;color:var(--ink);}
+  table.bingo td .e{font-size:26px;display:block;margin-bottom:4px;}
+  td.free{background:var(--sun);color:var(--forest);}
+
+  .scen{background:#fff;border:2px solid var(--khaki);border-radius:14px;padding:14px 16px;margin-bottom:11px;}
+  .scen .q{font-weight:800;font-size:14px;color:var(--forest);}
+  .scen .a{font-size:12.5px;color:var(--muted);font-weight:600;margin-top:4px;}
+
+  .voice{display:flex;flex-direction:column;gap:8px;margin-top:8px;}
+  .vlevel{display:flex;align-items:center;gap:12px;background:#fff;border:2px solid var(--khaki);border-radius:12px;padding:10px 14px;}
+  .vlevel .n{font-family:'Bitter';font-weight:900;font-size:24px;width:34px;text-align:center;}
+  .vlevel h3{font-size:15px;}
+  .vlevel p{font-size:12.5px;color:var(--muted);font-weight:600;}
+
+  .check{background:#fff;border:2px solid var(--khaki);border-radius:14px;padding:6px 18px;}
+  .check li{list-style:none;display:flex;align-items:center;gap:12px;padding:8px 0;border-bottom:1px dashed var(--khaki);font-weight:700;font-size:13.5px;}
+  .check li:last-child{border-bottom:none;}
+
+  .pledge{border:3px solid var(--forest);border-radius:18px;padding:24px;text-align:center;background:#fff;}
+  .pledge p{font-size:15px;margin-bottom:14px;}
+  .sign{display:grid;grid-template-columns:1fr 1fr;gap:22px 30px;margin-top:24px;}
+  .sign .line{border-top:2px solid var(--ink);padding-top:6px;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--muted);}
+
+  .cert{border:6px double var(--sun);border-radius:14px;padding:26px;text-align:center;background:#fff;height:4.4in;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+  .cert h2{font-size:34px;}
+  .cutcard{border:2px dashed var(--muted);border-radius:14px;padding:16px;margin-top:14px;display:flex;gap:14px;align-items:center;}
+  .scissors{font-family:'Nunito';font-weight:800;font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:2px;text-align:center;margin-top:10px;}
+
+  .qref{background:var(--forest);color:var(--cream);border-radius:16px;padding:22px;}
+  .qref h3{color:var(--sun);font-size:16px;margin-bottom:8px;}
+  .qref ul{padding-left:18px;}
+  .qref li{font-size:13px;font-weight:700;margin-bottom:5px;color:#eaf3e7;}
+  .safety{border:2px solid var(--terra);border-radius:12px;padding:12px 16px;margin-top:14px;background:#fff;}
+  .safety p{font-size:11.5px;color:var(--muted);font-weight:600;}
+</style>
+</head>
+<body>
+
+<!-- PÁGINA 1: PORTADA -->
+<section class="page cover">
+  <div class="badge"><div class="em">🌲</div></div>
+  <h1>Déjalo Mejor</h1>
+  <div class="sub">Kit Familiar de Respeto y Limpieza en el Campamento</div>
+  <p class="desc">Enseña a tus hijos a cuidar la naturaleza, respetar a otros campistas y dejar cada lugar mejor de como lo encontraron, una misión divertida a la vez.</p>
+  <span class="pill">Para familias · De 4 a 10 años</span>
+  <div class="site">paolaadventurer.com</div>
+</section>
+
+<!-- PÁGINA 2: BIENVENIDA (PAPÁS) -->
+<section class="page">
+  <div class="kicker">Para los adultos</div>
+  <h2 class="big">Bienvenida, líder del campamento 👋</h2>
+  <p class="lede">Una nota rápida antes del viaje, y luego los niños toman el mando.</p>
+  <p style="margin-bottom:12px;">Los niños no aprenden a respetar la naturaleza con un sermón. Lo aprenden haciendo, con pequeñas misiones que se sienten como un juego y los hacen sentir orgullosos. Eso es exactamente este kit.</p>
+  <p style="margin-bottom:12px;">Adentro encontrarás dos cosas que trabajan juntas: <strong>reglas simples para toda la familia</strong> (ruido, vecinos, limpieza, animales), y <strong>juegos e insignias que convierten a tus hijos en "Guardabosques Junior"</strong> que de verdad quieren recoger basura y mantener el campamento tranquilo.</p>
+  <p style="margin-bottom:12px;">No necesitas ser perfecta ni saberlo todo sobre el aire libre. Solo necesitas estar presente y hacerlo juntos. Ese es todo el secreto.</p>
+  <div class="rule"><div class="ic">🖨️</div><div><h3>Cómo usar este kit</h3><p>Imprime todo, o solo las páginas que quieras. Lean las reglas en familia durante el viaje. Deja que los niños ganen insignias. Firmen el pacto la primera noche.</p></div></div>
+  <div class="band"><p>💛 <strong>La única regla que importa:</strong> no tiene que ser perfecto, solo tiene que pasar. Cada pequeña acción que tus hijos hacen hoy se vuelve un hábito que protege la naturaleza toda su vida.</p></div>
+  <div class="foot"><span>Déjalo Mejor</span><span>paolaadventurer.com</span></div>
+</section>
+
+<!-- PÁGINA 3: CÓDIGO DEL BUEN VECINO -->
+<section class="page">
+  <div class="kicker">Para los adultos</div>
+  <h2 class="big">El Código del Buen Vecino 🏕️</h2>
+  <p class="lede">Un campamento es un espacio compartido. Estas son las reglas no escritas que te hacen la familia con la que todos quieren acampar al lado.</p>
+  <div class="rule"><div class="ic">🔇</div><div><h3>Respeta las horas de silencio</h3><p>La mayoría de los campamentos tienen horas de silencio (a menudo de 10pm a 7am). Las voces, risas y puertas de auto se escuchan lejos de noche. Baja el volumen al oscurecer.</p></div></div>
+  <div class="rule"><div class="ic">🎵</div><div><h3>La música se queda en tu sitio</h3><p>Si tu vecino puede oír tu parlante, está muy fuerte. Mucha gente acampa por el silencio de la naturaleza. Usa volumen bajo o audífonos.</p></div></div>
+  <div class="rule"><div class="ic">🚶</div><div><h3>No cruces por otros sitios</h3><p>Un sitio de campamento es el hogar temporal de alguien. Camina por los senderos, no atajes por el espacio de un vecino, aunque sea más rápido.</p></div></div>
+  <div class="rule"><div class="ic">💡</div><div><h3>Apunta las luces hacia abajo</h3><p>Los faroles y linternas brillantes encandilan a todos. Apunta la luz al suelo y baja su intensidad de noche para que todos puedan ver las estrellas.</p></div></div>
+  <div class="rule"><div class="ic">🐕</div><div><h3>Mascotas con correa y tranquilas</h3><p>Usa correa, recoge lo que deja tu perro y no dejes que ladre toda la noche. No todos aman a tu mascota tanto como tú, y está bien.</p></div></div>
+  <div class="rule"><div class="ic">🔥</div><div><h3>Nunca dejes el fuego solo</h3><p>Un fuego sin vigilancia es peligroso para todo el campamento. Apágalo con agua, revuélvelo y vuelve a mojarlo hasta que esté frío antes de dormir o irte.</p></div></div>
+  <div class="foot"><span>Déjalo Mejor</span><span>paolaadventurer.com</span></div>
+</section>
+
+<!-- PÁGINA 4: NO DEJAR RASTRO -->
+<section class="page">
+  <div class="kicker">La gran idea</div>
+  <h2 class="big">No Dejar Rastro 🌎</h2>
+  <p class="lede">Siete ideas simples que significan una sola cosa: deja la naturaleza tal como la encontraste, o mejor. Lean esto con sus hijos.</p>
+  <div class="lnt">
+    <div class="item"><div class="num">1</div><h3>Planea con tiempo</h3><p>Conoce las reglas del lugar y lleva lo que necesitas para no llevarte sorpresas.</p></div>
+    <div class="item"><div class="num">2</div><h3>Quédate en el sendero</h3><p>Camina y acampa en los caminos y sitios marcados para que las plantas y el suelo estén sanos.</p></div>
+    <div class="item"><div class="num">3</div><h3>Llévate tu basura</h3><p>Todo lo que traes, te lo llevas. Si lo empacaste, lo cargas de vuelta, hasta los envoltorios pequeños.</p></div>
+    <div class="item"><div class="num">4</div><h3>Deja lo que encuentres</h3><p>Piedras, flores, palos e insectos son de la naturaleza. Mira, disfruta, toma una foto, y déjalo ahí.</p></div>
+    <div class="item"><div class="num">5</div><h3>Cuidado con el fuego</h3><p>Solo en los círculos de fuego, mantenlo pequeño y asegúrate de que esté frío antes de irte.</p></div>
+    <div class="item"><div class="num">6</div><h3>Respeta la fauna</h3><p>Observa a los animales de lejos. Nunca los alimentes, la comida humana los enferma y los vuelve peligrosos.</p></div>
+  </div>
+  <div class="band" style="margin-top:14px;"><p>🌟 <strong>La 7ma regla:</strong> sé amable con las demás personas. Comparte el sendero, baja el ruido y sonríe. La naturaleza es de todos.</p></div>
+  <div class="foot"><span>Déjalo Mejor</span><span>paolaadventurer.com</span></div>
+</section>
+
+<!-- PÁGINA 5: CONVIÉRTETE EN GUARDABOSQUES -->
+<section class="page">
+  <div class="kicker">Para los niños</div>
+  <h2 class="big">¡Conviértete en Guardabosques Junior! 🏅</h2>
+  <p class="lede">Los guardabosques son los ayudantes que protegen la naturaleza. ¡Ahora es tu turno!</p>
+  <p style="margin-bottom:14px;font-size:15px;">Un <strong>Guardabosques Junior</strong> es un niño que cuida el aire libre como un verdadero héroe. En este viaje puedes ganar <strong>6 insignias</strong>. Haz la misión de cada insignia y luego coloréala o pégale una calcomanía. ¡Gana las 6 y recibes tu certificado oficial al final!</p>
+  <div class="rule"><div class="ic">1️⃣</div><div><h3>Haz la misión</h3><p>Cada insignia tiene una tarea fácil para hacer mientras acampas.</p></div></div>
+  <div class="rule"><div class="ic">2️⃣</div><div><h3>Colorea tu insignia</h3><p>Cuando termines, colorea la insignia en la página siguiente.</p></div></div>
+  <div class="rule"><div class="ic">3️⃣</div><div><h3>Gana tu certificado</h3><p>¡Junta las 6 y un adulto firma tu certificado de Guardabosques Junior!</p></div></div>
+  <div class="band"><p>🎒 <strong>¿Lista, Guardabosques?</strong> Pasa la página para ver tus 6 insignias. ¡Puedes empezar el primer minuto que llegues al campamento!</p></div>
+  <div class="foot"><span>Déjalo Mejor</span><span>paolaadventurer.com</span></div>
+</section>
+
+<!-- PÁGINA 6: TABLA DE INSIGNIAS -->
+<section class="page">
+  <div class="kicker">Para los niños</div>
+  <h2 class="big">Tus 6 Insignias de Guardabosques 🎖️</h2>
+  <p class="lede">Haz la misión y luego colorea la insignia o pon una calcomanía en el círculo.</p>
+  <div class="badges">
+    <div class="bcard"><div class="circle">🗑️</div><div><h3>Héroe de Limpieza</h3><p>Recoge 10 pedazos de basura (aunque no sean tuyos).</p></div><div class="stamp"></div></div>
+    <div class="bcard"><div class="circle">🤫</div><div><h3>Campista Silencioso</h3><p>Usa voz bajita después de oscurecer, toda una noche.</p></div><div class="stamp"></div></div>
+    <div class="bcard"><div class="circle">🦌</div><div><h3>Observador de Fauna</h3><p>Ve un animal y obsérvalo de lejos, sin alimentarlo.</p></div><div class="stamp"></div></div>
+    <div class="bcard"><div class="circle">🥾</div><div><h3>Guardián del Sendero</h3><p>Quédate en el camino toda la caminata, sin atajos.</p></div><div class="stamp"></div></div>
+    <div class="bcard"><div class="circle">🔥</div><div><h3>Estrella de Seguridad</h3><p>Ayuda a un adulto a revisar que el fuego esté frío.</p></div><div class="stamp"></div></div>
+    <div class="bcard"><div class="circle">💚</div><div><h3>Insignia de Bondad</h3><p>Saluda o ayuda a un vecino campista o a tu familia.</p></div><div class="stamp"></div></div>
+  </div>
+  <div class="foot"><span>Déjalo Mejor</span><span>paolaadventurer.com</span></div>
+</section>
+
+<!-- PÁGINA 7: BÚSQUEDA DE TESOROS DE BASURA -->
+<section class="page">
+  <div class="kicker">Juego 1 · para los niños</div>
+  <h2 class="big">Búsqueda de Tesoros de Basura ♻️</h2>
+  <p class="lede">¡Una búsqueda del tesoro, pero al revés! En vez de sacar cosas DE la naturaleza, encuentras basura y la sacas. Usa guantes o una bolsa. Marca una casilla por cada cosa que encuentres y botes de la forma correcta.</p>
+  <ul class="hunt">
+    <li><span class="box"></span> Un envoltorio de dulce o snack</li>
+    <li><span class="box"></span> Una botella o lata de plástico</li>
+    <li><span class="box"></span> Un pedazo de papel o cartón</li>
+    <li><span class="box"></span> Una tapa de botella o amarre de pan</li>
+    <li><span class="box"></span> Un pedazo de bolsa plástica</li>
+    <li><span class="box"></span> Algo que no pertenece a la naturaleza</li>
+    <li><span class="box"></span> Un pedacito de basura que casi nadie vería</li>
+    <li><span class="box"></span> BONO: ¡llena una bolsa entera con tu familia!</li>
+  </ul>
+  <div class="band"><p>🏆 <strong>Ganas cuando:</strong> dejas tu sitio más limpio de como lo encontraste. ¿Encontraste 5 o más? ¡Acabas de ganar tu insignia de <strong>Héroe de Limpieza</strong>!</p></div>
+  <div class="foot"><span>Déjalo Mejor</span><span>paolaadventurer.com</span></div>
+</section>
+
+<!-- PÁGINA 8: BINGO -->
+<section class="page">
+  <div class="kicker">Juego 2 · para los niños</div>
+  <h2 class="big">Bingo de No Dejar Rastro 🌟</h2>
+  <p class="lede">Haz una buena acción por la naturaleza y marca esa casilla. ¡Junta 5 en línea, hacia arriba, abajo o al lado, para ganar!</p>
+  <table class="bingo">
+    <tr>
+      <td><span class="e">🗑️</span>Boté mi basura</td>
+      <td><span class="e">🥾</span>Me quedé en el sendero</td>
+      <td><span class="e">🌸</span>Dejé una flor donde creció</td>
+      <td><span class="e">🤫</span>Usé voz bajita de noche</td>
+      <td><span class="e">💧</span>No desperdicié agua</td>
+    </tr>
+    <tr>
+      <td><span class="e">🦌</span>Observé un animal de lejos</td>
+      <td><span class="e">🔥</span>Me alejé del fuego</td>
+      <td><span class="e">👋</span>Saludé a un vecino</td>
+      <td><span class="e">🪵</span>Dejé palos y piedras quietos</td>
+      <td><span class="e">🧴</span>Recogí basura de alguien más</td>
+    </tr>
+    <tr>
+      <td><span class="e">🍎</span>Comí sin alimentar animales</td>
+      <td><span class="e">🔦</span>Apunté mi luz abajo</td>
+      <td class="free"><span class="e">⭐</span>Espacio LIBRE de Guardabosques</td>
+      <td><span class="e">🧦</span>Limpié mi propio desorden</td>
+      <td><span class="e">🐕</span>Fui gentil con las mascotas</td>
+    </tr>
+    <tr>
+      <td><span class="e">🌲</span>Abracé un árbol (¡lo dejé ahí!)</td>
+      <td><span class="e">🧻</span>Me llevé la basura del baño</td>
+      <td><span class="e">🎒</span>Me llevé lo que traje</td>
+      <td><span class="e">😊</span>Fui amable con mi familia</td>
+      <td><span class="e">♻️</span>Separé un reciclable</td>
+    </tr>
+    <tr>
+      <td><span class="e">🌎</span>Dije por qué importa la naturaleza</td>
+      <td><span class="e">🥱</span>Me dormí sin hacer ruido</td>
+      <td><span class="e">🧤</span>Ayudé a limpiar el sitio</td>
+      <td><span class="e">🐜</span>Dejé en paz a los insectos</td>
+      <td><span class="e">🚶</span>No crucé por otro sitio</td>
+    </tr>
+  </table>
+  <div class="foot"><span>Déjalo Mejor</span><span>paolaadventurer.com</span></div>
+</section>
+
+<!-- PÁGINA 9: ENCUENTRA Y ARREGLA -->
+<section class="page">
+  <div class="kicker">Juego 3 · para la familia</div>
+  <h2 class="big">Encuentra y Arregla el Campamento 🔍</h2>
+  <p class="lede">Lean juntos cada historia. Pregúntales a tus hijos: ¿qué está mal aquí y cómo lo arreglaría un Guardabosques Junior? Las respuestas están abajo.</p>
+  <div class="scen"><p class="q">🎵 Una familia pone música fuerte a las 10pm y los campistas de al lado no pueden dormir.</p><p class="a">Arreglo: Baja o apaga la música después de las horas de silencio. La naturaleza y los vecinos también necesitan descansar.</p></div>
+  <div class="scen"><p class="q">🍫 Alguien dejó caer un envoltorio en el sendero y siguió caminando.</p><p class="a">Arreglo: Recógelo y llévatelo. Un verdadero Guardabosques hasta recoge la basura que no es suya.</p></div>
+  <div class="scen"><p class="q">🦝 Un campista deja comida afuera para "hacerse amigo" de un mapache.</p><p class="a">Arreglo: Nunca alimentes animales salvajes. La comida humana los enferma. Guarda la comida y observa de lejos.</p></div>
+  <div class="scen"><p class="q">🌼 Un niño arrancó un puñado de flores silvestres para llevárselas a casa.</p><p class="a">Arreglo: Deja lo que encuentres. Mejor toma una foto para que la próxima familia también las disfrute.</p></div>
+  <div class="scen"><p class="q">🔥 Una familia empaca el auto con la fogata todavía humeando.</p><p class="a">Arreglo: Mójala, revuélvela y vuelve a mojarla hasta que esté fría. Nunca dejes el fuego solo.</p></div>
+  <div class="foot"><span>Déjalo Mejor</span><span>paolaadventurer.com</span></div>
+</section>
+
+<!-- PÁGINA 10: CAMPISTA SILENCIOSO / NIVELES DE VOZ -->
+<section class="page">
+  <div class="kicker">Misión · para los niños</div>
+  <h2 class="big">La Misión del Campista Silencioso 🤫</h2>
+  <p class="lede">El sonido viaja lejos en la naturaleza, sobre todo de noche. Aprende tus "niveles de voz al aire libre" y gana tu insignia de Campista Silencioso.</p>
+  <div class="voice">
+    <div class="vlevel"><div class="n" style="color:var(--forest2);">0</div><div><h3>Voz de la naturaleza</h3><p>Silencio total. Para observar animales y escuchar el bosque.</p></div></div>
+    <div class="vlevel"><div class="n" style="color:var(--sun);">1</div><div><h3>Susurro</h3><p>Solo te oye la persona de al lado. Perfecto al oscurecer.</p></div></div>
+    <div class="vlevel"><div class="n" style="color:var(--terra);">2</div><div><h3>Voz de adentro</h3><p>Calmada y baja. Buena para hablar alrededor de la fogata.</p></div></div>
+    <div class="vlevel"><div class="n" style="color:#a33;">3</div><div><h3>Voz grande</h3><p>Guárdala para senderos abiertos y juego de día, lejos de otros campamentos.</p></div></div>
+  </div>
+  <div class="band"><p>🌙 <strong>Tu misión:</strong> después de que se ponga el sol, mantén tu voz en nivel 1 o 2 toda la noche. ¡Hazlo y colorea tu insignia de <strong>Campista Silencioso</strong>!</p></div>
+  <div class="foot"><span>Déjalo Mejor</span><span>paolaadventurer.com</span></div>
+</section>
+
+<!-- PÁGINA 11: CHECKLIST DE LIMPIEZA -->
+<section class="page">
+  <div class="kicker">Antes de irte · para la familia</div>
+  <h2 class="big">Checklist Déjalo Mejor ✅</h2>
+  <p class="lede">¡Las páginas más importantes! Antes de irse, recorran el sitio juntos y marquen cada casilla. Así lo dejan mejor de como lo encontraron.</p>
+  <ul class="check">
+    <li><span class="box"></span> Toda la basura recogida y empacada (¡mira debajo de la mesa!)</li>
+    <li><span class="box"></span> El fuego está mojado, revuelto y completamente FRÍO al tacto</li>
+    <li><span class="box"></span> No quedan restos de comida ni migas en el suelo</li>
+    <li><span class="box"></span> El lugar de la carpa despejado, no quedó nada</li>
+    <li><span class="box"></span> Piedras, troncos y palos de vuelta donde los encontramos</li>
+    <li><span class="box"></span> Hicimos una última "barrida" buscando basura pequeña</li>
+    <li><span class="box"></span> Recogimos al menos un pedazo de basura que no era nuestro</li>
+    <li><span class="box"></span> Le dimos las gracias al bosque 🌲</li>
+  </ul>
+  <div class="band"><p>👀 <strong>Reto Guardabosques:</strong> ¿un desconocido podría notar que tu familia acampó aquí? Si la respuesta es no, lo hicieron perfecto.</p></div>
+  <div class="foot"><span>Déjalo Mejor</span><span>paolaadventurer.com</span></div>
+</section>
+
+<!-- PÁGINA 12: PACTO FAMILIAR -->
+<section class="page">
+  <div class="kicker">Firmen juntos · primera noche</div>
+  <h2 class="big">Nuestro Pacto Familiar de Campamento ✍️</h2>
+  <p class="lede">Lean esto en voz alta juntos la primera noche, y luego todos firman.</p>
+  <div class="pledge">
+    <p style="font-family:'Bitter';font-style:italic;font-size:18px;color:var(--forest);">"En este viaje, nuestra familia promete…"</p>
+    <p>🌲 Dejar cada lugar mejor de como lo encontramos</p>
+    <p>♻️ Recoger nuestra basura, y algo de la que no es nuestra</p>
+    <p>🤫 Ser silenciosos y amables con nuestros vecinos</p>
+    <p>🦌 Observar la fauna de lejos y nunca alimentarla</p>
+    <p>🔥 Cuidarnos con el fuego, el agua y entre nosotros</p>
+    <p style="font-weight:800;color:var(--terra);">Porque la naturaleza es de todos. 💛</p>
+    <div class="sign">
+      <div class="line">Adulto</div>
+      <div class="line">Guardabosques Junior</div>
+      <div class="line">Guardabosques Junior</div>
+      <div class="line">Fecha</div>
+    </div>
+  </div>
+  <div class="foot"><span>Déjalo Mejor</span><span>paolaadventurer.com</span></div>
+</section>
+
+<!-- PÁGINA 13: CERTIFICADO + CARNET -->
+<section class="page">
+  <div class="kicker">¡Lo lograste!</div>
+  <h2 class="big">Certificado de Guardabosques Junior 🏆</h2>
+  <div class="cert">
+    <div style="font-size:54px;">🏅</div>
+    <p style="font-family:'Nunito';font-weight:800;letter-spacing:2px;text-transform:uppercase;font-size:12px;color:var(--terra);">Esto certifica que</p>
+    <div style="border-bottom:3px solid var(--ink);width:70%;height:0.5in;margin:6px auto;"></div>
+    <h2 style="font-size:22px;color:var(--forest);">es un Guardabosques Junior Oficial</h2>
+    <p style="font-size:13px;color:var(--muted);max-width:5.2in;margin:8px auto 0;">por ganar las 6 insignias y prometer dejar la naturaleza mejor de como la encontró.</p>
+    <div style="display:flex;justify-content:space-around;width:80%;margin-top:22px;">
+      <div style="border-top:2px solid var(--ink);padding-top:5px;font-size:10px;font-weight:800;text-transform:uppercase;">Firma del guardabosques</div>
+      <div style="border-top:2px solid var(--ink);padding-top:5px;font-size:10px;font-weight:800;text-transform:uppercase;">Fecha</div>
+    </div>
+  </div>
+  <div class="scissors">✂ - - - - - - - - - - recorta tu carnet de Guardabosques - - - - - - - - - -</div>
+  <div class="cutcard"><div style="width:0.8in;height:0.8in;border-radius:50%;background:var(--sun);border:3px solid var(--forest);display:flex;align-items:center;justify-content:center;font-size:32px;flex:0 0 auto;">🌲</div><div><h3 style="font-size:14.5px;">GUARDABOSQUES JUNIOR</h3><p style="font-size:11px;color:var(--muted);font-weight:700;">Nombre: ____________  ·  ¡Yo protejo la naturaleza!</p><p style="font-size:10px;color:var(--terra);font-weight:800;letter-spacing:1px;">paolaadventurer.com</p></div></div>
+  <div class="foot"><span>Déjalo Mejor</span><span>paolaadventurer.com</span></div>
+</section>
+
+<!-- PÁGINA 14: TARJETA DE REFERENCIA PARA PAPÁS -->
+<section class="page">
+  <div class="kicker">Para los adultos · imprime y guarda en la nevera</div>
+  <h2 class="big">Tarjeta de Referencia Rápida 📋</h2>
+  <p class="lede">Todo el kit de un vistazo. Toma una foto o imprímela y ponla donde puedas verla.</p>
+  <div class="qref">
+    <h3>Reglas del buen vecino</h3>
+    <ul>
+      <li>Horas de silencio al oscurecer (normalmente 10pm–7am)</li>
+      <li>Música lo bastante baja para quedarse en tu sitio</li>
+      <li>Luces apuntadas hacia abajo, bajas de noche</li>
+      <li>Nunca cruces por el sitio de otra familia</li>
+      <li>Mascotas con correa, tranquilas y recogiendo lo suyo</li>
+    </ul>
+    <h3 style="margin-top:12px;">No dejar rastro</h3>
+    <ul>
+      <li>Llévate todo lo que trajiste</li>
+      <li>Quédate en los senderos, deja lo que encuentres</li>
+      <li>Observa la fauna de lejos, nunca la alimentes</li>
+      <li>Fuego: pequeño, en el círculo, frío antes de irte</li>
+    </ul>
+  </div>
+  <div class="safety"><p>⚠️ <strong>Nota de seguridad:</strong> Supervisa siempre a los niños cerca del fuego, el agua, la fauna y los senderos. Este kit enseña buenos hábitos pero no reemplaza la supervisión de un adulto ni las reglas específicas de tu campamento. Revisa las normas locales antes del viaje.</p></div>
+  <p style="text-align:center;margin-top:16px;font-family:'Bitter';font-style:italic;color:var(--forest);font-size:16px;">Gracias por criar niños que aman la naturaleza. 💛<br>— Paola</p>
+  <div class="foot"><span>Déjalo Mejor</span><span>paolaadventurer.com</span></div>
+</section>
+
+</body>
+</html>
