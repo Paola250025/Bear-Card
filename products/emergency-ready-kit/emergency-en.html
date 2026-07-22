@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The Emergency-Ready Kit — For Beginners</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,700;0,800;0,900;1,700&family=Nunito:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{--forest:#22432f;--forest2:#2f6b45;--terra:#b5562f;--khaki:#d8c9a3;--sun:#e8b93f;--cream:#faf7f0;--paper:#fffdf7;--ink:#3a322a;--muted:#7c7361;--red:#b5352f;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Nunito',sans-serif;color:var(--ink);background:#ccc;}
+  .page{width:8.5in;height:11in;background:var(--paper);margin:0 auto;padding:0.7in 0.75in;position:relative;overflow:hidden;page-break-after:always;display:flex;flex-direction:column;}
+  h1,h2,h3{font-family:'Bitter',serif;color:var(--forest);line-height:1.1;}
+  p{line-height:1.5;font-weight:600;}
+  .kicker{font-family:'Nunito';font-weight:800;letter-spacing:2px;text-transform:uppercase;font-size:12px;color:var(--terra);margin-bottom:8px;}
+  .foot{position:absolute;bottom:0.4in;left:0.75in;right:0.75in;display:flex;justify-content:space-between;font-family:'Nunito';font-weight:700;font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;}
+  h2.big{font-size:32px;margin-bottom:6px;}
+  .lede{color:var(--muted);font-size:15px;margin-bottom:16px;}
+
+  /* COVER */
+  .cover{background:var(--forest);color:var(--cream);align-items:center;justify-content:center;text-align:center;}
+  .cover .badge{width:2.1in;height:2.1in;border-radius:50%;border:6px solid var(--sun);display:flex;align-items:center;justify-content:center;margin-bottom:26px;background:rgba(255,255,255,.05);font-size:96px;}
+  .cover h1{color:#fff;font-size:60px;letter-spacing:-1px;}
+  .cover .sub{font-family:'Bitter';font-style:italic;color:var(--sun);font-size:24px;margin:12px 0 4px;}
+  .cover .desc{font-weight:700;color:#e7efe3;font-size:17px;max-width:5in;margin:16px auto 0;}
+  .cover .pill{margin-top:26px;display:inline-block;background:var(--sun);color:var(--forest);font-weight:900;padding:9px 22px;border-radius:100px;font-size:14px;letter-spacing:1px;text-transform:uppercase;}
+  .cover .site{position:absolute;bottom:0.55in;left:0;right:0;text-align:center;font-family:'Nunito';font-weight:800;letter-spacing:3px;text-transform:uppercase;font-size:12px;color:var(--khaki);}
+
+  .buckets{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:6px;}
+  .bucket{background:#fff;border:2px solid var(--khaki);border-radius:14px;padding:14px 16px;}
+  .bucket .ic{font-size:30px;}
+  .bucket h3{font-size:16px;margin:4px 0 3px;}
+  .bucket p{font-size:12.5px;color:var(--muted);font-weight:600;line-height:1.4;}
+
+  .checklist{background:#fff;border:2px solid var(--khaki);border-radius:14px;padding:8px 20px;}
+  .checklist li{list-style:none;display:flex;align-items:flex-start;gap:12px;padding:7px 0;border-bottom:1px dashed var(--khaki);font-weight:700;font-size:13.5px;}
+  .checklist li:last-child{border-bottom:none;}
+  .box{width:20px;height:20px;border:2px solid var(--forest2);border-radius:5px;flex:0 0 auto;margin-top:1px;}
+  .grouptitle{font-family:'Bitter';font-weight:800;color:var(--terra);font-size:14px;margin:14px 0 4px;text-transform:uppercase;letter-spacing:1px;}
+  .two-col{column-count:2;column-gap:20px;}
+
+  .fill{background:#fff;border:2px solid var(--khaki);border-radius:14px;padding:16px 20px;margin-bottom:12px;}
+  .fill h3{font-size:16px;color:var(--forest);margin-bottom:8px;}
+  .line{border-bottom:2px solid var(--khaki);height:26px;margin-bottom:8px;position:relative;}
+  .line .lbl{font-family:'Nunito';font-weight:800;font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px 20px;}
+
+  .band{background:var(--forest2);color:#fff;border-radius:14px;padding:16px 20px;margin-top:auto;}
+  .band p{font-weight:700;font-size:14px;}
+  .band strong{color:var(--sun);}
+  .redbar{background:var(--red);color:#fff;border-radius:12px;padding:12px 16px;margin-top:12px;font-weight:700;font-size:13px;}
+
+  .sched{width:100%;border-collapse:collapse;margin-top:8px;}
+  .sched td,.sched th{border:2px solid var(--khaki);padding:9px 12px;font-size:13px;font-weight:700;text-align:left;}
+  .sched th{background:var(--forest);color:#fff;font-family:'Bitter';}
+  .sched td:first-child{font-weight:800;color:var(--forest);}
+</style>
+</head>
+<body>
+
+<!-- 1 COVER -->
+<section class="page cover">
+  <div class="badge">🎒</div>
+  <h1>Emergency-Ready</h1>
+  <div class="sub">A simple kit checklist for beginners</div>
+  <p class="desc">Peace of mind for camping, the car, and home. Know exactly what to pack so you are ready, not scared, without the overwhelm.</p>
+  <span class="pill">For first-timers · Home · Car · Camping</span>
+  <div class="site">paolaadventurer.com</div>
+</section>
+
+<!-- 2 WELCOME -->
+<section class="page">
+  <div class="kicker">Start here</div>
+  <h2 class="big">Ready, not scared 💛</h2>
+  <p class="lede">A quick note before you build your kit.</p>
+  <p style="margin-bottom:12px;">Being prepared is not about fear. It is the opposite. When you know that a scraped knee, a sudden storm, a dead phone, or a power outage is already handled, you get to relax and actually enjoy the outdoors and everyday life.</p>
+  <p style="margin-bottom:12px;">You do not need to be a survival expert or spend a fortune. Most emergencies for regular families are small and common, and a few basics in one place solve almost all of them.</p>
+  <p style="margin-bottom:12px;">This kit walks you through <strong>exactly what to pack</strong> for home, car, and camping, plus a first-aid list, a family plan, and a contacts card. Check the boxes as you go. Build it in an afternoon.</p>
+  <div class="band"><p>🎯 <strong>The one habit that matters most:</strong> build one kit, keep it packed, and do not raid it for everyday use. A ready kit you never touch is a kit that is there when you need it.</p></div>
+  <div class="redbar">⚠️ This is a beginner-friendly checklist, not medical or professional emergency training. Always follow local guidance, and in a real emergency, call your local emergency number.</div>
+  <div class="foot"><span>Emergency-Ready Kit</span><span>paolaadventurer.com</span></div>
+</section>
+
+<!-- 3 THE 5 ESSENTIALS -->
+<section class="page">
+  <div class="kicker">The big picture</div>
+  <h2 class="big">The 5 essentials 🧭</h2>
+  <p class="lede">Do not memorize a huge list. Just think in these 5 simple buckets, everything else is a detail.</p>
+  <div class="buckets">
+    <div class="bucket"><div class="ic">🩹</div><h3>1. First aid</h3><p>For the small stuff that happens most: cuts, scrapes, blisters, headaches.</p></div>
+    <div class="bucket"><div class="ic">💧</div><h3>2. Water &amp; warmth</h3><p>The two things your body needs first: clean water and staying dry and warm.</p></div>
+    <div class="bucket"><div class="ic">🔦</div><h3>3. Light &amp; power</h3><p>A way to see in the dark and keep your phone alive.</p></div>
+    <div class="bucket"><div class="ic">📻</div><h3>4. Info &amp; comms</h3><p>A way to get news and reach help, plus your key contacts written down.</p></div>
+    <div class="bucket"><div class="ic">🧰</div><h3>5. Tools &amp; extras</h3><p>The little items that fix problems: multi-tool, tape, cash, copies.</p></div>
+  </div>
+  <div class="band" style="margin-top:16px;"><p>👉 <strong>How to use the next pages:</strong> there is a checklist for your <strong>home</strong>, your <strong>car</strong>, and your <strong>camping</strong> kit. Start with one. Check boxes as you pack.</p></div>
+  <div class="foot"><span>Emergency-Ready Kit</span><span>paolaadventurer.com</span></div>
+</section>
+
+<!-- 4 HOME KIT -->
+<section class="page">
+  <div class="kicker">Checklist · keep it by the door</div>
+  <h2 class="big">Home emergency kit 🏠</h2>
+  <p class="lede">The grab-and-go basics for a power outage, storm, or evacuation.</p>
+  <ul class="checklist">
+    <div class="grouptitle">Water &amp; food</div>
+    <li><span class="box"></span> Bottled water (aim for 1 gallon per person, per day, 3 days)</li>
+    <li><span class="box"></span> Non-perishable food for 3 days + a manual can opener</li>
+    <div class="grouptitle">Light, power &amp; info</div>
+    <li><span class="box"></span> Flashlight or headlamp + spare batteries</li>
+    <li><span class="box"></span> Power bank (charged) + charging cables</li>
+    <li><span class="box"></span> Battery or hand-crank radio</li>
+    <div class="grouptitle">Health &amp; comfort</div>
+    <li><span class="box"></span> First-aid kit (see the first-aid page)</li>
+    <li><span class="box"></span> One week of any needed medications</li>
+    <li><span class="box"></span> Blankets or emergency blankets, warm layers</li>
+    <li><span class="box"></span> Hygiene: wipes, hand sanitizer, toilet paper</li>
+    <div class="grouptitle">Documents &amp; extras</div>
+    <li><span class="box"></span> Copies of IDs, insurance, and this contacts card in a zip bag</li>
+    <li><span class="box"></span> Some cash in small bills</li>
+    <li><span class="box"></span> Whistle, multi-tool, duct tape, work gloves</li>
+  </ul>
+  <div class="foot"><span>Emergency-Ready Kit</span><span>paolaadventurer.com</span></div>
+</section>
+
+<!-- 5 CAR KIT -->
+<section class="page">
+  <div class="kicker">Checklist · keep it in the trunk</div>
+  <h2 class="big">Car emergency kit 🚗</h2>
+  <p class="lede">For breakdowns, getting stuck, or being on the road when something happens.</p>
+  <ul class="checklist">
+    <div class="grouptitle">Car basics</div>
+    <li><span class="box"></span> Jumper cables or a jump-start pack</li>
+    <li><span class="box"></span> Tire pressure gauge + a way to inflate (or a sealant)</li>
+    <li><span class="box"></span> Reflective triangle or flares</li>
+    <li><span class="box"></span> Ice scraper (if you get cold weather)</li>
+    <div class="grouptitle">Stay safe &amp; warm</div>
+    <li><span class="box"></span> Flashlight or headlamp + spare batteries</li>
+    <li><span class="box"></span> Blanket + warm layers, hat and gloves</li>
+    <li><span class="box"></span> Bottled water + snacks that keep (bars, nuts)</li>
+    <li><span class="box"></span> Small first-aid kit</li>
+    <div class="grouptitle">Handy extras</div>
+    <li><span class="box"></span> Phone power bank + cable</li>
+    <li><span class="box"></span> Multi-tool, duct tape, paper towels</li>
+    <li><span class="box"></span> Cash, and a printed copy of your contacts card</li>
+  </ul>
+  <div class="band"><p>🅿️ <strong>Tip:</strong> keep a full water bottle and a blanket in the car year-round. They are the two things people most wish they had.</p></div>
+  <div class="foot"><span>Emergency-Ready Kit</span><span>paolaadventurer.com</span></div>
+</section>
+
+<!-- 6 CAMPING KIT -->
+<section class="page">
+  <div class="kicker">Checklist · toss it in the camp bin</div>
+  <h2 class="big">Camping emergency kit ⛺</h2>
+  <p class="lede">The "just in case" items that turn a scary moment into a small one on the trail.</p>
+  <ul class="checklist">
+    <div class="grouptitle">Safety &amp; navigation</div>
+    <li><span class="box"></span> First-aid kit + any personal meds</li>
+    <li><span class="box"></span> Headlamp + spare batteries</li>
+    <li><span class="box"></span> Whistle (3 blasts = help) + a small mirror</li>
+    <li><span class="box"></span> Paper map of the area + a compass</li>
+    <div class="grouptitle">Warmth, water &amp; fire</div>
+    <li><span class="box"></span> Emergency blanket or bivvy</li>
+    <li><span class="box"></span> Extra water + a way to purify (tablets or filter)</li>
+    <li><span class="box"></span> Waterproof matches or a lighter, in a dry bag</li>
+    <li><span class="box"></span> Rain jacket / extra dry layer</li>
+    <div class="grouptitle">Fix-it &amp; extras</div>
+    <li><span class="box"></span> Multi-tool or knife + duct tape</li>
+    <li><span class="box"></span> Extra snacks with calories</li>
+    <li><span class="box"></span> Charged phone + power bank (service can be spotty)</li>
+    <li><span class="box"></span> Tell someone your plan and return time before you go</li>
+  </ul>
+  <div class="foot"><span>Emergency-Ready Kit</span><span>paolaadventurer.com</span></div>
+</section>
+
+<!-- 7 FIRST AID -->
+<section class="page">
+  <div class="kicker">Checklist · build your own</div>
+  <h2 class="big">First-aid kit 🩹</h2>
+  <p class="lede">The basics that cover the small injuries families deal with most. Keep one at home, one in the car, one for camping.</p>
+  <ul class="checklist">
+    <div class="grouptitle">Wound care</div>
+    <li><span class="box"></span> Adhesive bandages, assorted sizes</li>
+    <li><span class="box"></span> Gauze pads + medical tape</li>
+    <li><span class="box"></span> Antiseptic wipes + antibiotic ointment</li>
+    <li><span class="box"></span> Blister bandages (a hiker's best friend)</li>
+    <li><span class="box"></span> Tweezers + small scissors</li>
+    <li><span class="box"></span> Disposable gloves</li>
+    <div class="grouptitle">Medicine &amp; comfort</div>
+    <li><span class="box"></span> Pain / fever reliever (adult + child, if needed)</li>
+    <li><span class="box"></span> Antihistamine for allergic reactions</li>
+    <li><span class="box"></span> Anti-itch cream + aloe for burns/bites</li>
+    <li><span class="box"></span> Any personal prescriptions</li>
+    <li><span class="box"></span> Elastic bandage for sprains + instant cold pack</li>
+    <li><span class="box"></span> A small card with allergies &amp; emergency contacts</li>
+  </ul>
+  <div class="foot"><span>Emergency-Ready Kit</span><span>paolaadventurer.com</span></div>
+</section>
+
+<!-- 8 FAMILY PLAN -->
+<section class="page">
+  <div class="kicker">Fill it in together</div>
+  <h2 class="big">Our family emergency plan 👨‍👩‍👧</h2>
+  <p class="lede">Ten minutes now saves panic later. Fill this in and keep a copy in each kit.</p>
+  <div class="fill">
+    <h3>If we get separated, we meet at…</h3>
+    <div class="line"><span class="lbl">Meeting spot near home</span></div>
+    <div class="line"><span class="lbl">Meeting spot outside the neighborhood</span></div>
+  </div>
+  <div class="fill">
+    <h3>Our out-of-town contact (one person everyone calls)</h3>
+    <div class="grid2">
+      <div class="line"><span class="lbl">Name</span></div>
+      <div class="line"><span class="lbl">Phone</span></div>
+    </div>
+  </div>
+  <div class="fill">
+    <h3>Kids should know</h3>
+    <div class="line"><span class="lbl">Who to call &amp; how (emergency number)</span></div>
+    <div class="line"><span class="lbl">A trusted neighbor / adult nearby</span></div>
+  </div>
+  <div class="fill">
+    <h3>Where our kit lives</h3>
+    <div class="grid2">
+      <div class="line"><span class="lbl">At home</span></div>
+      <div class="line"><span class="lbl">In the car</span></div>
+    </div>
+  </div>
+  <div class="foot"><span>Emergency-Ready Kit</span><span>paolaadventurer.com</span></div>
+</section>
+
+<!-- 9 CONTACTS CARD -->
+<section class="page">
+  <div class="kicker">Fill it in · then print &amp; cut for each kit</div>
+  <h2 class="big">Important info card ☎️</h2>
+  <p class="lede">Because you cannot rely on a phone that may be dead or lost.</p>
+  <div class="fill">
+    <h3>Emergency contacts</h3>
+    <div class="grid2">
+      <div class="line"><span class="lbl">Emergency number</span></div>
+      <div class="line"><span class="lbl">Family doctor</span></div>
+      <div class="line"><span class="lbl">Parent / guardian 1</span></div>
+      <div class="line"><span class="lbl">Parent / guardian 2</span></div>
+      <div class="line"><span class="lbl">Out-of-town contact</span></div>
+      <div class="line"><span class="lbl">Poison control / vet</span></div>
+    </div>
+  </div>
+  <div class="fill">
+    <h3>Medical notes (per family member)</h3>
+    <div class="line"><span class="lbl">Name · allergies · medications · blood type</span></div>
+    <div class="line"><span class="lbl">Name · allergies · medications · blood type</span></div>
+    <div class="line"><span class="lbl">Name · allergies · medications · blood type</span></div>
+  </div>
+  <div class="fill">
+    <h3>Addresses</h3>
+    <div class="grid2">
+      <div class="line"><span class="lbl">Home address</span></div>
+      <div class="line"><span class="lbl">Nearest hospital</span></div>
+    </div>
+  </div>
+  <div class="foot"><span>Emergency-Ready Kit</span><span>paolaadventurer.com</span></div>
+</section>
+
+<!-- 10 KEEP IT FRESH -->
+<section class="page">
+  <div class="kicker">Don't set it and forget it</div>
+  <h2 class="big">Keep your kit fresh 🔄</h2>
+  <p class="lede">A kit only helps if it still works when you need it. Quick checks, done a few times a year.</p>
+  <table class="sched">
+    <tr><th>How often</th><th>Check this</th></tr>
+    <tr><td>Every 3 months</td><td>Batteries work, power bank is charged, flashlight turns on</td></tr>
+    <tr><td>Every 6 months</td><td>Rotate water and snacks; check for anything expired</td></tr>
+    <tr><td>Every 6 months</td><td>Update contacts &amp; medical info if anything changed</td></tr>
+    <tr><td>Once a year</td><td>Re-check clothing sizes for kids; refresh first-aid supplies</td></tr>
+    <tr><td>Before each trip</td><td>Grab the camping kit, top off water, confirm the plan</td></tr>
+  </table>
+  <div class="band"><p>📅 <strong>Easy trick:</strong> tie your checks to the clocks changing or the seasons, so you never have to remember a date.</p></div>
+  <div class="foot"><span>Emergency-Ready Kit</span><span>paolaadventurer.com</span></div>
+</section>
+
+<!-- 11 SHOPPING LIST -->
+<section class="page">
+  <div class="kicker">Build it in one trip</div>
+  <h2 class="big">Build-your-kit shopping list 🛒</h2>
+  <p class="lede">Take this to the store (or order online). Most of it is cheaper than you think, and you may already own half.</p>
+  <ul class="checklist two-col" style="column-count:2;">
+    <li><span class="box"></span> Bottled water</li>
+    <li><span class="box"></span> Non-perishable food</li>
+    <li><span class="box"></span> Manual can opener</li>
+    <li><span class="box"></span> Flashlight / headlamp</li>
+    <li><span class="box"></span> Batteries (assorted)</li>
+    <li><span class="box"></span> Power bank + cables</li>
+    <li><span class="box"></span> Radio (battery/crank)</li>
+    <li><span class="box"></span> First-aid supplies</li>
+    <li><span class="box"></span> Emergency blankets</li>
+    <li><span class="box"></span> Whistle</li>
+    <li><span class="box"></span> Multi-tool / knife</li>
+    <li><span class="box"></span> Duct tape</li>
+    <li><span class="box"></span> Work gloves</li>
+    <li><span class="box"></span> Wipes / sanitizer</li>
+    <li><span class="box"></span> Water purification</li>
+    <li><span class="box"></span> Matches / lighter</li>
+    <li><span class="box"></span> Zip bags (waterproofing)</li>
+    <li><span class="box"></span> Small cash</li>
+    <li><span class="box"></span> Storage bin / backpack</li>
+    <li><span class="box"></span> Copies of documents</li>
+  </ul>
+  <div class="band" style="margin-top:14px;"><p>💡 <strong>Start with one kit.</strong> You do not need everything at once. Build the home kit first, then add the car and camping ones over time.</p></div>
+  <div class="foot"><span>Emergency-Ready Kit</span><span>paolaadventurer.com</span></div>
+</section>
+
+<!-- 12 CLOSING -->
+<section class="page">
+  <div class="kicker">You're ready</div>
+  <h2 class="big">That's it, you're ready 💛</h2>
+  <p class="lede">No fear. Just a calm, capable family that has it handled.</p>
+  <p style="margin-bottom:14px;font-size:15px;">You do not have to build the perfect kit today. You just have to start, one box checked, one item packed. A half-built kit is already better than none, and you can add to it over time.</p>
+  <p style="margin-bottom:14px;font-size:15px;">Once your kit is ready, tuck it away and enjoy your adventures (and your everyday life) knowing that if something small goes sideways, you have got it.</p>
+  <div class="band" style="margin-top:0;"><p>🌲 <strong>Remember:</strong> it does not have to be perfect, it just has to happen. Being ready is a gift you give your future self, and the people you love.</p></div>
+  <div class="redbar">⚠️ Safety note: This kit is a beginner-friendly guide, not medical or professional emergency training. Customize it for your family's needs, follow local guidance, and in a real emergency, always call your local emergency number.</div>
+  <p style="text-align:center;margin-top:20px;font-family:'Bitter',serif;font-style:italic;color:var(--forest);font-size:17px;">Stay safe out there. 💛<br>— Paola</p>
+  <div class="foot"><span>Emergency-Ready Kit</span><span>paolaadventurer.com</span></div>
+</section>
+
+</body>
+</html>
