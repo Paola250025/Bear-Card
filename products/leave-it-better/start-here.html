@@ -5,44 +5,78 @@
 <title>Start Here — Leave It Better</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,700;0,900&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,700;0,800;0,900;1,700&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
 <style>
-  :root{--forest:#22432f;--forest2:#2f6b45;--terra:#b5562f;--khaki:#d8c9a3;--sun:#e8b93f;--paper:#fffdf7;--ink:#3a322a;--muted:#7c7361;}
+  :root{--forest:#22432f;--forest2:#2f6b45;--terra:#b5562f;--khaki:#d8c9a3;--sun:#e8b93f;--cream:#faf7f0;--paper:#fffdf7;--ink:#3a322a;--muted:#7c7361;}
   *{box-sizing:border-box;margin:0;padding:0;}
   body{font-family:'Nunito',sans-serif;color:var(--ink);background:#ccc;}
-  .page{width:8.5in;height:11in;background:var(--paper);margin:0 auto;padding:1in 0.9in;display:flex;flex-direction:column;align-items:center;text-align:center;justify-content:center;}
-  h1{font-family:'Bitter',serif;color:var(--forest);font-size:34px;margin-bottom:6px;}
-  .sub{color:var(--muted);font-weight:700;font-size:15px;margin-bottom:34px;}
-  .pick{display:grid;grid-template-columns:1fr 1fr;gap:20px;width:100%;max-width:6.2in;}
-  .opt{border:2px solid var(--khaki);border-radius:16px;padding:26px 20px;background:#fff;}
-  .opt .flag{font-size:40px;margin-bottom:8px;}
-  .opt h2{font-family:'Bitter',serif;color:var(--forest);font-size:20px;margin-bottom:6px;}
-  .opt .file{display:inline-block;background:var(--forest);color:#fff;font-weight:800;font-size:12px;padding:7px 14px;border-radius:100px;margin-top:8px;font-family:'Nunito';word-break:break-all;}
-  .opt p{font-size:12.5px;color:var(--muted);font-weight:600;margin-top:10px;line-height:1.4;}
-  .note{margin-top:34px;font-size:13px;color:var(--muted);font-weight:700;max-width:5.4in;line-height:1.5;}
-  .brand{margin-top:26px;font-family:'Nunito';font-weight:800;letter-spacing:3px;text-transform:uppercase;font-size:11px;color:var(--muted);}
+  .page{width:8.5in;height:11in;background:var(--paper);margin:0 auto;padding:0.7in 0.8in;display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;overflow:hidden;}
+  .badge{width:1.5in;height:1.5in;border-radius:50%;border:5px solid var(--sun);background:var(--forest);display:flex;align-items:center;justify-content:center;font-size:66px;margin-bottom:16px;}
+  h1{font-family:'Bitter',serif;font-weight:900;color:var(--forest);font-size:40px;line-height:1.05;}
+  .hello{font-family:'Bitter',serif;font-style:italic;color:var(--terra);font-size:19px;margin:6px 0 2px;}
+  .intro{color:var(--muted);font-weight:700;font-size:14.5px;max-width:5.6in;margin:14px auto 0;line-height:1.5;}
+
+  .sectlabel{font-family:'Nunito';font-weight:800;letter-spacing:2px;text-transform:uppercase;font-size:12px;color:var(--terra);margin:20px 0 12px;}
+  .pick{display:grid;grid-template-columns:1fr 1fr;gap:18px;width:100%;}
+  .opt{border:2px solid var(--khaki);border-radius:18px;padding:20px 18px;background:#fff;box-shadow:0 4px 12px rgba(0,0,0,.05);}
+  .opt .ic{width:64px;height:64px;border-radius:50%;background:var(--sun);display:flex;align-items:center;justify-content:center;font-size:32px;margin:0 auto 10px;}
+  .opt h2{font-family:'Bitter',serif;color:var(--forest);font-size:22px;}
+  .opt .say{color:var(--muted);font-weight:700;font-size:12.5px;margin:2px 0 10px;font-style:italic;}
+  .opt .file{display:inline-block;background:var(--forest);color:#fff;font-weight:800;font-size:11.5px;padding:7px 12px;border-radius:100px;font-family:'Nunito';}
+  .opt p{font-size:12px;color:var(--muted);font-weight:600;margin-top:10px;line-height:1.4;}
+
+  .how{width:100%;background:#fff;border:2px solid var(--khaki);border-radius:18px;padding:20px 24px;margin-top:6px;text-align:left;box-shadow:0 4px 12px rgba(0,0,0,.05);}
+  .how h3{font-family:'Bitter',serif;color:var(--forest);font-size:19px;margin-bottom:10px;text-align:center;}
+  .how .row{display:flex;gap:14px;align-items:flex-start;padding:8px 0;}
+  .how .n{flex:0 0 auto;width:30px;height:30px;border-radius:50%;background:var(--forest2);color:#fff;font-family:'Bitter';font-weight:900;font-size:15px;display:flex;align-items:center;justify-content:center;}
+  .how .t{font-weight:700;font-size:13.5px;color:var(--ink);line-height:1.4;padding-top:3px;}
+  .how .t b{color:var(--forest);}
+  .how .es{color:var(--muted);font-style:italic;font-weight:600;}
+
+  .note{margin-top:18px;background:var(--forest);color:var(--cream);border-radius:16px;padding:14px 22px;width:100%;}
+  .note p{font-size:13px;font-weight:700;line-height:1.45;}
+  .note .sig{font-family:'Bitter';font-style:italic;color:var(--sun);font-size:15px;margin-top:6px;}
+  .brand{margin-top:14px;font-family:'Nunito';font-weight:800;letter-spacing:3px;text-transform:uppercase;font-size:11px;color:var(--muted);}
 </style>
 </head>
 <body>
 <section class="page">
-  <h1>Start Here 🌲 Empieza Aquí</h1>
-  <p class="sub">Two files are included. Pick your language. · Se incluyen dos archivos. Elige tu idioma.</p>
+  <div class="badge">🌲</div>
+  <h1>Welcome! · ¡Bienvenida!</h1>
+  <div class="hello">Leave It Better · Déjalo Mejor</div>
+  <p class="intro">You did it, your family kindness &amp; clean-up kit is here! Two full versions are inside, one in English and one in Spanish. Pick your language below. <br><span style="font-style:italic;">Aquí está tu kit familiar. Adentro hay dos versiones completas: una en inglés y una en español. Elige tu idioma abajo.</span></p>
+
+  <div class="sectlabel">◆ Pick your language · Elige tu idioma ◆</div>
   <div class="pick">
     <div class="opt">
-      <div class="flag">🇺🇸</div>
+      <div class="ic">🅰️</div>
       <h2>English</h2>
+      <div class="say">the whole kit in English</div>
       <div class="file">Leave-It-Better-EN.pdf</div>
-      <p>Open this file for the English version of the whole kit.</p>
+      <p>Open this file for every page in English.</p>
     </div>
     <div class="opt">
-      <div class="flag">🇪🇸</div>
+      <div class="ic">🅱️</div>
       <h2>Español</h2>
+      <div class="say">todo el kit en español</div>
       <div class="file">Dejalo-Mejor-ES.pdf</div>
-      <p>Abre este archivo para la versión en español de todo el kit.</p>
+      <p>Abre este archivo para todas las páginas en español.</p>
     </div>
   </div>
-  <p class="note">Print at home on regular paper. Print only the pages you need, as many times as you like, for your own family. · Imprime en casa en papel normal. Imprime solo las páginas que quieras, las veces que quieras, para tu propia familia.</p>
-  <p class="brand">Paola Adventurer · paolaadventurer.com</p>
+
+  <div class="sectlabel">◆ How to use it · Cómo usarlo ◆</div>
+  <div class="how">
+    <div class="row"><div class="n">1</div><div class="t"><b>Print it at home.</b> Print the whole kit or just the pages you want, on regular paper. <span class="es">Imprime todo el kit o solo las páginas que quieras, en papel normal.</span></div></div>
+    <div class="row"><div class="n">2</div><div class="t"><b>Read the family rules together</b> before or during your trip. <span class="es">Lean las reglas en familia antes o durante el viaje.</span></div></div>
+    <div class="row"><div class="n">3</div><div class="t"><b>Let the kids earn their 6 badges</b> and play the games while you camp. <span class="es">Deja que los niños ganen sus 6 insignias y jueguen mientras acampan.</span></div></div>
+    <div class="row"><div class="n">4</div><div class="t"><b>Sign the family pledge</b> on night one, and hand out the certificate at the end! <span class="es">Firmen el pacto la primera noche y entreguen el certificado al final.</span></div></div>
+  </div>
+
+  <div class="note">
+    <p>💛 Reprint it anytime, for your own family. · Reimprímelo las veces que quieras, para tu familia.</p>
+    <div class="sig">Happy camping! — Paola 🏕️</div>
+  </div>
+  <div class="brand">Paola Adventurer · paolaadventurer.com</div>
 </section>
 </body>
 </html>
