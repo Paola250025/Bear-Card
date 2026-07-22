@@ -32,6 +32,7 @@ sun/gold `#e8b93f`, cream `#faf7f0`, khaki `#d8c9a3`.
 | Kids' Outdoor Adventure Pack | $5 | `/adventure-pack/` | https://payhip.com/b/T3yrk | ✅ Live |
 | Family Camping Planner | $7 (anchor $17) | `/camping-planner/` | https://payhip.com/b/cYHMy | ✅ Live |
 | Camping With Kids Bundle | $9 (anchor $12) | `/bundle/` | https://payhip.com/b/3lRQs | ✅ Live |
+| Leave It Better · Déjalo Mejor | $9 (anchor $24) | `/leave-it-better/` | (create it, see below) | 🟡 Page live, needs Payhip link |
 | Archery from Zero — English class | $37 launch (value $97) | `/archery/` | (TWO products, see below) | 🔜 Coming Soon |
 | Archery from Zero — Clase en español | $37 launch (value $97) | `/archery/` | (TWO products, see below) | 🔜 Coming Soon |
 
@@ -48,6 +49,17 @@ The archery page has **two buy buttons** (English + Español), each wired to
 its own link so English can launch while Spanish stays Coming Soon:
 - `archery/index.html` → `CHECKOUT_URL_EN` = English Payhip link
 - `archery/index.html` → `CHECKOUT_URL_ES` = Spanish Payhip link
+
+**Leave It Better · Déjalo Mejor** (new, $9 / value $24): a 15-page
+printable "camping kindness & clean-up kit" for families, ages 4-10. Teaches
+parents (good-neighbor rules: noise, music, quiet hours, lights, pets, fire)
+AND kids (Junior Ranger badges, Trash Treasure Hunt, Leave No Trace bingo,
+Spot & Fix game, family pledge, certificate). Two separate PDFs (EN + ES) +
+a Start Here page. The 3 finished PDFs were sent to Paola to upload to ONE
+Payhip product; source + PDFs are archived on branch
+`claude/leave-it-better-source` (kept off the public site). To launch: create
+the Payhip product ($9), then paste its link into `CHECKOUT_URL` in
+`leave-it-better/index.html`.
 
 **Email waitlist:** the archery page collects emails ("Be the first to
 know") and sends each signup to **adventurerpaola@gmail.com** via
