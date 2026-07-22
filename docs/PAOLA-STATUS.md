@@ -32,7 +32,7 @@ sun/gold `#e8b93f`, cream `#faf7f0`, khaki `#d8c9a3`.
 | Kids' Outdoor Adventure Pack | $5 | `/adventure-pack/` | https://payhip.com/b/T3yrk | ✅ Live |
 | Family Camping Planner | $7 (anchor $17) | `/camping-planner/` | https://payhip.com/b/cYHMy | ✅ Live |
 | Camping With Kids Bundle | $9 (anchor $12) | `/bundle/` | https://payhip.com/b/3lRQs | ✅ Live |
-| Leave It Better · Déjalo Mejor | $9 (anchor $24) | `/leave-it-better/` | (create it, see below) | 🟡 Page live, needs Payhip link |
+| Leave It Better · Déjalo Mejor | $9 (anchor $24) | `/leave-it-better/` | https://payhip.com/b/FQSRe | ✅ Live |
 | Archery from Zero — English class | $37 launch (value $97) | `/archery/` | (TWO products, see below) | 🔜 Coming Soon |
 | Archery from Zero — Clase en español | $37 launch (value $97) | `/archery/` | (TWO products, see below) | 🔜 Coming Soon |
 
