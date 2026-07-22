@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,700;0,800;0,900;1,800&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{--forest:#22432f;--forest2:#2f6b45;--terra:#b5562f;--khaki:#d8c9a3;--sun:#e8b93f;--cream:#faf7f0;--ink:#3a322a;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Nunito',sans-serif;}
+  .pin{width:1000px;height:1500px;position:relative;overflow:hidden;display:flex;flex-direction:column;}
+  .site{font-family:'Nunito';font-weight:800;letter-spacing:4px;text-transform:uppercase;font-size:22px;}
+
+  /* PIN 1 — list/hook on cream */
+  .p1{background:var(--cream);padding:70px 64px;text-align:center;align-items:center;justify-content:center;}
+  .p1 .top{font-family:'Nunito';font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--terra);font-size:24px;}
+  .p1 h1{font-family:'Bitter',serif;font-weight:900;color:var(--forest);font-size:82px;line-height:1.02;margin:22px 0 10px;}
+  .p1 .sub{font-family:'Bitter';font-style:italic;color:var(--forest2);font-size:34px;margin-bottom:30px;}
+  .p1 .card{background:#fff;border:3px solid var(--khaki);border-radius:24px;padding:34px 40px;width:100%;box-shadow:0 12px 30px rgba(0,0,0,.08);}
+  .p1 .card .row{display:flex;align-items:center;gap:20px;padding:16px 0;border-bottom:2px dashed var(--khaki);font-weight:800;font-size:30px;color:var(--ink);text-align:left;}
+  .p1 .card .row:last-child{border-bottom:none;}
+  .p1 .card .em{font-size:44px;flex:0 0 auto;}
+  .p1 .foot{margin-top:56px;}
+  .p1 .pill{background:var(--terra);color:#fff;font-weight:900;font-size:26px;padding:16px 40px;border-radius:100px;display:inline-block;margin-bottom:22px;}
+
+  /* PIN 2 — bold forest, junior ranger angle */
+  .p2{background:radial-gradient(circle at 50% 30%,#2f6b45,#22432f 65%);color:var(--cream);padding:80px 60px;text-align:center;align-items:center;justify-content:center;}
+  .p2 .badge{width:250px;height:250px;border-radius:50%;border:9px solid var(--sun);background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;font-size:130px;margin-bottom:34px;}
+  .p2 .top{font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--khaki);font-size:24px;}
+  .p2 h1{font-family:'Bitter',serif;font-weight:900;color:#fff;font-size:96px;line-height:1;margin:20px 0 18px;}
+  .p2 .sub{font-weight:700;font-size:34px;color:#eaf3e7;max-width:760px;line-height:1.35;}
+  .p2 .strip{display:flex;gap:22px;margin-top:44px;}
+  .p2 .mb{width:130px;height:130px;border-radius:50%;background:var(--sun);border:6px solid var(--forest);display:flex;align-items:center;justify-content:center;font-size:64px;}
+  .p2 .foot{margin-top:64px;}
+  .p2 .pill{background:var(--sun);color:var(--forest);font-weight:900;font-size:28px;padding:16px 42px;border-radius:100px;display:inline-block;margin-bottom:22px;}
+
+  /* PIN 3 — Spanish, question hook */
+  .p3{background:var(--cream);padding:0;}
+  .p3 .band{background:var(--forest);color:var(--cream);padding:70px 60px 56px;text-align:center;}
+  .p3 .band .top{font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--sun);font-size:24px;}
+  .p3 .band h1{font-family:'Bitter',serif;font-weight:900;color:#fff;font-size:76px;line-height:1.05;margin-top:20px;}
+  .p3 .body{padding:52px 60px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;flex:1;}
+  .p3 .body .q{font-family:'Bitter';font-style:italic;color:var(--forest2);font-size:40px;line-height:1.3;margin-bottom:36px;}
+  .p3 .feats{display:grid;grid-template-columns:1fr 1fr;gap:20px;width:100%;}
+  .p3 .f{background:#fff;border:3px solid var(--khaki);border-radius:20px;padding:26px 20px;font-weight:800;font-size:26px;color:var(--ink);}
+  .p3 .f .em{font-size:52px;display:block;margin-bottom:10px;}
+  .p3 .foot{margin-top:56px;}
+  .p3 .pill{background:var(--terra);color:#fff;font-weight:900;font-size:28px;padding:16px 44px;border-radius:100px;display:inline-block;margin-bottom:18px;}
+  .p3 .site{color:var(--forest2);}
+</style>
+</head>
+<body>
+
+<!-- PIN 1 -->
+<div class="pin p1" id="pin1">
+  <div class="top">Screen-free camping</div>
+  <h1>Raise kids who<br>actually clean up</h1>
+  <div class="sub">…and love doing it 🌲</div>
+  <div class="card">
+    <div class="row"><span class="em">🗑️</span> Trash Treasure Hunt game</div>
+    <div class="row"><span class="em">🏅</span> 6 Junior Ranger badges to earn</div>
+    <div class="row"><span class="em">🌟</span> Leave No Trace bingo</div>
+    <div class="row"><span class="em">🤫</span> The "Quiet Camper" mission</div>
+    <div class="row"><span class="em">✍️</span> A family pledge + certificate</div>
+  </div>
+  <div class="foot">
+    <div class="pill">Printable · Ages 4-10</div>
+    <div class="site" style="color:var(--forest2);">paolaadventurer.com</div>
+  </div>
+</div>
+
+<!-- PIN 2 -->
+<div class="pin p2" id="pin2">
+  <div class="badge">🌲</div>
+  <div class="top">A family camping kit</div>
+  <h1>Turn your kids into<br>Junior Rangers</h1>
+  <div class="sub">Games, badges &amp; family rules that teach them to care for nature, no nagging required.</div>
+  <div class="strip"><div class="mb">🗑️</div><div class="mb">🏅</div><div class="mb">🌎</div><div class="mb">♻️</div></div>
+  <div class="foot">
+    <div class="pill">Printable · English + Español</div>
+    <div class="site" style="color:var(--khaki);">paolaadventurer.com</div>
+  </div>
+</div>
+
+<!-- PIN 3 (Spanish) -->
+<div class="pin p3" id="pin3">
+  <div class="band">
+    <div class="top">Camping con niños</div>
+    <h1>Enséñales a cuidar la naturaleza</h1>
+  </div>
+  <div class="body">
+    <div class="q">¿Cansada de repetir "recoge eso" y "baja la voz" todo el fin de semana?</div>
+    <div class="feats">
+      <div class="f"><span class="em">🏅</span>Insignias de Guardabosques</div>
+      <div class="f"><span class="em">♻️</span>Juegos de limpieza</div>
+      <div class="f"><span class="em">🤫</span>Reglas para el ruido</div>
+      <div class="f"><span class="em">✍️</span>Pacto + certificado</div>
+    </div>
+    <div class="foot">
+      <div class="pill">Imprimible · De 4 a 10 años</div>
+      <div class="site">paolaadventurer.com</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
