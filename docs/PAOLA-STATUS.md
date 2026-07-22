@@ -130,6 +130,27 @@ moms in, then point them to the paid products.
 
 ---
 
+## SEO — pending (do tomorrow)
+
+The sales pages already have good titles, meta descriptions, and Open Graph
+tags, plus internal linking from the homepage. What's still missing (Claude
+can add all of this in one session):
+1. `sitemap.xml` + `robots.txt`
+2. **Product structured data (JSON-LD)** on each sales page so Google can
+   show price/product details in results
+3. Sharper keyword-focused titles
+4. **(Paola's task)** register the site in Google Search Console and submit
+   the sitemap — ~10 min, one time.
+
+Reality check: Google SEO is a slow game (3-6 months for a new site) and
+printables are found more on Pinterest than Google, so Pinterest stays the
+#1 traffic priority. SEO is a long-term base, not this-week sales.
+
+To resume: *"Read docs/PAOLA-STATUS.md and let's do the SEO for Paola
+Adventurer."*
+
+---
+
 ## Ideas we parked (for later)
 
 - Instagram/TikTok pin + post specifically for the archery launch
