@@ -208,15 +208,51 @@ GitHub Pages then serves the update at paolaadventurer.com. Load the
 
 ---
 
+## Reviews — how they work (IMPORTANT)
+
+Two paths, use both:
+1. **Manual featured reviews (site is static, so this is how they appear on
+   the site):** the `/review/` form emails each submission to
+   adventurerpaola@gmail.com. It does NOT auto-publish. To show one, Paola
+   pastes the text here and Claude hand-adds it to the "What families are
+   saying" section on the home page (`index.html`, class `.testi` — copy a
+   `.t` card block: stars + `<p>` quote + `.who` name). This gives Paola
+   full control of what's shown.
+2. **Payhip verified reviews (auto):** Paola enables Reviews in Payhip
+   (Settings → Reviews, or per product). Real buyers get a review request
+   email; those star reviews show automatically on the Payhip product page.
+   (Paola chose this option; still needs to turn it on.)
+
+**Live reviews on the home page:** Andrea (mom of 3, ★★★★★) — first real
+review, added 2026-07-24. Mentions the Kids' Outdoor Adventure Pack and
+bear-season prep with little ones.
+
+---
+
+## Recently completed (2026-07-23/24)
+
+- Home **nav menu** (Printables · Classes · Start Here · Blog · My Story ·
+  FAQ), announcement bar, hero CTAs, email capture band (FormSubmit →
+  Gmail), testimonials section, IG + Pinterest links (real URLs).
+- New pages: `/faq/`, `/review/`, `/quiz/` (Start Here product finder) — all
+  bilingual with the EN/ES toggle.
+- SEO: `robots.txt`, `sitemap.xml`, Product JSON-LD on every sales page +
+  FAQ JSON-LD. **Done.**
+- **EN/ES toggle DONE** on adventure-pack, camping-planner, bundle (full
+  Spanish translations). About page reworded to "My Story / Mi Historia".
+- Blog: new bilingual advocacy post `/blog/public-lands-recreation-access/`
+  ("Our Public Lands Are Worth Fighting For", EN default + ES toggle).
+
 ## Ideas parked / next up (tell Claude when ready)
 
-- **Add the EN/ES toggle** to home, camping-planner, adventure-pack, bundle
-  (parked) + bilingual back button on archery.
+- **EN/ES toggle** still needed on: the **home page** and the **archery**
+  page (bilingual back button + copy).
+- **Pinterest "Save" buttons** on blog images (parked).
+- **More blog posts** (Paola supplies topics she's excited about).
 - **Emergency Kit marketing:** full Payhip product description + Pinterest /
   Instagram content.
-- **SEO:** `sitemap.xml` + `robots.txt`, product JSON-LD structured data on
-  each sales page, sharper titles; then Paola registers the site in Google
-  Search Console. (Slow game — Pinterest stays the #1 traffic priority.)
+- **Paola task:** register the site in Google Search Console + submit the
+  sitemap. Enable Payhip reviews.
 - **Traffic:** Instagram + TikTok is the priority. The free Bear Cheat Sheet
   is the lead magnet — give it away in Stories/Reels, then point to paid
   products.
