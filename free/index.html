@@ -102,11 +102,18 @@
 <div class="wrap">
   <div class="signup">
     <h3>Get it free 🌲</h3>
-    <p class="s">Enter your email and we'll send you the guide. · Escribe tu correo y te enviamos la guía.</p>
+    <p class="s">Enter your email and your guide unlocks right here, no waiting. · Escribe tu correo y tu guía se abre aquí mismo, sin esperar.</p>
     <div class="ml-embedded" data-form="HSJy2W"></div>
   </div>
   <p class="fine">No spam, just adventures. Unsubscribe anytime. · Sin spam, solo aventuras.</p>
   <p class="soon">More free printables coming soon. · Pronto más imprimibles gratis. 🌲</p>
+</div>
+
+<!-- Guide unlocked inline after signup -->
+<div id="guide" hidden style="max-width:920px;margin:0 auto 34px;padding:0 16px;">
+  <h2 style="font-family:'Bitter',serif;font-weight:900;color:#22432f;text-align:center;font-size:27px;margin:8px 0 6px;">Here's your guide! 🎉 · ¡Aquí está tu guía!</h2>
+  <p style="text-align:center;color:#7c7361;font-weight:700;margin-bottom:16px;">Explore the tabs below. Tap "Print / Save as PDF" if you'd like to keep it. · Explora las pestañas. Toca "Print / Save as PDF" si quieres guardarla.</p>
+  <iframe id="guideframe" title="Bear Country Cheat Sheet" data-src="/bear.html" style="width:100%;height:82vh;border:2px solid #d8c9a3;border-radius:14px;box-shadow:0 12px 30px rgba(0,0,0,.14);background:#faf7f0;"></iframe>
 </div>
 
 <footer><a href="https://paolaadventurer.com">paolaadventurer.com</a> · Archery · Camping · Explore</footer>
@@ -133,6 +140,40 @@
   (function(){
     var saved; try{ saved = localStorage.getItem('pa_lang'); }catch(e){}
     setLang(saved || ((navigator.language||'en').slice(0,2)==='es' ? 'es' : 'en'));
+  })();
+
+  // Reveal the interactive guide inline once the MailerLite form is submitted successfully
+  (function(){
+    var box = document.querySelector('.signup');
+    var guide = document.getElementById('guide');
+    var frame = document.getElementById('guideframe');
+    if(!box || !guide || !frame) return;
+    var revealed = false;
+    function reveal(){
+      if(revealed) return;
+      revealed = true;
+      if(frame.getAttribute('data-src')) frame.src = frame.getAttribute('data-src');
+      guide.hidden = false;
+      guide.scrollIntoView({behavior:'smooth', block:'start'});
+      if(obs) obs.disconnect();
+    }
+    function check(){
+      // MailerLite shows a success element after a successful subscribe
+      var s = box.querySelector('[class*="success" i], [class*="Success"]');
+      if(s && s.offsetParent !== null) reveal();
+    }
+    var obs = new MutationObserver(check);
+    obs.observe(box, {childList:true, subtree:true, attributes:true, attributeFilter:['style','class']});
+    // Safety net: reveal when the email input we once saw disappears (MailerLite swaps in its success view)
+    var hadForm = false;
+    setInterval(function(){
+      if(revealed) return;
+      var success = box.querySelector('[class*="success" i]');
+      if(success && success.offsetParent !== null){ reveal(); return; }
+      var emailInput = box.querySelector('input[type=email]');
+      if(emailInput) hadForm = true;
+      else if(hadForm) reveal();
+    }, 1200);
   })();
 </script>
 
