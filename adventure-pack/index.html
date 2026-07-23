@@ -16,16 +16,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Baloo+2:wght@500;600;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
-  /* ============================================================
-     ONE THING TO EDIT: paste your checkout link below.
-     (Payhip product URL, or a Stripe Payment Link URL.)
-     ============================================================ */
   :root{
     --forest:#2f6b45; --forest-deep:#22432f; --orange:#f28b2b; --coral:#ef6b56;
     --sun:#ffcf3f; --sky:#5ec4e6; --leaf:#8fc93a; --grape:#9b6bc9;
     --crema:#fffdf5; --paper:#fef6e4; --ink:#3a322a; --muted:#6b6459;
   }
   *{box-sizing:border-box;}
+  [hidden]{display:none !important;}
   body{margin:0;font-family:'Nunito',sans-serif;font-weight:700;color:var(--ink);background:var(--crema);line-height:1.55;}
   img{max-width:100%;display:block;}
   a{color:inherit;}
@@ -34,6 +31,14 @@
 
   /* ribbon */
   .ribbon{height:12px;background:repeating-linear-gradient(90deg,var(--coral) 0 44px,var(--sun) 44px 88px,var(--sky) 88px 132px,var(--leaf) 132px 176px,var(--grape) 176px 220px);}
+
+  /* nav + lang toggle */
+  nav.top{position:sticky;top:0;z-index:100;background:#163024;border-bottom:3px solid #e8b93f;padding:12px 18px;display:flex;justify-content:space-between;align-items:center;gap:12px;box-shadow:0 2px 10px rgba(0,0,0,.25);font-family:'Nunito',sans-serif;}
+  nav.top a{text-decoration:none;}
+  nav.top .home{color:#e8b93f;font-weight:800;letter-spacing:1px;font-size:14px;}
+  .langtoggle{display:flex;gap:2px;background:rgba(255,255,255,.12);border-radius:100px;padding:3px;}
+  .langtoggle button{border:0;background:transparent;color:#faf7f0;font-family:'Nunito';font-weight:800;font-size:12px;padding:5px 12px;border-radius:100px;cursor:pointer;}
+  .langtoggle button.active{background:#e8b93f;color:var(--forest-deep);}
 
   /* hero */
   .hero{background:linear-gradient(rgba(34,67,47,.74),rgba(34,67,47,.84)), url('/assets/kids-archery.jpg') center 20%/cover, var(--forest);color:var(--crema);padding:44px 0 52px;}
@@ -122,13 +127,17 @@
 </script>
 </head>
 <body>
-<nav style="position:sticky;top:0;z-index:100;background:#163024;border-bottom:3px solid #e8b93f;padding:12px 18px;display:flex;justify-content:space-between;align-items:center;gap:12px;box-shadow:0 2px 10px rgba(0,0,0,.25);font-family:'Nunito','Work Sans',sans-serif;">
-  <a href="/" style="color:#e8b93f;text-decoration:none;font-weight:800;letter-spacing:1px;font-size:14px;">← Paola Adventurer</a>
-  <a href="/" style="color:#faf7f0;text-decoration:none;font-weight:800;letter-spacing:1px;font-size:12px;text-transform:uppercase;">🏕️ Shop all</a>
+<nav class="top">
+  <a class="home" href="/">← Paola Adventurer</a>
+  <div class="langtoggle">
+    <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+    <button id="btn-es" onclick="setLang('es')">ES</button>
+  </div>
 </nav>
 <div class="ribbon"></div>
 
-<!-- HERO -->
+<!-- ================= ENGLISH ================= -->
+<div id="lang-en">
 <header class="hero">
   <div class="wrap">
     <div>
@@ -150,7 +159,6 @@
   </div>
 </header>
 
-<!-- TRUST BAR -->
 <div class="trust">
   <div class="wrap">
     <span>📄 11 printable pages</span>
@@ -161,7 +169,6 @@
   </div>
 </div>
 
-<!-- PROBLEM -->
 <section class="center">
   <div class="wrap">
     <h2>"Mom, I'm bored." Again. 😮‍💨</h2>
@@ -170,7 +177,6 @@
   </div>
 </section>
 
-<!-- WHAT'S INSIDE -->
 <section class="previews">
   <div class="wrap center">
     <h2>6 games inside 🎒</h2>
@@ -186,7 +192,6 @@
   </div>
 </section>
 
-<!-- PREVIEW IMAGES -->
 <section>
   <div class="wrap center">
     <h2>Take a peek inside 👀</h2>
@@ -199,7 +204,6 @@
   </div>
 </section>
 
-<!-- WHO -->
 <section class="previews">
   <div class="wrap center">
     <h2>Perfect for… 🌲</h2>
@@ -213,7 +217,6 @@
   </div>
 </section>
 
-<!-- FAQ -->
 <section class="previews">
   <div class="wrap">
     <h2 class="center">Questions? 🤓</h2>
@@ -228,7 +231,6 @@
   </div>
 </section>
 
-<!-- CROSS-SELL -->
 <section style="padding:44px 0;background:#fef6e4;">
   <div class="wrap" style="max-width:800px;">
     <div style="background:#22432f;color:#fff;border-radius:20px;padding:32px 28px;text-align:center;">
@@ -239,7 +241,6 @@
   </div>
 </section>
 
-<!-- FINAL CTA -->
 <section class="final">
   <div class="wrap">
     <h2>Ready for a screen-free adventure? 🎒</h2>
@@ -250,25 +251,147 @@
     <div class="btn-note" style="color:#8a7a3a;">Instant download · Bilingual · Ages 4 to 10</div>
   </div>
 </section>
+</div>
+
+<!-- ================= ESPAÑOL ================= -->
+<div id="lang-es" hidden>
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <div class="site">paolaadventurer.com</div>
+      <h1>Pack de Aventura para Niños</h1>
+      <div class="es">Kids' Outdoor Adventure Pack</div>
+      <p>Saca a los niños afuera en 5 minutos. Sin pantallas, sin planear, nada más que comprar. 11 páginas imprimibles, 6 juegos, bilingüe. Imprímelo, dales un lápiz y listo. 🎉</p>
+      <div class="price">
+        <span class="now">$5</span>
+        <span class="was">$12</span>
+        <span class="tag">PRECIO DE LANZAMIENTO</span>
+      </div>
+      <a class="btn big buy" href="#" data-buy>Llévate el Pack →</a>
+      <div class="btn-note">Descarga al instante · Imprime en casa · Edades 4 a 10</div>
+    </div>
+    <div>
+      <img class="heroimg" src="previews/cover.png" alt="Portada del Pack de Aventura para Niños">
+    </div>
+  </div>
+</header>
+
+<div class="trust">
+  <div class="wrap">
+    <span>📄 11 páginas imprimibles</span>
+    <span>🎮 6 juegos divertidos</span>
+    <span>🌎 Inglés + Español</span>
+    <span>⚡ Descarga al instante</span>
+    <span>🖨️ Imprime copias ilimitadas</span>
+  </div>
+</div>
+
+<section class="center">
+  <div class="wrap">
+    <h2>"Mamá, estoy aburrido." Otra vez. 😮‍💨</h2>
+    <p class="lede">No es que a los niños no les guste el aire libre. "Ve a jugar afuera" no les dice qué hacer, y tú no tienes una tarde libre para inventar juegos. Los niños exploran felices cuando tienen una <b>misión</b>. Este pack les da seis, ya listas para ti.</p>
+    <a class="btn buy" href="#" data-buy>Llévate el Pack · $5</a>
+  </div>
+</section>
+
+<section class="previews">
+  <div class="wrap center">
+    <h2>6 juegos adentro 🎒</h2>
+    <p class="lede">Cada actividad funciona en el patio, un parque o un campamento.</p>
+    <div class="grid">
+      <div class="feat"><div class="ic">🔍</div><h3>Búsqueda del tesoro natural</h3><p>10 cosas por encontrar, para que salgan a explorar solos.</p></div>
+      <div class="feat"><div class="ic">🎯</div><h3>Bingo de aventura</h3><p>Un cuadro de 15 casillas; ¡el primero en completar una línea gana!</p></div>
+      <div class="feat"><div class="ic">🃏</div><h3>Cartas de retos al aire libre</h3><p>8 retos recortables para barajar y desafiarse entre sí.</p></div>
+      <div class="feat"><div class="ic">🤔</div><h3>¿Qué prefieres?</h3><p>6 preguntas divertidas para conversar en el sendero.</p></div>
+      <div class="feat"><div class="ic">🔨</div><h3>Retos de construcción</h3><p>6 misiones fáciles de "haz un fuerte" con un ejemplo en cada una.</p></div>
+      <div class="feat"><div class="ic">⭐</div><h3>Certificado "¡Lo lograste!"</h3><p>Un premio de verdad, con su nombre, para terminar el día orgullosos.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap center">
+    <h2>Echa un vistazo adentro 👀</h2>
+    <p class="lede">Brillante, robusto y amigable para niños, diseñado para verse genial en color o en blanco y negro.</p>
+    <div class="pstrip">
+      <img src="previews/scavenger.png" alt="Página de búsqueda del tesoro">
+      <img src="previews/bingo.png" alt="Página de bingo de aventura">
+      <img src="previews/dares.png" alt="Página de cartas de retos">
+    </div>
+  </div>
+</section>
+
+<section class="previews">
+  <div class="wrap center">
+    <h2>Perfecto para… 🌲</h2>
+    <p class="lede">Niños de 4 a 10 años (los pequeños hacen el conteo y el bingo; los grandes hacen el diario y la búsqueda del tesoro).</p>
+    <div class="who">
+      <div>🏡 Tardes en el patio sin pantalla</div>
+      <div>⛺ Campamentos y viajes por carretera</div>
+      <div>🎉 Fiestas de cumpleaños al aire libre</div>
+      <div>☀️ Contra el aburrimiento de verano y vacaciones</div>
+    </div>
+  </div>
+</section>
+
+<section class="previews">
+  <div class="wrap">
+    <h2 class="center">¿Preguntas? 🤓</h2>
+    <p class="lede center">&nbsp;</p>
+    <div class="faq">
+      <details><summary>¿Es físico o digital?</summary><p>Digital. Descargas un PDF al instante y lo imprimes en casa cuantas veces quieras.</p></details>
+      <details><summary>¿Necesito impresora a color?</summary><p>No; se ve genial en color, pero está diseñado para leerse perfecto en blanco y negro también.</p></details>
+      <details><summary>¿Para qué edades es?</summary><p>Hecho para edades de 4 a 10. Los pequeños hacen el conteo y el bingo; los mayores el diario y la búsqueda del tesoro.</p></details>
+      <details><summary>¿En qué idioma está?</summary><p>Cada página tiene inglés y español, así funciona en un hogar bilingüe.</p></details>
+      <details><summary>¿Puedo imprimirlo más de una vez?</summary><p>Sí; imprime una copia para cada niño, en cada viaje, las veces que quieras.</p></details>
+    </div>
+  </div>
+</section>
+
+<section style="padding:44px 0;background:#fef6e4;">
+  <div class="wrap" style="max-width:800px;">
+    <div style="background:#22432f;color:#fff;border-radius:20px;padding:32px 28px;text-align:center;">
+      <h2 style="color:#fff;font-size:26px;margin:0 0 8px;">¿Planeando un campamento completo? 🏕️</h2>
+      <p style="opacity:.92;font-size:16px;margin:0 0 20px;">Llévate este pack + el Planificador de Campamento Familiar juntos por <strong>$9</strong>, menos que comprarlos por separado.</p>
+      <a href="/bundle/" style="display:inline-block;background:#ffcf3f;color:#22432f;font-family:'Fredoka',sans-serif;font-weight:700;font-size:18px;padding:14px 32px;border-radius:100px;text-decoration:none;">Ver el bundle · $9 →</a>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <h2>¿Lista para una aventura sin pantallas? 🎒</h2>
+    <div class="price">
+      <span class="now">$5</span><span class="was">$12</span><span class="tag">PRECIO DE LANZAMIENTO</span>
+    </div>
+    <a class="btn big buy" href="#" data-buy>Llévate el Pack →</a>
+    <div class="btn-note" style="color:#8a7a3a;">Descarga al instante · Bilingüe · Edades 4 a 10</div>
+  </div>
+</section>
+</div>
 
 <footer>
   <div class="wrap">
     <a href="https://paolaadventurer.com">paolaadventurer.com</a>
-    <div class="safety">Safety note: activities are outdoors and require adult supervision at all times. Children should not touch or taste unknown plants, mushrooms, or animals.</div>
+    <div class="safety">Safety note · Nota de seguridad: activities are outdoors and require adult supervision at all times. Las actividades son al aire libre y requieren supervisión de un adulto en todo momento. Children should not touch or taste unknown plants, mushrooms, or animals.</div>
   </div>
 </footer>
 
 <script>
-  /* ============================================================
-     STEP 1 paste your checkout link between the quotes below.
-       • Payhip:  your product page URL (recommended delivers the
-         PDF securely and lets you connect Stripe as the processor)
-       • Stripe:  a Stripe Payment Link URL
-     STEP 2 save, commit, and it's live on paolaadventurer.com.
-     Until you set it, buttons show a friendly "coming soon" note.
-     ============================================================ */
-  var CHECKOUT_URL = "https://payhip.com/b/T3yrk";
+  function setLang(l){
+    document.getElementById('lang-en').hidden = (l!=='en');
+    document.getElementById('lang-es').hidden = (l!=='es');
+    document.getElementById('btn-en').classList.toggle('active', l==='en');
+    document.getElementById('btn-es').classList.toggle('active', l==='es');
+    document.documentElement.lang = l;
+    try{ localStorage.setItem('pa_lang', l); }catch(e){}
+  }
+  (function(){
+    var saved; try{ saved = localStorage.getItem('pa_lang'); }catch(e){}
+    setLang(saved || ((navigator.language||'en').slice(0,2)==='es' ? 'es' : 'en'));
+  })();
 
+  var CHECKOUT_URL = "https://payhip.com/b/T3yrk";
   document.querySelectorAll('[data-buy]').forEach(function(a){
     if (CHECKOUT_URL) {
       a.setAttribute('href', CHECKOUT_URL);
@@ -277,7 +400,7 @@
     } else {
       a.addEventListener('click', function(e){
         e.preventDefault();
-        alert("Checkout link not set yet. Paste your Payhip or Stripe link into CHECKOUT_URL in this page's code to go live.");
+        alert("Checkout link not set yet.");
       });
     }
   });
