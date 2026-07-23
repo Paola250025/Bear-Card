@@ -253,6 +253,17 @@ bear-season prep with little ones.
   Instagram content.
 - **Paola task:** register the site in Google Search Console + submit the
   sitemap. Enable Payhip reviews.
+- **Google shows an OLD cached description** for paolaadventurer.com
+  ("Go from idea to live site in minutes. Get 50 free credits") — leftover
+  from the previous website-builder "coming soon" page. The current site's
+  meta description is already correct; home now has canonical + WebSite/
+  Organization JSON-LD. FIX: in Google Search Console, use URL Inspection →
+  Request Indexing on https://paolaadventurer.com and submit sitemap.xml,
+  then wait days/weeks for Google to re-crawl. (Site already ranks #1 for
+  "paola adventurer".) Need to know the domain registrar to help verify.
+- **GitHub repo About description**: Paola to edit at
+  github.com/Paola250025/Bear-Card (gear next to About) so the repo doesn't
+  compete in brand search; uncheck "Use your GitHub Pages website".
 - **Traffic:** Instagram + TikTok is the priority. The free Bear Cheat Sheet
   is the lead magnet — give it away in Stories/Reels, then point to paid
   products.
