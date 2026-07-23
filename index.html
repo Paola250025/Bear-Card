@@ -90,6 +90,7 @@
   .testi .t .stars{color:var(--sun);font-size:16px;letter-spacing:2px;}
   .testi .t p{font-family:'Bitter',serif;font-style:italic;color:var(--cafe);font-size:15.5px;margin:10px 0 12px;line-height:1.5;}
   .testi .t .who{font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:1px;text-transform:uppercase;font-size:12px;color:var(--terra);}
+  .testi .t .seemore{font-family:'Nunito',sans-serif;font-style:normal;font-weight:800;color:var(--terra);font-size:13.5px;text-decoration:none;white-space:nowrap;}
   .testi .leave{display:inline-block;margin-top:26px;background:var(--terra);color:#fff;font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:1px;text-transform:uppercase;font-size:13px;padding:12px 26px;border-radius:100px;}
   .social{margin-top:16px;display:flex;gap:14px;justify-content:center;}
   .social a{color:var(--sun);font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:1px;text-transform:uppercase;font-size:12px;border:1.5px solid var(--sun);border-radius:100px;padding:8px 16px;}
@@ -244,13 +245,13 @@
 <section class="testi">
   <h2>What families are saying 💬</h2>
   <div class="sub">Real reviews from real families · Reseñas reales de familias reales</div>
-  <!-- FEATURED REAL REVIEW (full text) -->
-  <div class="t" style="max-width:760px;margin:0 auto 18px;">
-    <div class="stars">★★★★★</div>
-    <p>Me and my husband would go camping often before kids, however, once our second daughter was born we stopped. Fast forward now and we have 3 little ones and we are planning on going camping again. I was very nervous and anxious to go camping with my little ones during active bear season. Paola shared with me a lot of helpful information on how to be prepared with little ones, how to practice with them and what things I would need. All the information she has shared has been extremely useful. I felt like I had a mom who finally understood my fears. Paola equipped me with so much knowledge that I now feel empowered, confident and ready to have the best time with our family!!! My son is also very excited to do all the activities and games from the Kids' Outdoor Adventure Pack! Thank you for sharing all your knowledge and for making this mommy feel confident and ready.</p>
-    <div class="who">Andrea · Mom of 3</div>
-  </div>
-  <div class="cards" style="max-width:760px;grid-template-columns:1fr 1fr;">
+  <div class="cards">
+    <!-- REAL REVIEWS GO HERE. Copy a .t block; use the same See more pattern for long ones. -->
+    <div class="t">
+      <div class="stars">★★★★★</div>
+      <p>I was very nervous and anxious to go camping with my little ones during active bear season. Paola shared with me a lot of helpful information on how to be prepared with little ones.<span class="more" hidden> All the information she has shared has been extremely useful. I felt like I had a mom who finally understood my fears. Paola equipped me with so much knowledge that I now feel empowered, confident and ready to have the best time with our family!!! My son is also very excited to do all the activities and games from the Kids' Outdoor Adventure Pack! Thank you for sharing all your knowledge and for making this mommy feel confident and ready.</span> <a href="#" class="seemore" onclick="var m=this.previousElementSibling;m.hidden=!m.hidden;this.textContent=m.hidden?'See more':'See less';return false;">See more</a></p>
+      <div class="who">Andrea · Mom of 3</div>
+    </div>
     <div class="t">
       <div class="stars">★★★★★</div>
       <p>Every review helps another nervous beginner take that first step outside. Thank you for trusting me with your family's first adventures. 💛</p>
