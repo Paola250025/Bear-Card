@@ -307,7 +307,7 @@
     setLang(lang);
   })();
 
-  var CHECKOUT_URL = "";  // Paste your Payhip link here to go live
+  var CHECKOUT_URL = "https://payhip.com/b/R8nDm";  // Emergency-Ready Kit
   document.querySelectorAll('[data-buy]').forEach(function(a){
     if (CHECKOUT_URL){ a.href = CHECKOUT_URL; a.target = "_blank"; a.rel = "noopener"; }
     else { a.addEventListener('click', function(e){ e.preventDefault(); alert("Almost ready! Paste your Payhip link to go live. · ¡Casi listo! Pega tu link de Payhip para publicarlo."); }); }
