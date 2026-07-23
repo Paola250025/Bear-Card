@@ -30,16 +30,18 @@
   .hero .kick{font-weight:800;letter-spacing:3px;text-transform:uppercase;font-size:13px;color:var(--sun);text-shadow:0 2px 8px rgba(0,0,0,.5);}
   .hero h1{font-family:'Bitter',serif;font-weight:900;color:#fff;font-size:38px;margin:12px 0 10px;text-shadow:0 2px 14px rgba(0,0,0,.5);}
   .hero p{color:#eef3e9;font-size:17px;max-width:480px;margin:0 auto;text-shadow:0 2px 10px rgba(0,0,0,.5);}
-  .card{background:var(--paper);border:2px solid var(--khaki);border-radius:18px;padding:30px 26px;margin:34px 0;box-shadow:0 10px 26px rgba(0,0,0,.08);text-align:center;}
+  .card{background:var(--paper);border:2px solid var(--khaki);border-radius:18px;padding:30px 26px;margin:34px 0 20px;box-shadow:0 10px 26px rgba(0,0,0,.08);text-align:center;}
   .card .tag{display:inline-block;background:var(--forest2);color:#fff;font-weight:800;text-transform:uppercase;letter-spacing:1px;font-size:12px;padding:5px 14px;border-radius:100px;margin-bottom:12px;}
   .card h2{font-family:'Bitter',serif;font-weight:900;color:var(--forest);font-size:26px;margin-bottom:8px;}
   .card p{color:var(--ink);font-size:16px;margin-bottom:8px;}
-  .card .list{text-align:left;max-width:420px;margin:14px auto 20px;}
+  .card .list{text-align:left;max-width:420px;margin:14px auto 4px;}
   .card .list li{margin-bottom:6px;font-weight:700;color:var(--ink);}
-  form{display:flex;flex-direction:column;gap:12px;max-width:420px;margin:0 auto;}
-  form input{border:2px solid var(--khaki);border-radius:100px;padding:14px 18px;font-family:'Nunito';font-weight:600;font-size:16px;}
-  form button{background:var(--terra);color:#fff;border:0;border-radius:100px;padding:15px;font-family:'Bitter',serif;font-weight:800;font-size:18px;box-shadow:0 5px 0 #8f411f;cursor:pointer;}
-  .fine{font-size:12.5px;color:var(--muted);margin-top:12px;}
+  /* signup box wrapping the MailerLite form */
+  .signup{background:var(--forest);border-radius:18px;padding:30px 26px 24px;margin:0 0 20px;text-align:center;box-shadow:0 10px 26px rgba(0,0,0,.12);}
+  .signup h3{font-family:'Bitter',serif;font-weight:900;color:#fff;font-size:24px;margin-bottom:6px;}
+  .signup .s{color:#e7efe3;font-size:15px;margin-bottom:18px;}
+  .signup .ml-embedded{max-width:440px;margin:0 auto;}
+  .fine{font-size:12.5px;color:var(--muted);text-align:center;margin-bottom:8px;}
   .soon{text-align:center;color:var(--muted);font-weight:700;padding:8px 20px 40px;}
   footer{background:var(--forest);color:var(--khaki);text-align:center;padding:24px 20px;font-family:'Bitter';font-size:13px;}
   footer a{color:var(--sun);}
@@ -72,17 +74,7 @@
         <li>✅ English &amp; Español</li>
         <li>✅ Print it or keep it on your phone</li>
       </ul>
-      <form action="https://formsubmit.co/adventurerpaola@gmail.com" method="POST">
-        <input type="hidden" name="_subject" value="Freebie signup - Bear Cheat Sheet">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_next" value="https://paolaadventurer.com/bear.html">
-        <input type="email" name="email" placeholder="you@email.com" required>
-        <button type="submit">Send me the free guide →</button>
-      </form>
-      <div class="fine">No spam, just adventures. Unsubscribe anytime.</div>
     </div>
-    <p class="soon">More free printables coming soon. 🌲</p>
   </div>
 </div>
 
@@ -102,21 +94,32 @@
         <li>✅ Inglés y Español</li>
         <li>✅ Imprímela o guárdala en tu celular</li>
       </ul>
-      <form action="https://formsubmit.co/adventurerpaola@gmail.com" method="POST">
-        <input type="hidden" name="_subject" value="Freebie signup ES - Bear Cheat Sheet">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_next" value="https://paolaadventurer.com/bear.html">
-        <input type="email" name="email" placeholder="tu@correo.com" required>
-        <button type="submit">Envíame la guía gratis →</button>
-      </form>
-      <div class="fine">Sin spam, solo aventuras. Cancela cuando quieras.</div>
     </div>
-    <p class="soon">Pronto más imprimibles gratis. 🌲</p>
   </div>
 </div>
 
+<!-- Shared signup (bilingual) with MailerLite form -->
+<div class="wrap">
+  <div class="signup">
+    <h3>Get it free 🌲</h3>
+    <p class="s">Enter your email and we'll send you the guide. · Escribe tu correo y te enviamos la guía.</p>
+    <div class="ml-embedded" data-form="HSJy2W"></div>
+  </div>
+  <p class="fine">No spam, just adventures. Unsubscribe anytime. · Sin spam, solo aventuras.</p>
+  <p class="soon">More free printables coming soon. · Pronto más imprimibles gratis. 🌲</p>
+</div>
+
 <footer><a href="https://paolaadventurer.com">paolaadventurer.com</a> · Archery · Camping · Explore</footer>
+
+<!-- MailerLite Universal -->
+<script>
+  (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+  .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+  n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+  (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+  ml('account', '2529939');
+</script>
+<!-- End MailerLite Universal -->
 
 <script>
   function setLang(l){
