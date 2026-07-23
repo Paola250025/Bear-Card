@@ -20,6 +20,10 @@
      ============================================================ */
   :root{--forest:#2f6b45;--forest-deep:#22432f;--terra:#b5562f;--khaki:#d8c9a3;--sun:#e8b93f;--cream:#fffdf5;--paper:#faf5ea;--ink:#3a322a;--muted:#7c7361;}
   *{box-sizing:border-box;}
+  [hidden]{display:none !important;}
+  .langtoggle{display:flex;gap:2px;background:rgba(255,255,255,.12);border-radius:100px;padding:3px;}
+  .langtoggle button{border:0;background:transparent;color:#faf7f0;font-family:'Nunito';font-weight:800;font-size:12px;padding:5px 12px;border-radius:100px;cursor:pointer;}
+  .langtoggle button.active{background:#e8b93f;color:#22432f;}
   body{margin:0;font-family:'Nunito',sans-serif;font-weight:700;color:var(--ink);background:var(--cream);line-height:1.55;}
   img{max-width:100%;display:block;}
   a{color:inherit;}
@@ -89,9 +93,13 @@
 
 <nav style="position:sticky;top:0;z-index:100;background:#163024;border-bottom:3px solid #e8b93f;padding:12px 18px;display:flex;justify-content:space-between;align-items:center;gap:12px;box-shadow:0 2px 10px rgba(0,0,0,.25);font-family:'Nunito',sans-serif;">
   <a href="/" style="color:#e8b93f;text-decoration:none;font-weight:800;letter-spacing:1px;font-size:14px;">← Paola Adventurer</a>
-  <a href="/" style="color:#faf7f0;text-decoration:none;font-weight:800;letter-spacing:1px;font-size:12px;text-transform:uppercase;">🏕️ Shop all</a>
+  <div class="langtoggle">
+    <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+    <button id="btn-es" onclick="setLang('es')">ES</button>
+  </div>
 </nav>
 
+<div id="lang-en">
 <header class="hero">
   <div class="wrap">
     <div>
@@ -214,16 +222,156 @@
   </div>
 </section>
 
+</div>
+
+<!-- ================= ESPAÑOL ================= -->
+<div id="lang-es" hidden>
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <div class="site">paolaadventurer.com</div>
+      <h1>El Planificador de Campamento Familiar</h1>
+      <div class="tagline">Tu kit inicial sin estrés para el primer viaje en familia</div>
+      <span class="langbadge">Incluye inglés + español</span>
+      <p>Planear un campamento familiar abruma cuando nunca lo has hecho. Esto no es otra lista en blanco que encuentras gratis y con la que igual te sientes perdida. Es una mujer con experiencia al aire libre que te guía por todo, para que no se te olvide nada y nadie entre en pánico.</p>
+      <div class="price"><span class="now">$7</span><span class="was">$17</span><span class="tag">Precio de lanzamiento</span></div>
+      <a class="btn big buy" href="#" data-buy>Llévate el Planificador →</a>
+      <div class="btn-note">Descarga al instante · 17 páginas · Ambos idiomas · Imprime en casa</div>
+    </div>
+    <div><img class="heroimg" src="previews/cover.png" alt="Portada del Planificador de Campamento Familiar"></div>
+  </div>
+</header>
+
+<div class="trust"><div class="wrap">
+  <span>📄 17 páginas imprimibles</span>
+  <span>🌎 Inglés + Español</span>
+  <span>🧭 Consejos de una experta al aire libre</span>
+  <span>⚡ Descarga al instante</span>
+  <span>🖨️ Imprime sin límite</span>
+</div></div>
+
+<section class="diff">
+  <div class="wrap center">
+    <h2>"¿Pero las listas de campamento no son gratis?"</h2>
+    <p class="lede">Sí, las listas en blanco están por todos lados. Y aun así la mayoría de las familias primerizas olvidan la mitad de sus cosas y pasan el viaje estresadas. Por esto esto es diferente:</p>
+    <div class="diffgrid">
+      <div class="diffcard"><h3>Enseña, no solo enlista</h3><p>Las listas gratis te dan casillas vacías. Esto te da el <em>cómo</em>: armar el campamento en el orden correcto, lo que nadie te dice y qué hacer cuando algo sale mal.</p></div>
+      <div class="diffcard"><h3>Escrito por alguien que acampa</h3><p>Consejos reales de una mujer al aire libre e instructora de seguridad, no una plantilla cualquiera. Lo que solo se aprende a las malas.</p></div>
+      <div class="diffcard"><h3>Verdaderamente bilingüe</h3><p>Una versión limpia en inglés Y una limpia en español, ambas incluidas. Casi ningún planificador gratis ofrece eso.</p></div>
+      <div class="diffcard"><h3>Hecho para principiantes nerviosas</h3><p>Calmado, que da confianza y completo. Si es tu primer viaje, te sentirás lista, no abrumada.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="center">
+  <div class="wrap">
+    <h2>Qué incluye (17 páginas)</h2>
+    <p class="lede">Todo para un viaje tranquilo, desde el primer plan hasta el último malvavisco.</p>
+    <div class="grid">
+      <div class="feat"><h3>🗺️ Planificador del viaje</h3><p>Fechas, lugar, presupuesto, clima y quiénes van.</p></div>
+      <div class="feat"><h3>⏳ Cuenta regresiva</h3><p>Qué hacer 2 semanas antes, días antes y el día de salida.</p></div>
+      <div class="feat"><h3>🎒 Listas de empaque</h3><p>Lista maestra + una lista aparte de niños y artículos de aseo.</p></div>
+      <div class="feat"><h3>🍳 Menú + compras</h3><p>Planea cada comida y compra por secciones.</p></div>
+      <div class="feat"><h3>🩹 Primeros auxilios y emergencia</h3><p>Lista de seguridad + una tarjeta de datos de la familia para llenar.</p></div>
+      <div class="feat"><h3>🧭 Lo que nadie te dice</h3><p>Consejos reales que salvan el viaje. Las listas gratis no los tienen.</p></div>
+      <div class="feat"><h3>1️⃣ Arma el campamento en orden</h3><p>El orden exacto para que el montaje sea calmado, no un caos.</p></div>
+      <div class="feat"><h3>🌧️ Cuando algo sale mal</h3><p>¿Lluvia, insectos, berrinches, algo olvidado? Resuelto.</p></div>
+      <div class="feat"><h3>🔥 Bono: 5 comidas de fogata</h3><p>Recetas fáciles y aprobadas por niños, incluidas gratis.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="previews">
+  <div class="wrap center">
+    <h2>Echa un vistazo adentro 👀</h2>
+    <p class="lede">Limpio, calmado, bonito: el tipo de planificador que de verdad quieres usar.</p>
+    <div class="pstrip">
+      <img src="previews/realtalk.png" alt="Página de lo que nadie te dice">
+      <img src="previews/setup.png" alt="Página de armar el campamento en orden">
+      <img src="previews/meals.png" alt="Página del menú">
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap center">
+    <h2>Perfecto para… 🏕️</h2>
+    <p class="lede">Familias que van a acampar por primera o segunda vez y quieren sentirse listas.</p>
+    <div class="who">
+      <div>👨‍👩‍👧‍👦 Familias que prueban acampar por primera vez</div>
+      <div>😰 Mamás que se sienten abrumadas con la planeación</div>
+      <div>🌎 Familias bilingües e hispanohablantes</div>
+      <div>🎒 Cualquiera cansada de olvidar justo lo que necesitaba</div>
+    </div>
+  </div>
+</section>
+
+<section class="previews">
+  <div class="wrap">
+    <div class="bonus">
+      <h2>🎁 Bono gratis incluido</h2>
+      <p style="font-weight:700;font-size:17px;">Recibe nuestro <strong>Bear Country Cheat Sheet</strong> (valor $9) gratis con tu planificador: la guía bilingüe de seguridad ante osos que toda familia campista debería tener.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 class="center">¿Preguntas? 🤓</h2>
+    <p class="lede center">&nbsp;</p>
+    <div class="faq">
+      <details><summary>¿Es digital o físico?</summary><p>Digital. Descargas un PDF al instante y lo imprimes en casa las veces que quieras.</p></details>
+      <details><summary>¿De verdad está en los dos idiomas?</summary><p>¡Sí! Recibes una versión completa en inglés y otra completa en español, sin páginas mezcladas. Usa la que prefieras.</p></details>
+      <details><summary>¿Necesito impresora a color?</summary><p>No, se ve genial en color pero está diseñado para leerse perfecto en blanco y negro también.</p></details>
+      <details><summary>Nunca hemos acampado. ¿Es para nosotros?</summary><p>Especialmente para ti. Está hecho para primerizas, con los consejos y la ayuda paso a paso que las listas gratis dejan por fuera.</p></details>
+      <details><summary>¿Cuántas páginas tiene?</summary><p>17 páginas, incluyendo planeación, empaque, comidas, seguridad, consejos reales, solución de problemas y recetas de bono.</p></details>
+    </div>
+  </div>
+</section>
+
+<section style="padding:44px 0;background:#faf5ea;">
+  <div class="wrap" style="max-width:800px;">
+    <div style="background:#22432f;color:#fff;border-radius:20px;padding:32px 28px;text-align:center;">
+      <h2 style="color:#fff;font-size:26px;margin:0 0 8px;">¿También viajas con niños? Ahorra con el bundle 🏕️</h2>
+      <p style="opacity:.92;font-size:16px;margin:0 0 20px;">Llévate este planificador + el Pack de Aventura para Niños juntos por <strong>$9</strong>, menos que comprarlos por separado.</p>
+      <a href="/bundle/" style="display:inline-block;background:#e8b93f;color:#22432f;font-family:'Bitter',serif;font-weight:800;font-size:18px;padding:14px 32px;border-radius:100px;text-decoration:none;">Ver el bundle · $9 →</a>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <h2>Acampa como si ya lo hubieras hecho 🏕️</h2>
+    <div class="price"><span class="now">$7</span><span class="was">$17</span><span class="tag">Precio de lanzamiento</span></div>
+    <a class="btn big buy" href="#" data-buy>Llévate el Planificador →</a>
+    <div class="btn-note">Descarga al instante · Inglés + Español · 17 páginas</div>
+  </div>
+</section>
+</div>
+
 <footer>
   <div class="wrap">
     <a href="https://paolaadventurer.com">paolaadventurer.com</a>
-    <div class="safety">Safety note: camping involves the outdoors and requires adult judgment and supervision. This planner is a helpful guide, not a substitute for local park rules or professional safety advice.</div>
+    <div class="safety">Safety note · Nota de seguridad: camping involves the outdoors and requires adult judgment and supervision. Acampar es al aire libre y requiere el criterio y la supervisión de un adulto. This planner is a helpful guide, not a substitute for local park rules or professional safety advice.</div>
   </div>
 </footer>
 
 <script>
   /* STEP 1, paste your Payhip product link between the quotes.
      STEP 2, save. Until then, buttons show a friendly "coming soon" note. */
+  function setLang(l){
+    document.getElementById('lang-en').hidden = (l!=='en');
+    document.getElementById('lang-es').hidden = (l!=='es');
+    document.getElementById('btn-en').classList.toggle('active', l==='en');
+    document.getElementById('btn-es').classList.toggle('active', l==='es');
+    document.documentElement.lang = l;
+    try{ localStorage.setItem('pa_lang', l); }catch(e){}
+  }
+  (function(){
+    var saved; try{ saved = localStorage.getItem('pa_lang'); }catch(e){}
+    setLang(saved || ((navigator.language||'en').slice(0,2)==='es' ? 'es' : 'en'));
+  })();
+
   var CHECKOUT_URL = "https://payhip.com/b/cYHMy";
   document.querySelectorAll('[data-buy]').forEach(function(a){
     if (CHECKOUT_URL){ a.href = CHECKOUT_URL; a.target = "_blank"; a.rel = "noopener"; }
