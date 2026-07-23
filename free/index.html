@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Outdoor Printables & Guides | Paola Adventurer</title>
+<meta name="description" content="Grab the free bilingual Bear Country Cheat Sheet and join the adventure, free outdoor tips for families, camping with kids, and more. English & Español.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://paolaadventurer.com/free/">
+<meta property="og:title" content="Free Outdoor Printables & Guides · Paola Adventurer">
+<meta property="og:description" content="Free bilingual bear-safety cheat sheet for camping families. Grab it and join the adventure.">
+<meta property="og:image" content="https://paolaadventurer.com/assets/camping-hero.jpg">
+<link rel="icon" href="/assets/icon-192.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,700;0,800;0,900;1,700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--forest:#22432f;--forest2:#2f6b45;--terra:#b5562f;--khaki:#d8c9a3;--sun:#e8b93f;--cream:#faf7f0;--paper:#fffdf7;--ink:#3a322a;--muted:#7c7361;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  [hidden]{display:none !important;}
+  body{font-family:'Nunito',sans-serif;font-weight:600;color:var(--ink);background:var(--cream);line-height:1.7;}
+  .wrap{max-width:640px;margin:0 auto;padding:0 20px;}
+  nav.top{position:sticky;top:0;z-index:100;background:#163024;border-bottom:3px solid var(--sun);padding:12px 18px;display:flex;justify-content:space-between;align-items:center;gap:12px;box-shadow:0 2px 10px rgba(0,0,0,.25);}
+  nav.top a{font-weight:800;letter-spacing:1px;text-decoration:none;}
+  nav.top .home{color:var(--sun);font-size:14px;}
+  .langtoggle{display:flex;gap:2px;background:rgba(255,255,255,.12);border-radius:100px;padding:3px;}
+  .langtoggle button{border:0;background:transparent;color:#faf7f0;font-family:'Nunito';font-weight:800;font-size:12px;padding:5px 12px;border-radius:100px;cursor:pointer;}
+  .langtoggle button.active{background:var(--sun);color:var(--forest);}
+  .hero{background:linear-gradient(rgba(34,67,47,.7),rgba(34,67,47,.82)), url('/assets/camping-hero.jpg') center 40%/cover, var(--forest);color:var(--cream);text-align:center;padding:60px 20px 52px;}
+  .hero .kick{font-weight:800;letter-spacing:3px;text-transform:uppercase;font-size:13px;color:var(--sun);text-shadow:0 2px 8px rgba(0,0,0,.5);}
+  .hero h1{font-family:'Bitter',serif;font-weight:900;color:#fff;font-size:38px;margin:12px 0 10px;text-shadow:0 2px 14px rgba(0,0,0,.5);}
+  .hero p{color:#eef3e9;font-size:17px;max-width:480px;margin:0 auto;text-shadow:0 2px 10px rgba(0,0,0,.5);}
+  .card{background:var(--paper);border:2px solid var(--khaki);border-radius:18px;padding:30px 26px;margin:34px 0;box-shadow:0 10px 26px rgba(0,0,0,.08);text-align:center;}
+  .card .tag{display:inline-block;background:var(--forest2);color:#fff;font-weight:800;text-transform:uppercase;letter-spacing:1px;font-size:12px;padding:5px 14px;border-radius:100px;margin-bottom:12px;}
+  .card h2{font-family:'Bitter',serif;font-weight:900;color:var(--forest);font-size:26px;margin-bottom:8px;}
+  .card p{color:var(--ink);font-size:16px;margin-bottom:8px;}
+  .card .list{text-align:left;max-width:420px;margin:14px auto 20px;}
+  .card .list li{margin-bottom:6px;font-weight:700;color:var(--ink);}
+  form{display:flex;flex-direction:column;gap:12px;max-width:420px;margin:0 auto;}
+  form input{border:2px solid var(--khaki);border-radius:100px;padding:14px 18px;font-family:'Nunito';font-weight:600;font-size:16px;}
+  form button{background:var(--terra);color:#fff;border:0;border-radius:100px;padding:15px;font-family:'Bitter',serif;font-weight:800;font-size:18px;box-shadow:0 5px 0 #8f411f;cursor:pointer;}
+  .fine{font-size:12.5px;color:var(--muted);margin-top:12px;}
+  .soon{text-align:center;color:var(--muted);font-weight:700;padding:8px 20px 40px;}
+  footer{background:var(--forest);color:var(--khaki);text-align:center;padding:24px 20px;font-family:'Bitter';font-size:13px;}
+  footer a{color:var(--sun);}
+  @media(max-width:640px){.hero h1{font-size:30px;}}
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <a class="home" href="/">← Paola Adventurer</a>
+  <div class="langtoggle">
+    <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+    <button id="btn-es" onclick="setLang('es')">ES</button>
+  </div>
+</nav>
+
+<div id="lang-en">
+  <header class="hero">
+    <div class="kick">Free · Gratis</div>
+    <h1>Free outdoor guides 🎁</h1>
+    <p>Start here, grab a free printable and join a community of families learning to get outside.</p>
+  </header>
+  <div class="wrap">
+    <div class="card">
+      <span class="tag">Free download</span>
+      <h2>Bear Country Cheat Sheet 🐻</h2>
+      <p>Nervous about bears on your camping trip? This free, bilingual cheat sheet gives you the 5 things that actually matter, in your pocket.</p>
+      <ul class="list">
+        <li>✅ The 5 bear-safety basics every family should know</li>
+        <li>✅ English &amp; Español</li>
+        <li>✅ Print it or keep it on your phone</li>
+      </ul>
+      <form action="https://formsubmit.co/adventurerpaola@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="Freebie signup - Bear Cheat Sheet">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://paolaadventurer.com/bear.html">
+        <input type="email" name="email" placeholder="you@email.com" required>
+        <button type="submit">Send me the free guide →</button>
+      </form>
+      <div class="fine">No spam, just adventures. Unsubscribe anytime.</div>
+    </div>
+    <p class="soon">More free printables coming soon. 🌲</p>
+  </div>
+</div>
+
+<div id="lang-es" hidden>
+  <header class="hero">
+    <div class="kick">Gratis · Free</div>
+    <h1>Guías gratis al aire libre 🎁</h1>
+    <p>Empieza aquí: llévate un imprimible gratis y únete a una comunidad de familias que aprenden a salir afuera.</p>
+  </header>
+  <div class="wrap">
+    <div class="card">
+      <span class="tag">Descarga gratis</span>
+      <h2>Bear Country Cheat Sheet 🐻</h2>
+      <p>¿Te dan nervios los osos en tu campamento? Esta guía gratis y bilingüe te da las 5 cosas que de verdad importan, en tu bolsillo.</p>
+      <ul class="list">
+        <li>✅ Las 5 bases de seguridad ante osos que toda familia debe saber</li>
+        <li>✅ Inglés y Español</li>
+        <li>✅ Imprímela o guárdala en tu celular</li>
+      </ul>
+      <form action="https://formsubmit.co/adventurerpaola@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="Freebie signup ES - Bear Cheat Sheet">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://paolaadventurer.com/bear.html">
+        <input type="email" name="email" placeholder="tu@correo.com" required>
+        <button type="submit">Envíame la guía gratis →</button>
+      </form>
+      <div class="fine">Sin spam, solo aventuras. Cancela cuando quieras.</div>
+    </div>
+    <p class="soon">Pronto más imprimibles gratis. 🌲</p>
+  </div>
+</div>
+
+<footer><a href="https://paolaadventurer.com">paolaadventurer.com</a> · Archery · Camping · Explore</footer>
+
+<script>
+  function setLang(l){
+    document.getElementById('lang-en').hidden = (l!=='en');
+    document.getElementById('lang-es').hidden = (l!=='es');
+    document.getElementById('btn-en').classList.toggle('active', l==='en');
+    document.getElementById('btn-es').classList.toggle('active', l==='es');
+    document.documentElement.lang = l;
+    try{ localStorage.setItem('pa_lang', l); }catch(e){}
+  }
+  (function(){
+    var saved; try{ saved = localStorage.getItem('pa_lang'); }catch(e){}
+    setLang(saved || ((navigator.language||'en').slice(0,2)==='es' ? 'es' : 'en'));
+  })();
+</script>
+
+</body>
+</html>

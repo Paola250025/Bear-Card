@@ -3,6 +3,7 @@
   <url><loc>https://paolaadventurer.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://paolaadventurer.com/about/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://paolaadventurer.com/bear.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://paolaadventurer.com/free/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://paolaadventurer.com/adventure-pack/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://paolaadventurer.com/camping-planner/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://paolaadventurer.com/bundle/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
