@@ -243,11 +243,43 @@ bear-season prep with little ones.
 - Blog: new bilingual advocacy post `/blog/public-lands-recreation-access/`
   ("Our Public Lands Are Worth Fighting For", EN default + ES toggle).
 
+## Recently completed (2026-07-24, session 2)
+
+- **3 new bilingual blog posts** (EN default + ES toggle, each with a Save
+  to Pinterest button): `what-to-pack-camping-with-kids`,
+  `screen-free-activities-for-kids-by-age`, `how-to-start-archery-beginner`
+  (distinctive, coach-authority angle). Blog now has 7 posts.
+- **Pinterest Save buttons** added to ALL blog posts (old + new) and a
+  floating Save button on ALL product pages. **Done.**
+- Pinterest: Paola set up a **business account** ("Paola Adventurer
+  Outdoors", @PaolaAdventurer) and **verified the domain** — done.
+- **MailerLite connected** (account `2529939`, embedded form `HSJy2W`):
+  universal script + form on `/free/` and the home email band (replaced
+  FormSubmit). `/free/` now **reveals the interactive Bear guide inline**
+  (embeds bear.html in an iframe) right after signup — no redirect, no PDF.
+  Detection = MutationObserver on the `.signup` box watching for
+  MailerLite's success element + a fallback that fires when the email input
+  disappears.
+- Home SEO: canonical + og:site_name + WebSite/Organization JSON-LD.
+- Google Search Console: verified via GoDaddy, sitemap submitted, home
+  re-index requested (waiting on Google to drop the old cached description).
+- **About page mobile fixes:** hero is now a clean forest gradient (removed
+  the busy photo bg Paola disliked); portrait (her phone photo) is a small
+  round image on mobile; gallery is a tidy 2-col square grid. Paola likes
+  the family gallery photos — keep them.
+- Bumped service worker cache to **v5** (caching kept showing Paola stale
+  pages — always tell her to hard-refresh / use incognito after a deploy).
+
+### Paola's open to-dos in MailerLite (told her)
+- Verify her MailerLite email; turn OFF double opt-in for instant delivery.
+- Optional: set a welcome automation email with the guide.
+- (She may want to swap the phone-in-hand portrait for a bow photo later.)
+
 ## Ideas parked / next up (tell Claude when ready)
 
 - **EN/ES toggle** still needed on: the **home page** and the **archery**
   page (bilingual back button + copy).
-- **Pinterest "Save" buttons** on blog images (parked).
+- **Welcome automation email** in MailerLite (deliver guide + intro).
 - **More blog posts** (Paola supplies topics she's excited about).
 - **Emergency Kit marketing:** full Payhip product description + Pinterest /
   Instagram content.
