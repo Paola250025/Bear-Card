@@ -138,9 +138,9 @@ the LIVE site (site root) but not via local `file://`.
 
 ---
 
-## EN/ES language toggle
+## EN/ES language toggle (DONE everywhere)
 
-The Emergency Kit sales page uses a full **EN/ES toggle** button. Pattern:
+All pages now use a full **EN/ES toggle** button. Pattern:
 two containers `<div id="lang-en">` / `<div id="lang-es" hidden>`, a nav
 `.langtoggle` with EN|ES buttons, a `setLang(l)` JS function that toggles
 `hidden`, updates the `.active` class, sets `document.documentElement.lang`,
@@ -148,10 +148,10 @@ and saves the choice to `localStorage 'pa_lang'`. It defaults to the saved
 value or `navigator.language` (es → Spanish). **Requires** the CSS rule
 `[hidden]{display:none !important;}`.
 
-Paola LIKES this toggle. **Still to add it to:** home page, camping-planner,
-adventure-pack, bundle (these currently show EN + ES stacked rather than a
-toggle). Every product page has a "Shop all / Ver toda la tienda" back
-button; the Spanish wording was fixed to be consistent.
+Pages with toggle: **home**, **archery**, **emergency-kit**, **adventure-pack**,
+**camping-planner**, **bundle**, **faq**, **quiz**, **review**, **about**,
+and all **blog** posts. Every product page has a "Shop all / Ver toda la
+tienda" back button; the Spanish wording is consistent.
 
 ---
 
@@ -298,7 +298,7 @@ bear-season prep with little ones.
 - **Sourdough blog:** added featured photo `paola-sourdough.jpg` (EN + ES),
   updated og:image + Pinterest pin media.
 - **HEIC/raw cleanup:** deleted 14 unused files (~42MB) from `assets/`.
-- **Service worker cache bumped to v6.**
+- **Service worker cache bumped to v7.**
 - **Closed stale PR #29** (blog articles already merged via other PRs).
 - **Payhip descriptions written:** Emergency-Ready Kit (EN + ES) and
   Camping With Kids Bundle (EN + ES) — short, sales-psychology copy ready
@@ -306,10 +306,66 @@ bear-season prep with little ones.
   are fine as-is. Leave It Better could use a light polish later but isn't
   urgent.
 
+## Recently completed (2026-07-28, session 2)
+
+- **EN/ES toggle DONE on home page** (`index.html`): full Spanish translation
+  of announce bar, header, 7 product cards, quote band, blog teasers, "Meet
+  Paola" section, testimonials, and email signup. Nav link text switches
+  dynamically ("Printables"↔"Imprimibles", etc.). Uses same pattern as other
+  pages: `<div id="lang-en">` / `<div id="lang-es" hidden>`, `setLang(l)` JS
+  with localStorage + browser-language detection, `.langtoggle` nav buttons.
+- **Archery page already had full EN/ES toggle** — no changes needed.
+- **Service worker cache bumped to v7.**
+- **Payhip descriptions written:** Emergency-Ready Kit (EN + ES) and Camping
+  With Kids Bundle (EN + ES) — short, sales-psychology copy. Descriptions for
+  Family Camping Planner and Kids' Adventure Pack are fine as-is. Leave It
+  Better could use a light polish later.
+- **All changes merged to live** via squash-merge PRs.
+
+### LinkedIn (Real Estate — separate from Paola Adventurer)
+
+Paola also has a real estate career with **Manna Realty** (DRE# 02116904),
+working alongside her husband **Olaf** (35+ years experience, has his own
+LinkedIn). Decision: **keep LinkedIn strictly real estate** — do NOT mention
+Paola Adventurer on LinkedIn. The two brands serve different audiences.
+
+**LinkedIn profile optimized (2026-07-28):**
+- Headline: `Real Estate Agent | Buyers & Sellers | EN/ES | Inland Empire · LA · Orange County`
+- About section: bilingual, personal story, combined experience angle
+- Experience: Manna Realty, started 2018-2020
+- Skills: Real Estate, Negotiation, First-Time Homebuyers, Bilingual EN/ES,
+  Market Analysis, Client Relations, Contract Negotiation, CMA, Open Houses,
+  Buyer Representation
+- Services added on LinkedIn
+- Custom URL set
+
+**LinkedIn posting strategy:**
+- 3-4 posts/week: Mon, Wed, Fri at 8-10 AM. No weekends.
+- Format: short lines, white space, end with a question, 3-5 hashtags max.
+- Photos: Paola/Olaf at work or properties, never generic stock.
+- On non-posting days (Tue/Thu): engage on others' posts (15 min).
+- Content pillars: market data, buyer education, myth-busting, team intro.
+
+**6 LinkedIn posts written (ready to schedule):**
+1. Mon Jul 28 — Rates ~6.6%, "marry the house, date the rate" angle
+2. Wed Jul 30 — OC inventory at 2026 high (5,165 homes), buyer opportunity
+3. Fri Aug 1 — "Should I wait for rates to drop?" (most common Q)
+4. Mon Aug 4 — Price comparison: IE $630K / LA $845K / OC $1.47M
+5. Wed Aug 6 — Market shifting toward buyers (homes sitting longer)
+6. Fri Aug 8 — Team intro (Paola + Olaf, 40+ combined years, bilingual)
+
+**Market data sourced (July 2026):**
+- 30-year fixed rates: 6.58-6.88%
+- OC median: $1,470,000 (up 3.7% YoY)
+- LA County median: $845,410
+- Inland Empire median: $629,950
+- OC inventory: 5,165 (new 2026 high)
+- Trend: slightly shifting toward buyers
+
+---
+
 ## Ideas parked / next up (tell Claude when ready)
 
-- **EN/ES toggle** still needed on: the **home page** and the **archery**
-  page (bilingual back button + copy).
 - **Welcome automation email** in MailerLite (deliver guide + intro).
 - **More blog posts** (Paola supplies topics she's excited about).
 - **Paola task:** Enable Payhip reviews (Settings → Reviews).
@@ -329,3 +385,7 @@ bear-season prep with little ones.
   products.
 - Align the archery page copy with the polished brand voice.
 - Possible future product: Wildlife Safety Guide.
+- **LinkedIn next batch of posts** (week 3-4): continue the market-data +
+  value format. Research fresh rates/inventory before writing.
+- **Olaf's LinkedIn profile** could get the same optimization treatment.
+- **Leave It Better Payhip description** — light polish (not urgent).
