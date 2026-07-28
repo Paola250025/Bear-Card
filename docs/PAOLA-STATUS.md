@@ -1,6 +1,6 @@
 # Paola Adventurer — Project Status & Handoff
 
-Last updated: 2026-07-23
+Last updated: 2026-07-28
 
 This file is the memory of the project. A new chat does NOT automatically
 remember our old conversation, but **everything we built lives in this
@@ -104,23 +104,31 @@ in `assets/`, used as green-overlay hero backgrounds + gallery/portrait:
 | File | Where it's used |
 |---|---|
 | `hero-home.jpg` | Home page top hero background |
-| `paola.jpg` | "Meet Paola" (home) + About portrait |
-| `paola-archery.jpg` | Archery page + About gallery |
+| `paola.jpg` | About portrait (both EN/ES) |
+| `paola-compound-range.jpg` | Home "Meet Paola" portrait |
+| `paola-draw-closeup.jpg` | Archery page "Meet Paola" portrait (EN + ES) |
+| `paola-recurve-full.jpg` | Archery page hero background + About gallery |
+| `paola-recurve-target.jpg` | About gallery |
+| `paola-sourdough.jpg` | Sourdough blog featured photo + og:image |
+| `paola-archery.jpg` | (legacy, still in assets) |
 | `camping-band.jpg` | Home quote band + About gallery |
 | `camping-hero.jpg` | About page hero background |
-| `archery-hero.jpg` | Archery page hero background |
+| `archery-hero.jpg` | (legacy, replaced by paola-recurve-full on archery page) |
 | `family-camp.jpg` | About gallery |
+| `family-archery-range.jpg` | About gallery |
+| `teaching-kid-archery.jpg` | About gallery |
 | `kids-archery.jpg` | About gallery |
-| `tent-setup.jpg` | About gallery |
-| `forest-camp.jpg` | About gallery |
+| `tent-setup.jpg` | (legacy, still in assets) |
+| `forest-camp.jpg` | (legacy, still in assets) |
+
+**HEIC/raw cleanup DONE (2026-07-28):** deleted 14 unused files (~42MB) —
+7 HEIC originals + 7 raw uploads. Only named `.jpg` files remain.
 
 **Optimization note for future photos:** there is no imagemagick in this
 env. To resize, use Playwright Chromium (canvas → `toDataURL('image/jpeg',
-0.82)` at a target width) and write the base64 to a `.jpg` file. HEIC files
-are NOT web-displayable — the raw `IMG_*.HEIC` files still sitting in
-`assets/` are unused leftovers and can be deleted (only the named `.jpg`
-files are referenced). GitHub web upload caps at 25MB/file; to get usable
-JPGs from an iPhone, email photos to yourself at "Large" size.
+0.82)` at a target width) and write the base64 to a `.jpg` file. GitHub
+web upload caps at 25MB/file; to get usable JPGs from an iPhone, email
+photos to yourself at "Large" size.
 
 **Photo hero pattern (CSS):**
 `background:linear-gradient(rgba(34,67,47,.62),rgba(34,67,47,.82)),
@@ -153,15 +161,18 @@ button; the Spanish wording was fixed to be consistent.
   teasers + camping-band quote band ("It doesn't have to be perfect...") +
   "Meet Paola" section (now with a "Read our story · Nuestra historia →"
   link to `/about/`)
-- `about/` — **About / Our Story page (NEW).** Paola's authentic bilingual
+- `about/` — **About / Our Story page.** Paola's authentic bilingual
   story, centered on her (audience women/moms), husband + family included,
-  signature quote, and a 6-photo gallery.
+  signature quote, and a **9-photo gallery** (expanded 2026-07-28).
 - `bear.html` — free Bear Cheat Sheet (PWA)
 - `adventure-pack/`, `camping-planner/`, `bundle/`, `leave-it-better/`,
   `emergency-kit/`, `archery/` — sales pages (all have real-photo heroes)
-- `blog/` — blog index + 4 articles: `camping-with-kids-first-time`,
+- `blog/` — blog index + **9 articles**: `camping-with-kids-first-time`,
   `teach-kids-leave-no-trace`, `try-outdoors-comfort-zone`,
-  `emergency-ready-beginners` (its CTA links to `/emergency-kit/`)
+  `emergency-ready-beginners` (CTA → `/emergency-kit/`),
+  `what-to-pack-camping-with-kids`, `screen-free-activities-for-kids-by-age`,
+  `how-to-start-archery-beginner`, `public-lands-recreation-access`,
+  `why-i-bake-sourdough` (featured photo: `paola-sourdough.jpg`)
 - `shop/` — product cover images for the homepage cards
 - `assets/` — logo, icons, photos
 - `manifest.json`, `sw.js` — PWA (installable site)
@@ -273,7 +284,27 @@ bear-season prep with little ones.
 ### Paola's open to-dos in MailerLite (told her)
 - Verify her MailerLite email; turn OFF double opt-in for instant delivery.
 - Optional: set a welcome automation email with the guide.
-- (She may want to swap the phone-in-hand portrait for a bow photo later.)
+
+## Recently completed (2026-07-28)
+
+- **7 new optimized photos** placed across the site: `family-archery-range`,
+  `paola-sourdough`, `teaching-kid-archery`, `paola-recurve-target`,
+  `paola-draw-closeup`, `paola-recurve-full`, `paola-compound-range`.
+- **Archery page:** hero bg → `paola-recurve-full.jpg` (center top), "Meet
+  Paola" portrait → `paola-draw-closeup.jpg` (both EN + ES).
+- **About page:** gallery expanded from 6 → 9 photos, grid height adjusted,
+  `object-position:top` on full-body photo to prevent head cropping.
+- **Home page:** "Meet Paola" portrait → `paola-compound-range.jpg`.
+- **Sourdough blog:** added featured photo `paola-sourdough.jpg` (EN + ES),
+  updated og:image + Pinterest pin media.
+- **HEIC/raw cleanup:** deleted 14 unused files (~42MB) from `assets/`.
+- **Service worker cache bumped to v6.**
+- **Closed stale PR #29** (blog articles already merged via other PRs).
+- **Payhip descriptions written:** Emergency-Ready Kit (EN + ES) and
+  Camping With Kids Bundle (EN + ES) — short, sales-psychology copy ready
+  to paste. Family Camping Planner and Kids' Adventure Pack descriptions
+  are fine as-is. Leave It Better could use a light polish later but isn't
+  urgent.
 
 ## Ideas parked / next up (tell Claude when ready)
 
@@ -281,10 +312,7 @@ bear-season prep with little ones.
   page (bilingual back button + copy).
 - **Welcome automation email** in MailerLite (deliver guide + intro).
 - **More blog posts** (Paola supplies topics she's excited about).
-- **Emergency Kit marketing:** full Payhip product description + Pinterest /
-  Instagram content.
-- **Paola task:** register the site in Google Search Console + submit the
-  sitemap. Enable Payhip reviews.
+- **Paola task:** Enable Payhip reviews (Settings → Reviews).
 - **Google shows an OLD cached description** for paolaadventurer.com
   ("Go from idea to live site in minutes. Get 50 free credits") — leftover
   from the previous website-builder "coming soon" page. The current site's
@@ -301,4 +329,3 @@ bear-season prep with little ones.
   products.
 - Align the archery page copy with the polished brand voice.
 - Possible future product: Wildlife Safety Guide.
-- Clean up unused `IMG_*.HEIC` files in `assets/`.
