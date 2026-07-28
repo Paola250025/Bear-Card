@@ -76,10 +76,13 @@
   .navbar{position:sticky;top:0;z-index:200;background:#163024;border-bottom:3px solid var(--sun);box-shadow:0 2px 10px rgba(0,0,0,.2);}
   .navbar .inner{max-width:1080px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 18px;}
   .navbar .brand{font-family:'Oswald',sans-serif;font-weight:700;letter-spacing:2px;color:var(--sun);font-size:15px;white-space:nowrap;}
-  .navbar .links{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;}
+  .navbar .links{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;align-items:center;}
   .navbar .links a{font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:.5px;text-transform:uppercase;font-size:12px;color:#faf7f0;padding:6px 10px;border-radius:100px;white-space:nowrap;}
   .navbar .links a:hover{background:rgba(255,255,255,.12);}
   .navbar .links a.hl{background:var(--terra);}
+  .langtoggle{display:flex;gap:2px;background:rgba(255,255,255,.12);border-radius:100px;padding:3px;margin-left:4px;}
+  .langtoggle button{border:0;background:transparent;color:#faf7f0;font-family:'Oswald',sans-serif;font-weight:700;font-size:12px;padding:5px 12px;border-radius:100px;cursor:pointer;letter-spacing:1px;}
+  .langtoggle button.active{background:var(--sun);color:var(--forest);}
   .emailband{background:var(--forest2);color:#fff;text-align:center;padding:48px 20px;}
   .emailband h2{font-family:'Bitter',serif;font-weight:900;color:#fff;font-size:28px;margin:0 0 8px;}
   .emailband p{color:#eaf3e6;font-size:16px;max-width:480px;margin:0 auto 20px;}
@@ -95,31 +98,39 @@
   .testi .t .stars{color:var(--sun);font-size:16px;letter-spacing:2px;}
   .testi .t p{font-family:'Bitter',serif;font-style:italic;color:var(--cafe);font-size:15.5px;margin:10px 0 12px;line-height:1.5;}
   .testi .t .who{font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:1px;text-transform:uppercase;font-size:12px;color:var(--terra);}
-  .testi .t .seemore{font-family:'Nunito',sans-serif;font-style:normal;font-weight:800;color:var(--terra);font-size:13.5px;text-decoration:none;white-space:nowrap;}
+  .testi .t .seemore{font-family:'Work Sans',sans-serif;font-style:normal;font-weight:600;color:var(--terra);font-size:13.5px;text-decoration:none;white-space:nowrap;}
   .testi .leave{display:inline-block;margin-top:26px;background:var(--terra);color:#fff;font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:1px;text-transform:uppercase;font-size:13px;padding:12px 26px;border-radius:100px;}
   .social{margin-top:16px;display:flex;gap:14px;justify-content:center;}
   .social a{color:var(--sun);font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:1px;text-transform:uppercase;font-size:12px;border:1.5px solid var(--sun);border-radius:100px;padding:8px 16px;}
+  [hidden]{display:none !important;}
   @media(max-width:640px){ .grid{grid-template-columns:1fr;} .wordmark{font-size:22px;} .testi .cards{grid-template-columns:1fr;} .navbar .inner{flex-direction:column;align-items:stretch;gap:8px;} .navbar .links{justify-content:center;} }
 </style>
 </head>
 <body>
 
-<div class="announce">🆕 New: the Emergency-Ready Kit is here · <a href="/emergency-kit/">See it →</a></div>
-
 <nav class="navbar">
   <div class="inner">
     <a class="brand" href="/">PAOLA ADVENTURER</a>
     <div class="links">
-      <a href="#shop">🏕️ Printables</a>
-      <a href="/archery/">🏹 Classes</a>
-      <a href="/quiz/" class="hl">🧭 Start Here</a>
-      <a href="/free/">🎁 Free</a>
+      <a href="#shop" id="nav-shop-en">🏕️ Printables</a>
+      <a href="/archery/" id="nav-class-en">🏹 Classes</a>
+      <a href="/quiz/" class="hl" id="nav-quiz-en">🧭 Start Here</a>
+      <a href="/free/" id="nav-free-en">🎁 Free</a>
       <a href="/blog/">📖 Blog</a>
-      <a href="/about/">💛 My Story</a>
+      <a href="/about/" id="nav-about-en">💛 My Story</a>
       <a href="/faq/">❓ FAQ</a>
+      <div class="langtoggle">
+        <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+        <button id="btn-es" onclick="setLang('es')">ES</button>
+      </div>
     </div>
   </div>
 </nav>
+
+<!-- ================= ENGLISH ================= -->
+<div id="lang-en">
+
+<div class="announce">🆕 New: the Emergency-Ready Kit is here · <a href="/emergency-kit/">See it →</a></div>
 
 <header class="header">
   <div class="logo"><img src="assets/logo-badge-transparent.png" alt="Paola Adventurer logo"></div>
@@ -241,18 +252,16 @@
     <img src="assets/paola-compound-range.jpg" onerror="this.onerror=null;this.src='assets/paola.jpg';" alt="Paola shooting a bow at the archery range" style="width:220px;height:220px;object-fit:cover;border-radius:50%;border:6px solid #22432f;flex:0 0 auto;">
     <div style="flex:1;min-width:280px;">
       <h2 style="font-family:'Bitter',serif;font-weight:900;color:#22432f;font-size:28px;margin:0 0 12px;">Meet Paola 👋</h2>
-      <p style="font-family:'Work Sans',sans-serif;color:#3a322a;font-size:16px;line-height:1.6;margin:0 0 12px;">Hi, I'm Paola. I didn't grow up doing this, I found the outdoors as an adult and fell in love with the feeling of trying new things and learning as I go. My husband is my adventure partner, and so much of what I know I've learned with him and our family by my side. These days that also means a garden out back, sourdough on the counter, and cooking real, whole food, old-fashioned on purpose. I share my real process, the wins and the awkward first tries, because I believe the world would be a better place if we all spent more time outside and closer to the simple things. If I could start from zero, so can you. 🌲</p>
-      <p style="font-family:'Work Sans',sans-serif;color:#7c7361;font-style:italic;font-size:14.5px;margin:0 0 16px;">Hola, soy Paola. No crecí haciendo esto: descubrí el aire libre de adulta y me enamoré de probar cosas nuevas y aprender sobre la marcha. Mi esposo es mi compañero de aventuras, y mucho de lo que sé lo aprendí con él y con mi familia a mi lado. Hoy eso también significa un huerto atrás, masa madre en la cocina y cocinar comida real, a la antigua a propósito. Comparto mi proceso real, los logros y los primeros intentos torpes, porque creo que el mundo sería mejor si todos pasáramos más tiempo afuera y más cerca de lo simple. Si yo pude empezar de cero, tú también.</p>
-      <a href="/about/" style="display:inline-block;font-family:'Bitter',serif;font-weight:800;color:#b5562f;text-decoration:none;font-size:16px;">Read my story · Mi historia →</a>
+      <p style="font-family:'Work Sans',sans-serif;color:#3a322a;font-size:16px;line-height:1.6;margin:0 0 16px;">Hi, I'm Paola. I didn't grow up doing this, I found the outdoors as an adult and fell in love with the feeling of trying new things and learning as I go. My husband is my adventure partner, and so much of what I know I've learned with him and our family by my side. These days that also means a garden out back, sourdough on the counter, and cooking real, whole food, old-fashioned on purpose. I share my real process, the wins and the awkward first tries, because I believe the world would be a better place if we all spent more time outside and closer to the simple things. If I could start from zero, so can you. 🌲</p>
+      <a href="/about/" style="display:inline-block;font-family:'Bitter',serif;font-weight:800;color:#b5562f;text-decoration:none;font-size:16px;">Read my story →</a>
     </div>
   </div>
 </section>
 
 <section class="testi">
   <h2>What families are saying 💬</h2>
-  <div class="sub">Real reviews from real families · Reseñas reales de familias reales</div>
+  <div class="sub">Real reviews from real families</div>
   <div class="cards">
-    <!-- REAL REVIEWS GO HERE. Copy a .t block; use the same See more pattern for long ones. -->
     <div class="t">
       <div class="stars">★★★★★</div>
       <p>I was very nervous and anxious to go camping with my little ones during active bear season. Paola shared with me a lot of helpful information on how to be prepared with little ones.<span class="more" hidden> All the information she has shared has been extremely useful. I felt like I had a mom who finally understood my fears. Paola equipped me with so much knowledge that I now feel empowered, confident and ready to have the best time with our family!!! My son is also very excited to do all the activities and games from the Kids' Outdoor Adventure Pack! Thank you for sharing all your knowledge and for making this mommy feel confident and ready.</span> <a href="#" class="seemore" onclick="var m=this.previousElementSibling;m.hidden=!m.hidden;this.textContent=m.hidden?'See more':'See less';return false;">See more</a></p>
@@ -265,19 +274,184 @@
     </div>
     <div class="t">
       <div class="stars">★★★★★</div>
-      <p>Did a guide help your family get outside? I'd love to hear your story, it helps other families take the first step. · ¿Te ayudó una guía? Me encantaría saberlo.</p>
+      <p>Did a guide help your family get outside? I'd love to hear your story, it helps other families take the first step.</p>
       <div class="who">Share yours →</div>
     </div>
   </div>
-  <a class="leave" href="/review/">⭐ Leave a review · Deja tu reseña</a>
+  <a class="leave" href="/review/">⭐ Leave a review</a>
 </section>
 
 <section class="emailband">
   <h2>Join the adventure 🌲</h2>
-  <p>Free outdoor tips for families, new printables, and early access to the archery class, in English &amp; Español.</p>
+  <p>Free outdoor tips for families, new printables, and early access to the archery class.</p>
   <div class="ml-embedded" data-form="HSJy2W" style="max-width:440px;margin:0 auto;"></div>
-  <p class="fine">No spam, just adventures. Unsubscribe anytime. · Sin spam, solo aventuras.</p>
+  <p class="fine">No spam, just adventures. Unsubscribe anytime.</p>
 </section>
+
+</div>
+
+<!-- ================= ESPAÑOL ================= -->
+<div id="lang-es" hidden>
+
+<div class="announce">🆕 Nuevo: el Kit de Emergencia ya esta aqui · <a href="/emergency-kit/">Ver →</a></div>
+
+<header class="header">
+  <div class="logo"><img src="assets/logo-badge-transparent.png" alt="Logo Paola Adventurer"></div>
+  <p class="wordmark">PAOLA ADVENTURER</p>
+  <p class="tagline">Arqueria · Camping · Explora</p>
+  <p class="welcome">Clases y guias imprimibles que ensenan a las familias a acampar, tirar, caminar y explorar juntos, ademas de una forma de vivir mas lenta y hecha desde cero. Porque el mundo mejora un poquito cada vez que pasamos mas tiempo afuera y mas cerca de lo real.</p>
+  <div style="margin-top:24px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+    <a href="/quiz/" style="background:var(--terra);color:#fff;font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:1px;text-transform:uppercase;font-size:14px;padding:13px 28px;border-radius:100px;">🧭 Empieza Aqui</a>
+    <a href="#shop-es" style="background:rgba(255,255,255,.15);color:#fff;font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:1px;text-transform:uppercase;font-size:14px;padding:13px 28px;border-radius:100px;border:1.5px solid rgba(255,255,255,.6);">🏕️ Ver imprimibles</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="section-title" id="shop-es">
+    <h2>Clases e Imprimibles 🏕️</h2>
+    <p>Todo para ensenar a tu familia a salir afuera. Descarga instantanea, imprime en casa. Ingles y Espanol.</p>
+  </div>
+
+  <div class="grid">
+
+    <div class="card">
+      <div class="imgwrap badge-img"><img src="assets/icon-512.png" alt="Guia de Osos"></div>
+      <div class="body">
+        <span class="pricetag free">Gratis</span>
+        <h3>Guia de Osos</h3>
+        <p>¿Nerviosa por los osos en tu viaje de camping? Esta guia bilingue y gratuita te da las 5 cosas que de verdad importan, en tu bolsillo.</p>
+        <a class="btn ghost" href="/free/">Gratis 🐻</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="imgwrap"><img src="shop/kids.png" alt="Pack de Aventura para Ninos"></div>
+      <div class="body">
+        <span class="pricetag paid">$5</span>
+        <h3>Pack de Aventura para Ninos</h3>
+        <p>11 paginas imprimibles, 6 juegos: busqueda del tesoro, bingo, tarjetas de reto y mas. Diversion sin pantalla para edades de 4 a 10.</p>
+        <a class="btn" href="adventure-pack/">Ver el pack →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="imgwrap"><img src="shop/planner.png" alt="Planificador de Camping Familiar"></div>
+      <div class="body">
+        <span class="pricetag paid">$7</span>
+        <h3>Planificador de Camping Familiar</h3>
+        <p>17 paginas que te guian por todo el viaje: equipaje, comidas, seguridad, tips reales y solucion de problemas. No es otro checklist vacio.</p>
+        <a class="btn" href="camping-planner/">Ver el planificador →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="imgwrap"><img src="shop/bundle.png" alt="Paquete Camping con Ninos"></div>
+      <div class="body">
+        <span class="pricetag best">$9 · Mejor valor</span>
+        <h3>Paquete Camping con Ninos</h3>
+        <p>El Planificador + el Pack de Aventura juntos a un solo precio. Todo para un viaje de camping sin pantallas con la familia.</p>
+        <a class="btn" href="bundle/">Ver el paquete →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="imgwrap"><img src="shop/leave-it-better.png" alt="Dejalo Mejor"></div>
+      <div class="body">
+        <span class="pricetag paid">$9</span>
+        <h3>Dejalo Mejor</h3>
+        <p>Convierte a tus hijos en "Junior Rangers" que cuidan la naturaleza y respetan a otros campistas. Juegos, insignias y reglas familiares. Edades 4 a 10.</p>
+        <a class="btn" href="leave-it-better/">Ver el kit →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="imgwrap"><img src="shop/emergency-kit.png" alt="Kit de Emergencia"></div>
+      <div class="body">
+        <span class="pricetag paid">$9</span>
+        <h3>Kit de Emergencia</h3>
+        <p>Sabe exactamente que empacar para estar lista en casa, en el carro y acampando. Un checklist calmado e imprimible para principiantes. Ingles y Espanol.</p>
+        <a class="btn" href="emergency-kit/">Ver el kit →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="imgwrap"><img src="shop/archery.png" alt="Arqueria desde Cero"></div>
+      <div class="body">
+        <span class="pricetag" style="background:#7c7361;color:#fff;">🔜 Proximamente</span>
+        <h3>Arqueria desde Cero</h3>
+        <p>Clase digital de arqueria para principiantes que puedes ver cuando quieras. Tira tus primeras flechas con seguridad y confianza, impartida por una instructora certificada USA Archery Level 2 y NASP. Ingles y Espanol.</p>
+        <a class="btn" href="archery/">Ver la clase →</a>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<section style="position:relative;background:linear-gradient(rgba(34,67,47,.5),rgba(34,67,47,.62)), url('assets/camping-band.jpg') center 42%/cover;padding:90px 20px;text-align:center;">
+  <p style="font-family:'Bitter',serif;font-style:italic;font-weight:800;color:#fff;font-size:30px;line-height:1.35;max-width:720px;margin:0 auto;text-shadow:0 2px 16px rgba(0,0,0,.55);">"No tiene que ser perfecto. Solo tiene que pasar."</p>
+  <p style="font-family:'Oswald',sans-serif;letter-spacing:3px;text-transform:uppercase;color:var(--sun);font-size:13px;margin:16px 0 0;text-shadow:0 2px 10px rgba(0,0,0,.5);">Paola Adventurer · Salir afuera, juntos</p>
+</section>
+
+<section style="background:var(--forest);color:var(--crema);padding:44px 20px;text-align:center;">
+  <h2 style="font-family:'Bitter',serif;font-weight:900;color:#fff;font-size:28px;margin:0 0 6px;">Del Diario de Ruta 🌲</h2>
+  <p style="font-family:'Work Sans',sans-serif;color:#e7efe3;font-size:15px;margin:0 auto 24px;max-width:520px;">Tips gratis para familias: camping con ninos, Leave No Trace, y mas.</p>
+  <div style="max-width:840px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:18px;">
+    <a href="/blog/camping-with-kids-first-time/" style="background:#fffdf7;border-radius:14px;padding:20px 22px;text-align:left;text-decoration:none;">
+      <div style="font-size:34px;">🏕️</div>
+      <div style="font-family:'Bitter',serif;font-weight:900;color:#22432f;font-size:18px;margin:8px 0 4px;line-height:1.2;">Camping con Ninos por Primera Vez</div>
+      <div style="color:#b5562f;font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:1px;text-transform:uppercase;font-size:12px;">Leer la guia →</div>
+    </a>
+    <a href="/blog/teach-kids-leave-no-trace/" style="background:#fffdf7;border-radius:14px;padding:20px 22px;text-align:left;text-decoration:none;">
+      <div style="font-size:34px;">🌎</div>
+      <div style="font-family:'Bitter',serif;font-weight:900;color:#22432f;font-size:18px;margin:8px 0 4px;line-height:1.2;">Como Ensenar Leave No Trace a los Ninos</div>
+      <div style="color:#b5562f;font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:1px;text-transform:uppercase;font-size:12px;">Leer la guia →</div>
+    </a>
+  </div>
+  <a href="/blog/" style="display:inline-block;margin-top:24px;color:var(--sun);font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:1px;text-transform:uppercase;font-size:13px;text-decoration:none;">Ver todos los articulos →</a>
+</section>
+
+<section style="background:#fff;padding:44px 20px;border-top:2px solid #d8c9a3;">
+  <div style="max-width:840px;margin:0 auto;display:flex;gap:32px;align-items:center;flex-wrap:wrap;justify-content:center;">
+    <img src="assets/paola-compound-range.jpg" onerror="this.onerror=null;this.src='assets/paola.jpg';" alt="Paola tirando con arco en el campo de tiro" style="width:220px;height:220px;object-fit:cover;border-radius:50%;border:6px solid #22432f;flex:0 0 auto;">
+    <div style="flex:1;min-width:280px;">
+      <h2 style="font-family:'Bitter',serif;font-weight:900;color:#22432f;font-size:28px;margin:0 0 12px;">Hola, soy Paola 👋</h2>
+      <p style="font-family:'Work Sans',sans-serif;color:#3a322a;font-size:16px;line-height:1.6;margin:0 0 16px;">No creci haciendo esto: descubri el aire libre de adulta y me enamore de probar cosas nuevas y aprender sobre la marcha. Mi esposo es mi companero de aventuras, y mucho de lo que se lo aprendi con el y con mi familia a mi lado. Hoy eso tambien significa un huerto atras, masa madre en la cocina y cocinar comida real, a la antigua a proposito. Comparto mi proceso real, los logros y los primeros intentos torpes, porque creo que el mundo seria mejor si todos pasaramos mas tiempo afuera y mas cerca de lo simple. Si yo pude empezar de cero, tu tambien. 🌲</p>
+      <a href="/about/" style="display:inline-block;font-family:'Bitter',serif;font-weight:800;color:#b5562f;text-decoration:none;font-size:16px;">Mi historia →</a>
+    </div>
+  </div>
+</section>
+
+<section class="testi">
+  <h2>Lo que dicen las familias 💬</h2>
+  <div class="sub">Resenas reales de familias reales</div>
+  <div class="cards">
+    <div class="t">
+      <div class="stars">★★★★★</div>
+      <p>Estaba muy nerviosa de ir a acampar con mis pequenos durante temporada activa de osos. Paola compartio conmigo mucha informacion util sobre como estar preparada con ninos pequenos.<span class="more" hidden> Toda la informacion que ha compartido ha sido extremadamente util. Senti que tenia una mama que por fin entendia mis miedos. Paola me dio tanto conocimiento que ahora me siento empoderada, segura y lista para pasar el mejor tiempo con nuestra familia. Mi hijo tambien esta muy emocionado de hacer todas las actividades y juegos del Pack de Aventura para Ninos. Gracias por compartir todo tu conocimiento y por hacer que esta mama se sienta segura y lista.</span> <a href="#" class="seemore" onclick="var m=this.previousElementSibling;m.hidden=!m.hidden;this.textContent=m.hidden?'Ver mas':'Ver menos';return false;">Ver mas</a></p>
+      <div class="who">Andrea · Mama de 3</div>
+    </div>
+    <div class="t">
+      <div class="stars">★★★★★</div>
+      <p>Cada resena ayuda a otra principiante nerviosa a dar ese primer paso afuera. Gracias por confiar en mi con las primeras aventuras de tu familia. 💛</p>
+      <div class="who">Paola</div>
+    </div>
+    <div class="t">
+      <div class="stars">★★★★★</div>
+      <p>¿Te ayudo una guia a salir afuera con tu familia? Me encantaria saber tu historia, ayuda a otras familias a dar el primer paso.</p>
+      <div class="who">Comparte la tuya →</div>
+    </div>
+  </div>
+  <a class="leave" href="/review/">⭐ Deja tu resena</a>
+</section>
+
+<section class="emailband">
+  <h2>Unete a la aventura 🌲</h2>
+  <p>Tips gratis para familias, nuevos imprimibles y acceso anticipado a la clase de arqueria.</p>
+  <div class="ml-embedded" data-form="HSJy2W" style="max-width:440px;margin:0 auto;"></div>
+  <p class="fine">Sin spam, solo aventuras. Cancela cuando quieras.</p>
+</section>
+
+</div>
 
 <footer>
   <p class="q">"It doesn't have to be perfect, it just has to happen."</p>
@@ -307,5 +481,27 @@
     setTimeout(function(){m.style.display='none';},6000);
   }
 </script>
+
+<script>
+  function setLang(l){
+    document.getElementById('lang-en').hidden = (l!=='en');
+    document.getElementById('lang-es').hidden = (l!=='es');
+    document.getElementById('btn-en').classList.toggle('active', l==='en');
+    document.getElementById('btn-es').classList.toggle('active', l==='es');
+    document.getElementById('nav-shop-en').textContent = l==='en' ? '🏕️ Printables' : '🏕️ Imprimibles';
+    document.getElementById('nav-shop-en').href = l==='en' ? '#shop' : '#shop-es';
+    document.getElementById('nav-class-en').textContent = l==='en' ? '🏹 Classes' : '🏹 Clases';
+    document.getElementById('nav-quiz-en').textContent = l==='en' ? '🧭 Start Here' : '🧭 Empieza Aqui';
+    document.getElementById('nav-free-en').textContent = l==='en' ? '🎁 Free' : '🎁 Gratis';
+    document.getElementById('nav-about-en').textContent = l==='en' ? '💛 My Story' : '💛 Mi Historia';
+    document.documentElement.lang = l;
+    try{ localStorage.setItem('pa_lang', l); }catch(e){}
+  }
+  (function(){
+    var saved; try{ saved = localStorage.getItem('pa_lang'); }catch(e){}
+    setLang(saved || ((navigator.language||'en').slice(0,2)==='es' ? 'es' : 'en'));
+  })();
+</script>
+
 </body>
 </html>
