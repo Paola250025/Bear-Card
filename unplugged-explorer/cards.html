@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Unplugged Explorer — Camp Challenge Cards (Ages 11–14)</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@700;800;900&family=Oswald:wght@500;600;700&family=Work+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --forest:#22432f;--forest2:#2f6b45;--terra:#b5562f;--sun:#e8b93f;
+  --cream:#faf7f0;--khaki:#d8c9a3;--paper:#f1ece0;--ink:#3a322a;
+  --muted:#7c7361;--card-bg:#fff;--card-border:#c8be9e;
+  --cat-fire:#d4652a;--cat-cooking:#b5562f;--cat-bushcraft:#2f6b45;
+  --cat-nature:#3a7d5c;--cat-adventure:#3b6fa0;--cat-skills:#7b5ea7;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Work Sans',system-ui,sans-serif;color:var(--ink);background:var(--cream);line-height:1.55;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+
+/* --- Screen toolbar --- */
+.toolbar{position:sticky;top:0;z-index:100;background:var(--forest);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:10px 20px;gap:12px;flex-wrap:wrap;}
+.toolbar .brand{font-family:'Bitter',serif;font-weight:800;font-size:15px;color:var(--sun);letter-spacing:.5px;}
+.toolbar .brand span{color:#fff;font-weight:700;}
+.toolbar button{font-family:'Oswald',sans-serif;font-weight:600;font-size:13px;letter-spacing:1px;text-transform:uppercase;border:2px solid var(--sun);background:transparent;color:var(--sun);padding:6px 16px;border-radius:6px;cursor:pointer;transition:all .2s;}
+.toolbar button:hover{background:var(--sun);color:var(--forest);}
+
+/* --- Page container --- */
+.page{max-width:800px;margin:0 auto;padding:20px 20px 80px;}
+
+/* --- Cover --- */
+.cover{text-align:center;padding:80px 20px 60px;margin-bottom:40px;}
+.cover .badge{display:inline-block;width:100px;height:100px;margin-bottom:20px;}
+.cover .badge img{width:100%;height:100%;object-fit:contain;}
+.cover .pack-badge{display:inline-block;background:var(--forest);color:var(--sun);font-family:'Oswald',sans-serif;font-weight:700;font-size:12px;letter-spacing:3px;text-transform:uppercase;padding:6px 18px;border-radius:100px;margin-bottom:16px;}
+.cover h1{font-family:'Bitter',serif;font-weight:900;font-size:clamp(28px,5vw,40px);color:var(--forest);line-height:1.15;margin-bottom:8px;}
+.cover .subtitle{font-family:'Oswald',sans-serif;font-weight:500;font-size:18px;color:var(--terra);letter-spacing:1px;text-transform:uppercase;margin-bottom:24px;}
+.cover .tagline{font-size:16px;color:var(--muted);max-width:440px;margin:0 auto 30px;}
+.cover .ages{display:inline-block;background:var(--sun);color:var(--forest);font-family:'Oswald',sans-serif;font-weight:700;font-size:14px;letter-spacing:1px;text-transform:uppercase;padding:8px 24px;border-radius:100px;}
+.cover .divider{width:80px;height:3px;background:var(--sun);margin:30px auto 0;border-radius:2px;}
+
+/* --- Section headings --- */
+.section-title{font-family:'Bitter',serif;font-weight:900;font-size:22px;color:var(--forest);margin:40px 0 6px;padding-bottom:8px;border-bottom:3px solid var(--sun);}
+.section-subtitle{color:var(--muted);font-size:14px;margin-bottom:20px;}
+
+/* --- Parent guide / Safety / generic prose --- */
+.prose{background:var(--card-bg);border:2px solid var(--card-border);border-radius:12px;padding:24px 28px;margin-bottom:24px;box-shadow:0 2px 8px rgba(0,0,0,.04);}
+.prose h3{font-family:'Bitter',serif;font-weight:800;font-size:17px;color:var(--forest);margin:0 0 12px;}
+.prose h4{font-family:'Oswald',sans-serif;font-weight:600;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:var(--terra);margin:18px 0 8px;}
+.prose h4:first-of-type{margin-top:0;}
+.prose p{margin-bottom:10px;font-size:14.5px;}
+.prose ul{padding-left:20px;margin-bottom:12px;}
+.prose li{font-size:14.5px;margin-bottom:8px;}
+.prose li strong{color:var(--forest);}
+
+/* --- Challenge cards --- */
+.cards-grid{display:flex;flex-direction:column;gap:24px;}
+.card{background:var(--card-bg);border:2px solid var(--card-border);border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.04);}
+.card-header{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;background:var(--forest);color:#fff;flex-wrap:wrap;gap:6px;}
+.card-num{font-family:'Oswald',sans-serif;font-weight:700;font-size:20px;color:var(--sun);}
+.card-meta{display:flex;gap:6px;align-items:center;flex-wrap:wrap;}
+.pill{font-family:'Oswald',sans-serif;font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:100px;white-space:nowrap;}
+.pill-cat{color:#fff;}
+.pill-cat[data-cat="fire"]{background:var(--cat-fire);}
+.pill-cat[data-cat="cooking"]{background:var(--cat-cooking);}
+.pill-cat[data-cat="fire-cooking"]{background:linear-gradient(135deg,var(--cat-fire),var(--cat-cooking));}
+.pill-cat[data-cat="bushcraft"]{background:var(--cat-bushcraft);}
+.pill-cat[data-cat="nature"]{background:var(--cat-nature);}
+.pill-cat[data-cat="adventure"]{background:var(--cat-adventure);}
+.pill-cat[data-cat="skills"]{background:var(--cat-skills);}
+.pill-diff{background:rgba(255,255,255,.15);color:var(--sun);}
+.pill-type{background:rgba(255,255,255,.1);color:rgba(255,255,255,.85);}
+.pill-time{background:var(--sun);color:var(--forest);font-weight:700;}
+
+.card-body{padding:16px 20px 18px;}
+.card-title{font-family:'Bitter',serif;font-weight:900;font-size:20px;color:var(--forest);line-height:1.2;margin-bottom:2px;}
+.card-title-es{font-family:'Work Sans',sans-serif;font-weight:600;font-size:14px;color:var(--terra);font-style:italic;margin-bottom:14px;}
+
+.lang-tag{font-family:'Oswald',sans-serif;font-weight:600;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--forest2);margin:14px 0 4px;padding-top:12px;border-top:1px dashed var(--khaki);}
+.lang-tag:first-of-type{border-top:none;margin-top:0;padding-top:0;}
+.card-body .desc{font-size:14.5px;line-height:1.55;margin-bottom:0;}
+
+.safety-box{margin:14px 0 0;background:#fdf6e3;border:1.5px solid var(--sun);border-radius:8px;padding:10px 14px;font-size:12.5px;line-height:1.5;color:#5c4a1e;}
+.safety-box strong{color:var(--terra);}
+
+.card-footer{padding:0 20px 10px;text-align:right;}
+.card-footer .brand-sm{font-family:'Oswald',sans-serif;font-weight:500;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--khaki);}
+
+/* --- Score tracker --- */
+.tracker-table{width:100%;border-collapse:collapse;font-size:13px;margin-top:12px;}
+.tracker-table th{font-family:'Oswald',sans-serif;font-weight:600;font-size:11px;letter-spacing:1px;text-transform:uppercase;background:var(--forest);color:var(--sun);padding:8px 10px;text-align:left;}
+.tracker-table td{padding:10px;border-bottom:1px solid var(--khaki);vertical-align:top;}
+.tracker-table tr:nth-child(even) td{background:var(--paper);}
+.tracker-table .challenge-name{font-weight:700;color:var(--forest);font-size:13px;}
+.tracker-table .challenge-name-es{font-size:11px;color:var(--muted);font-style:italic;}
+.tracker-table td.write-in{min-width:80px;}
+.tracker-cta{text-align:center;margin-top:16px;font-size:13px;color:var(--muted);}
+.tracker-cta strong{color:var(--terra);}
+
+/* --- Print --- */
+@media print{
+  .toolbar{display:none!important;}
+  body{background:#fff;font-size:12.5px;}
+  .page{max-width:none;padding:0;margin:0;}
+  .cover{padding:120px 40px 80px;margin-bottom:0;page-break-after:always;}
+  .section-title{margin-top:10px;}
+  .prose{box-shadow:none;page-break-inside:avoid;margin-bottom:16px;}
+  .card{box-shadow:none;break-inside:avoid;page-break-inside:avoid;margin-bottom:16px;border-width:1.5px;}
+  .cards-grid{gap:16px;}
+  .safety-section{page-break-before:always;}
+  .tracker-section{page-break-before:always;}
+  .brand-footer{display:none;}
+  a{color:inherit;text-decoration:none;}
+}
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="brand">Unplugged Explorer <span>Ages 11–14</span></div>
+  <button onclick="window.print()">&#9113; Print Cards</button>
+</div>
+
+<div class="page">
+
+<!-- ===== COVER ===== -->
+<div class="cover">
+  <div class="badge"><img src="../assets/logo-badge-transparent.png" alt="Paola Adventurer"></div>
+  <div class="pack-badge">Unplugged Camp Challenges</div>
+  <h1>Explorer Pack</h1>
+  <div class="subtitle">Pack Explorador &middot; Ages 11&ndash;14</div>
+  <p class="tagline">15 printable camp challenges that turn screens-down time into the best part of the trip. Bilingual: English &amp; Spanish.</p>
+  <div class="ages">15 Challenges &middot; 15 Retos</div>
+  <div class="divider"></div>
+</div>
+
+<!-- ===== PARENT GUIDE ===== -->
+<div class="section-title">Parent Guide / Gu&iacute;a para Padres</div>
+<p class="section-subtitle">How to introduce these without the eye-roll.</p>
+
+<div class="prose">
+  <h4>English</h4>
+  <p><strong>The secret:</strong> Don&rsquo;t announce it. Don&rsquo;t say &ldquo;I bought this fun activity pack!&rdquo; That&rsquo;s the fastest way to hear &ldquo;that&rsquo;s so lame.&rdquo; Instead:</p>
+  <ul>
+    <li><strong>Start with one card.</strong> Pick a cooking or fire challenge. Say: &ldquo;I bet I can build a fire faster than you.&rdquo; That&rsquo;s it. No explanation needed.</li>
+    <li><strong>Let them choose.</strong> Spread the cards out. &ldquo;Pick one. Any one.&rdquo; Teens engage when they feel in control, not told what to do.</li>
+    <li><strong>Make it a real bet.</strong> Loser does the dishes. Winner picks the music. Real stakes = real engagement.</li>
+    <li><strong>Don&rsquo;t force it.</strong> If they&rsquo;re not into one, move on. Not every challenge lands with every teen. That&rsquo;s okay.</li>
+    <li><strong>Phones aren&rsquo;t the enemy.</strong> Some challenges intentionally USE phones (photography, time-lapse, films). The goal isn&rsquo;t to ban screens &mdash; it&rsquo;s to make real life more interesting than the screen.</li>
+  </ul>
+  <h4>Espa&ntilde;ol</h4>
+  <p><strong>El secreto:</strong> No lo anuncies. No digas &ldquo;&iexcl;compr&eacute; este pack de actividades divertidas!&rdquo; Eso es lo m&aacute;s r&aacute;pido para escuchar &ldquo;qu&eacute; cursi.&rdquo; En vez de eso:</p>
+  <ul>
+    <li><strong>Empieza con una tarjeta.</strong> Escoge un reto de cocina o fuego. Di: &ldquo;Apuesto a que puedo encender la fogata m&aacute;s r&aacute;pido que t&uacute;.&rdquo; Punto. Sin explicaciones.</li>
+    <li><strong>D&eacute;jalos escoger.</strong> Extiende las tarjetas. &ldquo;Escoge una. La que quieras.&rdquo; Los adolescentes participan cuando sienten control, no cuando les dicen qu&eacute; hacer.</li>
+    <li><strong>Haz apuestas reales.</strong> El perdedor lava trastes. El ganador escoge la m&uacute;sica. Consecuencias reales = participaci&oacute;n real.</li>
+    <li><strong>No lo fuerces.</strong> Si no les gusta un reto, pasa al siguiente. No todos los retos conectan con todos los adolescentes. Est&aacute; bien.</li>
+    <li><strong>Los celulares no son el enemigo.</strong> Algunos retos USAN el celular a prop&oacute;sito (fotograf&iacute;a, time-lapse, pel&iacute;culas). La meta no es prohibir pantallas &mdash; es hacer que la vida real sea m&aacute;s interesante que la pantalla.</li>
+  </ul>
+</div>
+
+<!-- ===== CHALLENGE CARDS ===== -->
+<div class="section-title">Challenge Cards / Tarjetas de Reto</div>
+<p class="section-subtitle">15 challenges. Print, cut, and bring to camp.</p>
+
+<div class="cards-grid">
+
+<!-- Card 1 -->
+<div class="card">
+  <div class="card-header">
+    <span class="card-num">#01</span>
+    <div class="card-meta">
+      <span class="pill pill-cat" data-cat="fire">Fire</span>
+      <span class="pill pill-diff">&#9733;&#9733;&#9734;</span>
+      <span class="pill pill-type">Family</span>
+      <span class="pill pill-time">20 min</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="card-title">Fire Starter Race</div>
+    <div class="card-title-es">Carrera de Encendido</div>
+    <div class="lang-tag">EN</div>
+    <p class="desc">Each person gets the same materials: newspaper, kindling, and 3 matches. First to get a flame that lasts 60 seconds wins. No lighter fluid, no shortcuts. If everyone fails? Restart with 3 more matches &mdash; but now you know what NOT to do.</p>
+    <div class="lang-tag">ES</div>
+    <p class="desc">Cada persona recibe los mismos materiales: peri&oacute;dico, astillas y 3 cerillos. El primero en lograr una llama que dure 60 segundos gana. Sin l&iacute;quido para encender, sin atajos. &iquest;Todos fallaron? Reinicien con 3 cerillos m&aacute;s &mdash; pero ahora ya saben qu&eacute; NO hacer.</p>
+    <div class="safety-box"><strong>Safety / Seguridad:</strong> Adult supervises. Water bucket within reach. Clear dry brush from the area. &bull; Un adulto supervisa. Cubeta de agua al alcance. Despeja hojas secas del &aacute;rea.</div>
+  </div>
+  <div class="card-footer"><span class="brand-sm">Paola Adventurer</span></div>
+</div>
+
+<!-- Card 2 -->
+<div class="card">
+  <div class="card-header">
+    <span class="card-num">#02</span>
+    <div class="card-meta">
+      <span class="pill pill-cat" data-cat="cooking">Cooking</span>
+      <span class="pill pill-diff">&#9733;&#9733;&#9734;</span>
+      <span class="pill pill-type">Family</span>
+      <span class="pill pill-time">45 min</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="card-title">Mystery Ingredient Cook-Off</div>
+    <div class="card-title-es">Duelo del Ingrediente Misterioso</div>
+    <div class="lang-tag">EN</div>
+    <p class="desc">Everyone gets the same base ingredients (tortillas, cheese, canned beans). Then each person draws ONE mystery ingredient from a bag &mdash; hot sauce? peanut butter? marshmallows? You have 30 minutes to make the best camp meal. Family votes. Cook can&rsquo;t vote for themselves.</p>
+    <div class="lang-tag">ES</div>
+    <p class="desc">Todos reciben los mismos ingredientes base (tortillas, queso, frijoles). Luego cada quien saca UN ingrediente misterioso de una bolsa &mdash; &iquest;salsa picante? &iquest;crema de cacahuate? &iquest;malvaviscos? Tienes 30 minutos para hacer la mejor comida. La familia vota. El chef no puede votar por s&iacute; mismo.</p>
+  </div>
+  <div class="card-footer"><span class="brand-sm">Paola Adventurer</span></div>
+</div>
+
+<!-- Card 3 -->
+<div class="card">
+  <div class="card-header">
+    <span class="card-num">#03</span>
+    <div class="card-meta">
+      <span class="pill pill-cat" data-cat="fire-cooking">Fire + Cooking</span>
+      <span class="pill pill-diff">&#9733;&#9733;&#9734;</span>
+      <span class="pill pill-type">Family</span>
+      <span class="pill pill-time">30 min</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="card-title">Ember Bread Bake-Off</div>
+    <div class="card-title-es">Competencia de Pan en Brasa</div>
+    <div class="lang-tag">EN</div>
+    <p class="desc">Make simple dough (flour + water + pinch of salt). Twist it around a thick stick. Hold it over hot embers &mdash; NOT flames. First person to get a golden, cooked-through bread wins. Burnt = disqualified. Bonus points if you add cinnamon and sugar.</p>
+    <div class="lang-tag">ES</div>
+    <p class="desc">Haz masa simple (harina + agua + pizca de sal). Enr&oacute;llala en un palo grueso. Sost&eacute;nla sobre brasas calientes &mdash; NO sobre llamas. El primero en lograr un pan dorado y cocido por dentro gana. Quemado = descalificado. Puntos extra si le agregas canela y az&uacute;car.</p>
+    <div class="safety-box"><strong>Safety / Seguridad:</strong> Hot embers. Use long sticks. Keep hands away from coals. &bull; Brasas calientes. Usa palos largos. Mant&eacute;n las manos lejos de las brasas.</div>
+  </div>
+  <div class="card-footer"><span class="brand-sm">Paola Adventurer</span></div>
+</div>
+
+<!-- Card 4 -->
+<div class="card">
+  <div class="card-header">
+    <span class="card-num">#04</span>
+    <div class="card-meta">
+      <span class="pill pill-cat" data-cat="bushcraft">Bushcraft</span>
+      <span class="pill pill-diff">&#9733;&#9733;&#9733;</span>
+      <span class="pill pill-type">Solo / Teams</span>
+      <span class="pill pill-time">45 min</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="card-title">Shelter Build Race</div>
+    <div class="card-title-es">Carrera de Refugios</div>
+    <div class="lang-tag">EN</div>
+    <p class="desc">Each person/team gets one tarp and 10 feet of paracord. Build a shelter that fits one person sitting inside. The test: pour a water bottle over it. If you stay dry, you pass. Fastest builder who passes the water test wins.</p>
+    <div class="lang-tag">ES</div>
+    <p class="desc">Cada persona/equipo recibe una lona y 3 metros de cuerda. Construye un refugio donde quepa una persona sentada. La prueba: vierte una botella de agua encima. Si te quedas seco, pasas. El constructor m&aacute;s r&aacute;pido que pase la prueba del agua gana.</p>
+  </div>
+  <div class="card-footer"><span class="brand-sm">Paola Adventurer</span></div>
+</div>
+
+<!-- Card 5 -->
+<div class="card">
+  <div class="card-header">
+    <span class="card-num">#05</span>
+    <div class="card-meta">
+      <span class="pill pill-cat" data-cat="bushcraft">Bushcraft</span>
+      <span class="pill pill-diff">&#9733;&#9733;&#9734;</span>
+      <span class="pill pill-type">Family</span>
+      <span class="pill pill-time">15 min</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="card-title">Knot Speed Drill</div>
+    <div class="card-title-es">Reto de Nudos Contra Reloj</div>
+    <div class="lang-tag">EN</div>
+    <p class="desc">Learn three knots: bowline, clove hitch, and taut-line hitch. Practice for 10 minutes. Then race: who can tie all three correctly the fastest? Time each person with a stopwatch. Knot must hold weight to count &mdash; hang a water bottle from it to test.</p>
+    <div class="lang-tag">ES</div>
+    <p class="desc">Aprende tres nudos: as de gu&iacute;a, ballestrinque y nudo tensor. Practica 10 minutos. Luego carrera: &iquest;qui&eacute;n puede hacer los tres correctamente m&aacute;s r&aacute;pido? Cronometra a cada persona. El nudo debe aguantar peso para que cuente &mdash; cuelga una botella de agua para probar.</p>
+  </div>
+  <div class="card-footer"><span class="brand-sm">Paola Adventurer</span></div>
+</div>
+
+<!-- Card 6 -->
+<div class="card">
+  <div class="card-header">
+    <span class="card-num">#06</span>
+    <div class="card-meta">
+      <span class="pill pill-cat" data-cat="nature">Nature</span>
+      <span class="pill pill-diff">&#9733;&#9734;&#9734;</span>
+      <span class="pill pill-type">Solo / Teams</span>
+      <span class="pill pill-time">60 min</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="card-title">Photo Scavenger Hunt</div>
+    <div class="card-title-es">Cacer&iacute;a Fotogr&aacute;fica</div>
+    <div class="lang-tag">EN</div>
+    <p class="desc">Find and photograph all 15 items: (1) animal tracks (2) something decaying (3) perfect symmetry in nature (4) a bug on a leaf (5) something smaller than your fingernail (6) three different bark textures (7) a bird (8) water in motion (9) the tallest thing you can find (10) something that doesn&rsquo;t belong in nature (11) your shadow doing something creative (12) the best campsite view (13) something that looks like a face (14) golden light on anything (15) a family member NOT on a screen. Most items wins.</p>
+    <div class="lang-tag">ES</div>
+    <p class="desc">Encuentra y fotograf&iacute;a los 15 elementos: (1) huellas de animal (2) algo descomponi&eacute;ndose (3) simetr&iacute;a perfecta en la naturaleza (4) un insecto sobre una hoja (5) algo m&aacute;s peque&ntilde;o que tu u&ntilde;a (6) tres texturas de corteza (7) un p&aacute;jaro (8) agua en movimiento (9) lo m&aacute;s alto que encuentres (10) algo que no pertenece a la naturaleza (11) tu sombra haciendo algo creativo (12) la mejor vista del campamento (13) algo que parezca una cara (14) luz dorada sobre cualquier cosa (15) un familiar que NO est&eacute; en una pantalla. M&aacute;s elementos gana.</p>
+  </div>
+  <div class="card-footer"><span class="brand-sm">Paola Adventurer</span></div>
+</div>
+
+<!-- Card 7 -->
+<div class="card">
+  <div class="card-header">
+    <span class="card-num">#07</span>
+    <div class="card-meta">
+      <span class="pill pill-cat" data-cat="adventure">Adventure</span>
+      <span class="pill pill-diff">&#9733;&#9733;&#9734;</span>
+      <span class="pill pill-type">Family (4+)</span>
+      <span class="pill pill-time">45 min</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="card-title">Capture the Flag: Woods Edition</div>
+    <div class="card-title-es">Captura la Bandera: Edici&oacute;n Bosque</div>
+    <div class="lang-tag">EN</div>
+    <p class="desc">Two teams. Each hides a bandana (&ldquo;flag&rdquo;) in their territory. Boundaries = natural landmarks (the big rock, the fallen tree, the creek). Tagged in enemy territory? Sit by their flag for 2 minutes, then you&rsquo;re back. First team to grab the other flag and carry it home wins.</p>
+    <div class="lang-tag">ES</div>
+    <p class="desc">Dos equipos. Cada uno esconde una bandana (&ldquo;bandera&rdquo;) en su territorio. L&iacute;mites = puntos naturales (la roca grande, el &aacute;rbol ca&iacute;do, el arroyo). &iquest;Te tocaron en territorio enemigo? Si&eacute;ntate junto a su bandera 2 minutos y vuelves. El primer equipo que agarre la bandera del otro y la lleve a casa gana.</p>
+  </div>
+  <div class="card-footer"><span class="brand-sm">Paola Adventurer</span></div>
+</div>
+
+<!-- Card 8 -->
+<div class="card">
+  <div class="card-header">
+    <span class="card-num">#08</span>
+    <div class="card-meta">
+      <span class="pill pill-cat" data-cat="adventure">Adventure</span>
+      <span class="pill pill-diff">&#9733;&#9734;&#9734;</span>
+      <span class="pill pill-type">Family</span>
+      <span class="pill pill-time">30 min</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="card-title">Glow-Stick Tag After Dark</div>
+    <div class="card-title-es">Encantados con Luz en la Oscuridad</div>
+    <div class="lang-tag">EN</div>
+    <p class="desc">Wait until dark. Everyone wears a glow-stick necklace &mdash; except &ldquo;it,&rdquo; who carries a flashlight. If the flashlight beam hits your glow stick, you&rsquo;re frozen. Last person glowing wins. Play in an open, flat area with no tripping hazards.</p>
+    <div class="lang-tag">ES</div>
+    <p class="desc">Espera a que oscurezca. Todos usan un collar de barra luminosa &mdash; excepto quien &ldquo;la trae,&rdquo; que lleva una linterna. Si la luz de la linterna toca tu barra, te congelas. La &uacute;ltima persona brillando gana. Jueguen en un &aacute;rea abierta y plana sin cosas con las que tropezar.</p>
+    <div class="safety-box"><strong>Safety / Seguridad:</strong> Clear the play area of tripping hazards before dark. Closed-toe shoes. Set boundaries. &bull; Despeja el &aacute;rea de juego antes de que oscurezca. Zapatos cerrados. Establezcan l&iacute;mites.</div>
+  </div>
+  <div class="card-footer"><span class="brand-sm">Paola Adventurer</span></div>
+</div>
+
+<!-- Card 9 -->
+<div class="card">
+  <div class="card-header">
+    <span class="card-num">#09</span>
+    <div class="card-meta">
+      <span class="pill pill-cat" data-cat="nature">Nature</span>
+      <span class="pill pill-diff">&#9733;&#9733;&#9734;</span>
+      <span class="pill pill-type">Family</span>
+      <span class="pill pill-time">30 min</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="card-title">Constellation Hunt</div>
+    <div class="card-title-es">Cacer&iacute;a de Constelaciones</div>
+    <div class="lang-tag">EN</div>
+    <p class="desc">Wait for full dark. Use a star chart or a free stargazing app (the ONE time phones are allowed). Find and identify 5 constellations. Sketch each one on paper. Bonus: make up your OWN constellation from the stars you see and give it a name and a story.</p>
+    <div class="lang-tag">ES</div>
+    <p class="desc">Espera a que oscurezca bien. Usa una carta estelar o una app gratis de estrellas (la &Uacute;NICA vez que se permite el celular). Encuentra e identifica 5 constelaciones. Dibuja cada una en papel. Bonus: inventa TU PROPIA constelaci&oacute;n con las estrellas que veas y ponle un nombre y una historia.</p>
+  </div>
+  <div class="card-footer"><span class="brand-sm">Paola Adventurer</span></div>
+</div>
+
+<!-- Card 10 -->
+<div class="card">
+  <div class="card-header">
+    <span class="card-num">#10</span>
+    <div class="card-meta">
+      <span class="pill pill-cat" data-cat="nature">Nature</span>
+      <span class="pill pill-diff">&#9733;&#9733;&#9734;</span>
+      <span class="pill pill-type">Solo / Family</span>
+      <span class="pill pill-time">45 min</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="card-title">Track &amp; Sign Detective</div>
+    <div class="card-title-es">Detective de Huellas y Se&ntilde;ales</div>
+    <div class="lang-tag">EN</div>
+    <p class="desc">Walk a trail around camp. Look for evidence of animals: tracks, scat, chewed bark, nests, burrows, feathers, scratched trees. Photo each clue and try to ID what animal left it. Score: 1 point per clue found, 3 points if you correctly ID the animal.</p>
+    <div class="lang-tag">ES</div>
+    <p class="desc">Camina un sendero alrededor del campamento. Busca evidencia de animales: huellas, excremento, corteza mordida, nidos, madrigueras, plumas, &aacute;rboles rascados. Fotograf&iacute;a cada pista e intenta identificar qu&eacute; animal la dej&oacute;. Puntos: 1 por pista, 3 si identificas correctamente al animal.</p>
+  </div>
+  <div class="card-footer"><span class="brand-sm">Paola Adventurer</span></div>
+</div>
+
+<!-- Card 11 -->
+<div class="card">
+  <div class="card-header">
+    <span class="card-num">#11</span>
+    <div class="card-meta">
+      <span class="pill pill-cat" data-cat="cooking">Cooking</span>
+      <span class="pill pill-diff">&#9733;&#9734;&#9734;</span>
+      <span class="pill pill-type">Solo</span>
+      <span class="pill pill-time">40 min</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="card-title">Foil Packet Challenge</div>
+    <div class="card-title-es">Reto de Paquete de Aluminio</div>
+    <div class="lang-tag">EN</div>
+    <p class="desc">Each person gets a sheet of foil and the same cooler access. Design your own meal: pick your protein, veggies, and seasoning. Wrap it up, label it with your name, place it on the coals. 25 minutes later, open and taste. Family votes on best meal. No peeking at others&rsquo; ingredients while cooking.</p>
+    <div class="lang-tag">ES</div>
+    <p class="desc">Cada persona recibe una hoja de aluminio y acceso a la misma hielera. Dise&ntilde;a tu propia comida: escoge prote&iacute;na, verduras y condimentos. Envu&eacute;lvelo, ponle tu nombre, col&oacute;calo sobre las brasas. 25 minutos despu&eacute;s, abran y prueben. La familia vota. Prohibido espiar los ingredientes de los dem&aacute;s.</p>
+    <div class="safety-box"><strong>Safety / Seguridad:</strong> Use tongs to place/remove foil from coals. Foil will be extremely hot. &bull; Usa pinzas para poner/quitar el aluminio de las brasas. Estar&aacute; extremadamente caliente.</div>
+  </div>
+  <div class="card-footer"><span class="brand-sm">Paola Adventurer</span></div>
+</div>
+
+<!-- Card 12 -->
+<div class="card">
+  <div class="card-header">
+    <span class="card-num">#12</span>
+    <div class="card-meta">
+      <span class="pill pill-cat" data-cat="bushcraft">Bushcraft</span>
+      <span class="pill pill-diff">&#9733;&#9733;&#9733;</span>
+      <span class="pill pill-type">Solo (parent nearby)</span>
+      <span class="pill pill-time">45 min</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="card-title">Whittle a Tent Stake</div>
+    <div class="card-title-es">Talla una Estaca de Tienda</div>
+    <div class="lang-tag">EN</div>
+    <p class="desc">Find a straight, thumb-thick branch of hardwood. Using a pocket knife, carve it into a working tent stake: pointed on one end, notched on the other to hold a guyline. Test it by actually staking something down. If it holds &mdash; you just made a real tool with your hands.</p>
+    <div class="lang-tag">ES</div>
+    <p class="desc">Encuentra una rama recta de madera dura, del grosor de tu pulgar. Usando una navaja, t&aacute;llala hasta hacer una estaca funcional: punta en un extremo, muesca en el otro para sostener una cuerda. Pru&eacute;bala clav&aacute;ndola de verdad. Si aguanta &mdash; acabas de hacer una herramienta real con tus manos.</p>
+    <div class="safety-box"><strong>Safety / Seguridad:</strong> Adult teaches knife safety first. ALWAYS cut away from your body. Closed-toe shoes required. No rushing. &bull; Un adulto ense&ntilde;a seguridad con navaja primero. SIEMPRE corta lejos de tu cuerpo. Zapatos cerrados obligatorios. Sin prisas.</div>
+  </div>
+  <div class="card-footer"><span class="brand-sm">Paola Adventurer</span></div>
+</div>
+
+<!-- Card 13 -->
+<div class="card">
+  <div class="card-header">
+    <span class="card-num">#13</span>
+    <div class="card-meta">
+      <span class="pill pill-cat" data-cat="skills">Skills</span>
+      <span class="pill pill-diff">&#9733;&#9734;&#9734;</span>
+      <span class="pill pill-type">Solo</span>
+      <span class="pill pill-time">30 min</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="card-title">Campsite Design Challenge</div>
+    <div class="card-title-es">Reto de Dise&ntilde;o de Campamento</div>
+    <div class="lang-tag">EN</div>
+    <p class="desc">You&rsquo;re in charge of your own camp zone. Choose where your tent or hammock goes. Think about: wind direction, shade for morning, distance from the fire, flat ground, what happens if it rains. Set it all up yourself &mdash; zero help from parents. Take a &ldquo;before and after&rdquo; photo.</p>
+    <div class="lang-tag">ES</div>
+    <p class="desc">Est&aacute;s a cargo de tu propia zona de campamento. Escoge d&oacute;nde va tu tienda o hamaca. Piensa en: direcci&oacute;n del viento, sombra para la ma&ntilde;ana, distancia del fuego, terreno plano, qu&eacute; pasa si llueve. Arma todo solo &mdash; cero ayuda de los pap&aacute;s. Toma una foto del &ldquo;antes y despu&eacute;s.&rdquo;</p>
+  </div>
+  <div class="card-footer"><span class="brand-sm">Paola Adventurer</span></div>
+</div>
+
+<!-- Card 14 -->
+<div class="card">
+  <div class="card-header">
+    <span class="card-num">#14</span>
+    <div class="card-meta">
+      <span class="pill pill-cat" data-cat="adventure">Adventure</span>
+      <span class="pill pill-diff">&#9733;&#9734;&#9734;</span>
+      <span class="pill pill-type">Family</span>
+      <span class="pill pill-time">90 min</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="card-title">Fishing with Stakes</div>
+    <div class="card-title-es">Pesca con Apuesta</div>
+    <div class="lang-tag">EN</div>
+    <p class="desc">Parent vs. teen. Same spot, same bait, 1-hour time limit. Most fish wins. The loser cooks dinner tonight AND does the dishes. Nobody catches anything? Both cook together &mdash; and the fish win this round.</p>
+    <div class="lang-tag">ES</div>
+    <p class="desc">Pap&aacute;/mam&aacute; vs. adolescente. Mismo lugar, misma carnada, 1 hora de tiempo. M&aacute;s peces gana. El perdedor cocina la cena de hoy Y lava los trastes. &iquest;Nadie pesc&oacute; nada? Los dos cocinan juntos &mdash; y los peces ganan esta ronda.</p>
+  </div>
+  <div class="card-footer"><span class="brand-sm">Paola Adventurer</span></div>
+</div>
+
+<!-- Card 15 -->
+<div class="card">
+  <div class="card-header">
+    <span class="card-num">#15</span>
+    <div class="card-meta">
+      <span class="pill pill-cat" data-cat="nature">Nature</span>
+      <span class="pill pill-diff">&#9733;&#9733;&#9734;</span>
+      <span class="pill pill-type">Solo / Family</span>
+      <span class="pill pill-time">60&ndash;90 min</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="card-title">Geocaching Circuit</div>
+    <div class="card-title-es">Circuito de Geocaching</div>
+    <div class="lang-tag">EN</div>
+    <p class="desc">Download the free Geocaching app (phones allowed for this one). Find at least 3 geocaches near your campsite. Log each find. If you find tradeable items, bring something small to leave. Bonus: hide your OWN cache for the next family who camps here.</p>
+    <div class="lang-tag">ES</div>
+    <p class="desc">Descarga la app gratuita de Geocaching (se permite el celular para esta). Encuentra al menos 3 geocaches cerca de tu campamento. Registra cada hallazgo. Si hay objetos intercambiables, lleva algo peque&ntilde;o para dejar. Bonus: esconde TU PROPIO cache para la pr&oacute;xima familia que acampe aqu&iacute;.</p>
+  </div>
+  <div class="card-footer"><span class="brand-sm">Paola Adventurer</span></div>
+</div>
+
+</div><!-- .cards-grid -->
+
+<!-- ===== SAFETY NOTES ===== -->
+<div class="safety-section">
+<div class="section-title">Safety Notes / Notas de Seguridad</div>
+<p class="section-subtitle">Read before your first challenge.</p>
+
+<div class="prose">
+  <h4>English</h4>
+  <p>These challenges are suggestions &mdash; you know your teen&rsquo;s abilities, maturity, and comfort level better than anyone. Use your judgment.</p>
+  <ul>
+    <li><strong>Fire &amp; cooking:</strong> Adult supervision required for all fire-related activities. Keep water or a fire extinguisher within reach. Follow all campground fire rules.</li>
+    <li><strong>Knives &amp; tools:</strong> Teach basic knife safety before any whittling or carving challenge. Always cut away from the body. Closed-toe shoes required.</li>
+    <li><strong>Night activities:</strong> Only use trails walked in daylight. Stay together. Carry backup light sources.</li>
+    <li><strong>Water:</strong> Never drink unpurified water. Water purification challenges are learning exercises only.</li>
+    <li><strong>Plants:</strong> Never eat wild plants unless 100% identified by an experienced adult. Many edible plants have toxic look-alikes.</li>
+    <li><strong>Wildlife:</strong> Observe from a safe distance. Never approach, feed, or corner wildlife.</li>
+    <li><strong>Weather:</strong> Check conditions before heading out. Cancel outdoor challenges in lightning, extreme heat, or severe weather.</li>
+  </ul>
+  <h4>Espa&ntilde;ol</h4>
+  <p>Estos retos son sugerencias &mdash; t&uacute; conoces las habilidades, madurez y nivel de comodidad de tu adolescente mejor que nadie. Usa tu criterio.</p>
+  <ul>
+    <li><strong>Fuego y cocina:</strong> Supervisi&oacute;n de un adulto para todas las actividades con fuego. Agua o extintor al alcance. Sigan las reglas del campamento.</li>
+    <li><strong>Navajas y herramientas:</strong> Ense&ntilde;a seguridad b&aacute;sica con navaja antes de cualquier reto de tallado. Siempre corta lejos del cuerpo. Zapatos cerrados obligatorios.</li>
+    <li><strong>Actividades nocturnas:</strong> Solo senderos recorridos de d&iacute;a. Juntos siempre. Lleven luces de respaldo.</li>
+    <li><strong>Agua:</strong> Nunca bebas agua sin purificar. Los retos de purificaci&oacute;n son ejercicios de aprendizaje solamente.</li>
+    <li><strong>Plantas:</strong> Nunca comas plantas silvestres sin identificaci&oacute;n 100% por un adulto con experiencia. Muchas comestibles tienen dobles t&oacute;xicos.</li>
+    <li><strong>Fauna:</strong> Observa a distancia segura. Nunca te acerques, alimentes ni acorrales a un animal.</li>
+    <li><strong>Clima:</strong> Revisa condiciones antes de salir. Cancela retos al aire libre con rayos, calor extremo o clima severo.</li>
+  </ul>
+</div>
+</div>
+
+<!-- ===== SCORE TRACKER ===== -->
+<div class="tracker-section">
+<div class="section-title">Score Tracker / Registro de Puntos</div>
+<p class="section-subtitle">How many can you complete this trip? / &iquest;Cu&aacute;ntos puedes completar en este viaje?</p>
+
+<div class="prose" style="padding:16px 20px;">
+<table class="tracker-table">
+<thead>
+<tr>
+  <th style="width:40%">Challenge / Reto</th>
+  <th style="width:20%">Date / Fecha</th>
+  <th style="width:20%">Score / Puntaje</th>
+  <th style="width:20%">Winner / Ganador</th>
+</tr>
+</thead>
+<tbody>
+<tr><td><span class="challenge-name">#01 Fire Starter Race</span><br><span class="challenge-name-es">Carrera de Encendido</span></td><td class="write-in"></td><td class="write-in"></td><td class="write-in"></td></tr>
+<tr><td><span class="challenge-name">#02 Mystery Ingredient Cook-Off</span><br><span class="challenge-name-es">Duelo del Ingrediente Misterioso</span></td><td class="write-in"></td><td class="write-in"></td><td class="write-in"></td></tr>
+<tr><td><span class="challenge-name">#03 Ember Bread Bake-Off</span><br><span class="challenge-name-es">Competencia de Pan en Brasa</span></td><td class="write-in"></td><td class="write-in"></td><td class="write-in"></td></tr>
+<tr><td><span class="challenge-name">#04 Shelter Build Race</span><br><span class="challenge-name-es">Carrera de Refugios</span></td><td class="write-in"></td><td class="write-in"></td><td class="write-in"></td></tr>
+<tr><td><span class="challenge-name">#05 Knot Speed Drill</span><br><span class="challenge-name-es">Reto de Nudos Contra Reloj</span></td><td class="write-in"></td><td class="write-in"></td><td class="write-in"></td></tr>
+<tr><td><span class="challenge-name">#06 Photo Scavenger Hunt</span><br><span class="challenge-name-es">Cacer&iacute;a Fotogr&aacute;fica</span></td><td class="write-in"></td><td class="write-in"></td><td class="write-in"></td></tr>
+<tr><td><span class="challenge-name">#07 Capture the Flag</span><br><span class="challenge-name-es">Captura la Bandera</span></td><td class="write-in"></td><td class="write-in"></td><td class="write-in"></td></tr>
+<tr><td><span class="challenge-name">#08 Glow-Stick Tag</span><br><span class="challenge-name-es">Encantados con Luz</span></td><td class="write-in"></td><td class="write-in"></td><td class="write-in"></td></tr>
+<tr><td><span class="challenge-name">#09 Constellation Hunt</span><br><span class="challenge-name-es">Cacer&iacute;a de Constelaciones</span></td><td class="write-in"></td><td class="write-in"></td><td class="write-in"></td></tr>
+<tr><td><span class="challenge-name">#10 Track &amp; Sign Detective</span><br><span class="challenge-name-es">Detective de Huellas</span></td><td class="write-in"></td><td class="write-in"></td><td class="write-in"></td></tr>
+<tr><td><span class="challenge-name">#11 Foil Packet Challenge</span><br><span class="challenge-name-es">Reto de Paquete de Aluminio</span></td><td class="write-in"></td><td class="write-in"></td><td class="write-in"></td></tr>
+<tr><td><span class="challenge-name">#12 Whittle a Tent Stake</span><br><span class="challenge-name-es">Talla una Estaca</span></td><td class="write-in"></td><td class="write-in"></td><td class="write-in"></td></tr>
+<tr><td><span class="challenge-name">#13 Campsite Design Challenge</span><br><span class="challenge-name-es">Reto de Dise&ntilde;o de Campamento</span></td><td class="write-in"></td><td class="write-in"></td><td class="write-in"></td></tr>
+<tr><td><span class="challenge-name">#14 Fishing with Stakes</span><br><span class="challenge-name-es">Pesca con Apuesta</span></td><td class="write-in"></td><td class="write-in"></td><td class="write-in"></td></tr>
+<tr><td><span class="challenge-name">#15 Geocaching Circuit</span><br><span class="challenge-name-es">Circuito de Geocaching</span></td><td class="write-in"></td><td class="write-in"></td><td class="write-in"></td></tr>
+</tbody>
+</table>
+<p class="tracker-cta">Take a photo of your completed tracker and tag <strong>@PaolaAdventurer</strong>!<br>Toma foto de tu registro completado y etiqueta a <strong>@PaolaAdventurer</strong>!</p>
+</div>
+</div>
+
+<!-- Brand footer (screen only) -->
+<div class="brand-footer" style="text-align:center;padding:40px 20px;margin-top:40px;border-top:2px solid var(--khaki);color:var(--muted);font-size:13px;">
+  <img src="../assets/logo-badge-transparent.png" alt="Paola Adventurer" style="width:60px;margin-bottom:10px;display:block;margin-left:auto;margin-right:auto;">
+  <strong style="color:var(--forest);">Paola Adventurer</strong><br>
+  Archery &middot; Camping &middot; Explore<br>
+  <a href="https://paolaadventurer.com" style="color:var(--terra);">paolaadventurer.com</a>
+</div>
+
+</div><!-- .page -->
+</body>
+</html>
