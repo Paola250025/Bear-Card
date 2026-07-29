@@ -1,4 +1,4 @@
-const CACHE_NAME = 'bear-card-v7';
+const CACHE_NAME = 'bear-card-v8';
 const CORE_ASSETS = [
   './',
   './index.html',
