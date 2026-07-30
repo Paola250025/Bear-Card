@@ -32,7 +32,7 @@
 
   nav.top{position:sticky;top:0;z-index:100;background:#163024;border-bottom:3px solid var(--sun);padding:12px 18px;display:flex;justify-content:space-between;align-items:center;gap:12px;box-shadow:0 2px 10px rgba(0,0,0,.25);}
   nav.top a{text-decoration:none;}
-  nav.top .home{color:var(--sun);font-family:'Oswald',sans-serif;font-weight:700;letter-spacing:2px;font-size:14px;}
+  nav.top a.home{color:var(--sun);font-weight:800;letter-spacing:1px;font-size:14px;}
   .langtoggle{display:flex;gap:2px;background:rgba(255,255,255,.12);border-radius:100px;padding:3px;}
   .langtoggle button{border:0;background:transparent;color:#faf7f0;font-family:'Oswald',sans-serif;font-weight:700;font-size:12px;padding:5px 12px;border-radius:100px;cursor:pointer;letter-spacing:1px;}
   .langtoggle button.active{background:var(--sun);color:var(--forest);}
@@ -133,9 +133,10 @@
   .meet-text p{font-size:15px;color:var(--muted);margin:0 0 12px;}
   .meet-text a{font-family:'Bitter',serif;font-weight:800;color:var(--terra);text-decoration:none;font-size:15px;}
 
-  footer{background:var(--forest);color:#bcae86;text-align:center;padding:26px 0;font-family:'Oswald',sans-serif;font-size:13px;letter-spacing:1px;}
+  .safety{background:var(--paper);text-align:center;padding:22px 0;}
+  .safety p{max-width:720px;margin:0 auto;font-size:12.5px;color:var(--muted);font-weight:600;}
+  footer{background:var(--forest);color:#bcae86;text-align:center;padding:26px 0;font-family:'Bitter',serif;font-size:13px;}
   footer a{color:var(--sun);text-decoration:none;}
-  .safety-foot{font-family:'Work Sans',sans-serif;font-weight:500;font-size:12px;color:#8fa08f;max-width:620px;margin:10px auto 0;letter-spacing:0;}
 
   @media(max-width:820px){
     .hero h1{font-size:32px;}
@@ -151,7 +152,7 @@
 </head>
 <body>
 <nav class="top">
-  <a class="home" href="/">PAOLA ADVENTURER</a>
+  <a class="home" href="/">← Paola Adventurer</a>
   <div class="langtoggle">
     <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
     <button id="btn-es" onclick="setLang('es')">ES</button>
@@ -606,12 +607,9 @@
 </section>
 </div>
 
-<footer>
-  <div class="wrap">
-    <a href="https://paolaadventurer.com">paolaadventurer.com</a>
-    <div class="safety-foot">Safety note / Nota de seguridad: These challenges involve outdoor activities including fire, cutting tools, water activities, and night activities that require adult supervision at all times. Parents know their teen's abilities best — use your judgment. / Estos retos incluyen actividades al aire libre con fuego, herramientas de corte, actividades acuáticas y actividades nocturnas que requieren supervisión adulta en todo momento. Los padres conocen mejor las habilidades de su adolescente — usen su criterio.</div>
-  </div>
-</footer>
+<div class="safety"><p>⚠️ These challenges involve outdoor activities including fire, cutting tools, water activities, and night activities that require adult supervision at all times. Parents know their teen's abilities best — use your judgment. · Estos retos incluyen actividades al aire libre con fuego, herramientas de corte, actividades acuáticas y actividades nocturnas que requieren supervisión adulta en todo momento. Los padres conocen mejor las habilidades de su adolescente — usen su criterio.</p></div>
+
+<footer><div class="wrap"><a href="https://paolaadventurer.com">paolaadventurer.com</a> · Archery · Camping · Explore</div></footer>
 
 <script>
   function setLang(l){
@@ -627,11 +625,12 @@
     setLang(s||((navigator.language||'en').slice(0,2)==='es'?'es':'en'));
   })();
 
-  var CHECKOUT_URL="";
+  var CHECKOUT_URL="https://payhip.com/b/u6iCr";
   document.querySelectorAll('[data-buy]').forEach(function(a){
     if(CHECKOUT_URL){a.href=CHECKOUT_URL;a.target='_blank';a.rel='noopener';}
-    else a.addEventListener('click',function(e){e.preventDefault();alert('Coming soon!');});
+    else a.addEventListener('click',function(e){e.preventDefault();alert("Almost ready! · ¡Casi listo!");});
   });
 </script>
+<a href="https://www.pinterest.com/pin/create/button/?url=https://paolaadventurer.com/unplugged-bundle/&media=https://paolaadventurer.com/assets/kid-campfire-marshmallow.jpg&description=Unplugged%20Camp%20Challenges%20Bundle%20-%2030%20challenges%20for%20ages%2011-17%2C%20bilingual" target="_blank" rel="noopener" aria-label="Save to Pinterest" style="position:fixed;bottom:16px;right:16px;z-index:500;display:inline-flex;align-items:center;gap:6px;background:#e60023;color:#fff;font-family:'Work Sans',sans-serif;font-weight:800;font-size:13px;padding:9px 14px;border-radius:100px;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.3);">📌 Save</a>
 </body>
 </html>
