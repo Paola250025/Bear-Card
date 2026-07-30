@@ -6,7 +6,11 @@ Read this first if you're picking this project back up in a new session. It has 
 A free, bilingual, interactive bear-safety card for nervous first-time camping moms, built for Paola Adventurer as a lead magnet (not a paid product). Live at **https://paolaadventurer.com**. Originally written for one specific friend of Paola's (3 kids, first trip to Big Bear, CA) and later generalized for a wider audience.
 
 ## Accounts / identifiers referenced by this project
-- **GitHub repo**: `Paola250025/Bear-Card` — GitHub Pages is configured to build from the **`claude/camping-safety-card-wrhsqo`** branch (confirmed via the repo's Actions history), not `main`. `main` is kept as a fast-forward mirror of that branch after every change, purely so the content also exists on a conventionally-named branch — but the live site actually deploys from `claude/camping-safety-card-wrhsqo`. If continuing this project, keep pushing to both, or switch the Pages source to `main` in Settings → Pages and simplify to one branch.
+- **GitHub repo**: `Paola250025/Bear-Card` — GitHub Pages now deploys from
+  **`main`** (changed 2026-07-30 by Paola in Settings → Pages; was previously
+  `claude/camping-safety-card-wrhsqo`). All future work should be committed/
+  merged to `main`. The old branch still exists but is no longer the deploy
+  source.
 - **Custom domain**: `paolaadventurer.com`, registered at **GoDaddy**. DNS: 4 A records (`185.199.108.153` / `.109.153` / `.110.153` / `.111.153`) + `www` CNAME to `paola250025.github.io`. Confirmed resolving and serving correctly as of this handoff.
 - **Lead form email**: `adventurerpaola@gmail.com` — receives form submissions via FormSubmit.co (no login needed for FormSubmit itself, just email activation).
 - **Analytics**: GoatCounter, site code `paolaadventurer` — needs Paola to claim the free account at goatcounter.com if she hasn't yet.
@@ -23,7 +27,10 @@ This card is step one of a planned funnel: free trust-building tool → email li
 - **Root domain, not subdomain**: Paola doesn't have a main website yet (sales page is on Payhip), so `paolaadventurer.com` points straight at this card. Revisit if she builds a full site later (see ROADMAP.md).
 
 ## Working conventions used in this project (for consistency if continuing)
-- **Which branch to push to (important):** GitHub Pages serves from `claude/camping-safety-card-wrhsqo`. The reliable deploy is: commit → push to `main` → fast-forward `main` into `claude/camping-safety-card-wrhsqo` (`git push origin main:refs/heads/claude/camping-safety-card-wrhsqo`). That fast-forward is what triggers the "pages build and deployment" run; a push to `main` alone does NOT publish. Verified in this session (pushes to `main` sat unpublished until the live branch was fast-forwarded). Simplify later by switching Settings → Pages source to `main`.
+- **Which branch to push to (important):** GitHub Pages now serves from
+  **`main`** (changed 2026-07-30). Push directly to `main` or merge a PR
+  into `main` — that triggers the "pages build and deployment" run. No more
+  fast-forwarding to the old branch.
 - **Bump the build version on every content change** — set both `version.json`'s `build` and `window.APP_BUILD` in `index.html` to the same new value. This is what makes already-open apps auto-refresh to the new version (see SPEC.md → "Auto-update"). Skipping it means the change is live for new visitors but installed apps stay on the old copy until they happen to fully reload.
 - Note: this Claude session also carried the working copy on `claude/archery-website-requirements-8yk46i` (its assigned dev branch, which additionally holds the unrelated `archery/` sales page and `.claude/` skills). The Bear Cheat Sheet site itself only needs `main` + `claude/camping-safety-card-wrhsqo`; the archery branch is incidental.
 - No build tooling was introduced at any point — this stays a single static `index.html` plus small asset files, deliberately, so it's editable by hand with zero setup.

@@ -1,6 +1,6 @@
 # Paola Adventurer — Project Status & Handoff
 
-Last updated: 2026-07-28
+Last updated: 2026-07-30
 
 This file is the memory of the project. A new chat does NOT automatically
 remember our old conversation, but **everything we built lives in this
@@ -8,7 +8,9 @@ GitHub repo** — so open a new chat, tell Claude to read this file
 (`docs/PAOLA-STATUS.md`), and you can keep going right where we left off.
 
 Website: **https://paolaadventurer.com** (GitHub Pages)
-Default branch (what the live site serves): `claude/camping-safety-card-wrhsqo`
+Default branch (what the live site serves): **`main`**
+(Changed on 2026-07-30 from `claude/camping-safety-card-wrhsqo` to `main`.
+Paola switched it in GitHub Settings → Pages. All deploys now go to `main`.)
 
 **To resume in a new chat:** say *"Read docs/PAOLA-STATUS.md and let's keep
 working on Paola Adventurer."*
@@ -55,10 +57,24 @@ Fredoka / Baloo (kids' pack only).
 | Camping With Kids Bundle | $9 (anchor $12) | `/bundle/` | https://payhip.com/b/3lRQs | ✅ Live |
 | Leave It Better · Déjalo Mejor | $9 (anchor $24) | `/leave-it-better/` | https://payhip.com/b/FQSRe | ✅ Live |
 | Emergency-Ready Kit · Lista para Todo | $9 (anchor $24) | `/emergency-kit/` | https://payhip.com/b/R8nDm | ✅ Live |
+| Unplugged Camp Challenge: Explorer | — | `/unplugged-explorer/` | https://payhip.com/b/9y3IF | ✅ Live |
+| Unplugged Camp Challenge: Trailblazer | — | `/unplugged-trailblazer/` | https://payhip.com/b/BI9o6 | ✅ Live |
+| Unplugged Camp Challenge: Bundle | — | `/unplugged-bundle/` | https://payhip.com/b/u6iCr | ✅ Live |
 | Archery from Zero — English class | $37 launch (value $97) | `/archery/` | (needs product, see below) | 🔜 Coming Soon |
 | Archery from Zero — Clase en español | $37 launch (value $97) | `/archery/` | (needs product, see below) | 🔜 Coming Soon |
 
 Bundle = Family Camping Planner + Kids' Pack together.
+
+### Unplugged Camp Challenges (LIVE — added 2026-07-30)
+Screen-free outdoor challenge cards for families. Two age tiers:
+**Explorer** (ages 4-8) and **Trailblazer** (ages 9-14), each with 15
+challenges across fire, cooking, bushcraft, nature & adventure categories.
+A **Bundle** combines both. Sales pages are bilingual (EN/ES toggle).
+Each sales page shows only **3 example challenges + a teaser** ("+ 12
+more...") — intentionally NOT giving away all 15 on the page. These are
+**digital/printable products with NO refunds** — no money-back guarantee
+on any of these pages (Paola's explicit rule: "remove any - ALWAYS" for
+guarantee sections on digital products).
 
 ### Emergency-Ready Kit (newest, LIVE — Payhip R8nDm, $9 / value $24)
 A 12-page bilingual "be ready for anything" kit for families. Structured
@@ -167,6 +183,8 @@ tienda" back button; the Spanish wording is consistent.
 - `bear.html` — free Bear Cheat Sheet (PWA)
 - `adventure-pack/`, `camping-planner/`, `bundle/`, `leave-it-better/`,
   `emergency-kit/`, `archery/` — sales pages (all have real-photo heroes)
+- `unplugged-explorer/`, `unplugged-trailblazer/`, `unplugged-bundle/` —
+  Unplugged Camp Challenge sales pages (bilingual, NO guarantee sections)
 - `blog/` — blog index + **9 articles**: `camping-with-kids-first-time`,
   `teach-kids-leave-no-trace`, `try-outdoors-comfort-zone`,
   `emergency-ready-beginners` (CTA → `/emergency-kit/`),
@@ -186,21 +204,31 @@ archive branches `claude/emergency-kit-source` and
 
 ## How to publish (the reliable flow)
 
-Always branch FRESH from the default branch to avoid squash-merge
-divergence:
-1. `git fetch origin claude/camping-safety-card-wrhsqo`
-2. `git checkout -B <new-branch> origin/claude/camping-safety-card-wrhsqo`
-   (commit or stash working changes first — this can discard uncommitted
-   edits)
+**GitHub Pages now deploys from `main` (changed 2026-07-30).**
+
+Option A — direct push to `main` (simplest for small changes):
+1. `git fetch origin main`
+2. `git checkout main && git pull origin main`
+3. edit → `git add` → `git commit`
+4. `git push -u origin main`
+
+Option B — PR workflow (for larger changes):
+1. `git fetch origin main`
+2. `git checkout -B <new-branch> origin/main`
 3. edit → `git add` → `git commit`
 4. `git push -u origin <new-branch>`
-5. `mcp__github__create_pull_request` (base =
-   `claude/camping-safety-card-wrhsqo`)
+5. `mcp__github__create_pull_request` (base = `main`)
 6. `mcp__github__merge_pull_request` with `merge_method: "squash"`
 
 GitHub Pages then serves the update at paolaadventurer.com. Load the
 `mcp__github__*` tools via ToolSearch when needed. Repo:
 `Paola250025/Bear-Card`.
+
+**Known issue — unrelated git histories:** Feature branches created
+before the switch to `main` may have no common ancestor with `main`.
+PRs from these branches get a 405 on squash merge. Workaround: cherry-pick
+commits directly onto `main` instead of merging the PR. This happened
+with PR #75 on 2026-07-30.
 
 ---
 
@@ -306,6 +334,51 @@ bear-season prep with little ones.
   are fine as-is. Leave It Better could use a light polish later but isn't
   urgent.
 
+## Recently completed (2026-07-30)
+
+- **GitHub Pages switched to deploy from `main` branch.** Paola changed
+  this in GitHub Settings → Pages (was `claude/camping-safety-card-wrhsqo`).
+  All future deploys go straight to `main` — no more fast-forwarding.
+- **3 new Unplugged Camp Challenge products launched:** Explorer (ages 4-8),
+  Trailblazer (ages 9-14), and a 2-in-1 Bundle. Full bilingual sales pages
+  (EN/ES toggle) at `/unplugged-explorer/`, `/unplugged-trailblazer/`,
+  `/unplugged-bundle/`. Payhip checkout links wired up.
+- **Shop card image fixes on homepage (`index.html`):**
+  - Explorer photo: added `object-position:center 20%` to show kid's face
+    (portrait photo was getting head-cropped by the 16/10 aspect ratio)
+  - Trailblazer photo: added `object-position:center 15%` to show teen's
+    face (same issue, applied to both EN and ES cards)
+  - Bundle: replaced emoji gradient placeholder with a proper branded image
+    (`shop/unplugged-bundle.png`) — 1200x1200 card matching the existing
+    design system (forest green bg, colorful stripe, gold badge, two product
+    cards side by side)
+- **Sales pages trimmed — no longer giving away all content.** Each
+  "What's Inside" section now shows only 3 example challenges + a teaser
+  line ("+ 12 more across fire, cooking, bushcraft, nature & adventure")
+  instead of listing all 15. Applied to all 3 pages, both EN and ES.
+- **All guarantee/money-back sections REMOVED** from Explorer, Trailblazer,
+  and Bundle pages (both EN and ES). Paola's rule: **"remove any - ALWAYS"**
+  — these are digital/printable products with NO refunds. Also removed the
+  unused `.guar` CSS rules from all 3 pages.
+- **Service worker cache bumped to v12** (`sw.js` → `bear-card-v12`).
+- **version.json bumped to `2026-07-30-3`** for cache busting.
+- **PR #75** was created but couldn't squash-merge (unrelated git histories
+  between the feature branch and `main`). Resolved by cherry-picking commit
+  `e2ab029` directly onto `main`. Deployment confirmed successful.
+
+### Shop card image generation notes (for future reference)
+- Brand card design: forest green (#22432f) background, colorful stripe at
+  top (alternating terracotta/khaki/green/gold blocks), gold (#e8b93f) circle
+  badge with emoji, white serif title (Bitter font), gold subtitle italic,
+  gold pill with uppercase text, emoji row at bottom, paolaadventurer.com
+  footer.
+- Single products: 1600x1000 or 1200x900. Bundles: 1200x1200.
+- Generated with Playwright Chromium: `executablePath:
+  '/opt/pw-browsers/chromium-1194/chrome-linux/chrome'`, requires
+  `NODE_PATH=/opt/node22/lib/node_modules`.
+- Portrait photos (1512x2016) in 16/10 landscape cards need
+  `object-position` CSS to show faces (e.g. `center 20%` or `center 15%`).
+
 ## Recently completed (2026-07-28, session 2)
 
 - **EN/ES toggle DONE on home page** (`index.html`): full Spanish translation
@@ -389,3 +462,25 @@ Paola Adventurer on LinkedIn. The two brands serve different audiences.
   value format. Research fresh rates/inventory before writing.
 - **Olaf's LinkedIn profile** could get the same optimization treatment.
 - **Leave It Better Payhip description** — light polish (not urgent).
+- **Enforce HTTPS** — was unchecked in Paola's GitHub Pages screenshot
+  (2026-07-30). She should check it in Settings → Pages.
+- **Unplugged products need prices in the status file** — Paola hasn't
+  confirmed exact pricing yet. Update the products table when she does.
+- **Service worker cache** is at **v12** as of 2026-07-30. Bump it on
+  every content change (edit `sw.js` CACHE_NAME + `version.json` build).
+
+---
+
+## IMPORTANT RULES (apply to ALL future work)
+
+1. **NO money-back guarantees on ANY digital/printable product.** Paola's
+   words: "remove any - ALWAYS." These are digital products with no refunds.
+   Never add a guarantee section. If a template or pattern includes one,
+   remove it.
+2. **Sales pages should NOT list all product contents.** Show ~3 examples +
+   a teaser ("+ 12 more..."). Don't give away the full product on the
+   free page.
+3. **GitHub Pages deploys from `main`.** Don't push to or reference the old
+   `claude/camping-safety-card-wrhsqo` branch for deployment.
+4. **Brand photos use `object-position`** when placed in landscape cards to
+   show faces. Always check cropping when adding portrait photos.
