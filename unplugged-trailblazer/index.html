@@ -628,8 +628,7 @@
     else a.addEventListener('click',function(e){e.preventDefault();alert('Coming soon!');});
   });
   document.querySelectorAll('[data-buy-bundle]').forEach(function(a){
-    if(BUNDLE_URL){a.href=BUNDLE_URL;a.target='_blank';a.rel='noopener';}
-    else a.addEventListener('click',function(e){e.preventDefault();alert('Coming soon!');});
+    a.href='/unplugged-bundle/';
   });
 </script>
 </body>
