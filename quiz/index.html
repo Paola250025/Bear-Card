@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Start Here · Find Your Guide · Paola Adventurer</title>
+<meta name="description" content="New to the outdoors and not sure where to start? Answer one question and get the perfect printable for your family.">
+<meta name="robots" content="index,follow">
+<link rel="icon" href="/assets/icon-192.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,700;0,900;1,700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--forest:#22432f;--forest2:#2f6b45;--terra:#b5562f;--khaki:#d8c9a3;--sun:#e8b93f;--cream:#faf7f0;--paper:#fffdf7;--ink:#3a322a;--muted:#7c7361;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  [hidden]{display:none !important;}
+  body{font-family:'Nunito',sans-serif;font-weight:600;color:var(--ink);background:var(--cream);line-height:1.6;}
+  .wrap{max-width:640px;margin:0 auto;padding:0 20px;}
+  nav.top{position:sticky;top:0;z-index:100;background:#163024;border-bottom:3px solid var(--sun);padding:12px 18px;display:flex;justify-content:space-between;align-items:center;gap:12px;}
+  nav.top a{font-weight:800;letter-spacing:1px;text-decoration:none;}
+  nav.top .home{color:var(--sun);font-size:14px;}
+  .langtoggle{display:flex;gap:2px;background:rgba(255,255,255,.12);border-radius:100px;padding:3px;}
+  .langtoggle button{border:0;background:transparent;color:#faf7f0;font-family:'Nunito';font-weight:800;font-size:12px;padding:5px 12px;border-radius:100px;cursor:pointer;}
+  .langtoggle button.active{background:var(--sun);color:var(--forest);}
+  header.hero{background:var(--forest);color:var(--cream);text-align:center;padding:52px 20px 40px;}
+  header.hero h1{font-family:'Bitter',serif;font-weight:900;color:#fff;font-size:34px;margin-bottom:8px;}
+  header.hero p{color:#eef3e9;font-size:16px;max-width:460px;margin:0 auto;}
+  .q{font-family:'Bitter',serif;font-weight:900;color:var(--forest);font-size:22px;text-align:center;margin:34px 0 20px;}
+  .opt{display:block;width:100%;text-align:left;background:var(--paper);border:2px solid var(--khaki);border-radius:14px;padding:16px 18px;margin:10px 0;font-family:'Nunito';font-weight:700;font-size:16px;color:var(--ink);cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.05);transition:.12s;}
+  .opt:hover{border-color:var(--terra);transform:translateY(-2px);}
+  .opt .em{font-size:22px;margin-right:8px;}
+  .result{background:var(--paper);border:2px solid var(--sun);border-radius:18px;padding:28px 24px;text-align:center;margin:24px 0;box-shadow:0 8px 24px rgba(0,0,0,.1);}
+  .result .tag{font-family:'Nunito';font-weight:800;text-transform:uppercase;letter-spacing:2px;font-size:12px;color:var(--terra);}
+  .result h3{font-family:'Bitter',serif;font-weight:900;color:var(--forest);font-size:26px;margin:8px 0;}
+  .result p{color:var(--muted);font-weight:700;margin-bottom:18px;}
+  .btn{display:inline-block;background:var(--terra);color:#fff;font-family:'Bitter',serif;font-weight:800;font-size:17px;padding:14px 30px;border-radius:100px;text-decoration:none;box-shadow:0 5px 0 #8f411f;}
+  .again{display:inline-block;margin-top:14px;color:var(--forest2);font-weight:800;cursor:pointer;font-size:14px;text-decoration:underline;}
+  footer{background:var(--forest);color:var(--khaki);text-align:center;padding:24px 20px;font-family:'Bitter';font-size:13px;margin-top:24px;}
+  footer a{color:var(--sun);}
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <a class="home" href="/">← Paola Adventurer</a>
+  <div class="langtoggle">
+    <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+    <button id="btn-es" onclick="setLang('es')">ES</button>
+  </div>
+</nav>
+
+<div id="lang-en">
+  <header class="hero">
+    <h1>Start here 🧭</h1>
+    <p>Not sure where to begin? Tell me what you need most right now, I'll point you to the perfect guide.</p>
+  </header>
+  <div class="wrap">
+    <div id="q-en">
+      <div class="q">What do you need most right now?</div>
+      <button class="opt" onclick="showResult('en','bear')"><span class="em">🐻</span>I'm nervous about safety (bears, the unknown)</button>
+      <button class="opt" onclick="showResult('en','kids')"><span class="em">🎒</span>Something to keep my kids busy outside</button>
+      <button class="opt" onclick="showResult('en','planner')"><span class="em">🏕️</span>Help planning our first family camping trip</button>
+      <button class="opt" onclick="showResult('en','bundle')"><span class="em">💚</span>Everything for a family trip, best value</button>
+      <button class="opt" onclick="showResult('en','leave')"><span class="em">🌎</span>Teach my kids to respect nature &amp; other campers</button>
+      <button class="opt" onclick="showResult('en','emergency')"><span class="em">🧯</span>To feel ready for emergencies</button>
+      <button class="opt" onclick="showResult('en','archery')"><span class="em">🏹</span>To learn archery from zero</button>
+    </div>
+    <div id="r-en"></div>
+  </div>
+</div>
+
+<div id="lang-es" hidden>
+  <header class="hero">
+    <h1>Empieza aquí 🧭</h1>
+    <p>¿No sabes por dónde empezar? Dime qué necesitas más ahora mismo y te llevo a la guía perfecta.</p>
+  </header>
+  <div class="wrap">
+    <div id="q-es">
+      <div class="q">¿Qué necesitas más ahora mismo?</div>
+      <button class="opt" onclick="showResult('es','bear')"><span class="em">🐻</span>Me da nervios la seguridad (osos, lo desconocido)</button>
+      <button class="opt" onclick="showResult('es','kids')"><span class="em">🎒</span>Algo para entretener a mis hijos afuera</button>
+      <button class="opt" onclick="showResult('es','planner')"><span class="em">🏕️</span>Ayuda para planear nuestro primer campamento familiar</button>
+      <button class="opt" onclick="showResult('es','bundle')"><span class="em">💚</span>Todo para un viaje familiar, el mejor precio</button>
+      <button class="opt" onclick="showResult('es','leave')"><span class="em">🌎</span>Enseñar a mis hijos a respetar la naturaleza y a otros campistas</button>
+      <button class="opt" onclick="showResult('es','emergency')"><span class="em">🧯</span>Sentirme lista para emergencias</button>
+      <button class="opt" onclick="showResult('es','archery')"><span class="em">🏹</span>Aprender arquería desde cero</button>
+    </div>
+    <div id="r-es"></div>
+  </div>
+</div>
+
+<footer><a href="https://paolaadventurer.com">paolaadventurer.com</a> · Archery · Camping · Explore</footer>
+
+<script>
+  var DATA = {
+    bear:{en:{t:'Free · Perfect first step',h:'Bear Country Cheat Sheet',p:'The 5 things that actually matter, free and bilingual. Start here and calm the nerves.',b:'Get it free →',u:'/bear.html'},
+          es:{t:'Gratis · Primer paso perfecto',h:'Bear Country Cheat Sheet',p:'Las 5 cosas que de verdad importan, gratis y bilingüe. Empieza aquí y calma los nervios.',b:'Descárgala gratis →',u:'/bear.html'}},
+    kids:{en:{t:'$5',h:"Kids' Outdoor Adventure Pack",p:'11 printable pages of screen-free games for ages 4 to 10.',b:'See the pack →',u:'/adventure-pack/'},
+          es:{t:'$5',h:"Kids' Outdoor Adventure Pack",p:'11 páginas de juegos sin pantallas para edades de 4 a 10.',b:'Ver el paquete →',u:'/adventure-pack/'}},
+    planner:{en:{t:'$7',h:'Family Camping Planner',p:'17 pages that walk you through the whole trip. Not another blank checklist.',b:'See the planner →',u:'/camping-planner/'},
+             es:{t:'$7',h:'Family Camping Planner',p:'17 páginas que te guían por todo el viaje. No es otra lista en blanco.',b:'Ver el planificador →',u:'/camping-planner/'}},
+    bundle:{en:{t:'$9 · Best value',h:'Camping With Kids Bundle',p:'The Planner + the Kids’ Pack together, and you save.',b:'Get the bundle →',u:'/bundle/'},
+            es:{t:'$9 · Mejor precio',h:'Camping With Kids Bundle',p:'El Planificador + el Paquete de Niños juntos, y ahorras.',b:'Llévate el bundle →',u:'/bundle/'}},
+    leave:{en:{t:'$9',h:'Leave It Better',p:'Turn your kids into Junior Rangers who care for nature and other campers.',b:'See the kit →',u:'/leave-it-better/'},
+           es:{t:'$9',h:'Leave It Better · Déjalo Mejor',p:'Convierte a tus hijos en Junior Rangers que cuidan la naturaleza y a otros campistas.',b:'Ver el kit →',u:'/leave-it-better/'}},
+    emergency:{en:{t:'$9',h:'Emergency-Ready Kit',p:'Know exactly what to pack to be ready at home, in the car, and camping.',b:'See the kit →',u:'/emergency-kit/'},
+               es:{t:'$9',h:'Emergency-Ready Kit · Lista para Todo',p:'Sabe exactamente qué empacar para estar lista en casa, en el carro y acampando.',b:'Ver el kit →',u:'/emergency-kit/'}},
+    archery:{en:{t:'Coming soon',h:'Archery from Zero',p:'A beginner video class you can watch anytime. Join the waitlist for the launch price.',b:'Join the waitlist →',u:'/archery/'},
+             es:{t:'Muy pronto',h:'Archery from Zero',p:'Una clase en video para principiantes que ves cuando quieras. Únete a la lista de espera.',b:'Unirme a la lista →',u:'/archery/'}}
+  };
+  function showResult(lang, key){
+    var d = DATA[key][lang];
+    var again = (lang==='es') ? 'Volver a empezar' : 'Start over';
+    document.getElementById('q-'+lang).hidden = true;
+    document.getElementById('r-'+lang).innerHTML =
+      '<div class="result"><div class="tag">'+d.t+'</div><h3>'+d.h+'</h3><p>'+d.p+'</p>'+
+      '<a class="btn" href="'+d.u+'">'+d.b+'</a><br><span class="again" onclick="resetQuiz(\''+lang+'\')">'+again+'</span></div>';
+    document.getElementById('r-'+lang).scrollIntoView({behavior:'smooth',block:'center'});
+  }
+  function resetQuiz(lang){
+    document.getElementById('r-'+lang).innerHTML='';
+    document.getElementById('q-'+lang).hidden = false;
+  }
+  function setLang(l){
+    document.getElementById('lang-en').hidden = (l!=='en');
+    document.getElementById('lang-es').hidden = (l!=='es');
+    document.getElementById('btn-en').classList.toggle('active', l==='en');
+    document.getElementById('btn-es').classList.toggle('active', l==='es');
+    document.documentElement.lang = l;
+    try{ localStorage.setItem('pa_lang', l); }catch(e){}
+  }
+  (function(){
+    var saved; try{ saved = localStorage.getItem('pa_lang'); }catch(e){}
+    setLang(saved || ((navigator.language||'en').slice(0,2)==='es' ? 'es' : 'en'));
+  })();
+</script>
+
+</body>
+</html>

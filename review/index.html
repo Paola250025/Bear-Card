@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leave a Review · Paola Adventurer</title>
+<meta name="description" content="Share your experience with Paola Adventurer printables and classes. Your review helps other families get outside.">
+<meta name="robots" content="index,follow">
+<link rel="icon" href="/assets/icon-192.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,700;0,900;1,700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--forest:#22432f;--forest2:#2f6b45;--terra:#b5562f;--khaki:#d8c9a3;--sun:#e8b93f;--cream:#faf7f0;--paper:#fffdf7;--ink:#3a322a;--muted:#7c7361;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  [hidden]{display:none !important;}
+  body{font-family:'Nunito',sans-serif;font-weight:600;color:var(--ink);background:var(--cream);line-height:1.6;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:600px;margin:0 auto;padding:0 20px;}
+  nav.top{position:sticky;top:0;z-index:100;background:#163024;border-bottom:3px solid var(--sun);padding:12px 18px;display:flex;justify-content:space-between;align-items:center;gap:12px;}
+  nav.top a{font-weight:800;letter-spacing:1px;text-decoration:none;}
+  nav.top .home{color:var(--sun);font-size:14px;}
+  .langtoggle{display:flex;gap:2px;background:rgba(255,255,255,.12);border-radius:100px;padding:3px;}
+  .langtoggle button{border:0;background:transparent;color:#faf7f0;font-family:'Nunito';font-weight:800;font-size:12px;padding:5px 12px;border-radius:100px;cursor:pointer;}
+  .langtoggle button.active{background:var(--sun);color:var(--forest);}
+  header.hero{background:var(--forest);color:var(--cream);text-align:center;padding:52px 20px 44px;}
+  header.hero h1{font-family:'Bitter',serif;font-weight:900;color:#fff;font-size:34px;margin-bottom:8px;}
+  header.hero p{color:#eef3e9;font-size:16px;max-width:440px;margin:0 auto;}
+  form{background:var(--paper);border:2px solid var(--khaki);border-radius:18px;padding:28px 24px;margin:34px 0;box-shadow:0 8px 24px rgba(0,0,0,.07);}
+  label{display:block;font-weight:800;color:var(--forest);font-size:14px;margin:16px 0 6px;}
+  input,select,textarea{width:100%;font-family:'Nunito';font-weight:600;font-size:16px;color:var(--ink);border:2px solid var(--khaki);border-radius:12px;padding:12px 14px;background:#fff;}
+  textarea{min-height:120px;resize:vertical;}
+  .stars label{display:inline;margin:0;font-size:14px;color:var(--muted);}
+  .check{display:flex;gap:10px;align-items:flex-start;margin-top:16px;}
+  .check input{width:auto;margin-top:4px;}
+  .check label{margin:0;font-weight:600;color:var(--ink);font-size:14px;}
+  button.submit{width:100%;margin-top:22px;background:var(--terra);color:#fff;font-family:'Bitter',serif;font-weight:800;font-size:18px;padding:15px;border:0;border-radius:100px;box-shadow:0 5px 0 #8f411f;cursor:pointer;}
+  footer{background:var(--forest);color:var(--khaki);text-align:center;padding:24px 20px;font-family:'Bitter';font-size:13px;margin-top:20px;}
+  footer a{color:var(--sun);}
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <a class="home" href="/">← Paola Adventurer</a>
+  <div class="langtoggle">
+    <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+    <button id="btn-es" onclick="setLang('es')">ES</button>
+  </div>
+</nav>
+
+<div id="lang-en">
+  <header class="hero">
+    <h1>Leave a review ⭐</h1>
+    <p>Did a Paola Adventurer guide help your family get outside? Tell me about it, your words help other nervous beginners take the first step.</p>
+  </header>
+  <div class="wrap">
+    <form action="https://formsubmit.co/adventurerpaola@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="New review - Paola Adventurer">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_next" value="https://paolaadventurer.com/review/?sent=1">
+      <label for="e-name">Your name (or first name)</label>
+      <input id="e-name" type="text" name="Name" required>
+      <label for="e-prod">Which product?</label>
+      <select id="e-prod" name="Product">
+        <option>Bear Country Cheat Sheet</option>
+        <option>Kids' Outdoor Adventure Pack</option>
+        <option>Family Camping Planner</option>
+        <option>Camping With Kids Bundle</option>
+        <option>Leave It Better</option>
+        <option>Emergency-Ready Kit</option>
+        <option>Archery from Zero</option>
+        <option>The website in general</option>
+      </select>
+      <label for="e-rating">Your rating</label>
+      <select id="e-rating" name="Rating">
+        <option>★★★★★ Loved it</option>
+        <option>★★★★ Really good</option>
+        <option>★★★ Good</option>
+        <option>★★ Okay</option>
+        <option>★ Not for me</option>
+      </select>
+      <label for="e-review">Your review</label>
+      <textarea id="e-review" name="Review" placeholder="What did you love? How did it help your family?" required></textarea>
+      <div class="check">
+        <input id="e-perm" type="checkbox" name="Permission to publish" value="Yes">
+        <label for="e-perm">Yes, Paola can share my review (first name only) on the website and social media.</label>
+      </div>
+      <button class="submit" type="submit">Send my review →</button>
+    </form>
+  </div>
+</div>
+
+<div id="lang-es" hidden>
+  <header class="hero">
+    <h1>Deja tu reseña ⭐</h1>
+    <p>¿Una guía de Paola Adventurer ayudó a tu familia a salir al aire libre? Cuéntame; tus palabras ayudan a otras principiantes nerviosas a dar el primer paso.</p>
+  </header>
+  <div class="wrap">
+    <form action="https://formsubmit.co/adventurerpaola@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="Nueva resena - Paola Adventurer">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_next" value="https://paolaadventurer.com/review/?sent=1">
+      <label for="s-name">Tu nombre (o solo tu primer nombre)</label>
+      <input id="s-name" type="text" name="Nombre" required>
+      <label for="s-prod">¿Qué producto?</label>
+      <select id="s-prod" name="Producto">
+        <option>Bear Country Cheat Sheet</option>
+        <option>Kids' Outdoor Adventure Pack</option>
+        <option>Family Camping Planner</option>
+        <option>Camping With Kids Bundle</option>
+        <option>Leave It Better · Déjalo Mejor</option>
+        <option>Emergency-Ready Kit · Lista para Todo</option>
+        <option>Archery from Zero</option>
+        <option>El sitio web en general</option>
+      </select>
+      <label for="s-rating">Tu calificación</label>
+      <select id="s-rating" name="Calificacion">
+        <option>★★★★★ Me encantó</option>
+        <option>★★★★ Muy bueno</option>
+        <option>★★★ Bueno</option>
+        <option>★★ Más o menos</option>
+        <option>★ No era para mí</option>
+      </select>
+      <label for="s-review">Tu reseña</label>
+      <textarea id="s-review" name="Resena" placeholder="¿Qué te encantó? ¿Cómo ayudó a tu familia?" required></textarea>
+      <div class="check">
+        <input id="s-perm" type="checkbox" name="Permiso para publicar" value="Si">
+        <label for="s-perm">Sí, Paola puede compartir mi reseña (solo mi primer nombre) en el sitio web y redes sociales.</label>
+      </div>
+      <button class="submit" type="submit">Enviar mi reseña →</button>
+    </form>
+  </div>
+</div>
+
+<footer><a href="https://paolaadventurer.com">paolaadventurer.com</a> · Archery · Camping · Explore</footer>
+
+<script>
+  function setLang(l){
+    document.getElementById('lang-en').hidden = (l!=='en');
+    document.getElementById('lang-es').hidden = (l!=='es');
+    document.getElementById('btn-en').classList.toggle('active', l==='en');
+    document.getElementById('btn-es').classList.toggle('active', l==='es');
+    document.documentElement.lang = l;
+    try{ localStorage.setItem('pa_lang', l); }catch(e){}
+  }
+  (function(){
+    var saved; try{ saved = localStorage.getItem('pa_lang'); }catch(e){}
+    var l = saved || ((navigator.language||'en').slice(0,2)==='es' ? 'es' : 'en');
+    setLang(l);
+    if(location.search.indexOf('sent=1')>-1){
+      var m=document.createElement('div');
+      m.style.cssText='position:fixed;left:0;right:0;bottom:0;background:#2f6b45;color:#fff;text-align:center;padding:16px;font-family:Bitter,serif;font-weight:800;z-index:200;';
+      m.textContent = (l==='es') ? '¡Gracias por tu reseña! 💛' : 'Thank you for your review! 💛';
+      document.body.appendChild(m);
+    }
+  })();
+</script>
+
+</body>
+</html>
