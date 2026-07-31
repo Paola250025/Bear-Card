@@ -268,6 +268,24 @@ bear-season prep with little ones.
 
 ---
 
+## Recently completed (2026-07-31)
+
+- **`/free/` page completely rebuilt:**
+  - Removed email gate — Bear Cheat Sheet is now free, no signup required
+  - Removed the iframe embed (was showing a confusing page-within-a-page
+    with double headers and double nav bars)
+  - Now shows a clean card with a big **"Get My Free Guide"** CTA button
+    that links directly to `/bear.html`
+  - Removed MailerLite newsletter form (too crowded)
+  - MailerLite is still on the homepage email band — just not on `/free/`
+- **Desktop save/download instructions added to `bear.html`:**
+  - Install helper now detects desktop vs mobile
+  - On desktop: install bar says "Save this guide" and the How? modal
+    explains "Print / Save as PDF" → choose "Save as PDF" as printer
+  - On mobile: still shows iOS/Android/in-app-browser instructions
+  - Desktop detection: `var isDesktop = !isMobile && !inApp`
+- **Service worker cache at v13**, version.json at `2026-07-31-1`
+
 ## Recently completed (2026-07-23/24)
 
 - Home **nav menu** (Printables · Classes · Start Here · Blog · My Story ·
