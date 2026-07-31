@@ -712,8 +712,10 @@
 
   <div id="installBar" class="install-bar hidden">
     <p>
-      <span data-lang="en">Save this to your phone so it's one tap away.</span>
-      <span data-lang="es" style="display:none">Guárdalo en tu teléfono para tenerlo a un toque.</span>
+      <span data-lang="en" class="install-msg-mobile">Save this to your phone so it's one tap away.</span>
+      <span data-lang="en" class="install-msg-desktop" style="display:none">Save this guide to keep it handy.</span>
+      <span data-lang="es" class="install-msg-mobile" style="display:none">Guárdalo en tu teléfono para tenerlo a un toque.</span>
+      <span data-lang="es" class="install-msg-desktop" style="display:none">Guarda esta guía para tenerla siempre a mano.</span>
     </p>
     <button class="install-how" onclick="installHow()">
       <span data-lang="en">How?</span><span data-lang="es" style="display:none">¿Cómo?</span>
@@ -723,8 +725,10 @@
 
   <div id="installModal" class="install-modal hidden" onclick="if(event.target===this)closeInstall()">
     <div class="install-card">
-      <h3 data-lang="en">Add to your phone</h3>
-      <h3 data-lang="es" style="display:none">Agrégalo a tu teléfono</h3>
+      <h3 data-lang="en" class="install-title-mobile">Add to your phone</h3>
+      <h3 data-lang="en" class="install-title-desktop" style="display:none">Save this guide</h3>
+      <h3 data-lang="es" class="install-title-mobile" style="display:none">Agrégalo a tu teléfono</h3>
+      <h3 data-lang="es" class="install-title-desktop" style="display:none">Guarda esta guía</h3>
       <p id="installTipText"></p>
       <button class="install-done" onclick="closeInstall()">
         <span data-lang="en">Got it</span><span data-lang="es" style="display:none">Entendido</span>
@@ -910,10 +914,17 @@ if (leadForm) {
   var ua = navigator.userAgent || '';
   var inApp = /FBAN|FBAV|FB_IAB|Instagram|Line\/|Twitter|Pinterest|Snapchat|TikTok|musical_ly|MicroMessenger/i.test(ua);
   var isIOS = /iphone|ipad|ipod/i.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  var isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(ua);
+  var isDesktop = !isMobile && !inApp;
   var standalone = (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) || window.navigator.standalone === true;
   var deferredPrompt = null;
   var bar = document.getElementById('installBar');
   var modal = document.getElementById('installModal');
+
+  if (isDesktop) {
+    document.querySelectorAll('.install-msg-mobile, .install-title-mobile').forEach(function(el){ el.style.display = 'none'; });
+    document.querySelectorAll('.install-msg-desktop, .install-title-desktop').forEach(function(el){ el.style.display = ''; });
+  }
 
   var TIPS = {
     inapp: {
@@ -927,6 +938,10 @@ if (leadForm) {
     android: {
       en: "On Android, in Chrome: tap the three-dot menu at the top right, then 'Add to Home screen' or 'Install app'.",
       es: "En Android, en Chrome: toca el menú de tres puntos de arriba a la derecha, luego 'Agregar a pantalla de inicio' o 'Instalar app'."
+    },
+    desktop: {
+      en: "On your computer: tap the 'Print / Save as PDF' button at the top of this guide. In the print window, choose 'Save as PDF' as the printer, then click Save. You'll get a PDF you can keep or share.",
+      es: "En tu computadora: haz clic en el botón 'Imprimir / Guardar como PDF' de arriba. En la ventana de impresión, elige 'Guardar como PDF' como impresora y haz clic en Guardar. Tendrás un PDF para guardar o compartir."
     }
   };
 
@@ -943,7 +958,7 @@ if (leadForm) {
       deferredPrompt.userChoice.then(function () { deferredPrompt = null; dismiss(); });
       return;
     }
-    var tip = inApp ? 'inapp' : (isIOS ? 'ios' : 'android');
+    var tip = inApp ? 'inapp' : isDesktop ? 'desktop' : (isIOS ? 'ios' : 'android');
     document.getElementById('installTipText').textContent = TIPS[tip][lang()];
     modal.classList.remove('hidden');
   };
