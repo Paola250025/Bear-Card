@@ -34,8 +34,11 @@
   .card .tag{display:inline-block;background:var(--forest2);color:#fff;font-weight:800;text-transform:uppercase;letter-spacing:1px;font-size:12px;padding:5px 14px;border-radius:100px;margin-bottom:12px;}
   .card h2{font-family:'Bitter',serif;font-weight:900;color:var(--forest);font-size:26px;margin-bottom:8px;}
   .card p{color:var(--ink);font-size:16px;margin-bottom:8px;}
-  .card .list{text-align:left;max-width:420px;margin:14px auto 4px;}
+  .card .list{text-align:left;max-width:420px;margin:14px auto 16px;}
   .card .list li{margin-bottom:6px;font-weight:700;color:var(--ink);}
+  .cta{display:inline-block;background:var(--terra);color:#fff;font-family:'Bitter',serif;font-weight:800;font-size:18px;text-decoration:none;padding:16px 36px;border-radius:100px;box-shadow:0 4px 16px rgba(181,86,47,.35);transition:transform .15s,box-shadow .15s;}
+  .cta:hover{transform:translateY(-2px);box-shadow:0 6px 22px rgba(181,86,47,.45);}
+  .card .hint{color:var(--muted);font-size:13px;margin-top:10px;}
   /* signup box wrapping the MailerLite form */
   .signup{background:var(--forest);border-radius:18px;padding:30px 26px 24px;margin:0 0 20px;text-align:center;box-shadow:0 10px 26px rgba(0,0,0,.12);}
   .signup h3{font-family:'Bitter',serif;font-weight:900;color:#fff;font-size:24px;margin-bottom:6px;}
@@ -74,6 +77,8 @@
         <li>✅ English &amp; Español</li>
         <li>✅ Print it or keep it on your phone</li>
       </ul>
+      <a class="cta" href="/bear.html">Get My Free Guide</a>
+      <p class="hint">Opens instantly. You can print it or save it to your phone.</p>
     </div>
   </div>
 </div>
@@ -94,19 +99,10 @@
         <li>✅ Inglés y Español</li>
         <li>✅ Imprímela o guárdala en tu celular</li>
       </ul>
+      <a class="cta" href="/bear.html">Quiero Mi Guía Gratis</a>
+      <p class="hint">Se abre al instante. Puedes imprimirla o guardarla en tu celular.</p>
     </div>
   </div>
-</div>
-
-<!-- Guide shown directly — no email gate -->
-<div style="max-width:920px;margin:0 auto 20px;padding:0 16px;">
-  <div class="signup" style="margin-bottom:0;">
-    <h3>Here's your guide! 🎉 · ¡Aquí está tu guía!</h3>
-    <p class="s">Explore the tabs below. You can print it, save as PDF, or save it to your phone's home screen to keep it in your pocket. · Explora las pestañas. Puedes imprimirla, guardarla como PDF, o guardarla en la pantalla de tu celular para tenerla en tu bolsillo.</p>
-  </div>
-</div>
-<div style="max-width:920px;margin:0 auto 34px;padding:0 16px;">
-  <iframe title="Bear Country Cheat Sheet" src="/bear.html" style="width:100%;height:82vh;border:2px solid #d8c9a3;border-radius:14px;box-shadow:0 12px 30px rgba(0,0,0,.14);background:#faf7f0;"></iframe>
 </div>
 
 <!-- Optional email signup — not required to access the guide -->
