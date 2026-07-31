@@ -274,16 +274,27 @@ bear-season prep with little ones.
   - Removed email gate — Bear Cheat Sheet is now free, no signup required
   - Removed the iframe embed (was showing a confusing page-within-a-page
     with double headers and double nav bars)
-  - Now shows a clean card with a big **"Get My Free Guide"** CTA button
-    that links directly to `/bear.html`
+  - Two CTA buttons: **"Open My Free Guide"** (opens bear.html) and
+    **"Save to My Device"** (opens bear.html?save=1, auto-triggers install)
+  - Both buttons in EN and ES
   - Removed MailerLite newsletter form (too crowded)
   - MailerLite is still on the homepage email band — just not on `/free/`
-- **Desktop save/download instructions added to `bear.html`:**
-  - Install helper now detects desktop vs mobile
-  - On desktop: install bar says "Save this guide" and the How? modal
-    explains "Print / Save as PDF" → choose "Save as PDF" as printer
-  - On mobile: still shows iOS/Android/in-app-browser instructions
-  - Desktop detection: `var isDesktop = !isMobile && !inApp`
+- **Browser-specific install instructions added to `bear.html`:**
+  - Detects exact browser: Chrome, Edge, Safari Mac, Firefox, iOS, Android,
+    and in-app browsers (Instagram/Facebook/TikTok etc.)
+  - **Chrome**: "three-dot menu → Save and share → Install page as app"
+  - **Edge**: "three-dot menu → Apps → Install this site as an app"
+  - **Safari Mac**: "File → Add to Dock"
+  - **Firefox**: can't install as app, falls back to Print/Save as PDF
+  - **iOS**: Share button → Add to Home Screen
+  - **Android**: three-dot menu → Add to Home screen / Install app
+  - **In-app browsers**: tells user to open in a real browser first
+  - `?save=1` parameter auto-triggers the install flow and resets any
+    previous dismissal of the install bar
+  - If Chrome/Edge fires `beforeinstallprompt`, the native install popup
+    appears automatically; otherwise falls to manual instructions
+  - Install bar text adapts: "Save this guide" on desktop vs
+    "Save this to your phone" on mobile
 - **Service worker cache at v13**, version.json at `2026-07-31-1`
 
 ## Recently completed (2026-07-23/24)
