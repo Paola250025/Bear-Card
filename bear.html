@@ -940,8 +940,8 @@ if (leadForm) {
       es: "En Android, en Chrome: toca el menú de tres puntos de arriba a la derecha, luego 'Agregar a pantalla de inicio' o 'Instalar app'."
     },
     desktop: {
-      en: "On your computer: tap the 'Print / Save as PDF' button at the top of this guide. In the print window, choose 'Save as PDF' as the printer, then click Save. You'll get a PDF you can keep or share.",
-      es: "En tu computadora: haz clic en el botón 'Imprimir / Guardar como PDF' de arriba. En la ventana de impresión, elige 'Guardar como PDF' como impresora y haz clic en Guardar. Tendrás un PDF para guardar o compartir."
+      en: "In Chrome or Edge: click the install icon in the address bar (or the three-dot menu → 'Install app'). This saves it as an app on your computer — you can open it anytime from your desktop, no browser needed. In other browsers: use 'Print / Save as PDF' at the top of the guide to download a copy.",
+      es: "En Chrome o Edge: haz clic en el icono de instalar en la barra de direcciones (o menú de tres puntos → 'Instalar app'). Se guarda como aplicación en tu computadora — la abres cuando quieras desde el escritorio, sin navegador. En otros navegadores: usa 'Imprimir / Guardar como PDF' de arriba para descargar una copia."
     }
   };
 
@@ -973,6 +973,18 @@ if (leadForm) {
   try { dismissed = localStorage.getItem('bearCardInstallDismissed') === '1'; } catch (e) {}
   if (bar && !standalone && !dismissed) {
     setTimeout(function () { bar.classList.remove('hidden'); }, 1200);
+  }
+
+  // Auto-trigger save/install when arriving from /free/ with ?save=1
+  if (new URLSearchParams(window.location.search).get('save') === '1') {
+    setTimeout(function () {
+      if (bar) bar.classList.remove('hidden');
+      window.installHow();
+    }, 800);
+    // Clean the URL so refreshing doesn't re-trigger
+    if (window.history.replaceState) {
+      window.history.replaceState({}, '', window.location.pathname);
+    }
   }
 })();
 </script>

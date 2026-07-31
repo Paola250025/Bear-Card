@@ -38,7 +38,10 @@
   .card .list li{margin-bottom:6px;font-weight:700;color:var(--ink);}
   .cta{display:inline-block;background:var(--terra);color:#fff;font-family:'Bitter',serif;font-weight:800;font-size:18px;text-decoration:none;padding:16px 36px;border-radius:100px;box-shadow:0 4px 16px rgba(181,86,47,.35);transition:transform .15s,box-shadow .15s;}
   .cta:hover{transform:translateY(-2px);box-shadow:0 6px 22px rgba(181,86,47,.45);}
-  .card .hint{color:var(--muted);font-size:13px;margin-top:10px;}
+  .cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:4px;}
+  .cta-alt{display:inline-block;background:var(--forest);color:#fff;font-family:'Bitter',serif;font-weight:800;font-size:16px;text-decoration:none;padding:14px 28px;border-radius:100px;box-shadow:0 4px 12px rgba(34,67,47,.3);transition:transform .15s,box-shadow .15s;}
+  .cta-alt:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(34,67,47,.4);}
+  .card .hint{color:var(--muted);font-size:13px;margin-top:12px;}
   .soon{text-align:center;color:var(--muted);font-weight:700;padding:8px 20px 40px;}
   footer{background:var(--forest);color:var(--khaki);text-align:center;padding:24px 20px;font-family:'Bitter';font-size:13px;}
   footer a{color:var(--sun);}
@@ -71,8 +74,11 @@
         <li>✅ English &amp; Español</li>
         <li>✅ Print it or keep it on your phone</li>
       </ul>
-      <a class="cta" href="/bear.html">Get My Free Guide</a>
-      <p class="hint">Opens instantly. You can print it or save it to your phone.</p>
+      <div class="cta-row">
+        <a class="cta" href="/bear.html">Open My Free Guide</a>
+        <a class="cta-alt" href="/bear.html?save=1">Save to My Device</a>
+      </div>
+      <p class="hint">Open it now, or save it to your phone or computer like an app.</p>
     </div>
   </div>
 </div>
@@ -93,8 +99,11 @@
         <li>✅ Inglés y Español</li>
         <li>✅ Imprímela o guárdala en tu celular</li>
       </ul>
-      <a class="cta" href="/bear.html">Quiero Mi Guía Gratis</a>
-      <p class="hint">Se abre al instante. Puedes imprimirla o guardarla en tu celular.</p>
+      <div class="cta-row">
+        <a class="cta" href="/bear.html">Quiero Mi Guía Gratis</a>
+        <a class="cta-alt" href="/bear.html?save=1">Guardar en Mi Dispositivo</a>
+      </div>
+      <p class="hint">Ábrela ahora, o guárdala en tu celular o computadora como una app.</p>
     </div>
   </div>
 </div>
