@@ -916,6 +916,10 @@ if (leadForm) {
   var isIOS = /iphone|ipad|ipod/i.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
   var isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(ua);
   var isDesktop = !isMobile && !inApp;
+  var isChromium = /Chrome/i.test(ua) && !/Edg/i.test(ua);
+  var isEdge = /Edg/i.test(ua);
+  var isSafariMac = isDesktop && /Safari/i.test(ua) && !isChromium && !isEdge && !/Firefox/i.test(ua);
+  var isFirefox = /Firefox/i.test(ua);
   var standalone = (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) || window.navigator.standalone === true;
   var deferredPrompt = null;
   var bar = document.getElementById('installBar');
@@ -939,9 +943,21 @@ if (leadForm) {
       en: "On Android, in Chrome: tap the three-dot menu at the top right, then 'Add to Home screen' or 'Install app'.",
       es: "En Android, en Chrome: toca el menú de tres puntos de arriba a la derecha, luego 'Agregar a pantalla de inicio' o 'Instalar app'."
     },
-    desktop: {
-      en: "In Chrome or Edge: click the install icon in the address bar (or the three-dot menu → 'Install app'). This saves it as an app on your computer — you can open it anytime from your desktop, no browser needed. In other browsers: use 'Print / Save as PDF' at the top of the guide to download a copy.",
-      es: "En Chrome o Edge: haz clic en el icono de instalar en la barra de direcciones (o menú de tres puntos → 'Instalar app'). Se guarda como aplicación en tu computadora — la abres cuando quieras desde el escritorio, sin navegador. En otros navegadores: usa 'Imprimir / Guardar como PDF' de arriba para descargar una copia."
+    chrome: {
+      en: "In Chrome: look for the install icon in the address bar (a monitor with a down arrow), or click the three-dot menu (top right) → 'Save and share' → 'Install page as app'. It saves as an app on your computer.",
+      es: "En Chrome: busca el icono de instalar en la barra de direcciones (un monitor con flecha), o haz clic en el menú de tres puntos (arriba a la derecha) → 'Guardar y compartir' → 'Instalar página como app'. Se guarda como app en tu computadora."
+    },
+    edge: {
+      en: "In Edge: click the three-dot menu (top right) → 'Apps' → 'Install this site as an app'. It saves as an app on your computer — you can open it from your desktop anytime.",
+      es: "En Edge: haz clic en el menú de tres puntos (arriba a la derecha) → 'Aplicaciones' → 'Instalar este sitio como una aplicación'. Se guarda como app en tu computadora."
+    },
+    safari: {
+      en: "In Safari on Mac: click 'File' in the menu bar → 'Add to Dock'. This saves it as an app in your Dock. You can also use the 'Print / Save as PDF' button above to download a PDF copy.",
+      es: "En Safari en Mac: haz clic en 'Archivo' en la barra de menú → 'Agregar al Dock'. Se guarda como app en tu Dock. También puedes usar 'Imprimir / Guardar como PDF' de arriba para descargar una copia."
+    },
+    firefox: {
+      en: "Firefox doesn't support saving as an app, but you can use the 'Print / Save as PDF' button at the top of this guide to download a PDF copy you can keep forever.",
+      es: "Firefox no permite guardar como app, pero puedes usar 'Imprimir / Guardar como PDF' de arriba para descargar una copia PDF que puedes guardar para siempre."
     }
   };
 
@@ -958,7 +974,17 @@ if (leadForm) {
       deferredPrompt.userChoice.then(function () { deferredPrompt = null; dismiss(); });
       return;
     }
-    var tip = inApp ? 'inapp' : isDesktop ? 'desktop' : (isIOS ? 'ios' : 'android');
+    var tip;
+    if (inApp) tip = 'inapp';
+    else if (isDesktop) {
+      if (isChromium) tip = 'chrome';
+      else if (isEdge) tip = 'edge';
+      else if (isSafariMac) tip = 'safari';
+      else if (isFirefox) tip = 'firefox';
+      else tip = 'chrome';
+    } else {
+      tip = isIOS ? 'ios' : 'android';
+    }
     document.getElementById('installTipText').textContent = TIPS[tip][lang()];
     modal.classList.remove('hidden');
   };
@@ -977,11 +1003,16 @@ if (leadForm) {
 
   // Auto-trigger save/install when arriving from /free/ with ?save=1
   if (new URLSearchParams(window.location.search).get('save') === '1') {
-    setTimeout(function () {
+    // Reset any previous dismissal so the bar shows
+    try { localStorage.removeItem('bearCardInstallDismissed'); } catch(e){}
+    function trySave() {
       if (bar) bar.classList.remove('hidden');
       window.installHow();
-    }, 800);
-    // Clean the URL so refreshing doesn't re-trigger
+    }
+    // Wait for beforeinstallprompt (Chrome/Edge fire it quickly),
+    // then fall back to manual instructions
+    if (deferredPrompt) { trySave(); }
+    else { setTimeout(trySave, 1500); }
     if (window.history.replaceState) {
       window.history.replaceState({}, '', window.location.pathname);
     }
