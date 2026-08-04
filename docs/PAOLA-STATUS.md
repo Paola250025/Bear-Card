@@ -67,8 +67,9 @@ Bundle = Family Camping Planner + Kids' Pack together.
 
 ### Unplugged Camp Challenges (LIVE — added 2026-07-30)
 Screen-free outdoor challenge cards for families. Two age tiers:
-**Explorer** (ages 4-8) and **Trailblazer** (ages 9-14), each with 15
-challenges across fire, cooking, bushcraft, nature & adventure categories.
+**Explorer** (ages 11–14, $5) and **Trailblazer** (ages 15–17, $7), each
+with 15 challenges across fire, cooking, bushcraft, nature & adventure
+categories.
 A **Bundle** combines both. Sales pages are bilingual (EN/ES toggle).
 Each sales page shows only **3 example challenges + a teaser** ("+ 12
 more...") — intentionally NOT giving away all 15 on the page. These are
