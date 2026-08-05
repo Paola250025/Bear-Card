@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pinterest Pin Generator</title>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,700;0,800;0,900;1,400;1,500&family=Oswald:wght@500;600;700&family=Work+Sans:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; padding: 40px; background: #1a1a1a; font-family: sans-serif; }
+  .pin {
+    width: 1000px;
+    height: 1500px;
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto 60px;
+    border-radius: 16px;
+  }
+  .pin-photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .pin-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(34,67,47,0) 0%,
+      rgba(34,67,47,0) 48%,
+      rgba(34,67,47,0.7) 58%,
+      rgba(34,67,47,0.92) 68%,
+      rgba(34,67,47,0.98) 75%,
+      #22432f 82%
+    );
+  }
+  .pin-brand {
+    position: absolute;
+    top: 28px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 22px;
+    letter-spacing: 6px;
+    color: #fff;
+    text-transform: uppercase;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+    z-index: 2;
+  }
+  .pin-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0 60px 48px;
+    z-index: 2;
+    text-align: center;
+  }
+  .pin-eyebrow {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 19px;
+    letter-spacing: 4px;
+    color: #e8b93f;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .pin-title {
+    font-family: 'Bitter', serif;
+    font-weight: 800;
+    font-size: 64px;
+    line-height: 1.12;
+    color: #fff;
+    margin: 0 0 20px;
+  }
+  .pin-title.smaller { font-size: 56px; }
+  .pin-desc {
+    font-family: 'Bitter', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.45;
+    color: rgba(255,255,255,0.88);
+    margin: 0 0 32px;
+    max-width: 780px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .pin-cta {
+    display: inline-block;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 22px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #fff;
+    background: #b5562f;
+    padding: 18px 52px;
+    border-radius: 40px;
+    margin-bottom: 24px;
+  }
+  .pin-footer {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
+    font-size: 17px;
+    letter-spacing: 4px;
+    color: rgba(255,255,255,0.45);
+    text-transform: uppercase;
+  }
+  .pin-price-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+  .pin-price-now {
+    font-family: 'Bitter', serif;
+    font-weight: 900;
+    font-size: 52px;
+    color: #e8b93f;
+  }
+  .pin-price-was {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 28px;
+    color: rgba(255,255,255,0.45);
+    text-decoration: line-through;
+  }
+  .pin-price-tag {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #22432f;
+    background: #e8b93f;
+    padding: 6px 16px;
+    border-radius: 20px;
+  }
+
+  /* --- Variant: deeper overlay for text-heavy pins --- */
+  .pin.deep .pin-overlay {
+    background: linear-gradient(
+      to bottom,
+      rgba(34,67,47,0) 0%,
+      rgba(34,67,47,0) 38%,
+      rgba(34,67,47,0.65) 50%,
+      rgba(34,67,47,0.92) 60%,
+      rgba(34,67,47,0.98) 70%,
+      #22432f 78%
+    );
+  }
+
+  /* --- Variant: split for bundle --- */
+  .pin.split .pin-overlay {
+    background: linear-gradient(
+      to bottom,
+      rgba(34,67,47,0.15) 0%,
+      rgba(34,67,47,0) 15%,
+      rgba(34,67,47,0) 40%,
+      rgba(34,67,47,0.6) 52%,
+      rgba(34,67,47,0.92) 62%,
+      rgba(34,67,47,0.98) 72%,
+      #22432f 80%
+    );
+  }
+
+  /* Photo positioning helpers */
+  .pin-photo.top20 { object-position: center 20%; }
+  .pin-photo.top30 { object-position: center 30%; }
+  .pin-photo.top15 { object-position: center 15%; }
+  .pin-photo.center { object-position: center center; }
+
+  h2.section-label {
+    color: #e8b93f;
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 60px 0 20px;
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================ -->
+<!-- PIN 1: EXPLORER PAIN POINT (EN)              -->
+<!-- ============================================ -->
+<h2 class="section-label">Pin 1 — Explorer Pain Point (EN)</h2>
+<div class="pin deep" id="pin-explorer-en">
+  <img class="pin-photo top20" src="../assets/kid-campfire-marshmallow.jpg" alt="">
+  <div class="pin-overlay"></div>
+  <div class="pin-brand">Paola Adventurer</div>
+  <div class="pin-content">
+    <div class="pin-eyebrow">Ages 11–14 · Camp Challenges</div>
+    <h2 class="pin-title smaller">You Drove 4 Hours to Escape Screens.</h2>
+    <p class="pin-desc">They're watching TikTok in a camp chair. 15 printable challenges that make real life more interesting than any algorithm.</p>
+    <div class="pin-price-row">
+      <span class="pin-price-now">$5</span>
+      <span class="pin-price-was">$15</span>
+      <span class="pin-price-tag">Launch</span>
+    </div>
+    <div class="pin-cta">Get the Challenges →</div>
+    <div class="pin-footer">paolaadventurer.com</div>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- PIN 2: TRAILBLAZER PAIN POINT (EN)           -->
+<!-- ============================================ -->
+<h2 class="section-label">Pin 2 — Trailblazer Pain Point (EN)</h2>
+<div class="pin deep" id="pin-trailblazer-en">
+  <img class="pin-photo top30" src="../assets/paola-olaf-camp.jpg" alt="">
+  <div class="pin-overlay"></div>
+  <div class="pin-brand">Paola Adventurer</div>
+  <div class="pin-content">
+    <div class="pin-eyebrow">Ages 15–17 · Camp Challenges</div>
+    <h2 class="pin-title smaller">Your Teen Thinks Camping Is "Cringe."</h2>
+    <p class="pin-desc">Give them something that actually respects their intelligence. 15 challenges built for independence, real skills, and zero eye-rolls.</p>
+    <div class="pin-price-row">
+      <span class="pin-price-now">$7</span>
+      <span class="pin-price-was">$19</span>
+      <span class="pin-price-tag">Launch</span>
+    </div>
+    <div class="pin-cta">I Want These →</div>
+    <div class="pin-footer">paolaadventurer.com</div>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- PIN 3: BUNDLE VALUE (EN)                     -->
+<!-- ============================================ -->
+<h2 class="section-label">Pin 3 — Bundle Value (EN)</h2>
+<div class="pin split" id="pin-bundle-en">
+  <img class="pin-photo center" src="../assets/family-camp.jpg" alt="">
+  <div class="pin-overlay"></div>
+  <div class="pin-brand">Paola Adventurer</div>
+  <div class="pin-content">
+    <div class="pin-eyebrow">Ages 11–17 · Both Packs</div>
+    <h2 class="pin-title">One's 12.<br>The Other's 16.</h2>
+    <p class="pin-desc">Nothing works for both. Until now. 30 camp challenges designed for two completely different ages. Same trip, two experiences.</p>
+    <div class="pin-price-row">
+      <span class="pin-price-now">$9</span>
+      <span class="pin-price-was">$12</span>
+      <span class="pin-price-tag">Save $3</span>
+    </div>
+    <div class="pin-cta">Get the Bundle →</div>
+    <div class="pin-footer">paolaadventurer.com</div>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- PIN 4: ASPIRATIONAL (EN)                     -->
+<!-- ============================================ -->
+<h2 class="section-label">Pin 4 — Aspirational (EN)</h2>
+<div class="pin" id="pin-aspire-en">
+  <img class="pin-photo top15" src="../assets/paola-camp-cooking.jpg" alt="">
+  <div class="pin-overlay"></div>
+  <div class="pin-brand">Paola Adventurer</div>
+  <div class="pin-content">
+    <div class="pin-eyebrow">Printable · Bilingual EN/ES</div>
+    <h2 class="pin-title">The Camping Trip They'll Actually Talk About.</h2>
+    <p class="pin-desc">15 challenges with real stakes, real skills, and zero screens. Print at home. Bring to camp. Watch them forget their phone exists.</p>
+    <div class="pin-cta">See the Challenges →</div>
+    <div class="pin-footer">paolaadventurer.com</div>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- PIN 5: EXPLORER PAIN POINT (ES)              -->
+<!-- ============================================ -->
+<h2 class="section-label">Pin 5 — Explorer Dolor (ES)</h2>
+<div class="pin deep" id="pin-explorer-es">
+  <img class="pin-photo top20" src="../assets/kid-campfire-marshmallow.jpg" alt="">
+  <div class="pin-overlay"></div>
+  <div class="pin-brand">Paola Adventurer</div>
+  <div class="pin-content">
+    <div class="pin-eyebrow">Edades 11–14 · Retos de Campamento</div>
+    <h2 class="pin-title smaller">Manejaste 4 Horas Para Escapar de las Pantallas.</h2>
+    <p class="pin-desc">Y están viendo TikTok en una silla de camping. 15 retos que hacen que la vida real sea más interesante que cualquier algoritmo.</p>
+    <div class="pin-price-row">
+      <span class="pin-price-now">$5</span>
+      <span class="pin-price-was">$15</span>
+      <span class="pin-price-tag">Lanzamiento</span>
+    </div>
+    <div class="pin-cta">Quiero los Retos →</div>
+    <div class="pin-footer">paolaadventurer.com</div>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- PIN 6: TRAILBLAZER PAIN POINT (ES)           -->
+<!-- ============================================ -->
+<h2 class="section-label">Pin 6 — Trailblazer Dolor (ES)</h2>
+<div class="pin deep" id="pin-trailblazer-es">
+  <img class="pin-photo top30" src="../assets/paola-olaf-camp.jpg" alt="">
+  <div class="pin-overlay"></div>
+  <div class="pin-brand">Paola Adventurer</div>
+  <div class="pin-content">
+    <div class="pin-eyebrow">Edades 15–17 · Retos de Campamento</div>
+    <h2 class="pin-title smaller">Tu Adolescente Piensa Que Acampar Es "Cursi."</h2>
+    <p class="pin-desc">Dale algo que respete su inteligencia. 15 retos de independencia, habilidades reales, y cero ojos en blanco.</p>
+    <div class="pin-price-row">
+      <span class="pin-price-now">$7</span>
+      <span class="pin-price-was">$19</span>
+      <span class="pin-price-tag">Lanzamiento</span>
+    </div>
+    <div class="pin-cta">Los Quiero →</div>
+    <div class="pin-footer">paolaadventurer.com</div>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- PIN 7: BUNDLE VALUE (ES)                     -->
+<!-- ============================================ -->
+<h2 class="section-label">Pin 7 — Bundle Valor (ES)</h2>
+<div class="pin split" id="pin-bundle-es">
+  <img class="pin-photo center" src="../assets/family-camp.jpg" alt="">
+  <div class="pin-overlay"></div>
+  <div class="pin-brand">Paola Adventurer</div>
+  <div class="pin-content">
+    <div class="pin-eyebrow">Edades 11–17 · Los Dos Packs</div>
+    <h2 class="pin-title">Uno Tiene 12.<br>El Otro 16.</h2>
+    <p class="pin-desc">Nada funciona para los dos. Hasta ahora. 30 retos diseñados para dos edades completamente diferentes. Mismo viaje, dos experiencias.</p>
+    <div class="pin-price-row">
+      <span class="pin-price-now">$9</span>
+      <span class="pin-price-was">$12</span>
+      <span class="pin-price-tag">Ahorras $3</span>
+    </div>
+    <div class="pin-cta">Quiero el Bundle →</div>
+    <div class="pin-footer">paolaadventurer.com</div>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- PIN 8: ASPIRATIONAL (ES)                     -->
+<!-- ============================================ -->
+<h2 class="section-label">Pin 8 — Aspiracional (ES)</h2>
+<div class="pin" id="pin-aspire-es">
+  <img class="pin-photo top15" src="../assets/paola-camp-cooking.jpg" alt="">
+  <div class="pin-overlay"></div>
+  <div class="pin-brand">Paola Adventurer</div>
+  <div class="pin-content">
+    <div class="pin-eyebrow">Imprimible · Bilingüe EN/ES</div>
+    <h2 class="pin-title">El Viaje de Camping del Que Sí Van a Hablar.</h2>
+    <p class="pin-desc">15 retos con consecuencias reales, habilidades reales, y cero pantallas. Imprime en casa. Lleva al campamento. Mira cómo se olvidan del celular.</p>
+    <div class="pin-cta">Ver los Retos →</div>
+    <div class="pin-footer">paolaadventurer.com</div>
+  </div>
+</div>
+
+</body>
+</html>
