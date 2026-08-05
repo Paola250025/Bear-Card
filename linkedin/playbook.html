@@ -1,0 +1,822 @@
+<title>LinkedIn Playbook — Paola Kilthau, Real Estate</title>
+<style>
+  @font-face {
+    font-family: 'Display';
+    src: local('Segoe UI Bold'), local('SF Pro Display Bold'), local('Helvetica Neue Bold');
+    font-weight: 700;
+  }
+
+  :root {
+    --ink: #1a1d23;
+    --ink-soft: #4a4e58;
+    --ink-muted: #7b7f8a;
+    --ground: #f6f5f2;
+    --surface: #ffffff;
+    --border: #e2e0db;
+    --border-light: #edecea;
+    --accent: #1b5e3b;
+    --accent-light: #e8f2ec;
+    --accent-text: #14472d;
+    --warm: #c4651a;
+    --warm-light: #fdf3ea;
+    --warm-text: #8b4513;
+    --alert: #b91c1c;
+    --alert-light: #fef2f2;
+    --alert-text: #7f1d1d;
+    --good: #15803d;
+    --good-light: #f0fdf4;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,.06);
+    --shadow-md: 0 4px 12px rgba(0,0,0,.08);
+    --radius: 10px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ink: #e8e6e1;
+      --ink-soft: #b5b2ab;
+      --ink-muted: #8a877f;
+      --ground: #141517;
+      --surface: #1e2024;
+      --border: #2e3036;
+      --border-light: #262830;
+      --accent: #4eba7a;
+      --accent-light: #1a2e22;
+      --accent-text: #7dd4a0;
+      --warm: #e8944a;
+      --warm-light: #2a2018;
+      --warm-text: #f0b070;
+      --alert: #f87171;
+      --alert-light: #2a1818;
+      --alert-text: #fca5a5;
+      --good: #4ade80;
+      --good-light: #162016;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,.2);
+      --shadow-md: 0 4px 12px rgba(0,0,0,.3);
+    }
+  }
+  :root[data-theme="dark"] {
+    --ink: #e8e6e1;
+    --ink-soft: #b5b2ab;
+    --ink-muted: #8a877f;
+    --ground: #141517;
+    --surface: #1e2024;
+    --border: #2e3036;
+    --border-light: #262830;
+    --accent: #4eba7a;
+    --accent-light: #1a2e22;
+    --accent-text: #7dd4a0;
+    --warm: #e8944a;
+    --warm-light: #2a2018;
+    --warm-text: #f0b070;
+    --alert: #f87171;
+    --alert-light: #2a1818;
+    --alert-text: #fca5a5;
+    --good: #4ade80;
+    --good-light: #162016;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,.2);
+    --shadow-md: 0 4px 12px rgba(0,0,0,.3);
+  }
+  :root[data-theme="light"] {
+    --ink: #1a1d23;
+    --ink-soft: #4a4e58;
+    --ink-muted: #7b7f8a;
+    --ground: #f6f5f2;
+    --surface: #ffffff;
+    --border: #e2e0db;
+    --border-light: #edecea;
+    --accent: #1b5e3b;
+    --accent-light: #e8f2ec;
+    --accent-text: #14472d;
+    --warm: #c4651a;
+    --warm-light: #fdf3ea;
+    --warm-text: #8b4513;
+    --alert: #b91c1c;
+    --alert-light: #fef2f2;
+    --alert-text: #7f1d1d;
+    --good: #15803d;
+    --good-light: #f0fdf4;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,.06);
+    --shadow-md: 0 4px 12px rgba(0,0,0,.08);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, 'Segoe UI', system-ui, sans-serif;
+    background: var(--ground);
+    color: var(--ink);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page { max-width: 740px; margin: 0 auto; padding: 0 20px 80px; }
+
+  /* Header */
+  .header {
+    padding: 52px 0 40px;
+    border-bottom: 2px solid var(--accent);
+    margin-bottom: 40px;
+  }
+  .header .eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+  .header h1 {
+    font-size: clamp(28px, 5vw, 38px);
+    font-weight: 800;
+    line-height: 1.15;
+    color: var(--ink);
+    text-wrap: balance;
+    margin-bottom: 14px;
+  }
+  .header .subtitle {
+    font-size: 17px;
+    color: var(--ink-soft);
+    max-width: 560px;
+    line-height: 1.6;
+  }
+  .header .context {
+    margin-top: 20px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .tag {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 5px 12px;
+    border-radius: 100px;
+    background: var(--accent-light);
+    color: var(--accent-text);
+  }
+  .tag.warm {
+    background: var(--warm-light);
+    color: var(--warm-text);
+  }
+
+  /* Sections */
+  .section {
+    margin-bottom: 44px;
+  }
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+  .section h2 {
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 6px;
+    text-wrap: balance;
+  }
+  .section .lead {
+    font-size: 15.5px;
+    color: var(--ink-soft);
+    margin-bottom: 20px;
+    max-width: 620px;
+  }
+
+  /* Cards */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-bottom: 14px;
+    box-shadow: var(--shadow-sm);
+  }
+  .card h3 {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+  .card p, .card li {
+    font-size: 15px;
+    color: var(--ink-soft);
+    line-height: 1.65;
+  }
+  .card ul {
+    padding-left: 20px;
+    margin-top: 8px;
+  }
+  .card li {
+    margin-bottom: 6px;
+  }
+  .card li::marker {
+    color: var(--accent);
+  }
+
+  /* Status badge */
+  .status {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 100px;
+    margin-bottom: 10px;
+  }
+  .status.fix { background: var(--alert-light); color: var(--alert-text); }
+  .status.improve { background: var(--warm-light); color: var(--warm-text); }
+  .status.good { background: var(--good-light); color: var(--good); }
+
+  /* Callout */
+  .callout {
+    background: var(--accent-light);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 20px 24px;
+    margin: 20px 0;
+  }
+  .callout p {
+    font-size: 15px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+  .callout strong {
+    color: var(--ink);
+  }
+  .callout.warn {
+    background: var(--warm-light);
+    border-left-color: var(--warm);
+  }
+
+  /* Pillar grid */
+  .pillars {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 16px;
+  }
+  @media (max-width: 580px) { .pillars { grid-template-columns: 1fr; } }
+  .pillar {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 22px;
+    box-shadow: var(--shadow-sm);
+  }
+  .pillar .icon {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+  .pillar h4 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .pillar p {
+    font-size: 13.5px;
+    color: var(--ink-muted);
+    line-height: 1.55;
+  }
+
+  /* Numbered list */
+  .steps { counter-reset: step; }
+  .step {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--border-light);
+  }
+  .step:last-child { border-bottom: none; }
+  .step-num {
+    counter-increment: step;
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    margin-top: 2px;
+  }
+  .step-body h4 {
+    font-size: 15.5px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .step-body p {
+    font-size: 14.5px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+
+  /* Week view */
+  .week-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+    margin-top: 16px;
+  }
+  @media (max-width: 580px) {
+    .week-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  .day-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 12px;
+    text-align: center;
+  }
+  .day-card .day {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 6px;
+  }
+  .day-card .action {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+  .day-card.post { border-color: var(--accent); background: var(--accent-light); }
+  .day-card.post .action { color: var(--accent-text); }
+  .day-card.engage { border-color: var(--warm); border-style: dashed; }
+
+  /* Post examples */
+  .post-example {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-bottom: 14px;
+    box-shadow: var(--shadow-sm);
+  }
+  .post-example .post-type {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+  .post-example .post-text {
+    font-size: 15px;
+    color: var(--ink);
+    line-height: 1.7;
+    white-space: pre-line;
+  }
+
+  /* Divider */
+  hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 44px 0;
+  }
+
+  /* Bottom note */
+  .bottom-note {
+    margin-top: 48px;
+    padding-top: 28px;
+    border-top: 2px solid var(--border);
+    font-size: 14px;
+    color: var(--ink-muted);
+    line-height: 1.6;
+  }
+</style>
+
+<div class="page">
+
+<header class="header">
+  <div class="eyebrow">LinkedIn Playbook</div>
+  <h1>How to get first-time homebuyers to find you on LinkedIn</h1>
+  <p class="subtitle">A full analysis for Paola Kilthau — what to fix on your profile, what to post, and how to turn visibility into real estate clients. Aligned with the 30X framework.</p>
+  <div class="context">
+    <span class="tag">First-time buyers</span>
+    <span class="tag">Bilingual EN/ES</span>
+    <span class="tag">IE &middot; LA &middot; OC</span>
+    <span class="tag warm">Starting from zero</span>
+  </div>
+</header>
+
+<!-- ===================== DIAGNOSTIC ===================== -->
+<div class="section">
+  <div class="section-label">The honest picture</div>
+  <h2>Where you are right now</h2>
+  <p class="lead">Before fixing anything, let's name what's working and what's not.</p>
+
+  <div class="card">
+    <span class="status fix">Problem</span>
+    <h3>Your leads depend on Olaf's network</h3>
+    <p>Right now, most clients come through Olaf's 35+ years of connections. That works — but it means YOUR name, YOUR authority, and YOUR pipeline don't exist independently. If Olaf stops generating leads, the business slows down. LinkedIn is where you build <strong>your own</strong> reputation.</p>
+  </div>
+
+  <div class="card">
+    <span class="status fix">Problem</span>
+    <h3>Nobody knows who you are yet on LinkedIn</h3>
+    <p>You just started posting last week. That means you have near-zero visibility. The algorithm doesn't know what to do with your content yet. Your connections are probably small. This isn't a weakness — it's just the starting line. But it means everything you do in the next 8 weeks matters more than it will later.</p>
+  </div>
+
+  <div class="card">
+    <span class="status good">Strength</span>
+    <h3>You have a genuinely powerful story</h3>
+    <p>Bilingual. Husband-wife team. 40+ combined years. Three major markets. And — the part most agents would kill for — you actually understand what it's like to navigate a huge financial decision when you don't speak the dominant language. That's not a bullet point. That's a <em>reason someone picks up the phone</em>.</p>
+  </div>
+
+  <div class="card">
+    <span class="status good">Strength</span>
+    <h3>First-time buyers are the ideal LinkedIn audience</h3>
+    <p>First-time buyers are anxious, full of questions, and searching for information before they ever talk to an agent. They Google. They scroll. They read. If you show up with clear, helpful answers — you become the trusted name before they even need you.</p>
+  </div>
+</div>
+
+<hr>
+
+<!-- ===================== ICP ===================== -->
+<div class="section">
+  <div class="section-label">Semana 1 &middot; Tu cliente</div>
+  <h2>Your Ideal Client Profile (ICP)</h2>
+  <p class="lead">The 30X course asks you to define this precisely. Here it is for your real estate business.</p>
+
+  <div class="card">
+    <h3>Who exactly are you talking to</h3>
+    <ul>
+      <li><strong>Age:</strong> 28-40 years old</li>
+      <li><strong>Situation:</strong> Renting, tired of it, ready to buy but scared/confused</li>
+      <li><strong>Language:</strong> Bilingual families where one or both partners are more comfortable in Spanish — OR English-speaking first-timers in IE/LA/OC</li>
+      <li><strong>Income:</strong> Combined household $80K-$150K (they CAN qualify but don't know it yet)</li>
+      <li><strong>Geography:</strong> Inland Empire (most affordable), with options in LA and OC</li>
+      <li><strong>Biggest fear:</strong> "I can't afford it" / "I don't understand the process" / "I'll make a mistake"</li>
+      <li><strong>What they need from you:</strong> Someone who explains everything clearly, in their language, without judgment, and makes them feel confident enough to act</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <p><strong>The insight that changes everything:</strong> First-time buyers don't search for an agent first. They search for answers: "How much do I need for a down payment?" "Can I buy with a 620 credit score?" "What does escrow mean?" If YOU are the person answering those questions on LinkedIn — you're already their agent before they know they need one.</p>
+  </div>
+</div>
+
+<hr>
+
+<!-- ===================== PROFILE ===================== -->
+<div class="section">
+  <div class="section-label">Semana 1 &middot; Tu perfil como vitrina</div>
+  <h2>Profile audit: what to fix</h2>
+  <p class="lead">Your profile isn't a resume. It's a storefront. Every line should answer: "Why should a first-time buyer trust this person?"</p>
+
+  <div class="card">
+    <span class="status improve">Rewrite</span>
+    <h3>Headline</h3>
+    <p><strong>Current:</strong> Real Estate Agent | Buyers & Sellers | EN/ES | Inland Empire · LA · Orange County</p>
+    <p style="margin-top:12px"><strong>Problem:</strong> It describes what you are, not what you DO for people. Every agent says "Buyers & Sellers." It doesn't give a first-time buyer a reason to click.</p>
+    <p style="margin-top:12px"><strong>Rewrite to:</strong></p>
+    <p style="margin-top:8px;font-weight:700;font-size:16px;color:var(--ink);">I help first-time buyers go from renting to owning — in English or Spanish | Inland Empire · LA · OC</p>
+    <p style="margin-top:12px"><strong>Why this works:</strong> It names the person (first-time buyer), names the transformation (renting → owning), and highlights the bilingual edge — all in one line. Someone scrolling sees themselves in your headline.</p>
+  </div>
+
+  <div class="card">
+    <span class="status improve">Rewrite</span>
+    <h3>About section</h3>
+    <p>Your About section should read like a conversation, not a bio. Structure it in this order:</p>
+    <ul>
+      <li><strong>Line 1-2:</strong> Hook — name the pain. "Buying your first home feels overwhelming. Especially when the process isn't explained in your language."</li>
+      <li><strong>Lines 3-5:</strong> What you do. "I walk first-time buyers through every step — from pre-approval to keys in hand. In English or Spanish, whatever feels right."</li>
+      <li><strong>Lines 6-8:</strong> Why you. "My husband Olaf and I are a husband-wife team with 40+ combined years in real estate. He taught me this business. Together we cover the Inland Empire, LA County, and Orange County."</li>
+      <li><strong>Lines 9-10:</strong> The personal note. "I know what it's like to navigate something huge when it's not in your first language. That's exactly why I do this."</li>
+      <li><strong>Last line:</strong> CTA. "If you're thinking about buying your first home, send me a message. No pressure, just answers."</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <span class="status improve">Add</span>
+    <h3>Banner image</h3>
+    <p>Your banner (the big horizontal photo behind your headshot) is probably the default LinkedIn blue. Replace it with a photo of you and Olaf at a property, at a closing, or with keys. Add text overlay: <strong>"First home? We've got you. EN/ES"</strong> — use Canva, takes 5 minutes.</p>
+  </div>
+
+  <div class="card">
+    <span class="status improve">Add</span>
+    <h3>Featured section</h3>
+    <p>Pin 2-3 items to your Featured section:</p>
+    <ul>
+      <li>Your best LinkedIn post (once you have one with engagement)</li>
+      <li>A "First-Time Buyer Checklist" (even a simple Canva PDF)</li>
+      <li>A link to a Google Form: "Not sure if you can buy? Answer 5 questions and I'll tell you where you stand" — this becomes a lead magnet</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <span class="status good">Keep</span>
+    <h3>Experience & Skills</h3>
+    <p>Manna Realty experience + your skill list are solid. Keep them. Add a short description under Manna Realty that says what you actually do day-to-day for clients (not job duties — outcomes).</p>
+  </div>
+</div>
+
+<hr>
+
+<!-- ===================== CONTENT PILLARS ===================== -->
+<div class="section">
+  <div class="section-label">Semana 2-3 &middot; Tu contenido</div>
+  <h2>Your 4 content pillars</h2>
+  <p class="lead">Everything you post should fall into one of these. This keeps your feed focused and your audience clear on what you're about.</p>
+
+  <div class="pillars">
+    <div class="pillar">
+      <div class="icon">🔑</div>
+      <h4>First-Time Buyer Education</h4>
+      <p>Break down the homebuying process in plain language. Down payments, credit scores, pre-approval, closing costs, what to expect. The stuff nobody explains clearly.</p>
+    </div>
+    <div class="pillar">
+      <div class="icon">📊</div>
+      <h4>Local Market Reality</h4>
+      <p>Real numbers from IE, LA, OC. Median prices, inventory, rate updates. Not just data — what it MEANS for a buyer right now. "Here's what $630K buys you in the Inland Empire."</p>
+    </div>
+    <div class="pillar">
+      <div class="icon">🤝</div>
+      <h4>The Team / Behind the Scenes</h4>
+      <p>You and Olaf at work. A closing photo. A funny moment at a showing. A story about a client win (with permission). People buy from people they know.</p>
+    </div>
+    <div class="pillar">
+      <div class="icon">💬</div>
+      <h4>Myth-Busting / Common Questions</h4>
+      <p>"You DON'T need 20% down." "You CAN buy with student loans." "Here's when renting makes more sense than buying." Honest answers build trust.</p>
+    </div>
+  </div>
+
+  <div class="callout" style="margin-top:20px">
+    <p><strong>The ratio:</strong> 3 out of 4 posts should educate or help. Only 1 in 4 should be about you, your team, or a listing. People follow educators, not salespeople.</p>
+  </div>
+</div>
+
+<hr>
+
+<!-- ===================== POSTING SYSTEM ===================== -->
+<div class="section">
+  <div class="section-label">Semana 3 &middot; Sistema de publicación</div>
+  <h2>Your weekly posting system</h2>
+  <p class="lead">3 posts per week. Non-negotiable. Here's the schedule that fits your pillars.</p>
+
+  <div class="week-grid">
+    <div class="day-card post">
+      <div class="day">Mon</div>
+      <div class="action">Education post</div>
+    </div>
+    <div class="day-card engage">
+      <div class="day">Tue</div>
+      <div class="action">Engage only (15 min)</div>
+    </div>
+    <div class="day-card post">
+      <div class="day">Wed</div>
+      <div class="action">Market data or myth-bust</div>
+    </div>
+    <div class="day-card engage">
+      <div class="day">Thu</div>
+      <div class="action">Engage only (15 min)</div>
+    </div>
+    <div class="day-card post">
+      <div class="day">Fri</div>
+      <div class="action">Team story or client win</div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:20px">
+    <h3>What "engage" means on Tue/Thu</h3>
+    <ul>
+      <li>Comment on 5 posts from people in your target market (other agents, lenders, title reps, local businesses in IE/LA/OC)</li>
+      <li>Don't just say "Great post!" — add a real thought, a stat, or a follow-up question</li>
+      <li>This puts your face and name in front of THEIR audience. It's free distribution.</li>
+      <li>Find these people: search "first-time homebuyer" or "Inland Empire real estate" on LinkedIn, follow the active posters, and engage consistently</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>Post formatting rules that get more reach</h3>
+    <ul>
+      <li><strong>Hook in line 1.</strong> The first line is everything — it determines if people click "see more." Lead with a question, a surprising stat, or a bold statement.</li>
+      <li><strong>Short paragraphs.</strong> 1-2 sentences max per paragraph. White space is your friend on LinkedIn.</li>
+      <li><strong>End with a question.</strong> "What's stopping you from buying?" / "Did you know this?" / "What would you add?" — this drives comments, which drives reach.</li>
+      <li><strong>3-5 hashtags max.</strong> At the bottom. Use: #FirstTimeHomeBuyer #InlandEmpireRealEstate #RealEstate #BilingualAgent #SoCalHomes</li>
+      <li><strong>Photos of YOU outperform graphics.</strong> A selfie at a property beats a Canva carousel every time. Real > polished.</li>
+    </ul>
+  </div>
+</div>
+
+<hr>
+
+<!-- ===================== POST EXAMPLES ===================== -->
+<div class="section">
+  <div class="section-label">Ready to post</div>
+  <h2>3 post templates for this week</h2>
+  <p class="lead">These follow the format your 30X course teaches. Use them as starting points — adjust the voice to sound like YOU.</p>
+
+  <div class="post-example">
+    <div class="post-type">Education &middot; Monday</div>
+    <div class="post-text">You don't need 20% down to buy a home.
+
+I hear this every single week from first-time buyers:
+"We're saving for 20%, we're almost there."
+
+Here's the truth:
+
+→ FHA loans: 3.5% down
+→ Conventional loans: as low as 3% down
+→ VA loans: 0% down
+→ CalHFA programs: down payment assistance for first-timers
+
+On a $500K home in the Inland Empire, 3.5% down = $17,500.
+Not $100,000.
+
+The 20% rule made sense decades ago.
+Today it keeps people renting longer than they need to.
+
+If you're waiting to save 20% — let's talk.
+You might be closer than you think.
+
+What's the biggest thing holding you back from buying?
+
+#FirstTimeHomeBuyer #InlandEmpireRealEstate #CaliforniaRealEstate #BilingualAgent #HomeOwnership</div>
+  </div>
+
+  <div class="post-example">
+    <div class="post-type">Market data &middot; Wednesday</div>
+    <div class="post-text">What $630,000 actually buys you in the Inland Empire right now:
+
+🏡 3-4 bedrooms
+🏡 1,800-2,200 sq ft
+🏡 A real backyard
+🏡 A 2-car garage
+🏡 Built after 2000
+
+In LA County that same $630K gets you a 2-bed condo.
+In Orange County, you'd need twice that.
+
+The Inland Empire is where first-time buyers are actually making it happen in 2026.
+
+It's not "settling."
+It's being smart about where your money goes the furthest.
+
+Rates right now: 6.5-6.9% on a 30-year fixed.
+Monthly payment on $630K with 3.5% down: ~$4,200 (including taxes + insurance).
+
+Not cheap — but compared to $3,200/month rent with zero equity? The math works.
+
+Would you consider the IE for your first home? Why or why not?
+
+#InlandEmpire #FirstTimeHomeBuyer #SoCalRealEstate #HomeOwnership #RealEstateMarket</div>
+  </div>
+
+  <div class="post-example">
+    <div class="post-type">Team / personal &middot; Friday</div>
+    <div class="post-text">My husband has been selling real estate for 35 years.
+I got my license and joined him.
+
+People ask: "Isn't that hard? Working together?"
+
+Honestly? It's the best part.
+
+He knows the contracts inside out.
+I know how to make a nervous first-time buyer feel like they're not alone.
+
+He speaks the numbers.
+I speak the feelings.
+
+And we both speak English and Spanish — because half our clients need that.
+
+40+ combined years of experience.
+One team. One family.
+
+If your first big financial decision feels scary, we get it. That's literally why we do this together.
+
+Tell me — would you work with your spouse? 😅
+
+#RealEstate #HusbandWifeTeam #BilingualAgent #InlandEmpireRealEstate #MannaRealty</div>
+  </div>
+</div>
+
+<hr>
+
+<!-- ===================== PROSPECTING ===================== -->
+<div class="section">
+  <div class="section-label">Semana 4-5 &middot; Prospección</div>
+  <h2>Finding your first clients on LinkedIn</h2>
+  <p class="lead">Posting builds authority. Prospecting builds pipeline. You need both.</p>
+
+  <div class="card">
+    <h3>Who to connect with (and how)</h3>
+    <ul>
+      <li><strong>Lenders / mortgage brokers</strong> in IE, LA, OC — they have pre-approved buyers looking for agents. Comment on their posts. Build the relationship FIRST, then ask for coffee or a Zoom.</li>
+      <li><strong>First-time buyer program coordinators</strong> — HUD counselors, CalHFA reps, nonprofit homebuyer education orgs. They refer people who are ready.</li>
+      <li><strong>HR managers at large IE employers</strong> — Amazon, logistics companies, hospitals. Their employees relocate and need housing.</li>
+      <li><strong>Other agents in adjacent markets</strong> — an LA agent who gets a client that needs IE pricing will refer to someone they trust. Be that someone.</li>
+      <li><strong>Title/escrow officers</strong> — they know everyone. Engage with their content.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>Connection request message (keep it short)</h3>
+    <p style="margin-top:8px;font-style:italic;background:var(--accent-light);padding:16px;border-radius:8px;">"Hi [Name] — I saw your post about [topic]. I'm a bilingual agent in the IE/LA/OC area, focused on helping first-time buyers. Would love to connect and see how we might help each other's clients."</p>
+    <p style="margin-top:12px">Never pitch in the first message. Build the connection. Let your content do the selling.</p>
+  </div>
+
+  <div class="callout warn">
+    <p><strong>The 30X PACS framework applies here:</strong> don't jump to selling. The sequence is: <strong>P</strong>rofile (your storefront) → <strong>A</strong>uthority (content) → <strong>C</strong>ommunity (network) → <strong>S</strong>ales (conversations). You're still in P and A. Build those before you push for S.</p>
+  </div>
+</div>
+
+<hr>
+
+<!-- ===================== QUICK WINS ===================== -->
+<div class="section">
+  <div class="section-label">This week</div>
+  <h2>Your first 7 actions</h2>
+  <p class="lead">Do these in order. Each one builds on the last.</p>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>Rewrite your headline</h4>
+        <p>Use the rewrite above. Takes 30 seconds. Instantly tells visitors who you help.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>Rewrite your About section</h4>
+        <p>Follow the structure above. Tell me when you're ready and I'll write the full draft for you, bilingual.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h4>Change your banner image</h4>
+        <p>Use Canva — search "LinkedIn banner real estate" for templates. Add your name, "First-Time Homebuyers | EN/ES", and a photo of you and Olaf.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <h4>Post the "You don't need 20% down" post</h4>
+        <p>Monday morning, 8-9 AM. This is the kind of post first-time buyers screenshot and share.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <h4>Connect with 10 lenders / mortgage brokers in your area</h4>
+        <p>Search "mortgage broker Inland Empire" on LinkedIn. Send the connection message above. Do 10 this week.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">6</div>
+      <div class="step-body">
+        <h4>Comment on 3 posts per day for 5 days</h4>
+        <p>Real comments, not "Great post!" This alone will get you 15+ profile views this week from people who wouldn't have found you otherwise.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">7</div>
+      <div class="step-body">
+        <h4>Post the market data and team story posts</h4>
+        <p>Wednesday and Friday. By the end of the week you'll have 3 posts, 10 new connections, and 15 meaningful comments out in the world. That's more than most agents do in a month.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<div class="section">
+  <div class="section-label">The real talk</div>
+  <h2>What most agents get wrong</h2>
+
+  <div class="card">
+    <h3>They post listings. Nobody cares about your listings on LinkedIn.</h3>
+    <p>Your MLS feed is not content. A listing post gets 3 likes from other agents. An education post about "5 things your lender won't tell you" gets saved, shared, and remembered by actual buyers. Post value, not inventory.</p>
+  </div>
+
+  <div class="card">
+    <h3>They post once and expect leads. It takes 90 days.</h3>
+    <p>Weeks 1-4: you're invisible. You're building the habit. Weeks 5-8: the algorithm starts showing you to more people. Months 3-6: people start recognizing your name and reaching out. Don't quit in week 3 because "it's not working." It IS working — you just can't see it yet.</p>
+  </div>
+
+  <div class="card">
+    <h3>They never tell their personal story.</h3>
+    <p>Your bilingual, husband-wife, learned-it-from-scratch story is worth more than any market update. People don't choose agents because of data. They choose agents because "I feel like she gets me." Share your story early and often.</p>
+  </div>
+</div>
+
+<div class="bottom-note">
+  Built for Paola Kilthau &middot; Manna Realty &middot; August 2026<br>
+  Aligned with LinkedIn Sales by 30X (Daniela Luque Diaz) framework. This playbook is your reference — come back to it as you work through each week of the course.
+</div>
+
+</div>
