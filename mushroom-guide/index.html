@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mushroom Guide — Paola Adventurer</title>
+<meta name="description" content="Identify 10 mushrooms every hiker should know — 7 edible, 3 deadly toxic. Search by US region, learn the key ID features, and stay safe on the trail.">
+<meta property="og:type" content="product">
+<meta property="og:url" content="https://paolaadventurer.com/mushroom-guide/">
+<meta property="og:title" content="The Hiker's Mushroom Guide — Paola Adventurer">
+<meta property="og:description" content="Identify 10 mushrooms every hiker should know. Search by US region, see what grows near you, and learn the difference between dinner and danger.">
+<meta property="og:image" content="https://paolaadventurer.com/assets/icon-512.png">
+<link rel="canonical" href="https://paolaadventurer.com/mushroom-guide/">
+<link rel="icon" href="/assets/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,700;0,900;1,700&family=Oswald:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --forest:#22432f; --forest2:#2f6b45; --terra:#b5562f; --crema:#faf7f0;
+  --khaki:#d8c9a3; --cafe:#3a322a; --sun:#e8b93f; --muted:#7c7361;
+  --edible:#2f6b45; --toxic:#c0392b; --caution:#d35400;
+}
+*{box-sizing:border-box;}
+body{margin:0;font-family:'Nunito',sans-serif;background:var(--crema);color:var(--cafe);}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+[hidden]{display:none !important;}
+
+/* NAV */
+.navbar{position:sticky;top:0;z-index:200;background:#163024;border-bottom:3px solid var(--sun);box-shadow:0 2px 10px rgba(0,0,0,.2);}
+.navbar .inner{max-width:1080px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 18px;}
+.navbar .brand{font-family:'Oswald',sans-serif;font-weight:700;letter-spacing:2px;color:var(--sun);font-size:15px;white-space:nowrap;}
+.navbar .links{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;align-items:center;}
+.navbar .links a{font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:.5px;text-transform:uppercase;font-size:12px;color:#faf7f0;padding:6px 10px;border-radius:100px;white-space:nowrap;}
+.navbar .links a:hover{background:rgba(255,255,255,.12);}
+.langtoggle{display:flex;gap:2px;background:rgba(255,255,255,.12);border-radius:100px;padding:3px;margin-left:4px;}
+.langtoggle button{border:0;background:transparent;color:#faf7f0;font-family:'Oswald',sans-serif;font-weight:700;font-size:12px;padding:5px 12px;border-radius:100px;cursor:pointer;letter-spacing:1px;}
+.langtoggle button.active{background:var(--sun);color:var(--forest);}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,#1a3a28 0%,#22432f 40%,#2f5a3a 100%);color:var(--crema);text-align:center;padding:56px 20px 48px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5c2 8 8 14 16 16-8 2-14 8-16 16-2-8-8-14-16-16 8-2 14-8 16-16z' fill='rgba(255,255,255,0.02)'/%3E%3C/svg%3E") repeat;pointer-events:none;}
+.hero h1{font-family:'Bitter',serif;font-weight:900;font-size:36px;margin:0 0 8px;text-shadow:0 2px 12px rgba(0,0,0,.3);}
+.hero .sub{font-family:'Oswald',sans-serif;font-weight:500;letter-spacing:3px;font-size:13px;text-transform:uppercase;color:var(--khaki);margin-bottom:16px;}
+.hero p{max-width:560px;margin:0 auto 28px;font-size:17px;line-height:1.6;color:#dde8d6;}
+.hero .stats{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:28px;}
+.hero .stat{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:14px;padding:14px 22px;min-width:120px;}
+.hero .stat .num{font-family:'Bitter',serif;font-weight:900;font-size:28px;color:var(--sun);}
+.hero .stat .lbl{font-family:'Oswald',sans-serif;font-weight:500;letter-spacing:1px;text-transform:uppercase;font-size:11px;color:var(--khaki);margin-top:2px;}
+
+/* REGION SELECTOR */
+.region-bar{background:#fff;border-bottom:2px solid var(--khaki);padding:20px;text-align:center;position:sticky;top:49px;z-index:100;box-shadow:0 4px 12px rgba(0,0,0,.06);}
+.region-bar label{font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:1px;text-transform:uppercase;font-size:14px;color:var(--forest);margin-right:10px;}
+.region-bar select{font-family:'Nunito',sans-serif;font-weight:700;font-size:16px;padding:10px 40px 10px 16px;border:2px solid var(--forest2);border-radius:100px;background:var(--crema);color:var(--forest);cursor:pointer;appearance:none;-webkit-appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2322432f' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 14px center;}
+.region-bar .count{font-family:'Nunito',sans-serif;font-weight:600;font-size:14px;color:var(--muted);margin-top:8px;}
+.region-bar .print-btn{display:inline-block;margin-left:16px;background:var(--terra);color:#fff;border:0;font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:1px;text-transform:uppercase;font-size:12px;padding:10px 20px;border-radius:100px;cursor:pointer;}
+.region-bar .print-btn:hover{background:#9a4526;}
+
+/* MUSHROOM GRID */
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px;}
+.mushroom-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;padding:32px 0 20px;}
+.no-results{text-align:center;padding:60px 20px;font-family:'Bitter',serif;font-size:20px;color:var(--muted);grid-column:1/-1;}
+
+/* MUSHROOM CARD */
+.mcard{background:#fff;border-radius:18px;overflow:hidden;border:2px solid var(--khaki);box-shadow:0 8px 24px rgba(0,0,0,.07);transition:.15s;display:flex;flex-direction:column;}
+.mcard:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(0,0,0,.12);}
+.mcard.toxic{border-color:var(--toxic);}
+.mcard.toxic .mcard-status{background:var(--toxic);}
+.mcard.caution{border-color:var(--caution);}
+.mcard.caution .mcard-status{background:var(--caution);}
+
+/* Card illustration area */
+.mcard-illust{position:relative;aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.mcard-illust.edible-bg{background:linear-gradient(135deg,#e8f0e2,#d4e4cc);}
+.mcard-illust.toxic-bg{background:linear-gradient(135deg,#f4e0dd,#ecc8c3);}
+.mcard-illust.caution-bg{background:linear-gradient(135deg,#fbe8d5,#f5d4b3);}
+.mcard-illust svg{width:65%;height:65%;max-width:200px;}
+.mcard-status{position:absolute;top:12px;right:12px;font-family:'Oswald',sans-serif;font-weight:700;letter-spacing:1px;text-transform:uppercase;font-size:11px;color:#fff;padding:5px 14px;border-radius:100px;background:var(--edible);}
+.mcard-season{position:absolute;bottom:10px;left:12px;font-family:'Nunito',sans-serif;font-weight:700;font-size:12px;color:var(--cafe);background:rgba(255,255,255,.85);padding:4px 12px;border-radius:100px;}
+
+/* Card body */
+.mcard-body{padding:18px 20px 6px;flex:1;}
+.mcard-body h3{font-family:'Bitter',serif;font-weight:900;color:var(--forest);font-size:20px;margin:0 0 2px;}
+.mcard-body .sciname{font-family:'Nunito',sans-serif;font-style:italic;color:var(--muted);font-size:13px;margin-bottom:10px;}
+.mcard-body .quick-id{font-size:14px;line-height:1.6;color:var(--cafe);margin-bottom:12px;}
+.mcard-body .quick-id strong{color:var(--forest);}
+
+/* Expand/collapse details */
+.mcard-toggle{width:100%;border:0;background:var(--forest);color:#fff;font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:1px;text-transform:uppercase;font-size:13px;padding:12px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:auto;}
+.mcard-toggle:hover{background:#1a3a28;}
+.mcard-toggle .arrow{transition:.2s;display:inline-block;}
+.mcard-toggle.open .arrow{transform:rotate(180deg);}
+
+.mcard-details{display:none;padding:0 20px 20px;border-top:2px solid var(--khaki);}
+.mcard-details.show{display:block;}
+.mcard-details h4{font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:.5px;text-transform:uppercase;font-size:13px;color:var(--terra);margin:16px 0 6px;padding-bottom:4px;border-bottom:1px solid #eee;}
+.mcard-details p,.mcard-details li{font-size:14px;line-height:1.6;}
+.mcard-details ul{padding-left:20px;margin:6px 0;}
+.mcard-details .lookalike{background:#fdf6e3;border:1px solid #e6c866;border-radius:12px;padding:14px 16px;margin:8px 0;}
+.mcard-details .lookalike h4{color:#b8860b;border:0;margin-top:0;padding:0;}
+.mcard-details .danger-note{background:#fde8e5;border:1px solid #e8a9a0;border-radius:12px;padding:14px 16px;margin:8px 0;}
+.mcard-details .danger-note h4{color:var(--toxic);border:0;margin-top:0;padding:0;}
+.mcard-details .tip{background:#e8f0e2;border:1px solid #b8d4a8;border-radius:12px;padding:14px 16px;margin:8px 0;}
+.mcard-details .tip h4{color:var(--edible);border:0;margin-top:0;padding:0;}
+
+/* Compare table */
+.compare-tbl{width:100%;border-collapse:collapse;font-size:13px;margin:8px 0;border-radius:10px;overflow:hidden;}
+.compare-tbl th{background:var(--forest);color:#fff;padding:8px 10px;text-align:left;font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:.5px;text-transform:uppercase;font-size:11px;}
+.compare-tbl td{padding:7px 10px;border-bottom:1px solid #eee;}
+.compare-tbl tr:nth-child(even) td{background:#f8f5ee;}
+
+/* SECTIONS */
+.section{max-width:900px;margin:0 auto;padding:40px 20px;}
+.section h2{font-family:'Bitter',serif;font-weight:900;color:var(--forest);font-size:28px;margin:0 0 8px;text-align:center;}
+.section .sub{text-align:center;color:var(--muted);font-size:15px;margin-bottom:24px;}
+
+/* Emergency banner */
+.emergency{background:var(--toxic);color:#fff;padding:36px 20px;text-align:center;}
+.emergency h2{font-family:'Bitter',serif;font-weight:900;font-size:26px;color:#fff;margin:0 0 8px;}
+.emergency p{max-width:600px;margin:0 auto 16px;font-size:15px;line-height:1.6;}
+.emergency .phone{font-family:'Bitter',serif;font-weight:900;font-size:32px;color:var(--sun);margin:16px 0;}
+.emergency ol{text-align:left;max-width:540px;margin:0 auto;padding-left:20px;}
+.emergency li{margin-bottom:8px;font-size:14px;line-height:1.5;}
+
+/* Gear & Checklist collapsibles */
+.collapsible{background:#fff;border:2px solid var(--khaki);border-radius:16px;margin-bottom:16px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.04);}
+.collapsible-header{width:100%;border:0;background:#fff;padding:18px 22px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;font-family:'Bitter',serif;font-weight:900;font-size:18px;color:var(--forest);}
+.collapsible-header:hover{background:#f8f6f0;}
+.collapsible-header .arrow{font-size:14px;transition:.2s;color:var(--muted);}
+.collapsible-header.open .arrow{transform:rotate(180deg);}
+.collapsible-body{display:none;padding:0 22px 22px;border-top:1px solid #eee;}
+.collapsible-body.show{display:block;}
+.collapsible-body h4{font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:.5px;text-transform:uppercase;font-size:13px;color:var(--terra);margin:14px 0 6px;}
+.collapsible-body ul{padding-left:20px;}
+.collapsible-body li{font-size:14px;line-height:1.6;margin-bottom:4px;}
+
+/* Safety disclaimer */
+.disclaimer{background:var(--forest);color:var(--khaki);text-align:center;padding:28px 20px;font-size:12px;line-height:1.6;max-width:700px;margin:0 auto;}
+.disclaimer p{margin:0;}
+
+/* Footer */
+footer{background:var(--forest);color:var(--khaki);text-align:center;padding:34px 20px;}
+footer .q{font-family:'Bitter',serif;font-style:italic;font-weight:700;font-size:17px;color:var(--crema);}
+footer .s{font-family:'Oswald',sans-serif;letter-spacing:2px;font-size:11px;text-transform:uppercase;margin-top:12px;}
+footer .back{display:inline-block;margin-top:16px;color:var(--sun);font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:1px;text-transform:uppercase;font-size:12px;border:1.5px solid var(--sun);border-radius:100px;padding:8px 18px;}
+
+/* PRINT */
+@media print{
+  .navbar,.region-bar,.mcard-toggle,.hero,.emergency,.collapsible,.disclaimer,footer,.no-print{display:none !important;}
+  body{background:#fff;font-size:11pt;}
+  .mushroom-grid{grid-template-columns:1fr !important;gap:16px;}
+  .mcard{break-inside:avoid;border:1px solid #999;box-shadow:none;}
+  .mcard-details{display:block !important;border-top:1px solid #ccc;}
+  .mcard-illust{aspect-ratio:auto;min-height:80px;}
+  .mcard-illust svg{width:40%;max-width:120px;}
+}
+
+@media(max-width:720px){
+  .mushroom-grid{grid-template-columns:1fr;}
+  .hero h1{font-size:26px;}
+  .hero .stats{gap:10px;}
+  .hero .stat{min-width:90px;padding:10px 14px;}
+  .hero .stat .num{font-size:22px;}
+  .navbar .inner{flex-direction:column;align-items:stretch;gap:8px;}
+  .navbar .links{justify-content:center;}
+  .region-bar{top:85px;}
+  .region-bar .print-btn{display:block;margin:10px auto 0;}
+}
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="inner">
+    <a class="brand" href="/">PAOLA ADVENTURER</a>
+    <div class="links">
+      <a href="/">Home</a>
+      <a href="/blog/">Blog</a>
+      <a href="/about/" id="nav-about-en">My Story</a>
+      <div class="langtoggle">
+        <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+        <button id="btn-es" onclick="setLang('es')">ES</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ================= ENGLISH ================= -->
+<div id="lang-en">
+
+<div class="hero">
+  <h1>The Hiker's Mushroom Guide</h1>
+  <p class="sub">Spot · Identify · Stay Safe</p>
+  <p>See mushrooms on the trail and have no idea what they are? Pick your region below, and learn exactly which ones grow near you — and which ones could hurt you.</p>
+  <div class="stats">
+    <div class="stat"><div class="num">7</div><div class="lbl">Edible</div></div>
+    <div class="stat"><div class="num">3</div><div class="lbl">Toxic</div></div>
+    <div class="stat"><div class="num">5</div><div class="lbl">US Regions</div></div>
+  </div>
+</div>
+
+<div class="region-bar" id="region-bar-en">
+  <label for="region-select-en">Find mushrooms near you:</label>
+  <select id="region-select-en" onchange="filterRegion(this.value)">
+    <option value="all">All Regions</option>
+    <option value="pnw">Pacific Northwest</option>
+    <option value="ne">Northeast &amp; Appalachia</option>
+    <option value="se">Southeast</option>
+    <option value="mw">Midwest</option>
+    <option value="sw">Southwest &amp; Rockies</option>
+  </select>
+  <button class="print-btn" onclick="window.print()">Print This Page</button>
+  <div class="count" id="count-en"></div>
+</div>
+
+<div class="wrap">
+<div class="mushroom-grid" id="grid-en">
+
+<!-- 1. CHANTERELLE -->
+<div class="mcard" data-regions="pnw,ne,se,mw" data-status="edible" data-name-en="Chanterelle" data-name-es="Chanterelle (Rebozuelo)">
+  <div class="mcard-illust edible-bg">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <defs><linearGradient id="chan1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f0c040"/><stop offset="100%" stop-color="#d4952a"/></linearGradient></defs>
+      <path d="M100 170c-4 0-8-40-10-70-1-8 0-16 3-22 5-10 14-18 14-18s-4-12-7-20c12 6 22 18 26 34 2 8 1 16-2 24-5 14-14 42-14 72h-10z" fill="url(#chan1)" opacity=".9"/>
+      <path d="M60 68c12-8 28-12 40-8s20 16 20 16" stroke="#d4952a" stroke-width="2" fill="none"/>
+      <ellipse cx="100" cy="56" rx="48" ry="20" fill="url(#chan1)" opacity=".85"/>
+      <path d="M54 60c4 12 16 24 46 24s42-12 46-24" stroke="#c88520" stroke-width="1.5" fill="none" opacity=".5"/>
+      <path d="M58 62c6 8 22 18 42 18s36-10 42-18" stroke="#c88520" stroke-width="1" fill="none" opacity=".4"/>
+      <path d="M64 64c5 6 18 14 36 14s32-8 36-14" stroke="#c88520" stroke-width="1" fill="none" opacity=".3"/>
+      <text x="100" y="195" text-anchor="middle" font-family="Oswald,sans-serif" font-weight="600" font-size="11" fill="#8a6b20" letter-spacing="2" text-transform="uppercase">CHANTERELLE</text>
+    </svg>
+    <span class="mcard-status">Edible</span>
+    <span class="mcard-season" data-en="Jun–Oct" data-es="Jun–Oct">Jun–Oct</span>
+  </div>
+  <div class="mcard-body">
+    <h3>Chanterelle</h3>
+    <p class="sciname">Cantharellus cibarius</p>
+    <p class="quick-id"><strong>Key ID:</strong> Golden funnel shape, <strong>false gills</strong> (forked ridges, not blades), fruity apricot smell. Grows from soil, never wood.</p>
+  </div>
+  <button class="mcard-toggle" onclick="toggleCard(this)" data-en="Full ID Details" data-es="Detalles Completos">Full ID Details <span class="arrow">&#9660;</span></button>
+  <div class="mcard-details">
+    <h4 data-en="What It Looks Like" data-es="Como Se Ve">What It Looks Like</h4>
+    <ul>
+      <li><strong>Cap:</strong> Golden to egg-yolk yellow, 2–5 in wide, wavy funnel with irregular edges</li>
+      <li><strong>Underside:</strong> False gills — forked ridges running down the stem (NOT blade-like)</li>
+      <li><strong>Stem:</strong> Solid, same golden color, tapers toward base</li>
+      <li><strong>Flesh:</strong> White to pale yellow when cut</li>
+      <li><strong>Smell:</strong> Fruity, like apricots</li>
+    </ul>
+    <h4 data-en="Where &amp; When" data-es="Donde y Cuando">Where &amp; When</h4>
+    <p>Forest floors near oaks, conifers, hardwoods. Scattered or small groups. <strong>Summer–early fall.</strong></p>
+    <div class="lookalike">
+      <h4>Watch Out: Jack O'Lantern (Toxic #10)</h4>
+      <table class="compare-tbl"><tr><th>Feature</th><th>Chanterelle</th><th>Jack O'Lantern</th></tr>
+      <tr><td>Gills</td><td>False gills (ridges)</td><td>True, sharp gills</td></tr>
+      <tr><td>Growth</td><td>From soil, scattered</td><td>Clusters on/near wood</td></tr>
+      <tr><td>Inside</td><td>Pale/white flesh</td><td>Orange throughout</td></tr>
+      <tr><td>Glow</td><td>No</td><td>Yes (bioluminescent)</td></tr></table>
+    </div>
+    <div class="tip">
+      <h4>If You Find One</h4>
+      <p>Cook thoroughly in butter or oil. Never eat raw. Meaty, peppery, slightly fruity — one of the best wild mushrooms in the world.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 2. MOREL -->
+<div class="mcard" data-regions="pnw,ne,se,mw,sw" data-status="edible">
+  <div class="mcard-illust edible-bg">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <defs><linearGradient id="mor1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#a07850"/><stop offset="100%" stop-color="#6b4f30"/></linearGradient></defs>
+      <rect x="90" y="110" width="20" height="65" rx="6" fill="#e8dcc8"/>
+      <path d="M100 30c-28 0-38 25-38 48 0 20 14 36 38 36s38-16 38-36c0-23-10-48-38-48z" fill="url(#mor1)"/>
+      <circle cx="82" cy="55" r="6" fill="#5a3d20" opacity=".5"/><circle cx="100" cy="48" r="7" fill="#5a3d20" opacity=".5"/>
+      <circle cx="118" cy="55" r="6" fill="#5a3d20" opacity=".5"/><circle cx="88" cy="72" r="7" fill="#5a3d20" opacity=".5"/>
+      <circle cx="112" cy="72" r="6" fill="#5a3d20" opacity=".5"/><circle cx="100" cy="68" r="5" fill="#5a3d20" opacity=".5"/>
+      <circle cx="76" cy="68" r="5" fill="#5a3d20" opacity=".4"/><circle cx="124" cy="68" r="5" fill="#5a3d20" opacity=".4"/>
+      <circle cx="94" cy="88" r="6" fill="#5a3d20" opacity=".45"/><circle cx="108" cy="86" r="5" fill="#5a3d20" opacity=".45"/>
+      <text x="100" y="195" text-anchor="middle" font-family="Oswald,sans-serif" font-weight="600" font-size="11" fill="#6b4f30" letter-spacing="2">MOREL</text>
+    </svg>
+    <span class="mcard-status">Edible</span>
+    <span class="mcard-season">Mar–May</span>
+  </div>
+  <div class="mcard-body">
+    <h3>Morel</h3>
+    <p class="sciname">Morchella esculenta</p>
+    <p class="quick-id"><strong>Key ID:</strong> Honeycomb cap with deep pits. <strong>Completely hollow</strong> from top to bottom when sliced. Cone-shaped, tan to dark brown.</p>
+  </div>
+  <button class="mcard-toggle" onclick="toggleCard(this)">Full ID Details <span class="arrow">&#9660;</span></button>
+  <div class="mcard-details">
+    <h4>What It Looks Like</h4>
+    <ul>
+      <li><strong>Cap:</strong> Honeycomb surface with deep pits and ridges, tan to dark brown, cone-shaped</li>
+      <li><strong>Inside:</strong> Completely hollow top to bottom — the #1 ID feature</li>
+      <li><strong>Stem:</strong> White to cream, also hollow, slightly granular</li>
+      <li><strong>Size:</strong> 2–6 inches tall</li>
+    </ul>
+    <h4>Where &amp; When</h4>
+    <p>Near dead/dying elms, ash, apple trees. Post-wildfire areas are goldmines. <strong>Spring (Mar–May)</strong>, one of the first mushrooms of the year.</p>
+    <div class="lookalike">
+      <h4>Watch Out: False Morel (Deadly)</h4>
+      <p><strong>False morels have brain-like wrinkled caps</strong> (not clean honeycomb) and are <strong>NOT hollow</strong> inside — they have cottony, chambered flesh. Slice it in half: hollow = true morel, chambered = walk away.</p>
+    </div>
+    <div class="tip">
+      <h4>If You Find One</h4>
+      <p>Soak in salt water 30 min to remove insects. Cook thoroughly. Nutty, earthy, considered a delicacy.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 3. CHICKEN OF THE WOODS -->
+<div class="mcard" data-regions="pnw,ne,se,mw" data-status="edible">
+  <div class="mcard-illust edible-bg">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <defs><linearGradient id="cow1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#f08030"/><stop offset="100%" stop-color="#e8a030"/></linearGradient></defs>
+      <rect x="20" y="40" width="16" height="140" rx="5" fill="#8a7050"/>
+      <ellipse cx="70" cy="80" rx="52" ry="18" fill="url(#cow1)" transform="rotate(-10,70,80)"/>
+      <ellipse cx="78" cy="105" rx="56" ry="20" fill="#e89030" transform="rotate(-5,78,105)"/>
+      <ellipse cx="72" cy="130" rx="50" ry="18" fill="url(#cow1)" transform="rotate(-8,72,130)"/>
+      <ellipse cx="80" cy="152" rx="44" ry="16" fill="#e8a030" transform="rotate(-3,80,152)"/>
+      <text x="100" y="195" text-anchor="middle" font-family="Oswald,sans-serif" font-weight="600" font-size="10" fill="#b06020" letter-spacing="2">CHICKEN OF THE WOODS</text>
+    </svg>
+    <span class="mcard-status">Edible</span>
+    <span class="mcard-season">May–Nov</span>
+  </div>
+  <div class="mcard-body">
+    <h3>Chicken of the Woods</h3>
+    <p class="sciname">Laetiporus sulphureus</p>
+    <p class="quick-id"><strong>Key ID:</strong> Bright <strong>orange/yellow shelf fungus</strong> in overlapping layers on tree trunks. Sulfur-yellow underside with tiny pores. Can be huge (2+ ft clusters).</p>
+  </div>
+  <button class="mcard-toggle" onclick="toggleCard(this)">Full ID Details <span class="arrow">&#9660;</span></button>
+  <div class="mcard-details">
+    <h4>What It Looks Like</h4>
+    <ul>
+      <li><strong>Shape:</strong> Large shelf/bracket in overlapping layers on trunks or logs</li>
+      <li><strong>Top:</strong> Bright orange to salmon</li>
+      <li><strong>Underside:</strong> Sulfur-yellow, tiny pores (no gills)</li>
+      <li><strong>Flesh:</strong> Thick, white, firm when young — chalky when old</li>
+    </ul>
+    <h4>Where &amp; When</h4>
+    <p>On dead or living hardwoods, especially oaks. <strong>Late spring–fall.</strong> Always on wood, never from ground.</p>
+    <div class="lookalike">
+      <h4>Important Notes</h4>
+      <p><strong>Avoid specimens on conifers, eucalyptus, or yew</strong> — can cause GI distress. Only eat young, vibrant ones (old ones turn chalky and crumbly).</p>
+    </div>
+    <div class="tip">
+      <h4>If You Find One</h4>
+      <p>Texture like actual chicken breast. Slice tender outer edges, saut&eacute; with garlic. Skip the tough base.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 4. HEN OF THE WOODS -->
+<div class="mcard" data-regions="ne,se,mw" data-status="edible">
+  <div class="mcard-illust edible-bg">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <defs><linearGradient id="hen1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#9a8a70"/><stop offset="100%" stop-color="#6a5a45"/></linearGradient></defs>
+      <ellipse cx="100" cy="145" rx="14" ry="30" fill="#d8ccb8"/>
+      <ellipse cx="70" cy="90" rx="32" ry="14" fill="url(#hen1)" transform="rotate(-15,70,90)"/>
+      <ellipse cx="130" cy="85" rx="30" ry="13" fill="#8a7a60" transform="rotate(12,130,85)"/>
+      <ellipse cx="90" cy="70" rx="28" ry="12" fill="url(#hen1)" transform="rotate(-8,90,70)"/>
+      <ellipse cx="115" cy="65" rx="26" ry="11" fill="#7a6a50" transform="rotate(8,115,65)"/>
+      <ellipse cx="80" cy="105" rx="34" ry="15" fill="#8a7a60" transform="rotate(-10,80,105)"/>
+      <ellipse cx="120" cy="108" rx="30" ry="13" fill="url(#hen1)" transform="rotate(5,120,108)"/>
+      <ellipse cx="100" cy="55" rx="22" ry="10" fill="#9a8a70" transform="rotate(3,100,55)"/>
+      <text x="100" y="195" text-anchor="middle" font-family="Oswald,sans-serif" font-weight="600" font-size="10" fill="#6a5a45" letter-spacing="2">HEN OF THE WOODS</text>
+    </svg>
+    <span class="mcard-status">Edible</span>
+    <span class="mcard-season">Sep–Nov</span>
+  </div>
+  <div class="mcard-body">
+    <h3>Hen of the Woods (Maitake)</h3>
+    <p class="sciname">Grifola frondosa</p>
+    <p class="quick-id"><strong>Key ID:</strong> Large rosette of <strong>gray-brown overlapping fans</strong> at tree bases (especially oaks). White pores underneath. Can grow 10–50+ lbs.</p>
+  </div>
+  <button class="mcard-toggle" onclick="toggleCard(this)">Full ID Details <span class="arrow">&#9660;</span></button>
+  <div class="mcard-details">
+    <h4>What It Looks Like</h4>
+    <ul>
+      <li><strong>Shape:</strong> Ruffled rosette of overlapping fan-shaped caps from one base</li>
+      <li><strong>Color:</strong> Gray-brown on top, white underneath</li>
+      <li><strong>Underside:</strong> Tiny white pores (no gills)</li>
+      <li><strong>Returns to the same spot year after year</strong></li>
+    </ul>
+    <h4>Where &amp; When</h4>
+    <p>Base of living or dead hardwoods, especially oaks. <strong>Fall (Sep–Nov).</strong></p>
+    <div class="lookalike">
+      <h4>Watch Out: Black-Staining Polypore</h4>
+      <p>Similar look but <strong>stains black when bruised or cut</strong>. Hen of the woods does not. Not dangerous, just not as tasty.</p>
+    </div>
+    <div class="tip">
+      <h4>If You Find One</h4>
+      <p>Prized in Japanese cuisine. Tear into pieces, saut&eacute; until crispy on edges. Rich umami flavor. Dries and freezes well.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 5. LION'S MANE -->
+<div class="mcard" data-regions="pnw,ne,se,mw" data-status="edible">
+  <div class="mcard-illust edible-bg">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <rect x="140" y="50" width="20" height="100" rx="6" fill="#8a7050" opacity=".4"/>
+      <circle cx="95" cy="100" r="45" fill="#f0ece4" stroke="#e0d8c8" stroke-width="1"/>
+      <g stroke="#e8e0d0" stroke-width="1.5" fill="none" opacity=".7">
+        <line x1="70" y1="75" x2="65" y2="95"/><line x1="78" y1="70" x2="75" y2="92"/>
+        <line x1="88" y1="65" x2="86" y2="88"/><line x1="98" y1="64" x2="97" y2="86"/>
+        <line x1="108" y1="66" x2="107" y2="88"/><line x1="116" y1="72" x2="114" y2="94"/>
+        <line x1="122" y1="80" x2="118" y2="100"/>
+        <line x1="68" y1="90" x2="60" y2="115"/><line x1="78" y1="88" x2="72" y2="112"/>
+        <line x1="88" y1="86" x2="84" y2="110"/><line x1="98" y1="85" x2="96" y2="110"/>
+        <line x1="108" y1="87" x2="106" y2="112"/><line x1="116" y1="92" x2="112" y2="114"/>
+        <line x1="72" y1="110" x2="66" y2="135"/><line x1="82" y1="108" x2="78" y2="130"/>
+        <line x1="92" y1="106" x2="90" y2="128"/><line x1="102" y1="107" x2="100" y2="130"/>
+        <line x1="112" y1="110" x2="108" y2="132"/><line x1="120" y1="114" x2="115" y2="134"/>
+      </g>
+      <text x="95" y="195" text-anchor="middle" font-family="Oswald,sans-serif" font-weight="600" font-size="11" fill="#8a7a60" letter-spacing="2">LION'S MANE</text>
+    </svg>
+    <span class="mcard-status">Edible</span>
+    <span class="mcard-season">Aug–Nov</span>
+  </div>
+  <div class="mcard-body">
+    <h3>Lion's Mane</h3>
+    <p class="sciname">Hericium erinaceus</p>
+    <p class="quick-id"><strong>Key ID:</strong> White pom-pom with <strong>cascading icicle-like spines</strong>. No cap, no stem, no gills. <strong>Virtually no dangerous look-alikes.</strong></p>
+  </div>
+  <button class="mcard-toggle" onclick="toggleCard(this)">Full ID Details <span class="arrow">&#9660;</span></button>
+  <div class="mcard-details">
+    <h4>What It Looks Like</h4>
+    <ul>
+      <li><strong>Shape:</strong> Single white globe with long cascading spines</li>
+      <li><strong>Color:</strong> Pure white when young, yellowing with age</li>
+      <li><strong>Unique:</strong> No cap, no stem, no gills — nothing else looks like it</li>
+      <li><strong>Size:</strong> 4–12 inches across</li>
+    </ul>
+    <h4>Where &amp; When</h4>
+    <p>On dead/dying hardwoods (beech, oak, maple). Often high up on standing dead trees. <strong>Late summer–fall.</strong></p>
+    <div class="tip">
+      <h4>If You Find One</h4>
+      <p>Slice into thick "steaks" and sear in butter until golden. Texture like crab or lobster. Also valued for cognitive health benefits.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 6. OYSTER MUSHROOM -->
+<div class="mcard" data-regions="pnw,ne,se,mw,sw" data-status="edible">
+  <div class="mcard-illust edible-bg">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <rect x="145" y="40" width="18" height="130" rx="5" fill="#8a7050" opacity=".4"/>
+      <ellipse cx="95" cy="70" rx="42" ry="22" fill="#d8d0c0" transform="rotate(-12,95,70)"/>
+      <ellipse cx="90" cy="95" rx="46" ry="24" fill="#e0d8c8" transform="rotate(-8,90,95)"/>
+      <ellipse cx="88" cy="122" rx="50" ry="25" fill="#d0c8b8" transform="rotate(-5,88,122)"/>
+      <ellipse cx="92" cy="148" rx="44" ry="20" fill="#e0d8c8" transform="rotate(-10,92,148)"/>
+      <text x="95" y="195" text-anchor="middle" font-family="Oswald,sans-serif" font-weight="600" font-size="10" fill="#8a7a60" letter-spacing="2">OYSTER MUSHROOM</text>
+    </svg>
+    <span class="mcard-status">Edible</span>
+    <span class="mcard-season">Year-round</span>
+  </div>
+  <div class="mcard-body">
+    <h3>Oyster Mushroom</h3>
+    <p class="sciname">Pleurotus ostreatus</p>
+    <p class="quick-id"><strong>Key ID:</strong> <strong>Fan/shell-shaped</strong>, white to gray, grows in shelf-like clusters on dead hardwood. Short off-center stem. Mild anise smell.</p>
+  </div>
+  <button class="mcard-toggle" onclick="toggleCard(this)">Full ID Details <span class="arrow">&#9660;</span></button>
+  <div class="mcard-details">
+    <h4>What It Looks Like</h4>
+    <ul>
+      <li><strong>Cap:</strong> Fan or oyster-shell shaped, 2–8 in wide, smooth</li>
+      <li><strong>Color:</strong> White, cream, gray, or tan</li>
+      <li><strong>Gills:</strong> White, running down a short stubby stem</li>
+      <li><strong>Grows on:</strong> Dead hardwood logs, stumps, standing dead trees</li>
+    </ul>
+    <h4>Where &amp; When</h4>
+    <p>Dead/dying hardwoods. Loves fallen logs in damp forests. <strong>Spring &amp; fall primarily, but year-round in mild climates — even winter.</strong></p>
+    <div class="lookalike">
+      <h4>Watch Out: Angel Wings</h4>
+      <p>Angel wings are <strong>pure white, paper-thin</strong>, and grow on <strong>conifer</strong> wood. Oyster mushrooms are thicker, fleshier, on <strong>hardwood</strong>. Stick to hardwood specimens.</p>
+    </div>
+    <div class="tip">
+      <h4>If You Find One</h4>
+      <p>One of the most versatile wild mushrooms. Saut&eacute;, stir-fry, bread and fry, add to soups. Mild, slightly sweet.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 7. PORCINI -->
+<div class="mcard" data-regions="pnw,ne,mw,sw" data-status="edible">
+  <div class="mcard-illust edible-bg">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <defs><linearGradient id="por1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#8a6040"/><stop offset="100%" stop-color="#6a4a2a"/></linearGradient></defs>
+      <rect x="84" y="100" width="32" height="70" rx="10" fill="#e8dcc8"/>
+      <path d="M84 110c-2-2-4-3-4-3" stroke="#d0c4b0" stroke-width="1" fill="none" opacity=".5"/>
+      <path d="M116 110c2-2 4-3 4-3" stroke="#d0c4b0" stroke-width="1" fill="none" opacity=".5"/>
+      <g opacity=".3" stroke="#c0b4a0" stroke-width=".5" fill="none">
+        <line x1="90" y1="108" x2="90" y2="155"/><line x1="95" y1="106" x2="95" y2="158"/>
+        <line x1="100" y1="105" x2="100" y2="160"/><line x1="105" y1="106" x2="105" y2="158"/>
+        <line x1="110" y1="108" x2="110" y2="155"/>
+      </g>
+      <ellipse cx="100" cy="80" rx="52" ry="30" fill="url(#por1)"/>
+      <ellipse cx="100" cy="92" rx="50" ry="10" fill="#e8dcc0" opacity=".7"/>
+      <text x="100" y="195" text-anchor="middle" font-family="Oswald,sans-serif" font-weight="600" font-size="11" fill="#6a4a2a" letter-spacing="2">PORCINI</text>
+    </svg>
+    <span class="mcard-status">Edible</span>
+    <span class="mcard-season">Jul–Oct</span>
+  </div>
+  <div class="mcard-body">
+    <h3>Porcini (King Bolete)</h3>
+    <p class="sciname">Boletus edulis</p>
+    <p class="quick-id"><strong>Key ID:</strong> Brown convex cap, <strong>spongy pores underneath (NOT gills)</strong>, thick bulbous white stem with fine white netting. Flesh does NOT change color when cut.</p>
+  </div>
+  <button class="mcard-toggle" onclick="toggleCard(this)">Full ID Details <span class="arrow">&#9660;</span></button>
+  <div class="mcard-details">
+    <h4>What It Looks Like</h4>
+    <ul>
+      <li><strong>Cap:</strong> Smooth, convex, brown to reddish-brown, 3–10 in, slightly sticky when wet</li>
+      <li><strong>Underside:</strong> Spongy pore surface — white young, yellow-green with age</li>
+      <li><strong>Stem:</strong> Thick, bulbous, white netting (reticulation) on upper portion</li>
+      <li><strong>Size:</strong> 4–10 in tall, sturdy and hefty</li>
+    </ul>
+    <h4>Where &amp; When</h4>
+    <p>Under conifers (spruce, pine, fir) and some hardwoods, in mountainous/northern forests. <strong>Summer–fall.</strong></p>
+    <div class="lookalike">
+      <h4>Watch Out: Bitter Bolete</h4>
+      <p>Looks nearly identical but tastes <strong>intensely bitter</strong>. Coarser/darker stem netting. Pore surface turns <strong>pinkish</strong> with age (porcini stays yellow-green). Not toxic, just ruins the dish.</p>
+    </div>
+    <div class="tip">
+      <h4>If You Find One</h4>
+      <p>One of the most sought-after culinary mushrooms worldwide. Slice and saut&eacute; fresh, or dry for incredible concentrated flavor in risottos and pastas. Stem is edible too.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 8. DEATH CAP -->
+<div class="mcard toxic" data-regions="pnw,ne,se" data-status="toxic">
+  <div class="mcard-illust toxic-bg">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <defs><linearGradient id="dc1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#a8b868"/><stop offset="100%" stop-color="#8a9a50"/></linearGradient></defs>
+      <path d="M90 170c-6 0-10-4-8-10 4-10 6-6 8-10s2-6 2-6h16s0 2 2 6 4 0 8 10c2 6-2 10-8 10z" fill="#e8e0d0" stroke="#c0b8a0" stroke-width="1"/>
+      <rect x="92" y="100" width="16" height="72" rx="5" fill="#e8e0d0"/>
+      <ellipse cx="100" cy="124" rx="10" ry="3" fill="none" stroke="#c8c0a8" stroke-width="1.5"/>
+      <ellipse cx="100" cy="70" rx="46" ry="32" fill="url(#dc1)"/>
+      <text x="100" y="18" text-anchor="middle" font-family="Oswald,sans-serif" font-weight="700" font-size="16" fill="#c0392b">DEADLY</text>
+      <text x="100" y="195" text-anchor="middle" font-family="Oswald,sans-serif" font-weight="600" font-size="11" fill="#c0392b" letter-spacing="2">DEATH CAP</text>
+    </svg>
+    <span class="mcard-status">Deadly Toxic</span>
+    <span class="mcard-season">Aug–Nov</span>
+  </div>
+  <div class="mcard-body">
+    <h3>Death Cap</h3>
+    <p class="sciname">Amanita phalloides</p>
+    <p class="quick-id"><strong>Key ID:</strong> Greenish-yellow to olive cap, white gills, <strong>skirt-like ring on stem + cup-shaped volva at base</strong> (dig it up!). Smells like honey. <strong>Half a cap can kill an adult.</strong></p>
+  </div>
+  <button class="mcard-toggle" onclick="toggleCard(this)">Full ID Details <span class="arrow">&#9660;</span></button>
+  <div class="mcard-details">
+    <h4>What It Looks Like</h4>
+    <ul>
+      <li><strong>Cap:</strong> 2–6 in, greenish-yellow to olive-green, smooth, slightly sticky</li>
+      <li><strong>Gills:</strong> White, closely spaced, free (not attached to stem)</li>
+      <li><strong>Stem:</strong> White, 3–6 in, with a ring (annulus) near the top</li>
+      <li><strong>Base:</strong> Bulbous, sitting in a cup-like sac (volva) — often buried. <strong>DIG IT UP</strong></li>
+      <li><strong>Smell:</strong> Pleasant — honey or roses. This is deceptive.</li>
+    </ul>
+    <h4>Where &amp; When</h4>
+    <p>Under oaks and hardwoods. Parks, yards, forests. Originally European, now widespread in North America. <strong>Fall/winter in mild climates, late summer–fall elsewhere.</strong></p>
+    <div class="danger-note">
+      <h4>Why It Kills</h4>
+      <ul>
+        <li>Contains <strong>amatoxins</strong> that destroy liver and kidneys</li>
+        <li><strong>Symptoms delayed 6–24 hours</strong> — organ damage may already be happening</li>
+        <li>Deceptive "recovery" phase before final, potentially fatal stage</li>
+        <li>No reliable home antidote — ER immediately</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 9. DESTROYING ANGEL -->
+<div class="mcard toxic" data-regions="pnw,ne,se,mw" data-status="toxic">
+  <div class="mcard-illust toxic-bg">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <path d="M90 170c-6 0-10-4-8-10 4-10 6-6 8-10s2-6 2-6h16s0 2 2 6 4 0 8 10c2 6-2 10-8 10z" fill="#f0ece8" stroke="#d0c8c0" stroke-width="1"/>
+      <rect x="94" y="95" width="12" height="78" rx="4" fill="#f0ece8"/>
+      <ellipse cx="100" cy="120" rx="8" ry="2.5" fill="none" stroke="#d8d0c8" stroke-width="1.5"/>
+      <ellipse cx="100" cy="65" rx="40" ry="30" fill="#f0ece8" stroke="#e0d8d0" stroke-width="1"/>
+      <text x="100" y="18" text-anchor="middle" font-family="Oswald,sans-serif" font-weight="700" font-size="16" fill="#c0392b">DEADLY</text>
+      <text x="100" y="195" text-anchor="middle" font-family="Oswald,sans-serif" font-weight="600" font-size="10" fill="#c0392b" letter-spacing="2">DESTROYING ANGEL</text>
+    </svg>
+    <span class="mcard-status">Deadly Toxic</span>
+    <span class="mcard-season">Jun–Oct</span>
+  </div>
+  <div class="mcard-body">
+    <h3>Destroying Angel</h3>
+    <p class="sciname">Amanita bisporigera / A. virosa / A. ocreata</p>
+    <p class="quick-id"><strong>Key ID:</strong> <strong>Entirely pure white.</strong> White gills, fragile ring on stem, volva at base (dig it up!). Looks elegant and innocent. <strong>As deadly as the Death Cap.</strong></p>
+  </div>
+  <button class="mcard-toggle" onclick="toggleCard(this)">Full ID Details <span class="arrow">&#9660;</span></button>
+  <div class="mcard-details">
+    <h4>What It Looks Like</h4>
+    <ul>
+      <li><strong>Cap:</strong> 2–5 in, pure white, smooth, convex to flat</li>
+      <li><strong>Gills:</strong> White, free from stem</li>
+      <li><strong>Stem:</strong> White, tall, slender, fragile ring (may disappear with age)</li>
+      <li><strong>Base:</strong> Bulbous with sac-like volva — often underground. <strong>DIG IT UP</strong></li>
+      <li><strong>Entire mushroom:</strong> All white. Looks harmless. It's not.</li>
+    </ul>
+    <h4>Where &amp; When</h4>
+    <p>Near oaks, pines, mixed forests. Also lawns and gardens near trees. <strong>Summer–fall.</strong></p>
+    <div class="danger-note">
+      <h4>The #1 Rule with White Mushrooms</h4>
+      <p><strong>If it's white, has gills, and grows from the ground — treat it as deadly until proven otherwise.</strong> This single rule could save your life. Contains the same amatoxins as the Death Cap.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 10. JACK O'LANTERN -->
+<div class="mcard caution" data-regions="ne,se,mw" data-status="toxic">
+  <div class="mcard-illust caution-bg">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <defs><linearGradient id="jol1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#e08030"/><stop offset="100%" stop-color="#c06020"/></linearGradient></defs>
+      <rect x="85" y="140" width="10" height="30" rx="3" fill="#c06828"/>
+      <rect x="100" y="135" width="10" height="40" rx="3" fill="#d07030"/>
+      <rect x="115" y="138" width="10" height="34" rx="3" fill="#c06828"/>
+      <ellipse cx="90" cy="110" rx="28" ry="32" fill="url(#jol1)"/>
+      <ellipse cx="110" cy="105" rx="30" ry="34" fill="#d07828"/>
+      <ellipse cx="125" cy="112" rx="24" ry="28" fill="url(#jol1)" opacity=".9"/>
+      <ellipse cx="75" cy="115" rx="20" ry="24" fill="#c06020" opacity=".8"/>
+      <text x="100" y="18" text-anchor="middle" font-family="Oswald,sans-serif" font-weight="700" font-size="14" fill="#d35400">TOXIC</text>
+      <text x="100" y="195" text-anchor="middle" font-family="Oswald,sans-serif" font-weight="600" font-size="11" fill="#d35400" letter-spacing="2">JACK O'LANTERN</text>
+    </svg>
+    <span class="mcard-status" style="background:var(--caution)">Toxic</span>
+    <span class="mcard-season">Jul–Nov</span>
+  </div>
+  <div class="mcard-body">
+    <h3>Jack O'Lantern</h3>
+    <p class="sciname">Omphalotus olearius</p>
+    <p class="quick-id"><strong>Key ID:</strong> Bright orange, <strong>true sharp gills</strong> (not ridges), grows <strong>in clusters on/near wood</strong>. Gills glow in the dark. <strong>The #1 Chanterelle impostor.</strong></p>
+  </div>
+  <button class="mcard-toggle" onclick="toggleCard(this)">Full ID Details <span class="arrow">&#9660;</span></button>
+  <div class="mcard-details">
+    <h4>What It Looks Like</h4>
+    <ul>
+      <li><strong>Cap:</strong> 2–8 in, bright orange, smooth, convex to funnel-shaped</li>
+      <li><strong>Gills:</strong> True, sharp blade-like gills — orange, closely spaced. <strong>Glow faintly green in complete darkness</strong></li>
+      <li><strong>Stem:</strong> Orange, solid, central</li>
+      <li><strong>Always on wood:</strong> Stumps, buried roots, tree bases</li>
+      <li><strong>Growth:</strong> Dense clusters (multiple from same point)</li>
+    </ul>
+    <h4>Chanterelle vs. Jack O'Lantern</h4>
+    <table class="compare-tbl"><tr><th>Feature</th><th>Chanterelle (Safe)</th><th>Jack O'Lantern (Toxic)</th></tr>
+    <tr><td>Gills</td><td>False gills (ridges)</td><td>True, sharp gills</td></tr>
+    <tr><td>Growth</td><td>From soil, scattered</td><td>Clusters on/near wood</td></tr>
+    <tr><td>Inside</td><td>Pale/white flesh</td><td>Orange throughout</td></tr>
+    <tr><td>Glow</td><td>No</td><td>Yes</td></tr>
+    <tr><td>Smell</td><td>Fruity, apricot</td><td>Unpleasant</td></tr></table>
+    <div class="danger-note">
+      <h4>If Someone Eats One</h4>
+      <p>Severe cramps, vomiting, diarrhea within 1–2 hours. Extremely unpleasant but rarely fatal. <strong>Seek medical attention.</strong></p>
+    </div>
+  </div>
+</div>
+
+</div><!-- grid -->
+</div><!-- wrap -->
+
+<!-- EMERGENCY -->
+<div class="emergency" id="emergency-en">
+  <h2>If Someone Eats a Toxic Mushroom</h2>
+  <div class="phone">1-800-222-1222</div>
+  <p>US Poison Control — Call immediately. Do NOT wait for symptoms.</p>
+  <ol>
+    <li><strong>Call now.</strong> With Death Cap/Destroying Angel, symptoms are delayed 6–24 hours — organ damage starts before you feel sick.</li>
+    <li><strong>Save a sample</strong> or take clear photos of the mushroom.</li>
+    <li><strong>Do NOT induce vomiting</strong> unless told to by Poison Control.</li>
+    <li><strong>Go to the ER.</strong> Do not wait it out at home.</li>
+    <li><strong>Note the time</strong> of ingestion and when symptoms appeared.</li>
+  </ol>
+</div>
+
+<!-- GEAR & CHECKLIST -->
+<div class="section" id="extras-en">
+  <h2>Trail Extras</h2>
+  <p class="sub">Everything else you need for mushroom hunting</p>
+
+  <div class="collapsible">
+    <button class="collapsible-header" onclick="toggleCollapsible(this)">What to Bring: Gear List <span class="arrow">&#9660;</span></button>
+    <div class="collapsible-body">
+      <h4>The Essentials</h4>
+      <ul>
+        <li><strong>Small knife or pocket blade</strong> — cut mushrooms at the base cleanly</li>
+        <li><strong>Paper bags or wax paper</strong> — never plastic (traps moisture, destroys specimens)</li>
+        <li><strong>Basket or mesh bag</strong> — keeps finds intact, drops spores as you walk</li>
+        <li><strong>Your phone camera</strong> — photos of cap, underside, stem, base, habitat. Non-negotiable</li>
+      </ul>
+      <h4>Nice to Have</h4>
+      <ul>
+        <li><strong>10x hand lens</strong> — examine gill structure and pore surfaces up close</li>
+        <li><strong>Field notebook / notes app</strong> — tree species nearby, soil type, weather</li>
+        <li><strong>Aluminum foil</strong> — wrap specimens individually</li>
+        <li><strong>White + dark paper</strong> — spore prints on the trail</li>
+        <li><strong>Wet wipes</strong> — always wash hands after handling unknowns</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="collapsible">
+    <button class="collapsible-header" onclick="toggleCollapsible(this)">Trail ID Checklist <span class="arrow">&#9660;</span></button>
+    <div class="collapsible-body">
+      <ul>
+        <li><strong>Where is it growing?</strong> Ground, wood, tree trunk, buried wood?</li>
+        <li><strong>What's nearby?</strong> Oak, beech, conifer, mixed forest?</li>
+        <li><strong>How is it growing?</strong> Alone, scattered, dense cluster?</li>
+        <li><strong>Cap:</strong> Color, shape, size, texture (smooth, sticky, scaly)?</li>
+        <li><strong>Underside:</strong> Gills, pores, ridges, or teeth/spines?</li>
+        <li><strong>Stem:</strong> Color, thickness, ring/skirt, cup at base?</li>
+        <li><strong>Cut it open:</strong> Hollow? Solid? Does flesh change color?</li>
+        <li><strong>Smell:</strong> Fruity? Earthy? Unpleasant? Nothing?</li>
+        <li><strong>Photos taken?</strong> Top, underside, stem, base, habitat — at least 5</li>
+        <li><strong>Spore print started?</strong> White + dark paper, gill-side down, 4–8 hours</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+</div><!-- lang-en -->
+
+<!-- ================= ESPANOL ================= -->
+<div id="lang-es" hidden>
+
+<div class="hero">
+  <h1>Guia de Hongos para Senderistas</h1>
+  <p class="sub">Identifica · Aprende · Mantente Seguro</p>
+  <p>Ves hongos en el sendero y no tienes idea de que son? Elige tu region abajo y aprende cuales crecen cerca de ti — y cuales podrian hacerte dano.</p>
+  <div class="stats">
+    <div class="stat"><div class="num">7</div><div class="lbl">Comestibles</div></div>
+    <div class="stat"><div class="num">3</div><div class="lbl">Toxicos</div></div>
+    <div class="stat"><div class="num">5</div><div class="lbl">Regiones</div></div>
+  </div>
+</div>
+
+<div class="region-bar" id="region-bar-es">
+  <label for="region-select-es">Encuentra hongos cerca de ti:</label>
+  <select id="region-select-es" onchange="filterRegion(this.value)">
+    <option value="all">Todas las Regiones</option>
+    <option value="pnw">Noroeste del Pacifico</option>
+    <option value="ne">Noreste y Apalaches</option>
+    <option value="se">Sureste</option>
+    <option value="mw">Medio Oeste</option>
+    <option value="sw">Suroeste y Rocosas</option>
+  </select>
+  <button class="print-btn" onclick="window.print()">Imprimir Esta Pagina</button>
+  <div class="count" id="count-es"></div>
+</div>
+
+<div class="wrap">
+<div class="mushroom-grid" id="grid-es">
+
+<!-- Spanish cards — same structure, translated content -->
+<!-- 1. CHANTERELLE -->
+<div class="mcard" data-regions="pnw,ne,se,mw" data-status="edible">
+  <div class="mcard-illust edible-bg">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <defs><linearGradient id="chan1es" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f0c040"/><stop offset="100%" stop-color="#d4952a"/></linearGradient></defs>
+      <path d="M100 170c-4 0-8-40-10-70-1-8 0-16 3-22 5-10 14-18 14-18s-4-12-7-20c12 6 22 18 26 34 2 8 1 16-2 24-5 14-14 42-14 72h-10z" fill="url(#chan1es)" opacity=".9"/>
+      <path d="M60 68c12-8 28-12 40-8s20 16 20 16" stroke="#d4952a" stroke-width="2" fill="none"/>
+      <ellipse cx="100" cy="56" rx="48" ry="20" fill="url(#chan1es)" opacity=".85"/>
+      <path d="M54 60c4 12 16 24 46 24s42-12 46-24" stroke="#c88520" stroke-width="1.5" fill="none" opacity=".5"/>
+      <path d="M58 62c6 8 22 18 42 18s36-10 42-18" stroke="#c88520" stroke-width="1" fill="none" opacity=".4"/>
+      <path d="M64 64c5 6 18 14 36 14s32-8 36-14" stroke="#c88520" stroke-width="1" fill="none" opacity=".3"/>
+      <text x="100" y="195" text-anchor="middle" font-family="Oswald,sans-serif" font-weight="600" font-size="11" fill="#8a6b20" letter-spacing="2" text-transform="uppercase">CHANTERELLE</text>
+    </svg>
+    <span class="mcard-status">Comestible</span>
+    <span class="mcard-season">Jun–Oct</span>
+  </div>
+  <div class="mcard-body">
+    <h3>Chanterelle (Rebozuelo)</h3>
+    <p class="sciname">Cantharellus cibarius</p>
+    <p class="quick-id"><strong>Clave:</strong> Embudo dorado, <strong>falsas laminas</strong> (pliegues bifurcados, no cuchillas), olor afrutado a albaricoque. Crece del suelo, nunca de madera.</p>
+  </div>
+  <button class="mcard-toggle" onclick="toggleCard(this)">Detalles Completos <span class="arrow">&#9660;</span></button>
+  <div class="mcard-details">
+    <h4>Como Se Ve</h4>
+    <ul>
+      <li><strong>Sombrero:</strong> Dorado a amarillo yema, 5–12 cm, ondulado y con forma de embudo</li>
+      <li><strong>Parte inferior:</strong> Falsas laminas — pliegues bifurcados que bajan por el tallo</li>
+      <li><strong>Tallo:</strong> Solido, mismo color dorado, se estrecha hacia la base</li>
+      <li><strong>Carne:</strong> Blanca a amarillo palido al cortarlo</li>
+      <li><strong>Olor:</strong> Afrutado, como albaricoque</li>
+    </ul>
+    <h4>Donde y Cuando</h4>
+    <p>Pisos de bosque cerca de robles y coniferas. Disperso o en grupos pequenos. <strong>Verano a principios de otono.</strong></p>
+    <div class="lookalike">
+      <h4>Cuidado con: Jack O'Lantern (Toxico #10)</h4>
+      <table class="compare-tbl"><tr><th>Caracteristica</th><th>Chanterelle</th><th>Jack O'Lantern</th></tr>
+      <tr><td>Laminas</td><td>Falsas (pliegues)</td><td>Verdaderas y filosas</td></tr>
+      <tr><td>Crecimiento</td><td>Del suelo, disperso</td><td>Racimos sobre madera</td></tr>
+      <tr><td>Interior</td><td>Carne palida</td><td>Naranja por completo</td></tr>
+      <tr><td>Brillo</td><td>No</td><td>Si (bioluminiscente)</td></tr></table>
+    </div>
+    <div class="tip">
+      <h4>Si Encuentras Uno</h4>
+      <p>Cocina bien en mantequilla o aceite. Nunca crudo. Carnoso, picante, afrutado — uno de los mejores hongos silvestres del mundo.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 2. MOREL ES -->
+<div class="mcard" data-regions="pnw,ne,se,mw,sw" data-status="edible">
+  <div class="mcard-illust edible-bg">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <defs><linearGradient id="mor1es" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#a07850"/><stop offset="100%" stop-color="#6b4f30"/></linearGradient></defs>
+      <rect x="90" y="110" width="20" height="65" rx="6" fill="#e8dcc8"/>
+      <path d="M100 30c-28 0-38 25-38 48 0 20 14 36 38 36s38-16 38-36c0-23-10-48-38-48z" fill="url(#mor1es)"/>
+      <circle cx="82" cy="55" r="6" fill="#5a3d20" opacity=".5"/><circle cx="100" cy="48" r="7" fill="#5a3d20" opacity=".5"/>
+      <circle cx="118" cy="55" r="6" fill="#5a3d20" opacity=".5"/><circle cx="88" cy="72" r="7" fill="#5a3d20" opacity=".5"/>
+      <circle cx="112" cy="72" r="6" fill="#5a3d20" opacity=".5"/><circle cx="100" cy="68" r="5" fill="#5a3d20" opacity=".5"/>
+      <circle cx="76" cy="68" r="5" fill="#5a3d20" opacity=".4"/><circle cx="124" cy="68" r="5" fill="#5a3d20" opacity=".4"/>
+      <circle cx="94" cy="88" r="6" fill="#5a3d20" opacity=".45"/><circle cx="108" cy="86" r="5" fill="#5a3d20" opacity=".45"/>
+      <text x="100" y="195" text-anchor="middle" font-family="Oswald,sans-serif" font-weight="600" font-size="11" fill="#6b4f30" letter-spacing="2">MOREL</text>
+    </svg>
+    <span class="mcard-status">Comestible</span>
+    <span class="mcard-season">Mar–May</span>
+  </div>
+  <div class="mcard-body">
+    <h3>Morilla (Morel)</h3>
+    <p class="sciname">Morchella esculenta</p>
+    <p class="quick-id"><strong>Clave:</strong> Sombrero tipo panal con hoyos profundos. <strong>Completamente hueco</strong> al cortarlo por la mitad. Forma de cono, canela a marron oscuro.</p>
+  </div>
+  <button class="mcard-toggle" onclick="toggleCard(this)">Detalles Completos <span class="arrow">&#9660;</span></button>
+  <div class="mcard-details">
+    <h4>Como Se Ve</h4>
+    <ul>
+      <li><strong>Sombrero:</strong> Superficie de panal con hoyos y crestas, canela a marron oscuro</li>
+      <li><strong>Interior:</strong> Completamente hueco — la clave #1</li>
+      <li><strong>Tallo:</strong> Blanco a crema, tambien hueco</li>
+    </ul>
+    <h4>Donde y Cuando</h4>
+    <p>Cerca de olmos, fresnos, manzanos muertos. Areas post-incendio. <strong>Primavera (Mar–May).</strong></p>
+    <div class="lookalike">
+      <h4>Cuidado: Falsa Morilla (Mortal)</h4>
+      <p>Sombreros <strong>arrugados tipo cerebro</strong> (no panal limpio). <strong>NO hueca</strong> — carne algodonosa. Cortala: hueca = verdadera, compartimentada = alejate.</p>
+    </div>
+    <div class="tip"><h4>Si Encuentras Uno</h4><p>Remoja en agua con sal 30 min. Cocina completamente. Terrosa, sabor a nuez, un manjar.</p></div>
+  </div>
+</div>
+
+<!-- 3. CHICKEN ES -->
+<div class="mcard" data-regions="pnw,ne,se,mw" data-status="edible">
+  <div class="mcard-illust edible-bg">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <defs><linearGradient id="cow1es" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#f08030"/><stop offset="100%" stop-color="#e8a030"/></linearGradient></defs>
+      <rect x="20" y="40" width="16" height="140" rx="5" fill="#8a7050"/>
+      <ellipse cx="70" cy="80" rx="52" ry="18" fill="url(#cow1es)" transform="rotate(-10,70,80)"/>
+      <ellipse cx="78" cy="105" rx="56" ry="20" fill="#e89030" transform="rotate(-5,78,105)"/>
+      <ellipse cx="72" cy="130" rx="50" ry="18" fill="url(#cow1es)" transform="rotate(-8,72,130)"/>
+      <ellipse cx="80" cy="152" rx="44" ry="16" fill="#e8a030" transform="rotate(-3,80,152)"/>
+      <text x="100" y="195" text-anchor="middle" font-family="Oswald,sans-serif" font-weight="600" font-size="10" fill="#b06020" letter-spacing="2">POLLO DEL BOSQUE</text>
+    </svg>
+    <span class="mcard-status">Comestible</span>
+    <span class="mcard-season">May–Nov</span>
+  </div>
+  <div class="mcard-body">
+    <h3>Pollo del Bosque</h3>
+    <p class="sciname">Laetiporus sulphureus</p>
+    <p class="quick-id"><strong>Clave:</strong> <strong>Repisa naranja/amarilla brillante</strong> en capas superpuestas sobre troncos. Parte inferior amarillo azufre con poros diminutos. Puede ser enorme (60+ cm).</p>
+  </div>
+  <button class="mcard-toggle" onclick="toggleCard(this)">Detalles Completos <span class="arrow">&#9660;</span></button>
+  <div class="mcard-details">
+    <h4>Como Se Ve</h4>
+    <ul>
+      <li><strong>Forma:</strong> Repisas superpuestas en troncos o trozos</li>
+      <li><strong>Arriba:</strong> Naranja brillante a salmon</li>
+      <li><strong>Abajo:</strong> Amarillo azufre, poros diminutos (sin laminas)</li>
+      <li><strong>Carne:</strong> Gruesa, blanca, firme cuando joven</li>
+    </ul>
+    <h4>Donde y Cuando</h4>
+    <p>En maderas duras, especialmente robles. <strong>Final de primavera a otono.</strong> Siempre sobre madera.</p>
+    <div class="lookalike"><h4>Nota Importante</h4><p><strong>Evita los que crecen en coniferas, eucalipto o tejo.</strong> Solo come los jovenes y vibrantes.</p></div>
+    <div class="tip"><h4>Si Encuentras Uno</h4><p>Textura similar a pechuga de pollo. Corta los bordes tiernos, saltea con ajo.</p></div>
+  </div>
+</div>
+
+<!-- 4. HEN ES -->
+<div class="mcard" data-regions="ne,se,mw" data-status="edible">
+  <div class="mcard-illust edible-bg">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <defs><linearGradient id="hen1es" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#9a8a70"/><stop offset="100%" stop-color="#6a5a45"/></linearGradient></defs>
+      <ellipse cx="100" cy="145" rx="14" ry="30" fill="#d8ccb8"/>
+      <ellipse cx="70" cy="90" rx="32" ry="14" fill="url(#hen1es)" transform="rotate(-15,70,90)"/>
+      <ellipse cx="130" cy="85" rx="30" ry="13" fill="#8a7a60" transform="rotate(12,130,85)"/>
+      <ellipse cx="90" cy="70" rx="28" ry="12" fill="url(#hen1es)" transform="rotate(-8,90,70)"/>
+      <ellipse cx="115" cy="65" rx="26" ry="11" fill="#7a6a50" transform="rotate(8,115,65)"/>
+      <ellipse cx="80" cy="105" rx="34" ry="15" fill="#8a7a60" transform="rotate(-10,80,105)"/>
+      <ellipse cx="120" cy="108" rx="30" ry="13" fill="url(#hen1es)" transform="rotate(5,120,108)"/>
+      <ellipse cx="100" cy="55" rx="22" ry="10" fill="#9a8a70" transform="rotate(3,100,55)"/>
+      <text x="100" y="195" text-anchor="middle" font-family="Oswald,sans-serif" font-weight="600" font-size="10" fill="#6a5a45" letter-spacing="2">GALLINA DEL BOSQUE</text>
+    </svg>
+    <span class="mcard-status">Comestible</span>
+    <span class="mcard-season">Sep–Nov</span>
+  </div>
+  <div class="mcard-body">
+    <h3>Gallina del Bosque (Maitake)</h3>
+    <p class="sciname">Grifola frondosa</p>
+    <p class="quick-id"><strong>Clave:</strong> Roseta de <strong>abanicos gris-marron superpuestos</strong> al pie de arboles (robles). Poros blancos debajo. Puede pesar 5–25+ kg.</p>
+  </div>
+  <button class="mcard-toggle" onclick="toggleCard(this)">Detalles Completos <span class="arrow">&#9660;</span></button>
+  <div class="mcard-details">
+    <h4>Como Se Ve</h4>
+    <ul>
+      <li><strong>Forma:</strong> Roseta de abanicos superpuestos desde una sola base</li>
+      <li><strong>Color:</strong> Gris-marron arriba, blanco abajo</li>
+      <li><strong>Regresa al mismo lugar cada ano</strong></li>
+    </ul>
+    <h4>Donde y Cuando</h4>
+    <p>Base de maderas duras, especialmente robles. <strong>Otono (Sep–Nov).</strong></p>
+    <div class="lookalike"><h4>Cuidado: Poliporo de Mancha Negra</h4><p><strong>Se mancha de negro</strong> al golpear o cortar. La gallina del bosque no.</p></div>
+    <div class="tip"><h4>Si Encuentras Uno</h4><p>Desgarralo en trozos, saltea hasta crujiente. Sabor umami increible.</p></div>
+  </div>
+</div>
+
+<!-- 5. LION'S MANE ES -->
+<div class="mcard" data-regions="pnw,ne,se,mw" data-status="edible">
+  <div class="mcard-illust edible-bg">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <rect x="140" y="50" width="20" height="100" rx="6" fill="#8a7050" opacity=".4"/>
+      <circle cx="95" cy="100" r="45" fill="#f0ece4" stroke="#e0d8c8" stroke-width="1"/>
+      <g stroke="#e8e0d0" stroke-width="1.5" fill="none" opacity=".7">
+        <line x1="70" y1="75" x2="65" y2="95"/><line x1="78" y1="70" x2="75" y2="92"/>
+        <line x1="88" y1="65" x2="86" y2="88"/><line x1="98" y1="64" x2="97" y2="86"/>
+        <line x1="108" y1="66" x2="107" y2="88"/><line x1="116" y1="72" x2="114" y2="94"/>
+        <line x1="122" y1="80" x2="118" y2="100"/>
+        <line x1="68" y1="90" x2="60" y2="115"/><line x1="78" y1="88" x2="72" y2="112"/>
+        <line x1="88" y1="86" x2="84" y2="110"/><line x1="98" y1="85" x2="96" y2="110"/>
+        <line x1="108" y1="87" x2="106" y2="112"/><line x1="116" y1="92" x2="112" y2="114"/>
+        <line x1="72" y1="110" x2="66" y2="135"/><line x1="82" y1="108" x2="78" y2="130"/>
+        <line x1="92" y1="106" x2="90" y2="128"/><line x1="102" y1="107" x2="100" y2="130"/>
+        <line x1="112" y1="110" x2="108" y2="132"/><line x1="120" y1="114" x2="115" y2="134"/>
+      </g>
+      <text x="95" y="195" text-anchor="middle" font-family="Oswald,sans-serif" font-weight="600" font-size="11" fill="#8a7a60" letter-spacing="2">MELENA DE LEON</text>
+    </svg>
+    <span class="mcard-status">Comestible</span>
+    <span class="mcard-season">Ago–Nov</span>
+  </div>
+  <div class="mcard-body">
+    <h3>Melena de Leon</h3>
+    <p class="sciname">Hericium erinaceus</p>
+    <p class="quick-id"><strong>Clave:</strong> Pompon blanco con <strong>espinas colgantes tipo carabano</strong>. Sin sombrero, sin tallo, sin laminas. <strong>Practicamente sin dobles toxicos.</strong></p>
+  </div>
+  <button class="mcard-toggle" onclick="toggleCard(this)">Detalles Completos <span class="arrow">&#9660;</span></button>
+  <div class="mcard-details">
+    <h4>Como Se Ve</h4>
+    <ul>
+      <li><strong>Forma:</strong> Bola blanca con espinas largas y colgantes</li>
+      <li><strong>Color:</strong> Blanco puro cuando joven, se amarillenta con la edad</li>
+      <li><strong>Unico:</strong> Nada se le parece</li>
+    </ul>
+    <h4>Donde y Cuando</h4>
+    <p>En maderas duras muertas (haya, roble, arce). <strong>Final de verano a otono.</strong></p>
+    <div class="tip"><h4>Si Encuentras Uno</h4><p>Corta en "filetes" y sella en mantequilla. Textura como cangrejo o langosta.</p></div>
+  </div>
+</div>
+
+<!-- 6. OYSTER ES -->
+<div class="mcard" data-regions="pnw,ne,se,mw,sw" data-status="edible">
+  <div class="mcard-illust edible-bg">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <rect x="145" y="40" width="18" height="130" rx="5" fill="#8a7050" opacity=".4"/>
+      <ellipse cx="95" cy="70" rx="42" ry="22" fill="#d8d0c0" transform="rotate(-12,95,70)"/>
+      <ellipse cx="90" cy="95" rx="46" ry="24" fill="#e0d8c8" transform="rotate(-8,90,95)"/>
+      <ellipse cx="88" cy="122" rx="50" ry="25" fill="#d0c8b8" transform="rotate(-5,88,122)"/>
+      <ellipse cx="92" cy="148" rx="44" ry="20" fill="#e0d8c8" transform="rotate(-10,92,148)"/>
+      <text x="95" y="195" text-anchor="middle" font-family="Oswald,sans-serif" font-weight="600" font-size="10" fill="#8a7a60" letter-spacing="2">HONGO OSTRA</text>
+    </svg>
+    <span class="mcard-status">Comestible</span>
+    <span class="mcard-season">Todo el ano</span>
+  </div>
+  <div class="mcard-body">
+    <h3>Hongo Ostra</h3>
+    <p class="sciname">Pleurotus ostreatus</p>
+    <p class="quick-id"><strong>Clave:</strong> <strong>Forma de abanico/concha</strong>, blanco a gris, en racimos tipo repisa sobre madera dura muerta. Tallo corto descentrado. Olor a anis.</p>
+  </div>
+  <button class="mcard-toggle" onclick="toggleCard(this)">Detalles Completos <span class="arrow">&#9660;</span></button>
+  <div class="mcard-details">
+    <h4>Como Se Ve</h4>
+    <ul>
+      <li><strong>Sombrero:</strong> Abanico o concha, 5–20 cm, liso</li>
+      <li><strong>Color:</strong> Blanco, crema, gris o canela</li>
+      <li><strong>Crece en:</strong> Madera dura muerta — troncos, tocones</li>
+    </ul>
+    <h4>Donde y Cuando</h4>
+    <p>Maderas duras muertas. <strong>Primavera y otono, pero todo el ano en climas templados.</strong></p>
+    <div class="lookalike"><h4>Cuidado: Alas de Angel</h4><p><strong>Blanco puro, delgadas como papel</strong>, en madera de <strong>coniferas</strong>. Hongos ostra son mas gruesos, en <strong>madera dura</strong>.</p></div>
+    <div class="tip"><h4>Si Encuentras Uno</h4><p>Versatil. Saltea, agrega a sopas, empaniza y frie. Sabor suave y dulce.</p></div>
+  </div>
+</div>
+
+<!-- 7. PORCINI ES -->
+<div class="mcard" data-regions="pnw,ne,mw,sw" data-status="edible">
+  <div class="mcard-illust edible-bg">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <defs><linearGradient id="por1es" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#8a6040"/><stop offset="100%" stop-color="#6a4a2a"/></linearGradient></defs>
+      <rect x="84" y="100" width="32" height="70" rx="10" fill="#e8dcc8"/>
+      <path d="M84 110c-2-2-4-3-4-3" stroke="#d0c4b0" stroke-width="1" fill="none" opacity=".5"/>
+      <path d="M116 110c2-2 4-3 4-3" stroke="#d0c4b0" stroke-width="1" fill="none" opacity=".5"/>
+      <g opacity=".3" stroke="#c0b4a0" stroke-width=".5" fill="none">
+        <line x1="90" y1="108" x2="90" y2="155"/><line x1="95" y1="106" x2="95" y2="158"/>
+        <line x1="100" y1="105" x2="100" y2="160"/><line x1="105" y1="106" x2="105" y2="158"/>
+        <line x1="110" y1="108" x2="110" y2="155"/>
+      </g>
+      <ellipse cx="100" cy="80" rx="52" ry="30" fill="url(#por1es)"/>
+      <ellipse cx="100" cy="92" rx="50" ry="10" fill="#e8dcc0" opacity=".7"/>
+      <text x="100" y="195" text-anchor="middle" font-family="Oswald,sans-serif" font-weight="600" font-size="11" fill="#6a4a2a" letter-spacing="2">PORCINI</text>
+    </svg>
+    <span class="mcard-status">Comestible</span>
+    <span class="mcard-season">Jul–Oct</span>
+  </div>
+  <div class="mcard-body">
+    <h3>Porcini (Boleto Rey)</h3>
+    <p class="sciname">Boletus edulis</p>
+    <p class="quick-id"><strong>Clave:</strong> Sombrero marron convexo, <strong>poros esponjosos debajo (NO laminas)</strong>, tallo grueso y bulboso con reticulado blanco fino. La carne NO cambia de color.</p>
+  </div>
+  <button class="mcard-toggle" onclick="toggleCard(this)">Detalles Completos <span class="arrow">&#9660;</span></button>
+  <div class="mcard-details">
+    <h4>Como Se Ve</h4>
+    <ul>
+      <li><strong>Sombrero:</strong> Liso, convexo, marron, 8–25 cm</li>
+      <li><strong>Abajo:</strong> Poros esponjosos — blancos de joven, amarillo-verdosos con la edad</li>
+      <li><strong>Tallo:</strong> Grueso, bulboso, reticulado blanco fino en la parte superior</li>
+    </ul>
+    <h4>Donde y Cuando</h4>
+    <p>Bajo coniferas en bosques montanosos y del norte. <strong>Verano a otono.</strong></p>
+    <div class="lookalike"><h4>Cuidado: Boleto Amargo</h4><p>Se ve igual pero sabe <strong>intensamente amargo</strong>. Reticulado mas grueso y oscuro. Poros se tornan <strong>rosados</strong>. No toxico, pero arruina el platillo.</p></div>
+    <div class="tip"><h4>Si Encuentras Uno</h4><p>Uno de los mas buscados del mundo. Saltea fresco o seca para risottos y pastas.</p></div>
+  </div>
+</div>
+
+<!-- 8. DEATH CAP ES -->
+<div class="mcard toxic" data-regions="pnw,ne,se" data-status="toxic">
+  <div class="mcard-illust toxic-bg">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <defs><linearGradient id="dc1es" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#a8b868"/><stop offset="100%" stop-color="#8a9a50"/></linearGradient></defs>
+      <path d="M90 170c-6 0-10-4-8-10 4-10 6-6 8-10s2-6 2-6h16s0 2 2 6 4 0 8 10c2 6-2 10-8 10z" fill="#e8e0d0" stroke="#c0b8a0" stroke-width="1"/>
+      <rect x="92" y="100" width="16" height="72" rx="5" fill="#e8e0d0"/>
+      <ellipse cx="100" cy="124" rx="10" ry="3" fill="none" stroke="#c8c0a8" stroke-width="1.5"/>
+      <ellipse cx="100" cy="70" rx="46" ry="32" fill="url(#dc1es)"/>
+      <text x="100" y="18" text-anchor="middle" font-family="Oswald,sans-serif" font-weight="700" font-size="16" fill="#c0392b">MORTAL</text>
+      <text x="100" y="195" text-anchor="middle" font-family="Oswald,sans-serif" font-weight="600" font-size="10" fill="#c0392b" letter-spacing="2">HONGO DE LA MUERTE</text>
+    </svg>
+    <span class="mcard-status">Mortal</span>
+    <span class="mcard-season">Ago–Nov</span>
+  </div>
+  <div class="mcard-body">
+    <h3>Hongo de la Muerte (Death Cap)</h3>
+    <p class="sciname">Amanita phalloides</p>
+    <p class="quick-id"><strong>Clave:</strong> Sombrero verde-amarillento a oliva, laminas blancas, <strong>anillo tipo falda + volva tipo copa en la base</strong> (desentierra!). Huele a miel. <strong>Media capsula mata a un adulto.</strong></p>
+  </div>
+  <button class="mcard-toggle" onclick="toggleCard(this)">Detalles Completos <span class="arrow">&#9660;</span></button>
+  <div class="mcard-details">
+    <h4>Como Se Ve</h4>
+    <ul>
+      <li><strong>Sombrero:</strong> 5–15 cm, verde-amarillento a oliva, liso</li>
+      <li><strong>Laminas:</strong> Blancas, muy juntas, libres del tallo</li>
+      <li><strong>Tallo:</strong> Blanco, 8–15 cm, con anillo cerca de arriba</li>
+      <li><strong>Base:</strong> Bulbosa con volva tipo saco — frecuentemente enterrada. <strong>DESENTIERRA LA BASE</strong></li>
+    </ul>
+    <div class="danger-note">
+      <h4>Por Que Mata</h4>
+      <ul>
+        <li><strong>Amatoxinas</strong> que destruyen higado y rinones</li>
+        <li><strong>Sintomas se retrasan 6–24 horas</strong></li>
+        <li>Fase enganosa de "mejoria" antes de la etapa final</li>
+        <li>Sin antidoto casero — urgencias inmediatamente</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 9. DESTROYING ANGEL ES -->
+<div class="mcard toxic" data-regions="pnw,ne,se,mw" data-status="toxic">
+  <div class="mcard-illust toxic-bg">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <path d="M90 170c-6 0-10-4-8-10 4-10 6-6 8-10s2-6 2-6h16s0 2 2 6 4 0 8 10c2 6-2 10-8 10z" fill="#f0ece8" stroke="#d0c8c0" stroke-width="1"/>
+      <rect x="94" y="95" width="12" height="78" rx="4" fill="#f0ece8"/>
+      <ellipse cx="100" cy="120" rx="8" ry="2.5" fill="none" stroke="#d8d0c8" stroke-width="1.5"/>
+      <ellipse cx="100" cy="65" rx="40" ry="30" fill="#f0ece8" stroke="#e0d8d0" stroke-width="1"/>
+      <text x="100" y="18" text-anchor="middle" font-family="Oswald,sans-serif" font-weight="700" font-size="16" fill="#c0392b">MORTAL</text>
+      <text x="100" y="195" text-anchor="middle" font-family="Oswald,sans-serif" font-weight="600" font-size="10" fill="#c0392b" letter-spacing="2">ANGEL DESTRUCTOR</text>
+    </svg>
+    <span class="mcard-status">Mortal</span>
+    <span class="mcard-season">Jun–Oct</span>
+  </div>
+  <div class="mcard-body">
+    <h3>Angel Destructor</h3>
+    <p class="sciname">Amanita bisporigera / A. virosa / A. ocreata</p>
+    <p class="quick-id"><strong>Clave:</strong> <strong>Todo blanco puro.</strong> Laminas blancas, anillo fragil, volva en la base (desentierra!). Parece inofensivo. <strong>Tan letal como el Hongo de la Muerte.</strong></p>
+  </div>
+  <button class="mcard-toggle" onclick="toggleCard(this)">Detalles Completos <span class="arrow">&#9660;</span></button>
+  <div class="mcard-details">
+    <h4>Como Se Ve</h4>
+    <ul>
+      <li><strong>Sombrero:</strong> 5–12 cm, blanco puro, liso</li>
+      <li><strong>Laminas:</strong> Blancas, libres del tallo</li>
+      <li><strong>Tallo:</strong> Blanco, alto, esbelto, anillo fragil</li>
+      <li><strong>Base:</strong> Bulbosa con volva tipo saco — <strong>DESENTIERRA LA BASE</strong></li>
+    </ul>
+    <div class="danger-note">
+      <h4>Regla #1 con Hongos Blancos</h4>
+      <p><strong>Si es blanco, tiene laminas y crece del suelo — tratalo como mortal hasta que se demuestre lo contrario.</strong> Contiene las mismas amatoxinas que el Hongo de la Muerte.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 10. JACK O'LANTERN ES -->
+<div class="mcard caution" data-regions="ne,se,mw" data-status="toxic">
+  <div class="mcard-illust caution-bg">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <defs><linearGradient id="jol1es" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#e08030"/><stop offset="100%" stop-color="#c06020"/></linearGradient></defs>
+      <rect x="85" y="140" width="10" height="30" rx="3" fill="#c06828"/>
+      <rect x="100" y="135" width="10" height="40" rx="3" fill="#d07030"/>
+      <rect x="115" y="138" width="10" height="34" rx="3" fill="#c06828"/>
+      <ellipse cx="90" cy="110" rx="28" ry="32" fill="url(#jol1es)"/>
+      <ellipse cx="110" cy="105" rx="30" ry="34" fill="#d07828"/>
+      <ellipse cx="125" cy="112" rx="24" ry="28" fill="url(#jol1es)" opacity=".9"/>
+      <ellipse cx="75" cy="115" rx="20" ry="24" fill="#c06020" opacity=".8"/>
+      <text x="100" y="18" text-anchor="middle" font-family="Oswald,sans-serif" font-weight="700" font-size="14" fill="#d35400">TOXICO</text>
+      <text x="100" y="195" text-anchor="middle" font-family="Oswald,sans-serif" font-weight="600" font-size="11" fill="#d35400" letter-spacing="2">JACK O'LANTERN</text>
+    </svg>
+    <span class="mcard-status" style="background:var(--caution)">Toxico</span>
+    <span class="mcard-season">Jul–Nov</span>
+  </div>
+  <div class="mcard-body">
+    <h3>Jack O'Lantern (Hongo Linterna)</h3>
+    <p class="sciname">Omphalotus olearius</p>
+    <p class="quick-id"><strong>Clave:</strong> Naranja brillante, <strong>laminas verdaderas y filosas</strong> (no pliegues), crece <strong>en racimos sobre/cerca de madera</strong>. Laminas brillan en la oscuridad. <strong>El impostor #1 del Chanterelle.</strong></p>
+  </div>
+  <button class="mcard-toggle" onclick="toggleCard(this)">Detalles Completos <span class="arrow">&#9660;</span></button>
+  <div class="mcard-details">
+    <h4>Chanterelle vs. Jack O'Lantern</h4>
+    <table class="compare-tbl"><tr><th>Caracteristica</th><th>Chanterelle (Seguro)</th><th>Jack O'Lantern (Toxico)</th></tr>
+    <tr><td>Laminas</td><td>Falsas (pliegues)</td><td>Verdaderas y filosas</td></tr>
+    <tr><td>Crecimiento</td><td>Del suelo, disperso</td><td>Racimos sobre madera</td></tr>
+    <tr><td>Interior</td><td>Carne palida</td><td>Naranja por completo</td></tr>
+    <tr><td>Brillo</td><td>No</td><td>Si</td></tr>
+    <tr><td>Olor</td><td>Afrutado</td><td>Desagradable</td></tr></table>
+    <div class="danger-note">
+      <h4>Si Alguien Come Uno</h4>
+      <p>Calambres severos, vomito, diarrea en 1–2 horas. Rara vez fatal. <strong>Busca atencion medica.</strong></p>
+    </div>
+  </div>
+</div>
+
+</div><!-- grid-es -->
+</div><!-- wrap -->
+
+<!-- EMERGENCY ES -->
+<div class="emergency" id="emergency-es">
+  <h2>Si Alguien Come un Hongo Toxico</h2>
+  <div class="phone">1-800-222-1222</div>
+  <p>Control de Envenenamientos de EE.UU. — Llama inmediatamente. NO esperes sintomas.</p>
+  <ol>
+    <li><strong>Llama ahora.</strong> Con el Hongo de la Muerte/Angel Destructor, los sintomas se retrasan 6–24 horas — el dano a organos empieza antes de que te sientas mal.</li>
+    <li><strong>Guarda una muestra</strong> o toma fotos claras del hongo.</li>
+    <li><strong>NO provoques el vomito</strong> a menos que te lo indique un medico.</li>
+    <li><strong>Ve a urgencias.</strong> No intentes esperar en casa.</li>
+    <li><strong>Anota la hora</strong> de ingestion y cuando aparecieron los sintomas.</li>
+  </ol>
+</div>
+
+<!-- GEAR & CHECKLIST ES -->
+<div class="section" id="extras-es">
+  <h2>Extras para el Sendero</h2>
+  <p class="sub">Todo lo que necesitas para buscar hongos</p>
+
+  <div class="collapsible">
+    <button class="collapsible-header" onclick="toggleCollapsible(this)">Que Llevar: Lista de Equipo <span class="arrow">&#9660;</span></button>
+    <div class="collapsible-body">
+      <h4>Lo Esencial</h4>
+      <ul>
+        <li><strong>Cuchillo pequeno o navaja</strong> — corta hongos limpiamente en la base</li>
+        <li><strong>Bolsas de papel</strong> — nunca plastico (atrapa humedad, destruye ejemplares)</li>
+        <li><strong>Canasta o bolsa de malla</strong> — mantiene los hallazgos intactos</li>
+        <li><strong>Tu telefono (camara)</strong> — fotos del sombrero, abajo, tallo, base, habitat</li>
+      </ul>
+      <h4>Bueno Tener</h4>
+      <ul>
+        <li><strong>Lupa 10x</strong> — examina laminas y poros de cerca</li>
+        <li><strong>Libreta de campo</strong> — arboles cercanos, tipo de suelo, clima</li>
+        <li><strong>Papel aluminio</strong> — envuelve ejemplares individualmente</li>
+        <li><strong>Papel blanco + oscuro</strong> — para huellas de esporas</li>
+        <li><strong>Toallitas humedas</strong> — lavate las manos despues de manejar hongos desconocidos</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="collapsible">
+    <button class="collapsible-header" onclick="toggleCollapsible(this)">Checklist de Identificacion <span class="arrow">&#9660;</span></button>
+    <div class="collapsible-body">
+      <ul>
+        <li><strong>Donde crece?</strong> Suelo, madera, tronco, madera enterrada?</li>
+        <li><strong>Que hay cerca?</strong> Roble, haya, conifera, bosque mixto?</li>
+        <li><strong>Como crece?</strong> Solo, disperso, racimo denso?</li>
+        <li><strong>Sombrero:</strong> Color, forma, tamano, textura?</li>
+        <li><strong>Parte inferior:</strong> Laminas, poros, pliegues, espinas?</li>
+        <li><strong>Tallo:</strong> Color, grosor, anillo, copa en la base?</li>
+        <li><strong>Cortalo:</strong> Hueco? Solido? La carne cambia de color?</li>
+        <li><strong>Olor:</strong> Afrutado? Terroso? Desagradable? Sin olor?</li>
+        <li><strong>Fotos tomadas?</strong> Arriba, abajo, tallo, base, habitat — al menos 5</li>
+        <li><strong>Huella de esporas?</strong> Papel blanco + oscuro, laminas abajo, 4–8 horas</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+</div><!-- lang-es -->
+
+<!-- DISCLAIMER -->
+<div class="disclaimer">
+  <p id="disc-en"><strong>Safety notice:</strong> This guide is for educational purposes. Never eat a wild mushroom based solely on a written guide. When in doubt, leave it alone. If you suspect poisoning, call emergency services immediately. Always consult an experienced forager before consuming wild mushrooms.</p>
+  <p id="disc-es" hidden><strong>Aviso de seguridad:</strong> Esta guia es para fines educativos. Nunca comas un hongo silvestre basandote unicamente en una guia escrita. Ante la duda, dejalo donde esta. Si sospechas envenenamiento, llama a emergencias inmediatamente.</p>
+</div>
+
+<footer>
+  <div class="q" id="fq-en">"It doesn't have to be perfect. It just has to happen."</div>
+  <div class="q" id="fq-es" hidden>"No tiene que ser perfecto, tiene que pasar."</div>
+  <div class="s">Paola Adventurer · Archery · Camping · Explore</div>
+  <a class="back" href="/" id="fb-en" style="display:inline-block;margin-top:16px;color:var(--sun);font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:1px;text-transform:uppercase;font-size:12px;border:1.5px solid var(--sun);border-radius:100px;padding:8px 18px;">Back to Shop</a>
+  <a class="back" href="/" id="fb-es" hidden style="display:inline-block;margin-top:16px;color:var(--sun);font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:1px;text-transform:uppercase;font-size:12px;border:1.5px solid var(--sun);border-radius:100px;padding:8px 18px;">Volver a la Tienda</a>
+</footer>
+
+<script>
+var currentLang = 'en';
+
+function setLang(l) {
+  currentLang = l;
+  document.getElementById('lang-en').hidden = l !== 'en';
+  document.getElementById('lang-es').hidden = l !== 'es';
+  document.getElementById('btn-en').classList.toggle('active', l === 'en');
+  document.getElementById('btn-es').classList.toggle('active', l === 'es');
+  document.getElementById('disc-en').hidden = l !== 'en';
+  document.getElementById('disc-es').hidden = l !== 'es';
+  document.getElementById('fq-en').hidden = l !== 'en';
+  document.getElementById('fq-es').hidden = l !== 'es';
+  document.getElementById('fb-en').hidden = l !== 'en';
+  document.getElementById('fb-es').hidden = l !== 'es';
+  document.documentElement.lang = l;
+  try { localStorage.setItem('pa_lang', l); } catch(e) {}
+  // sync region selects
+  var enSel = document.getElementById('region-select-en');
+  var esSel = document.getElementById('region-select-es');
+  if (l === 'en') { esSel.value = enSel.value; }
+  else { enSel.value = esSel.value; }
+  filterRegion(l === 'en' ? enSel.value : esSel.value);
+}
+
+function filterRegion(region) {
+  var gridId = currentLang === 'en' ? 'grid-en' : 'grid-es';
+  var countId = currentLang === 'en' ? 'count-en' : 'count-es';
+  var cards = document.getElementById(gridId).querySelectorAll('.mcard');
+  var visible = 0;
+  cards.forEach(function(card) {
+    var regions = card.getAttribute('data-regions');
+    if (region === 'all' || regions.indexOf(region) !== -1) {
+      card.style.display = '';
+      visible++;
+    } else {
+      card.style.display = 'none';
+    }
+  });
+  var countEl = document.getElementById(countId);
+  if (region === 'all') {
+    countEl.textContent = currentLang === 'en'
+      ? 'Showing all 10 mushrooms'
+      : 'Mostrando los 10 hongos';
+  } else {
+    var regionNames = {
+      pnw: currentLang === 'en' ? 'Pacific Northwest' : 'Noroeste del Pacifico',
+      ne: currentLang === 'en' ? 'Northeast & Appalachia' : 'Noreste y Apalaches',
+      se: currentLang === 'en' ? 'Southeast' : 'Sureste',
+      mw: currentLang === 'en' ? 'Midwest' : 'Medio Oeste',
+      sw: currentLang === 'en' ? 'Southwest & Rockies' : 'Suroeste y Rocosas'
+    };
+    countEl.textContent = currentLang === 'en'
+      ? visible + ' mushrooms found in ' + regionNames[region]
+      : visible + ' hongos encontrados en ' + regionNames[region];
+  }
+  // sync both selects
+  document.getElementById('region-select-en').value = region;
+  document.getElementById('region-select-es').value = region;
+}
+
+function toggleCard(btn) {
+  var details = btn.nextElementSibling;
+  details.classList.toggle('show');
+  btn.classList.toggle('open');
+  var isOpen = details.classList.contains('show');
+  var label = isOpen
+    ? (currentLang === 'en' ? 'Close Details' : 'Cerrar Detalles')
+    : (currentLang === 'en' ? 'Full ID Details' : 'Detalles Completos');
+  btn.innerHTML = label + ' <span class="arrow">&#9660;</span>';
+}
+
+function toggleCollapsible(btn) {
+  var body = btn.nextElementSibling;
+  body.classList.toggle('show');
+  btn.classList.toggle('open');
+}
+
+// Auto-detect language
+(function() {
+  var saved = null;
+  try { saved = localStorage.getItem('pa_lang'); } catch(e) {}
+  if (saved) { setLang(saved); }
+  else if (navigator.language && navigator.language.startsWith('es')) { setLang('es'); }
+  else { filterRegion('all'); }
+})();
+</script>
+
+</body>
+</html>
