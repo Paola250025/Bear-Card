@@ -73,16 +73,21 @@ a{color:inherit;text-decoration:none;}
 .mcard.caution .mcard-status{background:var(--caution);}
 
 .mcard-photo{position:relative;aspect-ratio:16/10;overflow:hidden;}
-.mcard-photo.edible-bg{background:linear-gradient(135deg,#d4e4cc 0%,#b8d4a8 50%,#a8c898 100%);}
-.mcard-photo.toxic-bg{background:linear-gradient(135deg,#ecc8c3 0%,#e0a9a2 50%,#d49890 100%);}
-.mcard-photo.caution-bg{background:linear-gradient(135deg,#f5d4b3 0%,#edc49a 50%,#e5b482 100%);}
+.mcard-photo.edible-bg{background:linear-gradient(145deg,#c8ddb8 0%,#a8c898 40%,#90b880 100%);}
+.mcard-photo.toxic-bg{background:linear-gradient(145deg,#e8bab3 0%,#d49890 40%,#c48878 100%);}
+.mcard-photo.caution-bg{background:linear-gradient(145deg,#f0ccaa 0%,#e5b482 40%,#d8a470 100%);}
+.mcard-photo::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 70%,rgba(255,255,255,.18) 0%,transparent 60%);pointer-events:none;z-index:0;}
+.mcard-photo img{position:relative;z-index:1;}
 .mcard-photo img{width:100%;height:100%;object-fit:cover;}
 .mcard-status{position:absolute;top:12px;right:12px;font-family:'Oswald',sans-serif;font-weight:700;letter-spacing:1px;text-transform:uppercase;font-size:11px;color:#fff;padding:5px 14px;border-radius:100px;background:var(--edible);z-index:2;}
 .mcard-season{position:absolute;bottom:10px;left:12px;font-family:'Nunito',sans-serif;font-weight:700;font-size:12px;color:var(--cafe);background:rgba(255,255,255,.85);padding:4px 12px;border-radius:100px;z-index:2;}
 
 .free-badge{position:absolute;top:12px;left:12px;font-family:'Oswald',sans-serif;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;font-size:10px;color:var(--forest);background:var(--sun);padding:4px 12px;border-radius:100px;z-index:4;box-shadow:0 2px 8px rgba(0,0,0,.15);}
 
-.photo-fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Bitter',serif;font-weight:900;font-size:17px;color:rgba(0,0,0,.12);text-align:center;padding:20px;letter-spacing:1px;}
+.photo-fallback{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:16px;gap:6px;}
+.photo-fallback .fb-icon{width:64px;height:64px;opacity:.55;}
+.photo-fallback .fb-name{font-family:'Bitter',serif;font-weight:900;font-size:15px;color:rgba(0,0,0,.22);letter-spacing:.5px;line-height:1.2;}
+.photo-fallback .fb-note{font-family:'Nunito',sans-serif;font-size:10px;font-weight:600;color:rgba(0,0,0,.13);letter-spacing:.5px;text-transform:uppercase;margin-top:2px;}
 
 .mcard.locked .mcard-photo img{filter:blur(8px) brightness(.65);transform:scale(1.05);}
 .mcard.locked .mcard-body .quick-id{display:none;}
@@ -1221,15 +1226,47 @@ function toggleCollapsible(btn){
   btn.classList.toggle('open');
 }
 
+var mushroomIcons={
+'chanterelle':'<path d="M32 52c-6 0-12-2-16-6-3-3-4-7-2-12 1-4 4-8 8-11 3-2 6-4 10-4s7 2 10 4c4 3 7 7 8 11 2 5 1 9-2 12-4 4-10 6-16 6z" fill="currentColor" opacity=".25"/><path d="M32 14c0 0-8 10-8 22h16c0-12-8-22-8-22z" fill="none" stroke="currentColor" stroke-width="2" opacity=".35"/><path d="M24 36q4 8 8 16q4-8 8-16" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".2"/>',
+'morel':'<path d="M26 46l-2-14c0 0 0-10 8-16 8 6 8 16 8 16l-2 14z" fill="currentColor" opacity=".2"/><circle cx="29" cy="24" r="2.5" fill="currentColor" opacity=".15"/><circle cx="35" cy="24" r="2.5" fill="currentColor" opacity=".15"/><circle cx="32" cy="20" r="2" fill="currentColor" opacity=".15"/><circle cx="32" cy="28" r="2.5" fill="currentColor" opacity=".15"/><circle cx="27" cy="29" r="2" fill="currentColor" opacity=".15"/><circle cx="37" cy="29" r="2" fill="currentColor" opacity=".15"/>',
+'chicken':'<path d="M16 38c2-6 8-10 14-12 6-2 12-1 16 2 3 3 4 7 2 12-2 4-8 6-14 6-8 0-15-2-18-8z" fill="currentColor" opacity=".22"/><path d="M20 34c2-4 6-7 10-8 5-2 9-1 12 2" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".18"/><path d="M18 42c2-4 6-6 10-7 5-1 9 0 12 3" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".15"/>',
+'hen':'<path d="M32 18c-12 0-18 10-18 18 0 6 6 12 18 12s18-6 18-12c0-8-6-18-18-18z" fill="currentColor" opacity=".18"/><path d="M22 30q4-4 10-2m-12 6q5-3 12-1m-10 5q4-2 10 0" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".2"/>',
+'lion':'<path d="M24 16c0 0-4 6-4 14s2 14 4 18h16c2-4 4-10 4-18s-4-14-4-14c-4-4-12-4-16 0z" fill="currentColor" opacity=".18"/><path d="M28 20v8m4-10v10m4-8v8m-12 2v6m4-4v6m4-6v6m4-4v6" stroke="currentColor" stroke-width="1.5" opacity=".2" stroke-linecap="round"/>',
+'oyster':'<path d="M18 40c0-10 6-18 14-22 4 2 8 6 10 12 2 6 1 12-3 16-6 4-14 4-18 0-2-2-3-4-3-6z" fill="currentColor" opacity=".2"/><path d="M32 18c-2 6-2 12 0 18m-6-14c-1 5 0 10 2 14m12-16c1 5 0 10-2 14" fill="none" stroke="currentColor" stroke-width="1.2" opacity=".18"/>',
+'porcini':'<ellipse cx="32" cy="26" rx="14" ry="8" fill="currentColor" opacity=".22"/><path d="M28 26v20h8v-20" fill="currentColor" opacity=".16"/>',
+'deathcap':'<ellipse cx="32" cy="22" rx="12" ry="9" fill="currentColor" opacity=".22"/><path d="M28 22v22h8v-22" fill="currentColor" opacity=".16"/><ellipse cx="32" cy="32" rx="6" ry="1.5" fill="currentColor" opacity=".2"/><path d="M26 44c-2 4-4 6 0 8h12c4-2 2-4 0-8" fill="currentColor" opacity=".12"/>',
+'angel':'<ellipse cx="32" cy="20" rx="10" ry="8" fill="currentColor" opacity=".22"/><path d="M29 20v26h6v-26" fill="currentColor" opacity=".16"/><ellipse cx="32" cy="30" rx="5" ry="1.5" fill="currentColor" opacity=".2"/><path d="M26 46c-2 3-3 5 0 6h12c3-1 2-3 0-6" fill="currentColor" opacity=".12"/>',
+'jack':'<ellipse cx="24" cy="26" rx="10" ry="7" fill="currentColor" opacity=".2"/><ellipse cx="40" cy="24" rx="9" ry="6" fill="currentColor" opacity=".18"/><ellipse cx="32" cy="30" rx="8" ry="5" fill="currentColor" opacity=".16"/><path d="M24 33v10m16-12v10m-8-8v12" stroke="currentColor" stroke-width="1.5" opacity=".15"/>'
+};
+var nameToIcon={
+'Chanterelle':'chanterelle','Chanterela':'chanterelle',
+'Morel':'morel','Morilla':'morel',
+'Chicken of the Woods':'chicken','Pollo del Bosque':'chicken',
+'Hen of the Woods':'hen','Gallina del Bosque':'hen',
+"Lion's Mane":'lion','Melena de León':'lion',
+'Oyster Mushroom':'oyster','Hongo Ostra':'oyster',
+'Porcini':'porcini','Porcini (Boleto Rey)':'porcini',
+'Death Cap':'deathcap','Hongo de la Muerte':'deathcap',
+'Destroying Angel':'angel','Ángel Destructor':'angel',
+"Jack O'Lantern":'jack',"Jack O’Lantern":'jack'
+};
 function imgErr(el){
   el.style.display='none';
   var card=el.closest('.mcard');
   if(!card) return;
-  var name=card.querySelector('h3');
-  if(!name) return;
+  var h3=card.querySelector('h3');
+  if(!h3) return;
+  var n=h3.textContent.trim();
+  var key=nameToIcon[n]||'porcini';
+  var svg=mushroomIcons[key]||mushroomIcons['porcini'];
   var fb=document.createElement('div');
   fb.className='photo-fallback';
-  fb.textContent=name.textContent;
+  var isToxic=card.classList.contains('toxic');
+  var isCaution=card.querySelector('.mcard-status') && card.querySelector('.mcard-status').textContent.indexOf('aution')!==-1;
+  var col=isToxic?'#8b2020':isCaution?'#8b5e20':'#2a5a38';
+  fb.innerHTML='<svg class="fb-icon" viewBox="0 0 64 64" fill="none" style="color:'+col+'">'+svg+'</svg>'
+    +'<span class="fb-name">'+n+'</span>'
+    +'<span class="fb-note">Photo on live site</span>';
   el.parentElement.appendChild(fb);
 }
 
