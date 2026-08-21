@@ -57,6 +57,12 @@ a{color:inherit;text-decoration:none;}
 .region-bar .count{font-family:'Nunito',sans-serif;font-weight:600;font-size:14px;color:var(--muted);margin-top:8px;}
 .region-bar .print-btn{display:inline-block;margin-left:16px;background:var(--terra);color:#fff;border:0;font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:1px;text-transform:uppercase;font-size:12px;padding:10px 20px;border-radius:100px;cursor:pointer;}
 .region-bar .print-btn:hover{background:#9a4526;}
+.filter-row{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px;margin-top:10px;}
+.filter-label{font-family:'Oswald',sans-serif;font-weight:500;letter-spacing:1px;text-transform:uppercase;font-size:11px;color:var(--muted);white-space:nowrap;}
+.fchip{border:2px solid var(--khaki);background:transparent;color:var(--cafe);font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:.5px;text-transform:uppercase;font-size:11px;padding:5px 14px;border-radius:100px;cursor:pointer;transition:.15s;white-space:nowrap;}
+.fchip:hover{border-color:var(--forest2);color:var(--forest);}
+.fchip.active{background:var(--forest);color:#fff;border-color:var(--forest);}
+.fchip.chip-toxic.active{background:var(--toxic);border-color:var(--toxic);}
 
 .preview-note{text-align:center;padding:12px 20px;background:rgba(47,107,69,.08);border-bottom:1px solid rgba(47,107,69,.12);font-size:13px;color:var(--forest);font-weight:600;}
 .preview-note span{color:var(--terra);}
@@ -84,10 +90,11 @@ a{color:inherit;text-decoration:none;}
 
 .free-badge{position:absolute;top:12px;left:12px;font-family:'Oswald',sans-serif;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;font-size:10px;color:var(--forest);background:var(--sun);padding:4px 12px;border-radius:100px;z-index:4;box-shadow:0 2px 8px rgba(0,0,0,.15);}
 
-.photo-fallback{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:16px;gap:6px;}
-.photo-fallback .fb-icon{width:64px;height:64px;opacity:.55;}
-.photo-fallback .fb-name{font-family:'Bitter',serif;font-weight:900;font-size:15px;color:rgba(0,0,0,.22);letter-spacing:.5px;line-height:1.2;}
-.photo-fallback .fb-note{font-family:'Nunito',sans-serif;font-size:10px;font-weight:600;color:rgba(0,0,0,.13);letter-spacing:.5px;text-transform:uppercase;margin-top:2px;}
+.photo-fallback{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:16px;gap:4px;background:repeating-linear-gradient(-45deg,transparent,transparent 10px,rgba(0,0,0,.015) 10px,rgba(0,0,0,.015) 20px);}
+.photo-fallback .fb-emoji{font-size:32px;filter:grayscale(.3);opacity:.6;}
+.photo-fallback .fb-name{font-family:'Bitter',serif;font-weight:900;font-size:14px;color:rgba(0,0,0,.18);letter-spacing:.5px;line-height:1.2;}
+.photo-fallback .fb-trait{font-family:'Nunito',sans-serif;font-size:11px;font-weight:600;color:rgba(0,0,0,.14);line-height:1.3;max-width:180px;}
+.photo-fallback .fb-note{font-family:'Nunito',sans-serif;font-size:9px;font-weight:700;color:rgba(0,0,0,.1);letter-spacing:1px;text-transform:uppercase;margin-top:4px;}
 
 .mcard.locked .mcard-photo img{filter:blur(8px) brightness(.65);transform:scale(1.05);}
 .mcard.locked .mcard-body .quick-id{display:none;}
@@ -213,6 +220,8 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
   .navbar .links{justify-content:center;}
   .region-bar{top:85px;}
   .region-bar .print-btn{display:block;margin:10px auto 0;}
+  .filter-row{margin-top:8px;}
+  .fchip{font-size:10px;padding:4px 10px;}
   .unlock-banner .price{font-size:34px;}
   .missing-list{padding:0 8px;}
 }
@@ -266,7 +275,7 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
 
 <div class="region-bar" id="region-bar-en">
   <label for="region-select-en">What state are you hiking in?</label>
-  <select id="region-select-en" onchange="filterCards(this.value)">
+  <select id="region-select-en" onchange="applyFilters()">
     <option value="all">All 50 States</option>
     <option value="AL">Alabama</option>
     <option value="AK">Alaska</option>
@@ -320,6 +329,22 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
     <option value="WI">Wisconsin</option>
     <option value="WY">Wyoming</option>
   </select>
+  <div class="filter-row">
+    <span class="filter-label">Show:</span>
+    <div class="filter-chips">
+      <button class="fchip active" onclick="setFilter('edibility','all')">All</button>
+      <button class="fchip" onclick="setFilter('edibility','edible')">Edible</button>
+      <button class="fchip chip-toxic" onclick="setFilter('edibility','toxic')">Toxic</button>
+    </div>
+  </div>
+  <div class="filter-row">
+    <span class="filter-label">Growth:</span>
+    <div class="filter-chips">
+      <button class="fchip active" onclick="setFilter('growth','all')">All</button>
+      <button class="fchip" onclick="setFilter('growth','soil')">From Soil</button>
+      <button class="fchip" onclick="setFilter('growth','wood')">On Wood</button>
+    </div>
+  </div>
   <button class="print-btn no-print" onclick="window.print()">Print This Page</button>
   <div class="count" id="count-en"></div>
 </div>
@@ -720,7 +745,7 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
 
 <div class="region-bar" id="region-bar-es">
   <label for="region-select-es">&iquest;En qu&eacute; estado haces senderismo?</label>
-  <select id="region-select-es" onchange="filterCards(this.value)">
+  <select id="region-select-es" onchange="applyFilters()">
     <option value="all">Los 50 Estados</option>
     <option value="AL">Alabama</option>
     <option value="AK">Alaska</option>
@@ -774,6 +799,22 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
     <option value="WI">Wisconsin</option>
     <option value="WY">Wyoming</option>
   </select>
+  <div class="filter-row">
+    <span class="filter-label">Mostrar:</span>
+    <div class="filter-chips">
+      <button class="fchip active" onclick="setFilter('edibility','all')">Todos</button>
+      <button class="fchip" onclick="setFilter('edibility','edible')">Comestibles</button>
+      <button class="fchip chip-toxic" onclick="setFilter('edibility','toxic')">T&oacute;xicos</button>
+    </div>
+  </div>
+  <div class="filter-row">
+    <span class="filter-label">Crecimiento:</span>
+    <div class="filter-chips">
+      <button class="fchip active" onclick="setFilter('growth','all')">Todos</button>
+      <button class="fchip" onclick="setFilter('growth','soil')">Del Suelo</button>
+      <button class="fchip" onclick="setFilter('growth','wood')">En Madera</button>
+    </div>
+  </div>
   <button class="print-btn no-print" onclick="window.print()">Imprimir Esta P&aacute;gina</button>
   <div class="count" id="count-es"></div>
 </div>
@@ -1069,215 +1110,264 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
 </footer>
 
 <script>
-var CHECKOUT_URL = 'https://payhip.com/b/XXXXX';
-var currentLang = 'en';
+var CHECKOUT_URL = ‘https://payhip.com/b/XXXXX’;
+var currentLang = ‘en’;
+var activeEdibility = ‘all’;
+var activeGrowth = ‘all’;
 
 var stateToRegions = {
-  'AL':['se'],'AK':['pnw'],'AZ':['sw'],'AR':['se'],
-  'CA':['pnw','sw'],'CO':['sw'],'CT':['ne'],'DC':['ne'],'DE':['ne'],
-  'FL':['se'],'GA':['se'],'HI':['sw'],'ID':['pnw'],
-  'IL':['mw'],'IN':['mw'],'IA':['mw'],'KS':['mw'],
-  'KY':['se','ne'],'LA':['se'],'ME':['ne'],'MD':['ne'],
-  'MA':['ne'],'MI':['mw'],'MN':['mw'],'MS':['se'],
-  'MO':['mw'],'MT':['pnw','sw'],'NE':['mw'],'NV':['sw'],
-  'NH':['ne'],'NJ':['ne'],'NM':['sw'],'NY':['ne'],
-  'NC':['se','ne'],'ND':['mw'],'OH':['mw','ne'],'OK':['mw','sw'],
-  'OR':['pnw'],'PA':['ne'],'RI':['ne'],'SC':['se'],
-  'SD':['mw'],'TN':['se'],'TX':['sw','se'],'UT':['sw'],
-  'VT':['ne'],'VA':['ne','se'],'WA':['pnw'],'WV':['ne'],
-  'WI':['mw'],'WY':['sw']
+  ‘AL’:[‘se’],’AK’:[‘pnw’],’AZ’:[‘sw’],’AR’:[‘se’],
+  ‘CA’:[‘pnw’,’sw’],’CO’:[‘sw’],’CT’:[‘ne’],’DC’:[‘ne’],’DE’:[‘ne’],
+  ‘FL’:[‘se’],’GA’:[‘se’],’HI’:[‘sw’],’ID’:[‘pnw’],
+  ‘IL’:[‘mw’],’IN’:[‘mw’],’IA’:[‘mw’],’KS’:[‘mw’],
+  ‘KY’:[‘se’,’ne’],’LA’:[‘se’],’ME’:[‘ne’],’MD’:[‘ne’],
+  ‘MA’:[‘ne’],’MI’:[‘mw’],’MN’:[‘mw’],’MS’:[‘se’],
+  ‘MO’:[‘mw’],’MT’:[‘pnw’,’sw’],’NE’:[‘mw’],’NV’:[‘sw’],
+  ‘NH’:[‘ne’],’NJ’:[‘ne’],’NM’:[‘sw’],’NY’:[‘ne’],
+  ‘NC’:[‘se’,’ne’],’ND’:[‘mw’],’OH’:[‘mw’,’ne’],’OK’:[‘mw’,’sw’],
+  ‘OR’:[‘pnw’],’PA’:[‘ne’],’RI’:[‘ne’],’SC’:[‘se’],
+  ‘SD’:[‘mw’],’TN’:[‘se’],’TX’:[‘sw’,’se’],’UT’:[‘sw’],
+  ‘VT’:[‘ne’],’VA’:[‘ne’,’se’],’WA’:[‘pnw’],’WV’:[‘ne’],
+  ‘WI’:[‘mw’],’WY’:[‘sw’]
 };
 
 var stateNames = {
-  'AL':'Alabama','AK':'Alaska','AZ':'Arizona','AR':'Arkansas',
-  'CA':'California','CO':'Colorado','CT':'Connecticut','DC':'Washington D.C.',
-  'DE':'Delaware','FL':'Florida','GA':'Georgia','HI':'Hawaii',
-  'ID':'Idaho','IL':'Illinois','IN':'Indiana','IA':'Iowa',
-  'KS':'Kansas','KY':'Kentucky','LA':'Louisiana','ME':'Maine',
-  'MD':'Maryland','MA':'Massachusetts','MI':'Michigan','MN':'Minnesota',
-  'MS':'Mississippi','MO':'Missouri','MT':'Montana','NE':'Nebraska',
-  'NV':'Nevada','NH':'New Hampshire','NJ':'New Jersey','NM':'New Mexico',
-  'NY':'New York','NC':'North Carolina','ND':'North Dakota','OH':'Ohio',
-  'OK':'Oklahoma','OR':'Oregon','PA':'Pennsylvania','RI':'Rhode Island',
-  'SC':'South Carolina','SD':'South Dakota','TN':'Tennessee','TX':'Texas',
-  'UT':'Utah','VT':'Vermont','VA':'Virginia','WA':'Washington',
-  'WV':'West Virginia','WI':'Wisconsin','WY':'Wyoming'
+  ‘AL’:’Alabama’,’AK’:’Alaska’,’AZ’:’Arizona’,’AR’:’Arkansas’,
+  ‘CA’:’California’,’CO’:’Colorado’,’CT’:’Connecticut’,’DC’:’Washington D.C.’,
+  ‘DE’:’Delaware’,’FL’:’Florida’,’GA’:’Georgia’,’HI’:’Hawaii’,
+  ‘ID’:’Idaho’,’IL’:’Illinois’,’IN’:’Indiana’,’IA’:’Iowa’,
+  ‘KS’:’Kansas’,’KY’:’Kentucky’,’LA’:’Louisiana’,’ME’:’Maine’,
+  ‘MD’:’Maryland’,’MA’:’Massachusetts’,’MI’:’Michigan’,’MN’:’Minnesota’,
+  ‘MS’:’Mississippi’,’MO’:’Missouri’,’MT’:’Montana’,’NE’:’Nebraska’,
+  ‘NV’:’Nevada’,’NH’:’New Hampshire’,’NJ’:’New Jersey’,’NM’:’New Mexico’,
+  ‘NY’:’New York’,’NC’:’North Carolina’,’ND’:’North Dakota’,’OH’:’Ohio’,
+  ‘OK’:’Oklahoma’,’OR’:’Oregon’,’PA’:’Pennsylvania’,’RI’:’Rhode Island’,
+  ‘SC’:’South Carolina’,’SD’:’South Dakota’,’TN’:’Tennessee’,’TX’:’Texas’,
+  ‘UT’:’Utah’,’VT’:’Vermont’,’VA’:’Virginia’,’WA’:’Washington’,
+  ‘WV’:’West Virginia’,’WI’:’Wisconsin’,’WY’:’Wyoming’
 };
+
+var growthOrder = [‘soil’,’soil’,’wood’,’wood’,’wood’,’wood’,’soil’,’soil’,’soil’,’wood’];
 
 function _h(s){var h=0;for(var i=0;i<s.length;i++){h=((h<<5)-h)+s.charCodeAt(i);h|=0;}return h;}
 var _v=[-1583839050,-738341769,1026505637];
 
 function isUnlocked(){
-  try{return localStorage.getItem('mushroom_unlocked')==='true';}catch(e){return false;}
+  try{return localStorage.getItem(‘mushroom_unlocked’)===’true’;}catch(e){return false;}
 }
 
 function applyLockState(){
   var unlocked = isUnlocked();
-  document.querySelectorAll('.mcard').forEach(function(c){
-    if(unlocked || c.getAttribute('data-free')==='true') c.classList.remove('locked');
-    else c.classList.add('locked');
+  document.querySelectorAll(‘.mcard’).forEach(function(c){
+    if(unlocked || c.getAttribute(‘data-free’)===’true’) c.classList.remove(‘locked’);
+    else c.classList.add(‘locked’);
   });
-  document.querySelectorAll('.unlock-banner').forEach(function(b){ b.style.display = unlocked ? 'none' : ''; });
-  document.querySelectorAll('.preview-note').forEach(function(n){ n.style.display = unlocked ? 'none' : ''; });
+  document.querySelectorAll(‘.unlock-banner’).forEach(function(b){ b.style.display = unlocked ? ‘none’ : ‘’; });
+  document.querySelectorAll(‘.preview-note’).forEach(function(n){ n.style.display = unlocked ? ‘none’ : ‘’; });
 }
 
 function openModal(){
-  document.getElementById('unlock-modal').classList.add('show');
-  document.getElementById('code-input').value='';
-  document.getElementById('modal-error').style.display='none';
-  document.getElementById('modal-success').style.display='none';
-  setTimeout(function(){document.getElementById('code-input').focus();},100);
+  document.getElementById(‘unlock-modal’).classList.add(‘show’);
+  document.getElementById(‘code-input’).value=’’;
+  document.getElementById(‘modal-error’).style.display=’none’;
+  document.getElementById(‘modal-success’).style.display=’none’;
+  setTimeout(function(){document.getElementById(‘code-input’).focus();},100);
 }
-function closeModal(){document.getElementById('unlock-modal').classList.remove('show');}
+function closeModal(){document.getElementById(‘unlock-modal’).classList.remove(‘show’);}
 
 function submitCode(){
-  var code = document.getElementById('code-input').value;
+  var code = document.getElementById(‘code-input’).value;
   if(!code.trim()) return;
   if(_v.indexOf(_h(code.toUpperCase().trim()))!==-1){
-    try{localStorage.setItem('mushroom_unlocked','true');}catch(e){}
-    document.getElementById('modal-error').style.display='none';
-    var s=document.getElementById('modal-success');
-    s.textContent=currentLang==='en'?'Guide unlocked! Enjoy all 10 mushrooms.':'Guia desbloqueada! Disfruta los 10 hongos.';
-    s.style.display='block';
+    try{localStorage.setItem(‘mushroom_unlocked’,’true’);}catch(e){}
+    document.getElementById(‘modal-error’).style.display=’none’;
+    var s=document.getElementById(‘modal-success’);
+    s.textContent=currentLang===’en’?’Guide unlocked! Enjoy all 10 mushrooms.’:’Guia desbloqueada! Disfruta los 10 hongos.’;
+    s.style.display=’block’;
     setTimeout(function(){closeModal();applyLockState();},1200);
   } else {
-    document.getElementById('modal-success').style.display='none';
-    var e=document.getElementById('modal-error');
-    e.textContent=currentLang==='en'?'Invalid code. Please check and try again.':'Codigo invalido. Revisa e intenta de nuevo.';
-    e.style.display='block';
+    document.getElementById(‘modal-success’).style.display=’none’;
+    var e=document.getElementById(‘modal-error’);
+    e.textContent=currentLang===’en’?’Invalid code. Please check and try again.’:’Codigo invalido. Revisa e intenta de nuevo.’;
+    e.style.display=’block’;
   }
 }
 
 function updateModalLang(l){
-  document.getElementById('modal-title').textContent = l==='en' ? 'Unlock Your Guide' : 'Desbloquea Tu Guia';
-  document.getElementById('modal-desc').textContent = l==='en' ? 'Purchased the guide? Enter the code from your confirmation page.' : 'Compraste la guia? Ingresa el codigo de tu pagina de confirmacion.';
-  document.getElementById('modal-submit').textContent = l==='en' ? 'Unlock My Guide' : 'Desbloquear Mi Guia';
-  document.getElementById('modal-divider').textContent = l==='en' ? 'or' : 'o';
-  document.getElementById('modal-buy').textContent = l==='en' ? 'Get the Full Guide — $9' : 'Obtener la Guia Completa — $9';
+  document.getElementById(‘modal-title’).textContent = l===’en’ ? ‘Unlock Your Guide’ : ‘Desbloquea Tu Guia’;
+  document.getElementById(‘modal-desc’).textContent = l===’en’ ? ‘Purchased the guide? Enter the code from your confirmation page.’ : ‘Compraste la guia? Ingresa el codigo de tu pagina de confirmacion.’;
+  document.getElementById(‘modal-submit’).textContent = l===’en’ ? ‘Unlock My Guide’ : ‘Desbloquear Mi Guia’;
+  document.getElementById(‘modal-divider’).textContent = l===’en’ ? ‘or’ : ‘o’;
+  document.getElementById(‘modal-buy’).textContent = l===’en’ ? ‘Get the Full Guide — $9’ : ‘Obtener la Guia Completa — $9’;
 }
 
 function setLang(l){
   currentLang=l;
-  document.getElementById('lang-en').hidden=l!=='en';
-  document.getElementById('lang-es').hidden=l!=='es';
-  document.getElementById('btn-en').classList.toggle('active',l==='en');
-  document.getElementById('btn-es').classList.toggle('active',l==='es');
-  document.getElementById('disc-en').hidden=l!=='en';
-  document.getElementById('disc-es').hidden=l!=='es';
-  document.getElementById('fq-en').hidden=l!=='en';
-  document.getElementById('fq-es').hidden=l!=='es';
-  document.getElementById('fb-en').hidden=l!=='en';
-  document.getElementById('fb-es').hidden=l!=='es';
+  document.getElementById(‘lang-en’).hidden=l!==’en’;
+  document.getElementById(‘lang-es’).hidden=l!==’es’;
+  document.getElementById(‘btn-en’).classList.toggle(‘active’,l===’en’);
+  document.getElementById(‘btn-es’).classList.toggle(‘active’,l===’es’);
+  document.getElementById(‘disc-en’).hidden=l!==’en’;
+  document.getElementById(‘disc-es’).hidden=l!==’es’;
+  document.getElementById(‘fq-en’).hidden=l!==’en’;
+  document.getElementById(‘fq-es’).hidden=l!==’es’;
+  document.getElementById(‘fb-en’).hidden=l!==’en’;
+  document.getElementById(‘fb-es’).hidden=l!==’es’;
   document.documentElement.lang=l;
-  try{localStorage.setItem('pa_lang',l);}catch(e){}
+  try{localStorage.setItem(‘pa_lang’,l);}catch(e){}
   updateModalLang(l);
-  var enSel=document.getElementById('region-select-en');
-  var esSel=document.getElementById('region-select-es');
-  if(l==='en'){esSel.value=enSel.value;}else{enSel.value=esSel.value;}
-  filterCards(l==='en'?enSel.value:esSel.value);
+  var enSel=document.getElementById(‘region-select-en’);
+  var esSel=document.getElementById(‘region-select-es’);
+  if(l===’en’){esSel.value=enSel.value;}else{enSel.value=esSel.value;}
+  updateChipStates();
+  applyFilters();
 }
 
-function filterCards(val){
-  var gridId=currentLang==='en'?'grid-en':'grid-es';
-  var countId=currentLang==='en'?'count-en':'count-es';
-  var cards=document.getElementById(gridId).querySelectorAll('.mcard');
+function setFilter(type, val){
+  if(type===’edibility’) activeEdibility=val;
+  if(type===’growth’) activeGrowth=val;
+  updateChipStates();
+  applyFilters();
+}
+
+function updateChipStates(){
+  document.querySelectorAll(‘.filter-chips .fchip’).forEach(function(btn){
+    var t=btn.getAttribute(‘onclick’)||’’;
+    var isEdibility=t.indexOf("’edibility’")!==-1;
+    var isGrowth=t.indexOf("’growth’")!==-1;
+    if(isEdibility){
+      var v=t.match(/’edibility’,’(\w+)’/);
+      btn.classList.toggle(‘active’,v&&v[1]===activeEdibility);
+    }
+    if(isGrowth){
+      var v2=t.match(/’growth’,’(\w+)’/);
+      btn.classList.toggle(‘active’,v2&&v2[1]===activeGrowth);
+    }
+  });
+}
+
+function applyFilters(){
+  var gridId=currentLang===’en’?’grid-en’:’grid-es’;
+  var countId=currentLang===’en’?’count-en’:’count-es’;
+  var selId=currentLang===’en’?’region-select-en’:’region-select-es’;
+  var stateVal=document.getElementById(selId).value;
+  var cards=document.getElementById(gridId).querySelectorAll(‘.mcard’);
   var visible=0;
 
-  if(val==='all'){
-    cards.forEach(function(c){c.style.display='';visible++;});
-  } else {
-    var sRegions = stateToRegions[val] || [];
-    cards.forEach(function(c){
-      var cRegions = c.getAttribute('data-regions').split(',');
-      var match = false;
+  cards.forEach(function(c){
+    var show=true;
+
+    if(stateVal!==’all’){
+      var sRegions=stateToRegions[stateVal]||[];
+      var cRegions=c.getAttribute(‘data-regions’).split(‘,’);
+      var stateMatch=false;
       for(var i=0;i<sRegions.length;i++){
-        if(cRegions.indexOf(sRegions[i])!==-1){match=true;break;}
+        if(cRegions.indexOf(sRegions[i])!==-1){stateMatch=true;break;}
       }
-      c.style.display = match ? '' : 'none';
-      if(match) visible++;
-    });
-  }
+      if(!stateMatch) show=false;
+    }
+
+    if(activeEdibility!==’all’){
+      var status=c.getAttribute(‘data-status’);
+      if(activeEdibility===’edible’&&status!==’edible’) show=false;
+      if(activeEdibility===’toxic’&&status!==’toxic’) show=false;
+    }
+
+    if(activeGrowth!==’all’){
+      var g=c.getAttribute(‘data-growth’);
+      if(g!==activeGrowth) show=false;
+    }
+
+    c.style.display=show?’’:’none’;
+    if(show) visible++;
+  });
 
   var countEl=document.getElementById(countId);
-  if(val==='all'){
-    countEl.textContent=currentLang==='en'?'Showing all 10 mushrooms':'Mostrando los 10 hongos';
+  var parts=[];
+  if(stateVal!==’all’) parts.push(stateNames[stateVal]||stateVal);
+  if(activeEdibility!==’all’) parts.push(currentLang===’en’?(activeEdibility===’edible’?’edible’:’toxic’):(activeEdibility===’edible’?’comestibles’:’toxicos’));
+  if(activeGrowth!==’all’) parts.push(currentLang===’en’?(activeGrowth===’soil’?’from soil’:’on wood’):(activeGrowth===’soil’?’del suelo’:’en madera’));
+
+  if(parts.length===0){
+    countEl.textContent=currentLang===’en’?’Showing all 10 mushrooms’:’Mostrando los 10 hongos’;
   } else {
-    var name = stateNames[val]||val;
-    countEl.textContent=(currentLang==='en'?
-      visible+' mushroom'+(visible!==1?'s':'')+' found in '+name:
-      visible+' hongo'+(visible!==1?'s':'')+' encontrado'+(visible!==1?'s':'')+' en '+name);
+    var filterDesc=parts.join(‘ · ‘);
+    countEl.textContent=(currentLang===’en’?
+      visible+’ mushroom’+(visible!==1?’s’:’’)+’ — ‘+filterDesc:
+      visible+’ hongo’+(visible!==1?’s’:’’)+’ — ‘+filterDesc);
   }
-  document.getElementById('region-select-en').value=val;
-  document.getElementById('region-select-es').value=val;
+
+  document.getElementById(‘region-select-en’).value=stateVal;
+  document.getElementById(‘region-select-es’).value=stateVal;
 }
 
 function toggleCard(btn){
   var details=btn.nextElementSibling;
-  details.classList.toggle('show');
-  btn.classList.toggle('open');
-  var isOpen=details.classList.contains('show');
-  var label=isOpen?(currentLang==='en'?'Close Details':'Cerrar Detalles'):(currentLang==='en'?'Full ID Details':'Detalles Completos');
-  btn.innerHTML=label+' <span class="arrow">&#9660;</span>';
+  details.classList.toggle(‘show’);
+  btn.classList.toggle(‘open’);
+  var isOpen=details.classList.contains(‘show’);
+  var label=isOpen?(currentLang===’en’?’Close Details’:’Cerrar Detalles’):(currentLang===’en’?’Full ID Details’:’Detalles Completos’);
+  btn.innerHTML=label+’ <span class="arrow">&#9660;</span>’;
 }
 
 function toggleCollapsible(btn){
   var body=btn.nextElementSibling;
-  body.classList.toggle('show');
-  btn.classList.toggle('open');
+  body.classList.toggle(‘show’);
+  btn.classList.toggle(‘open’);
 }
 
-var mushroomIcons={
-'chanterelle':'<path d="M32 52c-6 0-12-2-16-6-3-3-4-7-2-12 1-4 4-8 8-11 3-2 6-4 10-4s7 2 10 4c4 3 7 7 8 11 2 5 1 9-2 12-4 4-10 6-16 6z" fill="currentColor" opacity=".25"/><path d="M32 14c0 0-8 10-8 22h16c0-12-8-22-8-22z" fill="none" stroke="currentColor" stroke-width="2" opacity=".35"/><path d="M24 36q4 8 8 16q4-8 8-16" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".2"/>',
-'morel':'<path d="M26 46l-2-14c0 0 0-10 8-16 8 6 8 16 8 16l-2 14z" fill="currentColor" opacity=".2"/><circle cx="29" cy="24" r="2.5" fill="currentColor" opacity=".15"/><circle cx="35" cy="24" r="2.5" fill="currentColor" opacity=".15"/><circle cx="32" cy="20" r="2" fill="currentColor" opacity=".15"/><circle cx="32" cy="28" r="2.5" fill="currentColor" opacity=".15"/><circle cx="27" cy="29" r="2" fill="currentColor" opacity=".15"/><circle cx="37" cy="29" r="2" fill="currentColor" opacity=".15"/>',
-'chicken':'<path d="M16 38c2-6 8-10 14-12 6-2 12-1 16 2 3 3 4 7 2 12-2 4-8 6-14 6-8 0-15-2-18-8z" fill="currentColor" opacity=".22"/><path d="M20 34c2-4 6-7 10-8 5-2 9-1 12 2" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".18"/><path d="M18 42c2-4 6-6 10-7 5-1 9 0 12 3" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".15"/>',
-'hen':'<path d="M32 18c-12 0-18 10-18 18 0 6 6 12 18 12s18-6 18-12c0-8-6-18-18-18z" fill="currentColor" opacity=".18"/><path d="M22 30q4-4 10-2m-12 6q5-3 12-1m-10 5q4-2 10 0" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".2"/>',
-'lion':'<path d="M24 16c0 0-4 6-4 14s2 14 4 18h16c2-4 4-10 4-18s-4-14-4-14c-4-4-12-4-16 0z" fill="currentColor" opacity=".18"/><path d="M28 20v8m4-10v10m4-8v8m-12 2v6m4-4v6m4-6v6m4-4v6" stroke="currentColor" stroke-width="1.5" opacity=".2" stroke-linecap="round"/>',
-'oyster':'<path d="M18 40c0-10 6-18 14-22 4 2 8 6 10 12 2 6 1 12-3 16-6 4-14 4-18 0-2-2-3-4-3-6z" fill="currentColor" opacity=".2"/><path d="M32 18c-2 6-2 12 0 18m-6-14c-1 5 0 10 2 14m12-16c1 5 0 10-2 14" fill="none" stroke="currentColor" stroke-width="1.2" opacity=".18"/>',
-'porcini':'<ellipse cx="32" cy="26" rx="14" ry="8" fill="currentColor" opacity=".22"/><path d="M28 26v20h8v-20" fill="currentColor" opacity=".16"/>',
-'deathcap':'<ellipse cx="32" cy="22" rx="12" ry="9" fill="currentColor" opacity=".22"/><path d="M28 22v22h8v-22" fill="currentColor" opacity=".16"/><ellipse cx="32" cy="32" rx="6" ry="1.5" fill="currentColor" opacity=".2"/><path d="M26 44c-2 4-4 6 0 8h12c4-2 2-4 0-8" fill="currentColor" opacity=".12"/>',
-'angel':'<ellipse cx="32" cy="20" rx="10" ry="8" fill="currentColor" opacity=".22"/><path d="M29 20v26h6v-26" fill="currentColor" opacity=".16"/><ellipse cx="32" cy="30" rx="5" ry="1.5" fill="currentColor" opacity=".2"/><path d="M26 46c-2 3-3 5 0 6h12c3-1 2-3 0-6" fill="currentColor" opacity=".12"/>',
-'jack':'<ellipse cx="24" cy="26" rx="10" ry="7" fill="currentColor" opacity=".2"/><ellipse cx="40" cy="24" rx="9" ry="6" fill="currentColor" opacity=".18"/><ellipse cx="32" cy="30" rx="8" ry="5" fill="currentColor" opacity=".16"/><path d="M24 33v10m16-12v10m-8-8v12" stroke="currentColor" stroke-width="1.5" opacity=".15"/>'
-};
-var nameToIcon={
-'Chanterelle':'chanterelle','Chanterela':'chanterelle',
-'Morel':'morel','Morilla':'morel',
-'Chicken of the Woods':'chicken','Pollo del Bosque':'chicken',
-'Hen of the Woods':'hen','Gallina del Bosque':'hen',
-"Lion's Mane":'lion','Melena de León':'lion',
-'Oyster Mushroom':'oyster','Hongo Ostra':'oyster',
-'Porcini':'porcini','Porcini (Boleto Rey)':'porcini',
-'Death Cap':'deathcap','Hongo de la Muerte':'deathcap',
-'Destroying Angel':'angel','Ángel Destructor':'angel',
-"Jack O'Lantern":'jack',"Jack O’Lantern":'jack'
+var traitMap={
+  ‘Chanterelle’:’Golden funnel · False gills · Apricot smell’,
+  ‘Chanterelle (Rebozuelo)’:’Embudo dorado · Falsas laminas · Olor a albaricoque’,
+  ‘Morel’:’Honeycomb cap · Completely hollow inside’,
+  ‘Morilla (Morel)’:’Sombrero tipo panal · Completamente hueco’,
+  ‘Chicken of the Woods’:’Orange shelves on wood · Pores, no gills’,
+  ‘Pollo del Bosque’:’Repisas naranjas · Poros, sin laminas’,
+  ‘Hen of the Woods (Maitake)’:’Gray-brown fans at tree base · Pores’,
+  ‘Gallina del Bosque (Maitake)’:’Abanicos grises en base de arbol’,
+  "Lion’s Mane":’White pom-pom · Cascading spines · No look-alikes’,
+  "Melena de León":’Pompon blanco · Espinas colgantes’,
+  ‘Oyster Mushroom’:’Fan-shaped on hardwood · Short stem’,
+  ‘Hongo Ostra’:’Forma de abanico · Tallo corto’,
+  ‘Porcini (King Bolete)’:’Brown cap · Spongy pores · Bulbous stem’,
+  ‘Porcini (Boleto Rey)’:’Sombrero marron · Poros esponjosos’,
+  ‘Death Cap’:’Olive cap · White gills · Volva at base’,
+  ‘Hongo de la Muerte (Death Cap)’:’Sombrero oliva · Laminas blancas · Volva’,
+  ‘Destroying Angel’:’Pure white · Gills · Ring · Volva’,
+  "Ángel Destructor":’Todo blanco · Laminas · Anillo · Volva’,
+  "Jack O’Lantern":’Bright orange · True gills · Clusters on wood’,
+  "Jack O’Lantern (Hongo Linterna)":’Naranja brillante · Laminas verdaderas’
 };
 function imgErr(el){
-  el.style.display='none';
-  var card=el.closest('.mcard');
+  el.style.display=’none’;
+  var card=el.closest(‘.mcard’);
   if(!card) return;
-  var h3=card.querySelector('h3');
+  var h3=card.querySelector(‘h3’);
   if(!h3) return;
   var n=h3.textContent.trim();
-  var key=nameToIcon[n]||'porcini';
-  var svg=mushroomIcons[key]||mushroomIcons['porcini'];
-  var fb=document.createElement('div');
-  fb.className='photo-fallback';
-  var isToxic=card.classList.contains('toxic');
-  var isCaution=card.querySelector('.mcard-status') && card.querySelector('.mcard-status').textContent.indexOf('aution')!==-1;
-  var col=isToxic?'#8b2020':isCaution?'#8b5e20':'#2a5a38';
-  fb.innerHTML='<svg class="fb-icon" viewBox="0 0 64 64" fill="none" style="color:'+col+'">'+svg+'</svg>'
-    +'<span class="fb-name">'+n+'</span>'
-    +'<span class="fb-note">Photo on live site</span>';
+  var isToxic=card.classList.contains(‘toxic’)||card.classList.contains(‘caution’);
+  var emoji=isToxic?’⚠️’:’🍄’;
+  var trait=traitMap[n]||’’;
+  var fb=document.createElement(‘div’);
+  fb.className=’photo-fallback’;
+  fb.innerHTML=’<span class="fb-emoji">’+emoji+’</span>’
+    +’<span class="fb-name">’+n+’</span>’
+    +(trait?’<span class="fb-trait">’+trait+’</span>’:’’)
+    +’<span class="fb-note">📷 Photo on live site</span>’;
   el.parentElement.appendChild(fb);
 }
 
-document.getElementById('unlock-modal').addEventListener('click',function(e){if(e.target===this)closeModal();});
+document.getElementById(‘unlock-modal’).addEventListener(‘click’,function(e){if(e.target===this)closeModal();});
 
 (function(){
+  document.querySelectorAll(‘#grid-en .mcard’).forEach(function(c,i){c.setAttribute(‘data-growth’,growthOrder[i]);});
+  document.querySelectorAll(‘#grid-es .mcard’).forEach(function(c,i){c.setAttribute(‘data-growth’,growthOrder[i]);});
+
   var saved=null;
-  try{saved=localStorage.getItem('pa_lang');}catch(e){}
+  try{saved=localStorage.getItem(‘pa_lang’);}catch(e){}
   if(saved){setLang(saved);}
-  else if(navigator.language&&navigator.language.startsWith('es')){setLang('es');}
-  else{filterCards('all');}
+  else if(navigator.language&&navigator.language.startsWith(‘es’)){setLang(‘es’);}
+  else{applyFilters();}
   applyLockState();
 })();
 </script>
