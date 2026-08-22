@@ -1,0 +1,1376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mushroom Guide — Paola Adventurer</title>
+<meta name="description" content="Identify 10 mushrooms every hiker should know — 7 edible, 3 deadly toxic. Search by US state, learn the key ID features, and stay safe on the trail.">
+<meta property="og:type" content="product">
+<meta property="og:url" content="https://paolaadventurer.com/mushroom-guide/">
+<meta property="og:title" content="The Hiker's Mushroom Guide — Paola Adventurer">
+<meta property="og:description" content="Identify 10 mushrooms every hiker should know. Search by US state, see what grows near you, and learn the difference between dinner and danger.">
+<meta property="og:image" content="https://paolaadventurer.com/assets/icon-512.png">
+<link rel="canonical" href="https://paolaadventurer.com/mushroom-guide/">
+<link rel="icon" href="/assets/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,700;0,900;1,700&family=Oswald:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --forest:#22432f; --forest2:#2f6b45; --terra:#b5562f; --crema:#faf7f0;
+  --khaki:#d8c9a3; --cafe:#3a322a; --sun:#e8b93f; --muted:#7c7361;
+  --edible:#2f6b45; --toxic:#c0392b; --caution:#d35400;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Nunito',sans-serif;background:var(--crema);color:var(--cafe);}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+[hidden]{display:none !important;}
+
+.navbar{position:sticky;top:0;z-index:200;background:#163024;border-bottom:3px solid var(--sun);box-shadow:0 2px 10px rgba(0,0,0,.2);}
+.navbar .inner{max-width:1080px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 18px;}
+.navbar .brand{font-family:'Oswald',sans-serif;font-weight:700;letter-spacing:2px;color:var(--sun);font-size:15px;white-space:nowrap;}
+.navbar .links{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;align-items:center;}
+.navbar .links a{font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:.5px;text-transform:uppercase;font-size:12px;color:#faf7f0;padding:6px 10px;border-radius:100px;white-space:nowrap;}
+.navbar .links a:hover{background:rgba(255,255,255,.12);}
+.langtoggle{display:flex;gap:2px;background:rgba(255,255,255,.12);border-radius:100px;padding:3px;margin-left:4px;}
+.langtoggle button{border:0;background:transparent;color:#faf7f0;font-family:'Oswald',sans-serif;font-weight:700;font-size:12px;padding:5px 12px;border-radius:100px;cursor:pointer;letter-spacing:1px;}
+.langtoggle button.active{background:var(--sun);color:var(--forest);}
+
+.hero{background:linear-gradient(160deg,#0e1f15 0%,#163024 30%,#22432f 60%,#2f5a3a 100%);color:var(--crema);text-align:center;padding:56px 20px 48px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 20%,rgba(232,185,63,.06) 0%,transparent 60%);pointer-events:none;}
+.hero h1{font-family:'Bitter',serif;font-weight:900;font-size:34px;margin:0 0 10px;text-shadow:0 2px 12px rgba(0,0,0,.3);line-height:1.2;max-width:600px;margin-left:auto;margin-right:auto;text-wrap:balance;}
+.hero .sub{font-family:'Oswald',sans-serif;font-weight:500;letter-spacing:3px;font-size:13px;text-transform:uppercase;color:var(--khaki);margin-bottom:18px;}
+.hero p{max-width:520px;margin:0 auto 28px;font-size:16px;line-height:1.7;color:#c8d8c0;}
+.hero .stats{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:20px;}
+.hero .stat{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:14px 22px;min-width:110px;}
+.hero .stat .num{font-family:'Bitter',serif;font-weight:900;font-size:30px;color:var(--sun);}
+.hero .stat .lbl{font-family:'Oswald',sans-serif;font-weight:500;letter-spacing:1px;text-transform:uppercase;font-size:11px;color:var(--khaki);margin-top:2px;}
+.hero .scroll-hint{font-family:'Oswald',sans-serif;font-weight:500;letter-spacing:1px;text-transform:uppercase;font-size:11px;color:rgba(216,201,163,.5);margin-top:8px;}
+
+.region-bar{background:#fff;border-bottom:2px solid var(--khaki);padding:20px;text-align:center;position:sticky;top:49px;z-index:100;box-shadow:0 4px 12px rgba(0,0,0,.06);}
+.region-bar label{font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:1px;text-transform:uppercase;font-size:14px;color:var(--forest);margin-right:10px;}
+.region-bar select{font-family:'Nunito',sans-serif;font-weight:700;font-size:15px;padding:10px 40px 10px 16px;border:2px solid var(--forest2);border-radius:100px;background:var(--crema);color:var(--forest);cursor:pointer;appearance:none;-webkit-appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2322432f' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 14px center;}
+.region-bar .count{font-family:'Nunito',sans-serif;font-weight:600;font-size:14px;color:var(--muted);margin-top:8px;}
+.region-bar .print-btn{display:inline-block;margin-left:16px;background:var(--terra);color:#fff;border:0;font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:1px;text-transform:uppercase;font-size:12px;padding:10px 20px;border-radius:100px;cursor:pointer;}
+.region-bar .print-btn:hover{background:#9a4526;}
+.filter-row{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px;margin-top:10px;}
+.filter-label{font-family:'Oswald',sans-serif;font-weight:500;letter-spacing:1px;text-transform:uppercase;font-size:11px;color:var(--muted);white-space:nowrap;}
+.fchip{border:2px solid var(--khaki);background:transparent;color:var(--cafe);font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:.5px;text-transform:uppercase;font-size:11px;padding:5px 14px;border-radius:100px;cursor:pointer;transition:.15s;white-space:nowrap;}
+.fchip:hover{border-color:var(--forest2);color:var(--forest);}
+.fchip.active{background:var(--forest);color:#fff;border-color:var(--forest);}
+.fchip.chip-toxic.active{background:var(--toxic);border-color:var(--toxic);}
+
+.preview-note{text-align:center;padding:12px 20px;background:rgba(47,107,69,.08);border-bottom:1px solid rgba(47,107,69,.12);font-size:13px;color:var(--forest);font-weight:600;}
+.preview-note span{color:var(--terra);}
+
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px;}
+.mushroom-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;padding:32px 0 20px;}
+.no-results{text-align:center;padding:60px 20px;font-family:'Bitter',serif;font-size:20px;color:var(--muted);grid-column:1/-1;}
+
+.mcard{background:#fff;border-radius:18px;overflow:hidden;border:2px solid var(--khaki);box-shadow:0 8px 24px rgba(0,0,0,.07);transition:.15s;display:flex;flex-direction:column;}
+.mcard:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(0,0,0,.12);}
+.mcard.toxic{border-color:var(--toxic);}
+.mcard.toxic .mcard-status{background:var(--toxic);}
+.mcard.caution{border-color:var(--caution);}
+.mcard.caution .mcard-status{background:var(--caution);}
+
+.mcard-photo{position:relative;aspect-ratio:16/10;overflow:hidden;}
+.mcard-photo.edible-bg{background:linear-gradient(145deg,#c8ddb8 0%,#a8c898 40%,#90b880 100%);}
+.mcard-photo.toxic-bg{background:linear-gradient(145deg,#e8bab3 0%,#d49890 40%,#c48878 100%);}
+.mcard-photo.caution-bg{background:linear-gradient(145deg,#f0ccaa 0%,#e5b482 40%,#d8a470 100%);}
+.mcard-photo::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 70%,rgba(255,255,255,.18) 0%,transparent 60%);pointer-events:none;z-index:0;}
+.mcard-photo img{position:relative;z-index:1;}
+.mcard-photo img{width:100%;height:100%;object-fit:cover;}
+.mcard-status{position:absolute;top:12px;right:12px;font-family:'Oswald',sans-serif;font-weight:700;letter-spacing:1px;text-transform:uppercase;font-size:11px;color:#fff;padding:5px 14px;border-radius:100px;background:var(--edible);z-index:2;}
+.mcard-season{position:absolute;bottom:10px;left:12px;font-family:'Nunito',sans-serif;font-weight:700;font-size:12px;color:var(--cafe);background:rgba(255,255,255,.85);padding:4px 12px;border-radius:100px;z-index:2;}
+
+.free-badge{position:absolute;top:12px;left:12px;font-family:'Oswald',sans-serif;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;font-size:10px;color:var(--forest);background:var(--sun);padding:4px 12px;border-radius:100px;z-index:4;box-shadow:0 2px 8px rgba(0,0,0,.15);}
+
+.photo-fallback{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:16px;gap:4px;background:repeating-linear-gradient(-45deg,transparent,transparent 10px,rgba(0,0,0,.015) 10px,rgba(0,0,0,.015) 20px);}
+.photo-fallback .fb-emoji{font-size:32px;filter:grayscale(.3);opacity:.6;}
+.photo-fallback .fb-name{font-family:'Bitter',serif;font-weight:900;font-size:14px;color:rgba(0,0,0,.18);letter-spacing:.5px;line-height:1.2;}
+.photo-fallback .fb-trait{font-family:'Nunito',sans-serif;font-size:11px;font-weight:600;color:rgba(0,0,0,.14);line-height:1.3;max-width:180px;}
+.photo-fallback .fb-note{font-family:'Nunito',sans-serif;font-size:9px;font-weight:700;color:rgba(0,0,0,.1);letter-spacing:1px;text-transform:uppercase;margin-top:4px;}
+
+.mcard.locked .mcard-photo img{filter:blur(8px) brightness(.65);transform:scale(1.05);}
+.mcard.locked .mcard-body .quick-id{display:none;}
+.mcard.locked .mcard-toggle{display:none;}
+.mcard.locked .mcard-details{display:none !important;}
+.mcard.locked:hover{transform:none;box-shadow:0 8px 24px rgba(0,0,0,.07);}
+.lock-overlay{display:none;position:absolute;inset:0;background:linear-gradient(160deg,rgba(14,31,21,.85) 0%,rgba(34,67,47,.75) 100%);z-index:3;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;padding:16px;}
+.mcard.locked .lock-overlay{display:flex;}
+.lock-icon{width:36px;height:36px;background:rgba(232,185,63,.2);border:1.5px solid rgba(232,185,63,.4);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;}
+.lock-overlay .tease{font-family:'Nunito',sans-serif;font-weight:600;font-size:12px;color:rgba(255,255,255,.9);line-height:1.4;max-width:200px;text-shadow:0 1px 4px rgba(0,0,0,.4);}
+.lock-overlay .unlock-cta{background:var(--sun);color:var(--forest);border:0;font-family:'Oswald',sans-serif;font-weight:700;letter-spacing:1px;text-transform:uppercase;font-size:12px;padding:10px 22px;border-radius:100px;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.25);margin-top:4px;}
+.lock-overlay .unlock-cta:hover{background:#d4a530;transform:scale(1.03);}
+
+.mcard-body{padding:18px 20px 6px;flex:1;}
+.mcard-body h3{font-family:'Bitter',serif;font-weight:900;color:var(--forest);font-size:20px;margin:0 0 2px;}
+.mcard-body .sciname{font-family:'Nunito',sans-serif;font-style:italic;color:var(--muted);font-size:13px;margin-bottom:10px;}
+.mcard-body .quick-id{font-size:14px;line-height:1.6;color:var(--cafe);margin-bottom:12px;}
+.mcard-body .quick-id strong{color:var(--forest);}
+
+.mcard-toggle{width:100%;border:0;background:var(--forest);color:#fff;font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:1px;text-transform:uppercase;font-size:13px;padding:12px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:auto;}
+.mcard-toggle:hover{background:#1a3a28;}
+.mcard-toggle .arrow{transition:.2s;display:inline-block;}
+.mcard-toggle.open .arrow{transform:rotate(180deg);}
+.mcard-details{display:none;padding:0 20px 20px;border-top:2px solid var(--khaki);}
+.mcard-details.show{display:block;}
+.mcard-details h4{font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:.5px;text-transform:uppercase;font-size:13px;color:var(--terra);margin:16px 0 6px;padding-bottom:4px;border-bottom:1px solid #eee;}
+.mcard-details p,.mcard-details li{font-size:14px;line-height:1.6;}
+.mcard-details ul{padding-left:20px;margin:6px 0;list-style:disc;}
+.mcard-details .lookalike{background:#fdf6e3;border:1px solid #e6c866;border-radius:12px;padding:14px 16px;margin:8px 0;}
+.mcard-details .lookalike h4{color:#b8860b;border:0;margin-top:0;padding:0;}
+.mcard-details .danger-note{background:#fde8e5;border:1px solid #e8a9a0;border-radius:12px;padding:14px 16px;margin:8px 0;}
+.mcard-details .danger-note h4{color:var(--toxic);border:0;margin-top:0;padding:0;}
+.mcard-details .tip{background:#e8f0e2;border:1px solid #b8d4a8;border-radius:12px;padding:14px 16px;margin:8px 0;}
+.mcard-details .tip h4{color:var(--edible);border:0;margin-top:0;padding:0;}
+.compare-tbl{width:100%;border-collapse:collapse;font-size:13px;margin:8px 0;border-radius:10px;overflow:hidden;}
+.compare-tbl th{background:var(--forest);color:#fff;padding:8px 10px;text-align:left;font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:.5px;text-transform:uppercase;font-size:11px;}
+.compare-tbl td{padding:7px 10px;border-bottom:1px solid #eee;}
+.compare-tbl tr:nth-child(even) td{background:#f8f5ee;}
+
+.unlock-banner{background:linear-gradient(160deg,#0e1f15 0%,var(--forest) 40%,#1a5a35 100%);color:#fff;text-align:center;padding:48px 20px;margin:0;position:relative;overflow:hidden;}
+.unlock-banner::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 80%,rgba(232,185,63,.06) 0%,transparent 60%);pointer-events:none;}
+.unlock-banner h2{font-family:'Bitter',serif;font-weight:900;font-size:26px;color:var(--sun);margin-bottom:6px;position:relative;}
+.unlock-banner .banner-sub{font-size:15px;color:var(--khaki);margin-bottom:24px;position:relative;}
+.missing-list{text-align:left;max-width:420px;margin:0 auto 28px;padding:0;list-style:none;position:relative;}
+.missing-list li{font-size:14px;line-height:2;color:#c8d8c0;padding-left:24px;position:relative;}
+.missing-list li::before{content:'\2192';position:absolute;left:0;color:var(--sun);font-weight:700;}
+.missing-list .n{font-weight:700;color:#fff;}
+.missing-list .more{color:var(--khaki);font-style:italic;padding-left:24px;margin-top:2px;font-size:13px;}
+.unlock-banner .anchor{font-size:13px;color:var(--khaki);margin-bottom:4px;position:relative;}
+.unlock-banner .launch-tag{display:inline-block;background:var(--terra);color:#fff;font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:1px;text-transform:uppercase;font-size:11px;padding:4px 14px;border-radius:100px;margin-bottom:10px;position:relative;}
+.unlock-banner .price{font-family:'Bitter',serif;font-weight:900;font-size:42px;color:#fff;margin-bottom:6px;position:relative;}
+.unlock-banner .price-note{font-size:13px;color:var(--khaki);margin-bottom:20px;position:relative;}
+.unlock-banner .buy-btn{display:inline-block;background:var(--sun);color:var(--forest);border:0;font-family:'Oswald',sans-serif;font-weight:700;letter-spacing:2px;text-transform:uppercase;font-size:16px;padding:16px 40px;border-radius:100px;cursor:pointer;box-shadow:0 6px 20px rgba(0,0,0,.3);margin-bottom:16px;position:relative;}
+.unlock-banner .buy-btn:hover{background:#d4a530;transform:translateY(-2px);}
+.unlock-banner .have-code{color:var(--khaki);font-size:14px;cursor:pointer;text-decoration:underline;background:none;border:none;font-family:'Nunito',sans-serif;position:relative;}
+
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:500;align-items:center;justify-content:center;padding:20px;}
+.modal-bg.show{display:flex;}
+.modal{background:#fff;border-radius:20px;max-width:420px;width:100%;padding:36px 32px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.3);position:relative;}
+.modal h3{font-family:'Bitter',serif;font-weight:900;color:var(--forest);font-size:22px;margin-bottom:8px;}
+.modal p{font-size:15px;color:var(--muted);margin-bottom:20px;line-height:1.5;}
+.modal input{width:100%;padding:14px 18px;border:2px solid var(--khaki);border-radius:12px;font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:3px;font-size:18px;text-align:center;text-transform:uppercase;color:var(--forest);margin-bottom:12px;}
+.modal input:focus{outline:none;border-color:var(--forest2);}
+.modal .modal-btn{width:100%;padding:14px;border:0;background:var(--forest);color:#fff;font-family:'Oswald',sans-serif;font-weight:700;letter-spacing:1px;text-transform:uppercase;font-size:15px;border-radius:12px;cursor:pointer;margin-bottom:10px;}
+.modal .modal-btn:hover{background:#1a3a28;}
+.modal .modal-error{color:var(--toxic);font-size:13px;font-weight:700;display:none;margin-bottom:8px;}
+.modal .modal-success{color:var(--edible);font-size:15px;font-weight:700;display:none;margin-bottom:8px;}
+.modal .close-modal{position:absolute;top:14px;right:18px;background:none;border:none;font-size:22px;color:var(--muted);cursor:pointer;}
+.modal .divider{display:flex;align-items:center;gap:12px;margin:16px 0;color:var(--muted);font-size:13px;}
+.modal .divider::before,.modal .divider::after{content:'';flex:1;height:1px;background:var(--khaki);}
+.modal .buy-link{display:block;background:var(--sun);color:var(--forest);font-family:'Oswald',sans-serif;font-weight:700;letter-spacing:1px;text-transform:uppercase;font-size:14px;padding:14px;border-radius:12px;text-align:center;margin-top:4px;cursor:pointer;}
+.modal .buy-link:hover{background:#d4a530;}
+
+.section{max-width:900px;margin:0 auto;padding:40px 20px;}
+.section h2{font-family:'Bitter',serif;font-weight:900;color:var(--forest);font-size:28px;margin:0 0 8px;text-align:center;}
+.section .sub{text-align:center;color:var(--muted);font-size:15px;margin-bottom:24px;}
+
+.emergency{background:var(--toxic);color:#fff;padding:36px 20px;text-align:center;}
+.emergency h2{font-family:'Bitter',serif;font-weight:900;font-size:26px;color:#fff;margin:0 0 8px;}
+.emergency p{max-width:600px;margin:0 auto 16px;font-size:15px;line-height:1.6;}
+.emergency .phone{font-family:'Bitter',serif;font-weight:900;font-size:32px;color:var(--sun);margin:16px 0;}
+.emergency ol{text-align:left;max-width:540px;margin:0 auto;padding-left:20px;list-style:decimal;}
+.emergency li{margin-bottom:8px;font-size:14px;line-height:1.5;}
+
+.collapsible{background:#fff;border:2px solid var(--khaki);border-radius:16px;margin-bottom:16px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.04);}
+.collapsible-header{width:100%;border:0;background:#fff;padding:18px 22px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;font-family:'Bitter',serif;font-weight:900;font-size:18px;color:var(--forest);}
+.collapsible-header:hover{background:#f8f6f0;}
+.collapsible-header .arrow{font-size:14px;transition:.2s;color:var(--muted);}
+.collapsible-header.open .arrow{transform:rotate(180deg);}
+.collapsible-body{display:none;padding:0 22px 22px;border-top:1px solid #eee;}
+.collapsible-body.show{display:block;}
+.collapsible-body h4{font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:.5px;text-transform:uppercase;font-size:13px;color:var(--terra);margin:14px 0 6px;}
+.collapsible-body ul{padding-left:20px;list-style:disc;}
+.collapsible-body li{font-size:14px;line-height:1.6;margin-bottom:4px;}
+
+.disclaimer{background:var(--forest);color:var(--khaki);text-align:center;padding:28px 20px;font-size:12px;line-height:1.6;}
+.disclaimer p{margin:0;max-width:700px;margin:0 auto;}
+
+footer{background:var(--forest);color:var(--khaki);text-align:center;padding:34px 20px;}
+footer .q{font-family:'Bitter',serif;font-style:italic;font-weight:700;font-size:17px;color:var(--crema);}
+footer .s{font-family:'Oswald',sans-serif;letter-spacing:2px;font-size:11px;text-transform:uppercase;margin-top:12px;}
+footer .back{display:inline-block;margin-top:16px;color:var(--sun);font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:1px;text-transform:uppercase;font-size:12px;border:1.5px solid var(--sun);border-radius:100px;padding:8px 18px;}
+footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-height:1.5;}
+
+@media print{
+  .navbar,.region-bar,.mcard-toggle,.hero,.emergency,.collapsible,.disclaimer,footer,.no-print,.unlock-banner,.lock-overlay,.modal-bg,.preview-note,.free-badge{display:none !important;}
+  body{background:#fff;font-size:11pt;}
+  .mushroom-grid{grid-template-columns:1fr !important;gap:16px;}
+  .mcard{break-inside:avoid;border:1px solid #999;box-shadow:none;}
+  .mcard.locked{display:none !important;}
+  .mcard-details{display:block !important;border-top:1px solid #ccc;}
+  .mcard-photo{aspect-ratio:auto;min-height:80px;}
+  .mcard-photo img{height:200px;object-fit:cover;}
+}
+
+@media(max-width:720px){
+  .mushroom-grid{grid-template-columns:1fr;}
+  .hero h1{font-size:24px;}
+  .hero .stats{gap:10px;}
+  .hero .stat{min-width:90px;padding:10px 14px;}
+  .hero .stat .num{font-size:22px;}
+  .navbar .inner{flex-direction:column;align-items:stretch;gap:8px;}
+  .navbar .links{justify-content:center;}
+  .region-bar{top:85px;}
+  .region-bar .print-btn{display:block;margin:10px auto 0;}
+  .filter-row{margin-top:8px;}
+  .fchip{font-size:10px;padding:4px 10px;}
+  .unlock-banner .price{font-size:34px;}
+  .missing-list{padding:0 8px;}
+}
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="inner">
+    <a class="brand" href="/">PAOLA ADVENTURER</a>
+    <div class="links">
+      <a href="/">Home</a>
+      <a href="/blog/">Blog</a>
+      <a href="/about/">My Story</a>
+      <div class="langtoggle">
+        <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+        <button id="btn-es" onclick="setLang('es')">ES</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="modal-bg" id="unlock-modal">
+  <div class="modal">
+    <button class="close-modal" onclick="closeModal()">&times;</button>
+    <h3 id="modal-title">Unlock Your Guide</h3>
+    <p id="modal-desc">Purchased the guide? Enter the code from your confirmation page.</p>
+    <div class="modal-error" id="modal-error"></div>
+    <div class="modal-success" id="modal-success"></div>
+    <input type="text" id="code-input" placeholder="YOUR CODE" maxlength="20" onkeyup="if(event.key==='Enter')submitCode()">
+    <button class="modal-btn" onclick="submitCode()" id="modal-submit">Unlock My Guide</button>
+    <div class="divider" id="modal-divider">or</div>
+    <a class="buy-link" id="modal-buy" href="javascript:void(0)" onclick="window.open(CHECKOUT_URL,'_blank')">Get the Full Guide &mdash; $9</a>
+  </div>
+</div>
+
+<!-- ================= ENGLISH ================= -->
+<div id="lang-en">
+
+<div class="hero">
+  <h1>Is That Mushroom Safe to Eat?</h1>
+  <p class="sub">Identify &middot; Eat Safely &middot; Avoid the Deadly</p>
+  <p>You see mushrooms on every hike. Some are dinner. Some can kill you.<br>Pick your state, see exactly what grows near you, and know before you eat.</p>
+  <div class="stats">
+    <div class="stat"><div class="num">7</div><div class="lbl">Edible</div></div>
+    <div class="stat"><div class="num">3</div><div class="lbl">Deadly</div></div>
+    <div class="stat"><div class="num">50</div><div class="lbl">States</div></div>
+  </div>
+  <div class="scroll-hint">&darr; Choose your state below</div>
+</div>
+
+<div class="region-bar" id="region-bar-en">
+  <label for="region-select-en">What state are you hiking in?</label>
+  <select id="region-select-en" onchange="applyFilters()">
+    <option value="all">All 50 States</option>
+    <option value="AL">Alabama</option>
+    <option value="AK">Alaska</option>
+    <option value="AZ">Arizona</option>
+    <option value="AR">Arkansas</option>
+    <option value="CA">California</option>
+    <option value="CO">Colorado</option>
+    <option value="CT">Connecticut</option>
+    <option value="DC">Washington D.C.</option>
+    <option value="DE">Delaware</option>
+    <option value="FL">Florida</option>
+    <option value="GA">Georgia</option>
+    <option value="HI">Hawaii</option>
+    <option value="ID">Idaho</option>
+    <option value="IL">Illinois</option>
+    <option value="IN">Indiana</option>
+    <option value="IA">Iowa</option>
+    <option value="KS">Kansas</option>
+    <option value="KY">Kentucky</option>
+    <option value="LA">Louisiana</option>
+    <option value="ME">Maine</option>
+    <option value="MD">Maryland</option>
+    <option value="MA">Massachusetts</option>
+    <option value="MI">Michigan</option>
+    <option value="MN">Minnesota</option>
+    <option value="MS">Mississippi</option>
+    <option value="MO">Missouri</option>
+    <option value="MT">Montana</option>
+    <option value="NE">Nebraska</option>
+    <option value="NV">Nevada</option>
+    <option value="NH">New Hampshire</option>
+    <option value="NJ">New Jersey</option>
+    <option value="NM">New Mexico</option>
+    <option value="NY">New York</option>
+    <option value="NC">North Carolina</option>
+    <option value="ND">North Dakota</option>
+    <option value="OH">Ohio</option>
+    <option value="OK">Oklahoma</option>
+    <option value="OR">Oregon</option>
+    <option value="PA">Pennsylvania</option>
+    <option value="RI">Rhode Island</option>
+    <option value="SC">South Carolina</option>
+    <option value="SD">South Dakota</option>
+    <option value="TN">Tennessee</option>
+    <option value="TX">Texas</option>
+    <option value="UT">Utah</option>
+    <option value="VT">Vermont</option>
+    <option value="VA">Virginia</option>
+    <option value="WA">Washington</option>
+    <option value="WV">West Virginia</option>
+    <option value="WI">Wisconsin</option>
+    <option value="WY">Wyoming</option>
+  </select>
+  <div class="filter-row">
+    <span class="filter-label">Show:</span>
+    <div class="filter-chips">
+      <button class="fchip active" onclick="setFilter('edibility','all')">All</button>
+      <button class="fchip" onclick="setFilter('edibility','edible')">Edible</button>
+      <button class="fchip chip-toxic" onclick="setFilter('edibility','toxic')">Toxic</button>
+    </div>
+  </div>
+  <div class="filter-row">
+    <span class="filter-label">Growth:</span>
+    <div class="filter-chips">
+      <button class="fchip active" onclick="setFilter('growth','all')">All</button>
+      <button class="fchip" onclick="setFilter('growth','soil')">From Soil</button>
+      <button class="fchip" onclick="setFilter('growth','wood')">On Wood</button>
+    </div>
+  </div>
+  <button class="print-btn no-print" onclick="window.print()">Print This Page</button>
+  <div class="count" id="count-en"></div>
+</div>
+
+<div class="preview-note no-print" id="preview-en">Free preview: 3 mushrooms below. <span>Like what you see? Unlock all 10 for $9.</span></div>
+
+<div class="wrap">
+<div class="mushroom-grid" id="grid-en">
+
+<!-- 1. CHANTERELLE — FREE -->
+<div class="mcard" data-regions="pnw,ne,se,mw" data-status="edible" data-free="true">
+  <div class="mcard-photo edible-bg">
+    <span class="free-badge">Free Preview</span>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Chanterelle_Cantharellus_cibarius.jpg/600px-Chanterelle_Cantharellus_cibarius.jpg" alt="Chanterelle mushroom — golden funnel shape on forest floor" loading="lazy" onerror="imgErr(this)">
+    <div class="lock-overlay"><div class="lock-icon">&#128274;</div><span class="tease">Golden funnel, apricot smell</span><button class="unlock-cta" onclick="openModal()">Unlock &mdash; $9</button></div>
+    <span class="mcard-status">Edible</span>
+    <span class="mcard-season">Jun–Oct</span>
+  </div>
+  <div class="mcard-body">
+    <h3>Chanterelle</h3>
+    <p class="sciname">Cantharellus cibarius</p>
+    <p class="quick-id"><strong>Key ID:</strong> Golden funnel shape, <strong>false gills</strong> (forked ridges, not blades), fruity apricot smell. Grows from soil, never wood.</p>
+  </div>
+  <button class="mcard-toggle" onclick="toggleCard(this)">Full ID Details <span class="arrow">&#9660;</span></button>
+  <div class="mcard-details">
+    <h4>What It Looks Like</h4>
+    <ul>
+      <li><strong>Cap:</strong> Golden to egg-yolk yellow, 2–5 in wide, wavy funnel with irregular edges</li>
+      <li><strong>Underside:</strong> False gills — forked ridges running down the stem (NOT blade-like)</li>
+      <li><strong>Stem:</strong> Solid, same golden color, tapers toward base</li>
+      <li><strong>Flesh:</strong> White to pale yellow when cut</li>
+      <li><strong>Smell:</strong> Fruity, like apricots</li>
+    </ul>
+    <h4>Where &amp; When</h4>
+    <p>Forest floors near oaks, conifers, hardwoods. Scattered or small groups. <strong>Summer–early fall.</strong></p>
+    <div class="lookalike">
+      <h4>Watch Out: Jack O'Lantern (Toxic #10)</h4>
+      <table class="compare-tbl"><tr><th>Feature</th><th>Chanterelle</th><th>Jack O'Lantern</th></tr>
+      <tr><td>Gills</td><td>False gills (ridges)</td><td>True, sharp gills</td></tr>
+      <tr><td>Growth</td><td>From soil, scattered</td><td>Clusters on/near wood</td></tr>
+      <tr><td>Inside</td><td>Pale/white flesh</td><td>Orange throughout</td></tr>
+      <tr><td>Glow</td><td>No</td><td>Yes (bioluminescent)</td></tr></table>
+    </div>
+    <div class="tip"><h4>If You Find One</h4><p>Cook thoroughly in butter or oil. Never eat raw. Meaty, peppery, slightly fruity — one of the best wild mushrooms in the world.</p></div>
+  </div>
+</div>
+
+<!-- 2. MOREL — FREE -->
+<div class="mcard" data-regions="pnw,ne,se,mw,sw" data-status="edible" data-free="true">
+  <div class="mcard-photo edible-bg">
+    <span class="free-badge">Free Preview</span>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Morchella_esculenta_300405.jpg/600px-Morchella_esculenta_300405.jpg" alt="Morel mushroom — honeycomb cap with deep pits" loading="lazy" onerror="imgErr(this)">
+    <div class="lock-overlay"><div class="lock-icon">&#128274;</div><span class="tease">Honeycomb cap, completely hollow</span><button class="unlock-cta" onclick="openModal()">Unlock &mdash; $9</button></div>
+    <span class="mcard-status">Edible</span>
+    <span class="mcard-season">Mar–May</span>
+  </div>
+  <div class="mcard-body">
+    <h3>Morel</h3>
+    <p class="sciname">Morchella esculenta</p>
+    <p class="quick-id"><strong>Key ID:</strong> Honeycomb cap with deep pits. <strong>Completely hollow</strong> from top to bottom when sliced. Cone-shaped, tan to dark brown.</p>
+  </div>
+  <button class="mcard-toggle" onclick="toggleCard(this)">Full ID Details <span class="arrow">&#9660;</span></button>
+  <div class="mcard-details">
+    <h4>What It Looks Like</h4>
+    <ul>
+      <li><strong>Cap:</strong> Honeycomb surface with deep pits and ridges, tan to dark brown, cone-shaped</li>
+      <li><strong>Inside:</strong> Completely hollow top to bottom — the #1 ID feature</li>
+      <li><strong>Stem:</strong> White to cream, also hollow, slightly granular</li>
+      <li><strong>Size:</strong> 2–6 inches tall</li>
+    </ul>
+    <h4>Where &amp; When</h4>
+    <p>Near dead/dying elms, ash, apple trees. Post-wildfire areas are goldmines. <strong>Spring (Mar–May)</strong>, one of the first mushrooms of the year.</p>
+    <div class="lookalike"><h4>Watch Out: False Morel (Deadly)</h4><p><strong>False morels have brain-like wrinkled caps</strong> (not clean honeycomb) and are <strong>NOT hollow</strong> inside — they have cottony, chambered flesh. Slice it in half: hollow = true morel, chambered = walk away.</p></div>
+    <div class="tip"><h4>If You Find One</h4><p>Soak in salt water 30 min to remove insects. Cook thoroughly. Nutty, earthy, considered a delicacy.</p></div>
+  </div>
+</div>
+
+<!-- 3. CHICKEN OF THE WOODS — LOCKED -->
+<div class="mcard" data-regions="pnw,ne,se,mw" data-status="edible">
+  <div class="mcard-photo edible-bg">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Chicken_of_the_Woods_Laetiporus_sulphureus.jpg/600px-Chicken_of_the_Woods_Laetiporus_sulphureus.jpg" alt="Chicken of the woods mushroom" loading="lazy" onerror="imgErr(this)">
+    <div class="lock-overlay"><div class="lock-icon">&#128274;</div><span class="tease">Tastes like chicken. Zero gills to confuse you.</span><button class="unlock-cta" onclick="openModal()">I Want This One &mdash; $9</button></div>
+    <span class="mcard-status">Edible</span>
+    <span class="mcard-season">May–Nov</span>
+  </div>
+  <div class="mcard-body">
+    <h3>Chicken of the Woods</h3>
+    <p class="sciname">Laetiporus sulphureus</p>
+    <p class="quick-id"><strong>Key ID:</strong> Bright <strong>orange/yellow shelf fungus</strong> in overlapping layers on tree trunks. Sulfur-yellow underside with tiny pores.</p>
+  </div>
+  <button class="mcard-toggle" onclick="toggleCard(this)">Full ID Details <span class="arrow">&#9660;</span></button>
+  <div class="mcard-details">
+    <h4>What It Looks Like</h4>
+    <ul>
+      <li><strong>Shape:</strong> Large shelf/bracket in overlapping layers on trunks or logs</li>
+      <li><strong>Top:</strong> Bright orange to salmon</li>
+      <li><strong>Underside:</strong> Sulfur-yellow, tiny pores (no gills)</li>
+      <li><strong>Flesh:</strong> Thick, white, firm when young — chalky when old</li>
+    </ul>
+    <h4>Where &amp; When</h4>
+    <p>On dead or living hardwoods, especially oaks. <strong>Late spring–fall.</strong> Always on wood, never from ground.</p>
+    <div class="lookalike"><h4>Important Notes</h4><p><strong>Avoid specimens on conifers, eucalyptus, or yew</strong> — can cause GI distress. Only eat young, vibrant ones.</p></div>
+    <div class="tip"><h4>If You Find One</h4><p>Texture like actual chicken breast. Slice tender outer edges, saut&eacute; with garlic.</p></div>
+  </div>
+</div>
+
+<!-- 4. HEN OF THE WOODS — LOCKED -->
+<div class="mcard" data-regions="ne,se,mw" data-status="edible">
+  <div class="mcard-photo edible-bg">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Grifola_frondosa.jpg/600px-Grifola_frondosa.jpg" alt="Hen of the woods maitake mushroom" loading="lazy" onerror="imgErr(this)">
+    <div class="lock-overlay"><div class="lock-icon">&#128274;</div><span class="tease">Returns to the same oak every single year.</span><button class="unlock-cta" onclick="openModal()">I Want This One &mdash; $9</button></div>
+    <span class="mcard-status">Edible</span>
+    <span class="mcard-season">Sep–Nov</span>
+  </div>
+  <div class="mcard-body">
+    <h3>Hen of the Woods (Maitake)</h3>
+    <p class="sciname">Grifola frondosa</p>
+    <p class="quick-id"><strong>Key ID:</strong> Large rosette of <strong>gray-brown overlapping fans</strong> at tree bases (especially oaks). White pores underneath. Can grow 10–50+ lbs.</p>
+  </div>
+  <button class="mcard-toggle" onclick="toggleCard(this)">Full ID Details <span class="arrow">&#9660;</span></button>
+  <div class="mcard-details">
+    <h4>What It Looks Like</h4>
+    <ul>
+      <li><strong>Shape:</strong> Ruffled rosette of overlapping fan-shaped caps from one base</li>
+      <li><strong>Color:</strong> Gray-brown on top, white underneath</li>
+      <li><strong>Underside:</strong> Tiny white pores (no gills)</li>
+      <li><strong>Returns to the same spot year after year</strong></li>
+    </ul>
+    <h4>Where &amp; When</h4><p>Base of living or dead hardwoods, especially oaks. <strong>Fall (Sep–Nov).</strong></p>
+    <div class="lookalike"><h4>Watch Out: Black-Staining Polypore</h4><p><strong>Stains black when bruised or cut.</strong> Hen of the woods does not.</p></div>
+    <div class="tip"><h4>If You Find One</h4><p>Tear into pieces, saut&eacute; until crispy on edges. Rich umami flavor.</p></div>
+  </div>
+</div>
+
+<!-- 5. LION'S MANE — LOCKED -->
+<div class="mcard" data-regions="pnw,ne,se,mw" data-status="edible">
+  <div class="mcard-photo edible-bg">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Lions_Mane_Mushroom_Durham_NC.jpg/600px-Lions_Mane_Mushroom_Durham_NC.jpg" alt="Lion's mane mushroom on tree" loading="lazy" onerror="imgErr(this)">
+    <div class="lock-overlay"><div class="lock-icon">&#128274;</div><span class="tease">No dangerous look-alikes exist. A beginner's dream.</span><button class="unlock-cta" onclick="openModal()">I Want This One &mdash; $9</button></div>
+    <span class="mcard-status">Edible</span>
+    <span class="mcard-season">Aug–Nov</span>
+  </div>
+  <div class="mcard-body">
+    <h3>Lion's Mane</h3>
+    <p class="sciname">Hericium erinaceus</p>
+    <p class="quick-id"><strong>Key ID:</strong> White pom-pom with <strong>cascading icicle-like spines</strong>. No cap, no stem, no gills. <strong>Virtually no dangerous look-alikes.</strong></p>
+  </div>
+  <button class="mcard-toggle" onclick="toggleCard(this)">Full ID Details <span class="arrow">&#9660;</span></button>
+  <div class="mcard-details">
+    <h4>What It Looks Like</h4>
+    <ul>
+      <li><strong>Shape:</strong> Single white globe with long cascading spines</li>
+      <li><strong>Color:</strong> Pure white when young, yellowing with age</li>
+      <li><strong>Unique:</strong> No cap, no stem, no gills — nothing else looks like it</li>
+    </ul>
+    <h4>Where &amp; When</h4><p>On dead/dying hardwoods (beech, oak, maple). <strong>Late summer–fall.</strong></p>
+    <div class="tip"><h4>If You Find One</h4><p>Slice into thick "steaks" and sear in butter. Texture like crab or lobster.</p></div>
+  </div>
+</div>
+
+<!-- 6. OYSTER MUSHROOM — LOCKED -->
+<div class="mcard" data-regions="pnw,ne,se,mw,sw" data-status="edible">
+  <div class="mcard-photo edible-bg">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Pleurotus_ostreatus.jpg/600px-Pleurotus_ostreatus.jpg" alt="Oyster mushrooms growing on log" loading="lazy" onerror="imgErr(this)">
+    <div class="lock-overlay"><div class="lock-icon">&#128274;</div><span class="tease">Grows year-round. Most versatile wild mushroom.</span><button class="unlock-cta" onclick="openModal()">I Want This One &mdash; $9</button></div>
+    <span class="mcard-status">Edible</span>
+    <span class="mcard-season">Year-round</span>
+  </div>
+  <div class="mcard-body">
+    <h3>Oyster Mushroom</h3>
+    <p class="sciname">Pleurotus ostreatus</p>
+    <p class="quick-id"><strong>Key ID:</strong> <strong>Fan/shell-shaped</strong>, white to gray, grows in shelf-like clusters on dead hardwood. Short off-center stem. Mild anise smell.</p>
+  </div>
+  <button class="mcard-toggle" onclick="toggleCard(this)">Full ID Details <span class="arrow">&#9660;</span></button>
+  <div class="mcard-details">
+    <h4>What It Looks Like</h4>
+    <ul>
+      <li><strong>Cap:</strong> Fan or oyster-shell shaped, 2–8 in wide, smooth</li>
+      <li><strong>Color:</strong> White, cream, gray, or tan</li>
+      <li><strong>Gills:</strong> White, running down a short stubby stem</li>
+    </ul>
+    <h4>Where &amp; When</h4><p>Dead/dying hardwoods. <strong>Spring &amp; fall primarily, but year-round in mild climates.</strong></p>
+    <div class="lookalike"><h4>Watch Out: Angel Wings</h4><p>Angel wings are <strong>pure white, paper-thin</strong>, on <strong>conifer</strong> wood. Oyster mushrooms are thicker, on <strong>hardwood</strong>.</p></div>
+    <div class="tip"><h4>If You Find One</h4><p>One of the most versatile wild mushrooms. Saut&eacute;, stir-fry, add to soups. Mild, slightly sweet.</p></div>
+  </div>
+</div>
+
+<!-- 7. PORCINI — LOCKED -->
+<div class="mcard" data-regions="pnw,ne,mw,sw" data-status="edible">
+  <div class="mcard-photo edible-bg">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Boletus_edulis_EtgM.jpg/600px-Boletus_edulis_EtgM.jpg" alt="Porcini mushroom in forest" loading="lazy" onerror="imgErr(this)">
+    <div class="lock-overlay"><div class="lock-icon">&#128274;</div><span class="tease">Worth $50/lb dried. The king of mushrooms.</span><button class="unlock-cta" onclick="openModal()">I Want This One &mdash; $9</button></div>
+    <span class="mcard-status">Edible</span>
+    <span class="mcard-season">Jul–Oct</span>
+  </div>
+  <div class="mcard-body">
+    <h3>Porcini (King Bolete)</h3>
+    <p class="sciname">Boletus edulis</p>
+    <p class="quick-id"><strong>Key ID:</strong> Brown convex cap, <strong>spongy pores underneath (NOT gills)</strong>, thick bulbous white stem with fine white netting. Flesh does NOT change color.</p>
+  </div>
+  <button class="mcard-toggle" onclick="toggleCard(this)">Full ID Details <span class="arrow">&#9660;</span></button>
+  <div class="mcard-details">
+    <h4>What It Looks Like</h4>
+    <ul>
+      <li><strong>Cap:</strong> Smooth, convex, brown to reddish-brown, 3–10 in</li>
+      <li><strong>Underside:</strong> Spongy pore surface — white young, yellow-green with age</li>
+      <li><strong>Stem:</strong> Thick, bulbous, white netting on upper portion</li>
+    </ul>
+    <h4>Where &amp; When</h4><p>Under conifers and some hardwoods, in mountainous/northern forests. <strong>Summer–fall.</strong></p>
+    <div class="lookalike"><h4>Watch Out: Bitter Bolete</h4><p>Looks identical but tastes <strong>intensely bitter</strong>. Pore surface turns <strong>pinkish</strong> with age. Not toxic, just ruins the dish.</p></div>
+    <div class="tip"><h4>If You Find One</h4><p>One of the most sought-after mushrooms worldwide. Slice and saut&eacute; fresh, or dry for risottos and pastas.</p></div>
+  </div>
+</div>
+
+<!-- 8. DEATH CAP — FREE -->
+<div class="mcard toxic" data-regions="pnw,ne,se" data-status="toxic" data-free="true">
+  <div class="mcard-photo toxic-bg">
+    <span class="free-badge">Free Preview</span>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Amanita_phalloides_-_deathcap.JPG/600px-Amanita_phalloides_-_deathcap.JPG" alt="Death cap mushroom — greenish yellow cap, deadly" loading="lazy" onerror="imgErr(this)">
+    <div class="lock-overlay"><div class="lock-icon">&#128274;</div><span class="tease">Half a cap kills an adult</span><button class="unlock-cta" onclick="openModal()">Unlock &mdash; $9</button></div>
+    <span class="mcard-status">Deadly Toxic</span>
+    <span class="mcard-season">Aug–Nov</span>
+  </div>
+  <div class="mcard-body">
+    <h3>Death Cap</h3>
+    <p class="sciname">Amanita phalloides</p>
+    <p class="quick-id"><strong>Key ID:</strong> Greenish-yellow to olive cap, white gills, <strong>skirt-like ring on stem + cup-shaped volva at base</strong> (dig it up!). Smells like honey. <strong>Half a cap can kill an adult.</strong></p>
+  </div>
+  <button class="mcard-toggle" onclick="toggleCard(this)">Full ID Details <span class="arrow">&#9660;</span></button>
+  <div class="mcard-details">
+    <h4>What It Looks Like</h4>
+    <ul>
+      <li><strong>Cap:</strong> 2–6 in, greenish-yellow to olive-green, smooth, slightly sticky</li>
+      <li><strong>Gills:</strong> White, closely spaced, free (not attached to stem)</li>
+      <li><strong>Stem:</strong> White, 3–6 in, with a ring (annulus) near the top</li>
+      <li><strong>Base:</strong> Bulbous, sitting in a cup-like sac (volva) — often buried. <strong>DIG IT UP</strong></li>
+      <li><strong>Smell:</strong> Pleasant — honey or roses. This is deceptive.</li>
+    </ul>
+    <h4>Where &amp; When</h4><p>Under oaks and hardwoods. Parks, yards, forests. <strong>Fall/winter in mild climates, late summer–fall elsewhere.</strong></p>
+    <div class="danger-note">
+      <h4>Why It Kills</h4>
+      <ul>
+        <li>Contains <strong>amatoxins</strong> that destroy liver and kidneys</li>
+        <li><strong>Symptoms delayed 6–24 hours</strong> — organ damage may already be happening</li>
+        <li>Deceptive "recovery" phase before final, potentially fatal stage</li>
+        <li>No reliable home antidote — ER immediately</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 9. DESTROYING ANGEL — LOCKED -->
+<div class="mcard toxic" data-regions="pnw,ne,se,mw" data-status="toxic">
+  <div class="mcard-photo toxic-bg">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Amanita_verna_(destroying_angel_mushroom).jpg/600px-Amanita_verna_(destroying_angel_mushroom).jpg" alt="Destroying angel mushroom — all white, deadly" loading="lazy" onerror="imgErr(this)">
+    <div class="lock-overlay"><div class="lock-icon">&#128274;</div><span class="tease">All white. All innocent-looking. All deadly.</span><button class="unlock-cta" onclick="openModal()">I Need to Know This &mdash; $9</button></div>
+    <span class="mcard-status">Deadly Toxic</span>
+    <span class="mcard-season">Jun–Oct</span>
+  </div>
+  <div class="mcard-body">
+    <h3>Destroying Angel</h3>
+    <p class="sciname">Amanita bisporigera / A. virosa / A. ocreata</p>
+    <p class="quick-id"><strong>Key ID:</strong> <strong>Entirely pure white.</strong> White gills, fragile ring on stem, volva at base. Looks elegant and innocent. <strong>As deadly as the Death Cap.</strong></p>
+  </div>
+  <button class="mcard-toggle" onclick="toggleCard(this)">Full ID Details <span class="arrow">&#9660;</span></button>
+  <div class="mcard-details">
+    <h4>What It Looks Like</h4>
+    <ul>
+      <li><strong>Cap:</strong> 2–5 in, pure white, smooth, convex to flat</li>
+      <li><strong>Gills:</strong> White, free from stem</li>
+      <li><strong>Stem:</strong> White, tall, slender, fragile ring</li>
+      <li><strong>Base:</strong> Bulbous with sac-like volva — <strong>DIG IT UP</strong></li>
+    </ul>
+    <div class="danger-note"><h4>The #1 Rule with White Mushrooms</h4><p><strong>If it's white, has gills, and grows from the ground — treat it as deadly until proven otherwise.</strong> Contains the same amatoxins as the Death Cap.</p></div>
+  </div>
+</div>
+
+<!-- 10. JACK O'LANTERN — LOCKED -->
+<div class="mcard caution" data-regions="ne,se,mw" data-status="toxic">
+  <div class="mcard-photo caution-bg">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Jack_O%27_Lantern_Mushroom_Closeup%3B_Omphalotus_olearius.JPG/600px-Jack_O%27_Lantern_Mushroom_Closeup%3B_Omphalotus_olearius.JPG" alt="Jack o'lantern mushroom — bright orange, toxic" loading="lazy" onerror="imgErr(this)">
+    <div class="lock-overlay"><div class="lock-icon">&#128274;</div><span class="tease">#1 reason people mistake toxic for edible.</span><button class="unlock-cta" onclick="openModal()">I Need to Know This &mdash; $9</button></div>
+    <span class="mcard-status" style="background:var(--caution)">Toxic</span>
+    <span class="mcard-season">Jul–Nov</span>
+  </div>
+  <div class="mcard-body">
+    <h3>Jack O'Lantern</h3>
+    <p class="sciname">Omphalotus olearius</p>
+    <p class="quick-id"><strong>Key ID:</strong> Bright orange, <strong>true sharp gills</strong>, grows <strong>in clusters on/near wood</strong>. Gills glow in the dark. <strong>The #1 Chanterelle impostor.</strong></p>
+  </div>
+  <button class="mcard-toggle" onclick="toggleCard(this)">Full ID Details <span class="arrow">&#9660;</span></button>
+  <div class="mcard-details">
+    <h4>Chanterelle vs. Jack O'Lantern</h4>
+    <table class="compare-tbl"><tr><th>Feature</th><th>Chanterelle (Safe)</th><th>Jack O'Lantern (Toxic)</th></tr>
+    <tr><td>Gills</td><td>False gills (ridges)</td><td>True, sharp gills</td></tr>
+    <tr><td>Growth</td><td>From soil, scattered</td><td>Clusters on/near wood</td></tr>
+    <tr><td>Inside</td><td>Pale/white flesh</td><td>Orange throughout</td></tr>
+    <tr><td>Glow</td><td>No</td><td>Yes</td></tr>
+    <tr><td>Smell</td><td>Fruity, apricot</td><td>Unpleasant</td></tr></table>
+    <div class="danger-note"><h4>If Someone Eats One</h4><p>Severe cramps, vomiting, diarrhea within 1–2 hours. Rarely fatal. <strong>Seek medical attention.</strong></p></div>
+  </div>
+</div>
+
+</div><!-- grid-en -->
+</div><!-- wrap -->
+
+<!-- UNLOCK BANNER EN -->
+<div class="unlock-banner no-print" id="unlock-banner-en">
+  <h2>You've Seen 3. Here's What You're Missing:</h2>
+  <p class="banner-sub">5 more edible species + 2 more deadly ones you need to recognize</p>
+  <ul class="missing-list">
+    <li><span class="n">Chicken of the Woods</span> — tastes like chicken, no gills to confuse you</li>
+    <li><span class="n">Lion's Mane</span> — zero dangerous look-alikes, tastes like lobster</li>
+    <li><span class="n">Porcini</span> — worth $50/lb dried, the king of mushrooms</li>
+    <li><span class="n">Destroying Angel</span> — pure white, looks innocent, kills in days</li>
+    <li class="more">+ 3 more essential species</li>
+  </ul>
+  <p class="anchor">A mushroom field guide costs $15–$25</p>
+  <span class="launch-tag">Launch Price</span>
+  <div class="price">$9</div>
+  <p class="price-note">Less than a trail snack. All 10 species. Yours forever.</p>
+  <button class="buy-btn" onclick="window.open(CHECKOUT_URL,'_blank')">I Want the Full Guide</button><br>
+  <button class="have-code" onclick="openModal()">Already have a code? Enter it here</button>
+</div>
+
+<!-- EMERGENCY EN -->
+<div class="emergency" id="emergency-en">
+  <h2>If Someone Eats a Toxic Mushroom</h2>
+  <div class="phone">1-800-222-1222</div>
+  <p>US Poison Control — Call immediately. Do NOT wait for symptoms.</p>
+  <ol>
+    <li><strong>Call now.</strong> With Death Cap/Destroying Angel, symptoms are delayed 6–24 hours — organ damage starts before you feel sick.</li>
+    <li><strong>Save a sample</strong> or take clear photos of the mushroom.</li>
+    <li><strong>Do NOT induce vomiting</strong> unless told to by Poison Control.</li>
+    <li><strong>Go to the ER.</strong> Do not wait it out at home.</li>
+    <li><strong>Note the time</strong> of ingestion and when symptoms appeared.</li>
+  </ol>
+</div>
+
+<!-- GEAR & CHECKLIST EN -->
+<div class="section" id="extras-en">
+  <h2>Trail Extras</h2>
+  <p class="sub">Everything else you need for mushroom hunting</p>
+  <div class="collapsible">
+    <button class="collapsible-header" onclick="toggleCollapsible(this)">What to Bring: Gear List <span class="arrow">&#9660;</span></button>
+    <div class="collapsible-body">
+      <h4>The Essentials</h4>
+      <ul>
+        <li><strong>Small knife or pocket blade</strong> — cut mushrooms at the base cleanly</li>
+        <li><strong>Paper bags or wax paper</strong> — never plastic (traps moisture)</li>
+        <li><strong>Basket or mesh bag</strong> — keeps finds intact, drops spores as you walk</li>
+        <li><strong>Your phone camera</strong> — photos of cap, underside, stem, base, habitat</li>
+      </ul>
+      <h4>Nice to Have</h4>
+      <ul>
+        <li><strong>10x hand lens</strong> — examine gill structure up close</li>
+        <li><strong>Field notebook</strong> — tree species nearby, soil type, weather</li>
+        <li><strong>Aluminum foil</strong> — wrap specimens individually</li>
+        <li><strong>White + dark paper</strong> — spore prints on the trail</li>
+        <li><strong>Wet wipes</strong> — always wash hands after handling unknowns</li>
+      </ul>
+    </div>
+  </div>
+  <div class="collapsible">
+    <button class="collapsible-header" onclick="toggleCollapsible(this)">Trail ID Checklist <span class="arrow">&#9660;</span></button>
+    <div class="collapsible-body">
+      <ul>
+        <li><strong>Where is it growing?</strong> Ground, wood, tree trunk?</li>
+        <li><strong>What's nearby?</strong> Oak, beech, conifer, mixed forest?</li>
+        <li><strong>How is it growing?</strong> Alone, scattered, dense cluster?</li>
+        <li><strong>Cap:</strong> Color, shape, size, texture?</li>
+        <li><strong>Underside:</strong> Gills, pores, ridges, or teeth?</li>
+        <li><strong>Stem:</strong> Color, thickness, ring/skirt, cup at base?</li>
+        <li><strong>Cut it open:</strong> Hollow? Solid? Color change?</li>
+        <li><strong>Smell:</strong> Fruity? Earthy? Unpleasant?</li>
+        <li><strong>Photos taken?</strong> Top, underside, stem, base, habitat — at least 5</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+</div><!-- lang-en -->
+
+<!-- ================= ESPANOL ================= -->
+<div id="lang-es" hidden>
+
+<div class="hero">
+  <h1>&iquest;Ese Hongo Se Puede Comer?</h1>
+  <p class="sub">Identifica &middot; Come Seguro &middot; Evita los Mortales</p>
+  <p>Ves hongos en cada caminata. Algunos son cena. Algunos pueden matarte.<br>Elige tu estado, ve exactamente qu&eacute; crece cerca de ti, y conoce antes de comer.</p>
+  <div class="stats">
+    <div class="stat"><div class="num">7</div><div class="lbl">Comestibles</div></div>
+    <div class="stat"><div class="num">3</div><div class="lbl">Mortales</div></div>
+    <div class="stat"><div class="num">50</div><div class="lbl">Estados</div></div>
+  </div>
+  <div class="scroll-hint">&darr; Elige tu estado abajo</div>
+</div>
+
+<div class="region-bar" id="region-bar-es">
+  <label for="region-select-es">&iquest;En qu&eacute; estado haces senderismo?</label>
+  <select id="region-select-es" onchange="applyFilters()">
+    <option value="all">Los 50 Estados</option>
+    <option value="AL">Alabama</option>
+    <option value="AK">Alaska</option>
+    <option value="AZ">Arizona</option>
+    <option value="AR">Arkansas</option>
+    <option value="CA">California</option>
+    <option value="CO">Colorado</option>
+    <option value="CT">Connecticut</option>
+    <option value="DC">Washington D.C.</option>
+    <option value="DE">Delaware</option>
+    <option value="FL">Florida</option>
+    <option value="GA">Georgia</option>
+    <option value="HI">Hawaii</option>
+    <option value="ID">Idaho</option>
+    <option value="IL">Illinois</option>
+    <option value="IN">Indiana</option>
+    <option value="IA">Iowa</option>
+    <option value="KS">Kansas</option>
+    <option value="KY">Kentucky</option>
+    <option value="LA">Louisiana</option>
+    <option value="ME">Maine</option>
+    <option value="MD">Maryland</option>
+    <option value="MA">Massachusetts</option>
+    <option value="MI">Michigan</option>
+    <option value="MN">Minnesota</option>
+    <option value="MS">Mississippi</option>
+    <option value="MO">Missouri</option>
+    <option value="MT">Montana</option>
+    <option value="NE">Nebraska</option>
+    <option value="NV">Nevada</option>
+    <option value="NH">New Hampshire</option>
+    <option value="NJ">New Jersey</option>
+    <option value="NM">New Mexico</option>
+    <option value="NY">New York</option>
+    <option value="NC">North Carolina</option>
+    <option value="ND">North Dakota</option>
+    <option value="OH">Ohio</option>
+    <option value="OK">Oklahoma</option>
+    <option value="OR">Oregon</option>
+    <option value="PA">Pennsylvania</option>
+    <option value="RI">Rhode Island</option>
+    <option value="SC">South Carolina</option>
+    <option value="SD">South Dakota</option>
+    <option value="TN">Tennessee</option>
+    <option value="TX">Texas</option>
+    <option value="UT">Utah</option>
+    <option value="VT">Vermont</option>
+    <option value="VA">Virginia</option>
+    <option value="WA">Washington</option>
+    <option value="WV">West Virginia</option>
+    <option value="WI">Wisconsin</option>
+    <option value="WY">Wyoming</option>
+  </select>
+  <div class="filter-row">
+    <span class="filter-label">Mostrar:</span>
+    <div class="filter-chips">
+      <button class="fchip active" onclick="setFilter('edibility','all')">Todos</button>
+      <button class="fchip" onclick="setFilter('edibility','edible')">Comestibles</button>
+      <button class="fchip chip-toxic" onclick="setFilter('edibility','toxic')">T&oacute;xicos</button>
+    </div>
+  </div>
+  <div class="filter-row">
+    <span class="filter-label">Crecimiento:</span>
+    <div class="filter-chips">
+      <button class="fchip active" onclick="setFilter('growth','all')">Todos</button>
+      <button class="fchip" onclick="setFilter('growth','soil')">Del Suelo</button>
+      <button class="fchip" onclick="setFilter('growth','wood')">En Madera</button>
+    </div>
+  </div>
+  <button class="print-btn no-print" onclick="window.print()">Imprimir Esta P&aacute;gina</button>
+  <div class="count" id="count-es"></div>
+</div>
+
+<div class="preview-note no-print" id="preview-es">Vista previa gratis: 3 hongos abajo. <span>&iquest;Te gusta? Desbloquea los 10 por $9.</span></div>
+
+<div class="wrap">
+<div class="mushroom-grid" id="grid-es">
+
+<!-- 1. CHANTERELLE ES — FREE -->
+<div class="mcard" data-regions="pnw,ne,se,mw" data-status="edible" data-free="true">
+  <div class="mcard-photo edible-bg">
+    <span class="free-badge">Vista Previa</span>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Chanterelle_Cantharellus_cibarius.jpg/600px-Chanterelle_Cantharellus_cibarius.jpg" alt="Chanterelle — hongo dorado en el bosque" loading="lazy" onerror="imgErr(this)">
+    <div class="lock-overlay"><div class="lock-icon">&#128274;</div><span class="tease">Embudo dorado, olor a albaricoque</span><button class="unlock-cta" onclick="openModal()">Desbloquear &mdash; $9</button></div>
+    <span class="mcard-status">Comestible</span>
+    <span class="mcard-season">Jun–Oct</span>
+  </div>
+  <div class="mcard-body">
+    <h3>Chanterelle (Rebozuelo)</h3>
+    <p class="sciname">Cantharellus cibarius</p>
+    <p class="quick-id"><strong>Clave:</strong> Embudo dorado, <strong>falsas l&aacute;minas</strong> (pliegues bifurcados), olor afrutado a albaricoque. Crece del suelo, nunca de madera.</p>
+  </div>
+  <button class="mcard-toggle" onclick="toggleCard(this)">Detalles Completos <span class="arrow">&#9660;</span></button>
+  <div class="mcard-details">
+    <h4>C&oacute;mo Se Ve</h4>
+    <ul>
+      <li><strong>Sombrero:</strong> Dorado a amarillo yema, 5–12 cm, ondulado tipo embudo</li>
+      <li><strong>Parte inferior:</strong> Falsas l&aacute;minas — pliegues que bajan por el tallo</li>
+      <li><strong>Tallo:</strong> S&oacute;lido, mismo color dorado</li>
+      <li><strong>Olor:</strong> Afrutado, como albaricoque</li>
+    </ul>
+    <h4>D&oacute;nde y Cu&aacute;ndo</h4><p>Pisos de bosque cerca de robles y con&iacute;feras. <strong>Verano a principios de oto&ntilde;o.</strong></p>
+    <div class="lookalike">
+      <h4>Cuidado: Jack O'Lantern (T&oacute;xico #10)</h4>
+      <table class="compare-tbl"><tr><th>Caracter&iacute;stica</th><th>Chanterelle</th><th>Jack O'Lantern</th></tr>
+      <tr><td>L&aacute;minas</td><td>Falsas (pliegues)</td><td>Verdaderas y filosas</td></tr>
+      <tr><td>Crecimiento</td><td>Del suelo</td><td>Racimos sobre madera</td></tr>
+      <tr><td>Interior</td><td>Carne p&aacute;lida</td><td>Naranja por completo</td></tr></table>
+    </div>
+    <div class="tip"><h4>Si Encuentras Uno</h4><p>Cocina bien en mantequilla. Nunca crudo. Uno de los mejores hongos silvestres del mundo.</p></div>
+  </div>
+</div>
+
+<!-- 2. MOREL ES — FREE -->
+<div class="mcard" data-regions="pnw,ne,se,mw,sw" data-status="edible" data-free="true">
+  <div class="mcard-photo edible-bg">
+    <span class="free-badge">Vista Previa</span>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Morchella_esculenta_300405.jpg/600px-Morchella_esculenta_300405.jpg" alt="Morilla — hongo tipo panal" loading="lazy" onerror="imgErr(this)">
+    <div class="lock-overlay"><div class="lock-icon">&#128274;</div><span class="tease">Sombrero tipo panal, completamente hueco</span><button class="unlock-cta" onclick="openModal()">Desbloquear &mdash; $9</button></div>
+    <span class="mcard-status">Comestible</span>
+    <span class="mcard-season">Mar–May</span>
+  </div>
+  <div class="mcard-body">
+    <h3>Morilla (Morel)</h3>
+    <p class="sciname">Morchella esculenta</p>
+    <p class="quick-id"><strong>Clave:</strong> Sombrero tipo panal con hoyos profundos. <strong>Completamente hueco</strong> al cortarlo. Forma de cono, canela a marr&oacute;n oscuro.</p>
+  </div>
+  <button class="mcard-toggle" onclick="toggleCard(this)">Detalles Completos <span class="arrow">&#9660;</span></button>
+  <div class="mcard-details">
+    <h4>C&oacute;mo Se Ve</h4>
+    <ul>
+      <li><strong>Sombrero:</strong> Superficie de panal con hoyos y crestas</li>
+      <li><strong>Interior:</strong> Completamente hueco — la clave #1</li>
+      <li><strong>Tallo:</strong> Blanco a crema, tambi&eacute;n hueco</li>
+    </ul>
+    <h4>D&oacute;nde y Cu&aacute;ndo</h4><p>Cerca de olmos y fresnos muertos. &Aacute;reas post-incendio. <strong>Primavera (Mar–May).</strong></p>
+    <div class="lookalike"><h4>Cuidado: Falsa Morilla (Mortal)</h4><p>Sombreros <strong>arrugados tipo cerebro</strong>. <strong>NO hueca</strong>. C&oacute;rtala: hueca = verdadera.</p></div>
+    <div class="tip"><h4>Si Encuentras Uno</h4><p>Remoja en agua con sal 30 min. Cocina completamente. Un manjar.</p></div>
+  </div>
+</div>
+
+<!-- 3. CHICKEN ES — LOCKED -->
+<div class="mcard" data-regions="pnw,ne,se,mw" data-status="edible">
+  <div class="mcard-photo edible-bg">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Chicken_of_the_Woods_Laetiporus_sulphureus.jpg/600px-Chicken_of_the_Woods_Laetiporus_sulphureus.jpg" alt="Pollo del bosque" loading="lazy" onerror="imgErr(this)">
+    <div class="lock-overlay"><div class="lock-icon">&#128274;</div><span class="tease">Sabe a pollo real. Sin l&aacute;minas que confundan.</span><button class="unlock-cta" onclick="openModal()">Quiero Este &mdash; $9</button></div>
+    <span class="mcard-status">Comestible</span><span class="mcard-season">May–Nov</span>
+  </div>
+  <div class="mcard-body"><h3>Pollo del Bosque</h3><p class="sciname">Laetiporus sulphureus</p>
+    <p class="quick-id"><strong>Clave:</strong> <strong>Repisa naranja/amarilla brillante</strong> en capas superpuestas. Parte inferior amarillo azufre con poros diminutos.</p></div>
+  <button class="mcard-toggle" onclick="toggleCard(this)">Detalles Completos <span class="arrow">&#9660;</span></button>
+  <div class="mcard-details"><h4>C&oacute;mo Se Ve</h4><ul><li><strong>Forma:</strong> Repisas superpuestas en troncos</li><li><strong>Arriba:</strong> Naranja brillante a salm&oacute;n</li><li><strong>Abajo:</strong> Amarillo azufre, poros diminutos</li></ul><h4>D&oacute;nde y Cu&aacute;ndo</h4><p>En maderas duras, especialmente robles. <strong>Final de primavera a oto&ntilde;o.</strong></p><div class="tip"><h4>Si Encuentras Uno</h4><p>Textura similar a pechuga de pollo. Corta los bordes tiernos, saltea con ajo.</p></div></div>
+</div>
+
+<!-- 4. HEN ES — LOCKED -->
+<div class="mcard" data-regions="ne,se,mw" data-status="edible">
+  <div class="mcard-photo edible-bg">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Grifola_frondosa.jpg/600px-Grifola_frondosa.jpg" alt="Gallina del bosque maitake" loading="lazy" onerror="imgErr(this)">
+    <div class="lock-overlay"><div class="lock-icon">&#128274;</div><span class="tease">Regresa al mismo roble cada a&ntilde;o.</span><button class="unlock-cta" onclick="openModal()">Quiero Este &mdash; $9</button></div>
+    <span class="mcard-status">Comestible</span><span class="mcard-season">Sep–Nov</span>
+  </div>
+  <div class="mcard-body"><h3>Gallina del Bosque (Maitake)</h3><p class="sciname">Grifola frondosa</p>
+    <p class="quick-id"><strong>Clave:</strong> Roseta de <strong>abanicos gris-marr&oacute;n superpuestos</strong> al pie de &aacute;rboles. Poros blancos debajo.</p></div>
+  <button class="mcard-toggle" onclick="toggleCard(this)">Detalles Completos <span class="arrow">&#9660;</span></button>
+  <div class="mcard-details"><h4>C&oacute;mo Se Ve</h4><ul><li>Roseta de abanicos superpuestos desde una base</li><li>Gris-marr&oacute;n arriba, blanco abajo</li><li><strong>Regresa al mismo lugar cada a&ntilde;o</strong></li></ul><h4>D&oacute;nde y Cu&aacute;ndo</h4><p>Base de robles. <strong>Oto&ntilde;o (Sep–Nov).</strong></p><div class="tip"><h4>Si Encuentras Uno</h4><p>Desg&aacute;rralo en trozos, saltea hasta crujiente. Sabor umami.</p></div></div>
+</div>
+
+<!-- 5. LION'S MANE ES — LOCKED -->
+<div class="mcard" data-regions="pnw,ne,se,mw" data-status="edible">
+  <div class="mcard-photo edible-bg">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Lions_Mane_Mushroom_Durham_NC.jpg/600px-Lions_Mane_Mushroom_Durham_NC.jpg" alt="Melena de le&oacute;n" loading="lazy" onerror="imgErr(this)">
+    <div class="lock-overlay"><div class="lock-icon">&#128274;</div><span class="tease">Sin dobles peligrosos. Ideal para principiantes.</span><button class="unlock-cta" onclick="openModal()">Quiero Este &mdash; $9</button></div>
+    <span class="mcard-status">Comestible</span><span class="mcard-season">Ago–Nov</span>
+  </div>
+  <div class="mcard-body"><h3>Melena de Le&oacute;n</h3><p class="sciname">Hericium erinaceus</p>
+    <p class="quick-id"><strong>Clave:</strong> Pomp&oacute;n blanco con <strong>espinas colgantes</strong>. Sin sombrero, sin tallo, sin l&aacute;minas. <strong>Sin dobles t&oacute;xicos.</strong></p></div>
+  <button class="mcard-toggle" onclick="toggleCard(this)">Detalles Completos <span class="arrow">&#9660;</span></button>
+  <div class="mcard-details"><h4>C&oacute;mo Se Ve</h4><ul><li>Bola blanca con espinas largas</li><li>Blanco cuando joven, se amarillenta</li><li>Nada se le parece</li></ul><h4>D&oacute;nde y Cu&aacute;ndo</h4><p>En maderas duras muertas. <strong>Final de verano a oto&ntilde;o.</strong></p><div class="tip"><h4>Si Encuentras Uno</h4><p>Corta en "filetes" y sella en mantequilla. Textura como cangrejo.</p></div></div>
+</div>
+
+<!-- 6. OYSTER ES — LOCKED -->
+<div class="mcard" data-regions="pnw,ne,se,mw,sw" data-status="edible">
+  <div class="mcard-photo edible-bg">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Pleurotus_ostreatus.jpg/600px-Pleurotus_ostreatus.jpg" alt="Hongo ostra" loading="lazy" onerror="imgErr(this)">
+    <div class="lock-overlay"><div class="lock-icon">&#128274;</div><span class="tease">Crece todo el a&ntilde;o. El silvestre m&aacute;s vers&aacute;til.</span><button class="unlock-cta" onclick="openModal()">Quiero Este &mdash; $9</button></div>
+    <span class="mcard-status">Comestible</span><span class="mcard-season">Todo el a&ntilde;o</span>
+  </div>
+  <div class="mcard-body"><h3>Hongo Ostra</h3><p class="sciname">Pleurotus ostreatus</p>
+    <p class="quick-id"><strong>Clave:</strong> <strong>Forma de abanico/concha</strong>, blanco a gris, en racimos sobre madera dura muerta.</p></div>
+  <button class="mcard-toggle" onclick="toggleCard(this)">Detalles Completos <span class="arrow">&#9660;</span></button>
+  <div class="mcard-details"><h4>C&oacute;mo Se Ve</h4><ul><li>Abanico o concha, 5–20 cm, liso</li><li>Blanco, crema, gris o canela</li><li>Crece en madera dura muerta</li></ul><h4>D&oacute;nde y Cu&aacute;ndo</h4><p><strong>Primavera y oto&ntilde;o, pero todo el a&ntilde;o en climas templados.</strong></p><div class="tip"><h4>Si Encuentras Uno</h4><p>Vers&aacute;til. Saltea, agrega a sopas. Sabor suave y dulce.</p></div></div>
+</div>
+
+<!-- 7. PORCINI ES — LOCKED -->
+<div class="mcard" data-regions="pnw,ne,mw,sw" data-status="edible">
+  <div class="mcard-photo edible-bg">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Boletus_edulis_EtgM.jpg/600px-Boletus_edulis_EtgM.jpg" alt="Porcini boleto rey" loading="lazy" onerror="imgErr(this)">
+    <div class="lock-overlay"><div class="lock-icon">&#128274;</div><span class="tease">Vale $50/lb seco. El rey de los hongos.</span><button class="unlock-cta" onclick="openModal()">Quiero Este &mdash; $9</button></div>
+    <span class="mcard-status">Comestible</span><span class="mcard-season">Jul–Oct</span>
+  </div>
+  <div class="mcard-body"><h3>Porcini (Boleto Rey)</h3><p class="sciname">Boletus edulis</p>
+    <p class="quick-id"><strong>Clave:</strong> Sombrero marr&oacute;n convexo, <strong>poros esponjosos debajo (NO l&aacute;minas)</strong>, tallo grueso con reticulado blanco.</p></div>
+  <button class="mcard-toggle" onclick="toggleCard(this)">Detalles Completos <span class="arrow">&#9660;</span></button>
+  <div class="mcard-details"><h4>C&oacute;mo Se Ve</h4><ul><li>Liso, convexo, marr&oacute;n, 8–25 cm</li><li>Poros esponjosos blancos a amarillo-verdosos</li><li>Tallo grueso, bulboso</li></ul><h4>D&oacute;nde y Cu&aacute;ndo</h4><p>Bajo con&iacute;feras en bosques monta&ntilde;osos. <strong>Verano a oto&ntilde;o.</strong></p><div class="tip"><h4>Si Encuentras Uno</h4><p>Uno de los m&aacute;s buscados del mundo. Saltea fresco o seca para risottos.</p></div></div>
+</div>
+
+<!-- 8. DEATH CAP ES — FREE -->
+<div class="mcard toxic" data-regions="pnw,ne,se" data-status="toxic" data-free="true">
+  <div class="mcard-photo toxic-bg">
+    <span class="free-badge">Vista Previa</span>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Amanita_phalloides_-_deathcap.JPG/600px-Amanita_phalloides_-_deathcap.JPG" alt="Hongo de la muerte — mortal" loading="lazy" onerror="imgErr(this)">
+    <div class="lock-overlay"><div class="lock-icon">&#128274;</div><span class="tease">Media c&aacute;psula mata a un adulto</span><button class="unlock-cta" onclick="openModal()">Desbloquear &mdash; $9</button></div>
+    <span class="mcard-status">Mortal</span>
+    <span class="mcard-season">Ago–Nov</span>
+  </div>
+  <div class="mcard-body">
+    <h3>Hongo de la Muerte (Death Cap)</h3>
+    <p class="sciname">Amanita phalloides</p>
+    <p class="quick-id"><strong>Clave:</strong> Sombrero verde-amarillento a oliva, l&aacute;minas blancas, <strong>anillo tipo falda + volva tipo copa en la base</strong>. Huele a miel. <strong>Media c&aacute;psula mata a un adulto.</strong></p>
+  </div>
+  <button class="mcard-toggle" onclick="toggleCard(this)">Detalles Completos <span class="arrow">&#9660;</span></button>
+  <div class="mcard-details">
+    <h4>C&oacute;mo Se Ve</h4>
+    <ul>
+      <li><strong>Sombrero:</strong> 5–15 cm, verde-amarillento a oliva, liso</li>
+      <li><strong>L&aacute;minas:</strong> Blancas, muy juntas, libres del tallo</li>
+      <li><strong>Tallo:</strong> Blanco, 8–15 cm, con anillo</li>
+      <li><strong>Base:</strong> Bulbosa con volva — <strong>DESENTIERRA LA BASE</strong></li>
+    </ul>
+    <div class="danger-note"><h4>Por Qu&eacute; Mata</h4><ul>
+      <li><strong>Amatoxinas</strong> que destruyen h&iacute;gado y ri&ntilde;ones</li>
+      <li><strong>S&iacute;ntomas se retrasan 6–24 horas</strong></li>
+      <li>Fase enga&ntilde;osa de "mejor&iacute;a" antes de la etapa final</li>
+      <li>Sin ant&iacute;doto casero — urgencias inmediatamente</li>
+    </ul></div>
+  </div>
+</div>
+
+<!-- 9. DESTROYING ANGEL ES — LOCKED -->
+<div class="mcard toxic" data-regions="pnw,ne,se,mw" data-status="toxic">
+  <div class="mcard-photo toxic-bg">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Amanita_verna_(destroying_angel_mushroom).jpg/600px-Amanita_verna_(destroying_angel_mushroom).jpg" alt="&Aacute;ngel destructor — todo blanco, mortal" loading="lazy" onerror="imgErr(this)">
+    <div class="lock-overlay"><div class="lock-icon">&#128274;</div><span class="tease">Todo blanco. Todo inocente. Todo mortal.</span><button class="unlock-cta" onclick="openModal()">Necesito Saber Esto &mdash; $9</button></div>
+    <span class="mcard-status">Mortal</span><span class="mcard-season">Jun–Oct</span>
+  </div>
+  <div class="mcard-body"><h3>&Aacute;ngel Destructor</h3><p class="sciname">Amanita bisporigera / A. virosa / A. ocreata</p>
+    <p class="quick-id"><strong>Clave:</strong> <strong>Todo blanco puro.</strong> L&aacute;minas blancas, anillo fr&aacute;gil, volva en la base. <strong>Tan letal como el Hongo de la Muerte.</strong></p></div>
+  <button class="mcard-toggle" onclick="toggleCard(this)">Detalles Completos <span class="arrow">&#9660;</span></button>
+  <div class="mcard-details"><h4>C&oacute;mo Se Ve</h4><ul><li>Sombrero blanco puro, 5–12 cm, liso</li><li>L&aacute;minas blancas, libres del tallo</li><li>Tallo blanco, alto, anillo fr&aacute;gil</li><li>Base bulbosa con volva — <strong>DESENTIERRA</strong></li></ul><div class="danger-note"><h4>Regla #1 con Hongos Blancos</h4><p><strong>Si es blanco, tiene l&aacute;minas y crece del suelo — tr&aacute;talo como mortal.</strong></p></div></div>
+</div>
+
+<!-- 10. JACK O'LANTERN ES — LOCKED -->
+<div class="mcard caution" data-regions="ne,se,mw" data-status="toxic">
+  <div class="mcard-photo caution-bg">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Jack_O%27_Lantern_Mushroom_Closeup%3B_Omphalotus_olearius.JPG/600px-Jack_O%27_Lantern_Mushroom_Closeup%3B_Omphalotus_olearius.JPG" alt="Jack o'lantern — naranja brillante, t&oacute;xico" loading="lazy" onerror="imgErr(this)">
+    <div class="lock-overlay"><div class="lock-icon">&#128274;</div><span class="tease">Raz&oacute;n #1 de confundir t&oacute;xico con comestible.</span><button class="unlock-cta" onclick="openModal()">Necesito Saber Esto &mdash; $9</button></div>
+    <span class="mcard-status" style="background:var(--caution)">T&oacute;xico</span><span class="mcard-season">Jul–Nov</span>
+  </div>
+  <div class="mcard-body"><h3>Jack O'Lantern (Hongo Linterna)</h3><p class="sciname">Omphalotus olearius</p>
+    <p class="quick-id"><strong>Clave:</strong> Naranja brillante, <strong>l&aacute;minas verdaderas y filosas</strong>, crece <strong>en racimos sobre madera</strong>. <strong>El impostor #1 del Chanterelle.</strong></p></div>
+  <button class="mcard-toggle" onclick="toggleCard(this)">Detalles Completos <span class="arrow">&#9660;</span></button>
+  <div class="mcard-details"><h4>Chanterelle vs. Jack O'Lantern</h4>
+    <table class="compare-tbl"><tr><th>Caracter&iacute;stica</th><th>Chanterelle</th><th>Jack O'Lantern</th></tr>
+    <tr><td>L&aacute;minas</td><td>Falsas (pliegues)</td><td>Verdaderas y filosas</td></tr>
+    <tr><td>Crecimiento</td><td>Del suelo</td><td>Racimos sobre madera</td></tr>
+    <tr><td>Interior</td><td>Carne p&aacute;lida</td><td>Naranja por completo</td></tr></table>
+    <div class="danger-note"><h4>Si Alguien Come Uno</h4><p>Calambres, v&oacute;mito, diarrea en 1–2 horas. Rara vez fatal. <strong>Busca atenci&oacute;n m&eacute;dica.</strong></p></div></div>
+</div>
+
+</div><!-- grid-es -->
+</div><!-- wrap -->
+
+<!-- UNLOCK BANNER ES -->
+<div class="unlock-banner no-print" id="unlock-banner-es">
+  <h2>Has Visto 3. Esto Es Lo Que Te Falta:</h2>
+  <p class="banner-sub">5 comestibles m&aacute;s + 2 mortales que necesitas reconocer</p>
+  <ul class="missing-list">
+    <li><span class="n">Pollo del Bosque</span> — sabe a pollo, sin l&aacute;minas que confundan</li>
+    <li><span class="n">Melena de Le&oacute;n</span> — sin dobles peligrosos, sabe a langosta</li>
+    <li><span class="n">Porcini</span> — vale $50/lb seco, el rey de los hongos</li>
+    <li><span class="n">&Aacute;ngel Destructor</span> — todo blanco, parece inocente, mata en d&iacute;as</li>
+    <li class="more">+ 3 especies esenciales m&aacute;s</li>
+  </ul>
+  <p class="anchor">Una gu&iacute;a de campo cuesta $15–$25</p>
+  <span class="launch-tag">Precio de Lanzamiento</span>
+  <div class="price">$9</div>
+  <p class="price-note">Menos que un snack de sendero. Las 10 especies. Tuyas para siempre.</p>
+  <button class="buy-btn" onclick="window.open(CHECKOUT_URL,'_blank')">Quiero la Gu&iacute;a Completa</button><br>
+  <button class="have-code" onclick="openModal()">&iquest;Ya tienes un c&oacute;digo? Ingr&eacute;salo aqu&iacute;</button>
+</div>
+
+<!-- EMERGENCY ES -->
+<div class="emergency" id="emergency-es">
+  <h2>Si Alguien Come un Hongo T&oacute;xico</h2>
+  <div class="phone">1-800-222-1222</div>
+  <p>Control de Envenenamientos de EE.UU. — Llama inmediatamente. NO esperes s&iacute;ntomas.</p>
+  <ol>
+    <li><strong>Llama ahora.</strong> Con el Hongo de la Muerte, los s&iacute;ntomas se retrasan 6–24 horas.</li>
+    <li><strong>Guarda una muestra</strong> o toma fotos claras.</li>
+    <li><strong>NO provoques el v&oacute;mito</strong> a menos que te lo indique un m&eacute;dico.</li>
+    <li><strong>Ve a urgencias.</strong> No intentes esperar en casa.</li>
+    <li><strong>Anota la hora</strong> de ingesti&oacute;n y cu&aacute;ndo aparecieron los s&iacute;ntomas.</li>
+  </ol>
+</div>
+
+<!-- GEAR ES -->
+<div class="section" id="extras-es">
+  <h2>Extras para el Sendero</h2>
+  <p class="sub">Todo lo que necesitas para buscar hongos</p>
+  <div class="collapsible">
+    <button class="collapsible-header" onclick="toggleCollapsible(this)">Qu&eacute; Llevar: Lista de Equipo <span class="arrow">&#9660;</span></button>
+    <div class="collapsible-body">
+      <h4>Lo Esencial</h4>
+      <ul>
+        <li><strong>Cuchillo peque&ntilde;o</strong> — corta hongos limpiamente en la base</li>
+        <li><strong>Bolsas de papel</strong> — nunca pl&aacute;stico</li>
+        <li><strong>Canasta o bolsa de malla</strong> — mantiene los hallazgos intactos</li>
+        <li><strong>Tu tel&eacute;fono (c&aacute;mara)</strong> — fotos del sombrero, abajo, tallo, base</li>
+      </ul>
+      <h4>Bueno Tener</h4>
+      <ul>
+        <li><strong>Lupa 10x</strong> — examina l&aacute;minas y poros de cerca</li>
+        <li><strong>Libreta de campo</strong> — &aacute;rboles cercanos, tipo de suelo</li>
+        <li><strong>Papel aluminio</strong> — envuelve ejemplares</li>
+        <li><strong>Papel blanco + oscuro</strong> — para huellas de esporas</li>
+      </ul>
+    </div>
+  </div>
+  <div class="collapsible">
+    <button class="collapsible-header" onclick="toggleCollapsible(this)">Checklist de Identificaci&oacute;n <span class="arrow">&#9660;</span></button>
+    <div class="collapsible-body">
+      <ul>
+        <li><strong>&iquest;D&oacute;nde crece?</strong> Suelo, madera, tronco?</li>
+        <li><strong>&iquest;Qu&eacute; hay cerca?</strong> Roble, haya, con&iacute;fera?</li>
+        <li><strong>&iquest;C&oacute;mo crece?</strong> Solo, disperso, racimo?</li>
+        <li><strong>Sombrero:</strong> Color, forma, tama&ntilde;o, textura?</li>
+        <li><strong>Parte inferior:</strong> L&aacute;minas, poros, pliegues, espinas?</li>
+        <li><strong>Tallo:</strong> Color, grosor, anillo, copa en la base?</li>
+        <li><strong>C&oacute;rtalo:</strong> Hueco? S&oacute;lido? Cambia de color?</li>
+        <li><strong>Olor:</strong> Afrutado? Terroso? Desagradable?</li>
+        <li><strong>&iquest;Fotos tomadas?</strong> Al menos 5 &aacute;ngulos</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+</div><!-- lang-es -->
+
+<!-- DISCLAIMER -->
+<div class="disclaimer">
+  <p id="disc-en"><strong>Safety notice:</strong> This guide is for educational purposes. Never eat a wild mushroom based solely on a written guide. When in doubt, leave it alone. If you suspect poisoning, call emergency services immediately.</p>
+  <p id="disc-es" hidden><strong>Aviso de seguridad:</strong> Esta gu&iacute;a es para fines educativos. Nunca comas un hongo silvestre bas&aacute;ndote &uacute;nicamente en una gu&iacute;a. Ante la duda, d&eacute;jalo donde est&aacute;.</p>
+</div>
+
+<footer>
+  <div class="q" id="fq-en">"It doesn't have to be perfect. It just has to happen."</div>
+  <div class="q" id="fq-es" hidden>"No tiene que ser perfecto, tiene que pasar."</div>
+  <div class="s">Paola Adventurer &middot; Archery &middot; Camping &middot; Explore</div>
+  <a class="back" href="/" id="fb-en">Back to Shop</a>
+  <a class="back" href="/" id="fb-es" hidden>Volver a la Tienda</a>
+  <p class="attr">Photos: Wikimedia Commons (CC BY-SA). See individual image pages for photographer credits.</p>
+</footer>
+
+<script>
+var CHECKOUT_URL = ‘https://payhip.com/b/XXXXX’;
+var currentLang = ‘en’;
+var activeEdibility = ‘all’;
+var activeGrowth = ‘all’;
+
+var stateToRegions = {
+  ‘AL’:[‘se’],’AK’:[‘pnw’],’AZ’:[‘sw’],’AR’:[‘se’],
+  ‘CA’:[‘pnw’,’sw’],’CO’:[‘sw’],’CT’:[‘ne’],’DC’:[‘ne’],’DE’:[‘ne’],
+  ‘FL’:[‘se’],’GA’:[‘se’],’HI’:[‘sw’],’ID’:[‘pnw’],
+  ‘IL’:[‘mw’],’IN’:[‘mw’],’IA’:[‘mw’],’KS’:[‘mw’],
+  ‘KY’:[‘se’,’ne’],’LA’:[‘se’],’ME’:[‘ne’],’MD’:[‘ne’],
+  ‘MA’:[‘ne’],’MI’:[‘mw’],’MN’:[‘mw’],’MS’:[‘se’],
+  ‘MO’:[‘mw’],’MT’:[‘pnw’,’sw’],’NE’:[‘mw’],’NV’:[‘sw’],
+  ‘NH’:[‘ne’],’NJ’:[‘ne’],’NM’:[‘sw’],’NY’:[‘ne’],
+  ‘NC’:[‘se’,’ne’],’ND’:[‘mw’],’OH’:[‘mw’,’ne’],’OK’:[‘mw’,’sw’],
+  ‘OR’:[‘pnw’],’PA’:[‘ne’],’RI’:[‘ne’],’SC’:[‘se’],
+  ‘SD’:[‘mw’],’TN’:[‘se’],’TX’:[‘sw’,’se’],’UT’:[‘sw’],
+  ‘VT’:[‘ne’],’VA’:[‘ne’,’se’],’WA’:[‘pnw’],’WV’:[‘ne’],
+  ‘WI’:[‘mw’],’WY’:[‘sw’]
+};
+
+var stateNames = {
+  ‘AL’:’Alabama’,’AK’:’Alaska’,’AZ’:’Arizona’,’AR’:’Arkansas’,
+  ‘CA’:’California’,’CO’:’Colorado’,’CT’:’Connecticut’,’DC’:’Washington D.C.’,
+  ‘DE’:’Delaware’,’FL’:’Florida’,’GA’:’Georgia’,’HI’:’Hawaii’,
+  ‘ID’:’Idaho’,’IL’:’Illinois’,’IN’:’Indiana’,’IA’:’Iowa’,
+  ‘KS’:’Kansas’,’KY’:’Kentucky’,’LA’:’Louisiana’,’ME’:’Maine’,
+  ‘MD’:’Maryland’,’MA’:’Massachusetts’,’MI’:’Michigan’,’MN’:’Minnesota’,
+  ‘MS’:’Mississippi’,’MO’:’Missouri’,’MT’:’Montana’,’NE’:’Nebraska’,
+  ‘NV’:’Nevada’,’NH’:’New Hampshire’,’NJ’:’New Jersey’,’NM’:’New Mexico’,
+  ‘NY’:’New York’,’NC’:’North Carolina’,’ND’:’North Dakota’,’OH’:’Ohio’,
+  ‘OK’:’Oklahoma’,’OR’:’Oregon’,’PA’:’Pennsylvania’,’RI’:’Rhode Island’,
+  ‘SC’:’South Carolina’,’SD’:’South Dakota’,’TN’:’Tennessee’,’TX’:’Texas’,
+  ‘UT’:’Utah’,’VT’:’Vermont’,’VA’:’Virginia’,’WA’:’Washington’,
+  ‘WV’:’West Virginia’,’WI’:’Wisconsin’,’WY’:’Wyoming’
+};
+
+var growthOrder = [‘soil’,’soil’,’wood’,’wood’,’wood’,’wood’,’soil’,’soil’,’soil’,’wood’];
+
+function _h(s){var h=0;for(var i=0;i<s.length;i++){h=((h<<5)-h)+s.charCodeAt(i);h|=0;}return h;}
+var _v=[-1583839050,-738341769,1026505637];
+
+function isUnlocked(){
+  try{return localStorage.getItem(‘mushroom_unlocked’)===’true’;}catch(e){return false;}
+}
+
+function applyLockState(){
+  var unlocked = isUnlocked();
+  document.querySelectorAll(‘.mcard’).forEach(function(c){
+    if(unlocked || c.getAttribute(‘data-free’)===’true’) c.classList.remove(‘locked’);
+    else c.classList.add(‘locked’);
+  });
+  document.querySelectorAll(‘.unlock-banner’).forEach(function(b){ b.style.display = unlocked ? ‘none’ : ‘’; });
+  document.querySelectorAll(‘.preview-note’).forEach(function(n){ n.style.display = unlocked ? ‘none’ : ‘’; });
+}
+
+function openModal(){
+  document.getElementById(‘unlock-modal’).classList.add(‘show’);
+  document.getElementById(‘code-input’).value=’’;
+  document.getElementById(‘modal-error’).style.display=’none’;
+  document.getElementById(‘modal-success’).style.display=’none’;
+  setTimeout(function(){document.getElementById(‘code-input’).focus();},100);
+}
+function closeModal(){document.getElementById(‘unlock-modal’).classList.remove(‘show’);}
+
+function submitCode(){
+  var code = document.getElementById(‘code-input’).value;
+  if(!code.trim()) return;
+  if(_v.indexOf(_h(code.toUpperCase().trim()))!==-1){
+    try{localStorage.setItem(‘mushroom_unlocked’,’true’);}catch(e){}
+    document.getElementById(‘modal-error’).style.display=’none’;
+    var s=document.getElementById(‘modal-success’);
+    s.textContent=currentLang===’en’?’Guide unlocked! Enjoy all 10 mushrooms.’:’Guia desbloqueada! Disfruta los 10 hongos.’;
+    s.style.display=’block’;
+    setTimeout(function(){closeModal();applyLockState();},1200);
+  } else {
+    document.getElementById(‘modal-success’).style.display=’none’;
+    var e=document.getElementById(‘modal-error’);
+    e.textContent=currentLang===’en’?’Invalid code. Please check and try again.’:’Codigo invalido. Revisa e intenta de nuevo.’;
+    e.style.display=’block’;
+  }
+}
+
+function updateModalLang(l){
+  document.getElementById(‘modal-title’).textContent = l===’en’ ? ‘Unlock Your Guide’ : ‘Desbloquea Tu Guia’;
+  document.getElementById(‘modal-desc’).textContent = l===’en’ ? ‘Purchased the guide? Enter the code from your confirmation page.’ : ‘Compraste la guia? Ingresa el codigo de tu pagina de confirmacion.’;
+  document.getElementById(‘modal-submit’).textContent = l===’en’ ? ‘Unlock My Guide’ : ‘Desbloquear Mi Guia’;
+  document.getElementById(‘modal-divider’).textContent = l===’en’ ? ‘or’ : ‘o’;
+  document.getElementById(‘modal-buy’).textContent = l===’en’ ? ‘Get the Full Guide — $9’ : ‘Obtener la Guia Completa — $9’;
+}
+
+function setLang(l){
+  currentLang=l;
+  document.getElementById(‘lang-en’).hidden=l!==’en’;
+  document.getElementById(‘lang-es’).hidden=l!==’es’;
+  document.getElementById(‘btn-en’).classList.toggle(‘active’,l===’en’);
+  document.getElementById(‘btn-es’).classList.toggle(‘active’,l===’es’);
+  document.getElementById(‘disc-en’).hidden=l!==’en’;
+  document.getElementById(‘disc-es’).hidden=l!==’es’;
+  document.getElementById(‘fq-en’).hidden=l!==’en’;
+  document.getElementById(‘fq-es’).hidden=l!==’es’;
+  document.getElementById(‘fb-en’).hidden=l!==’en’;
+  document.getElementById(‘fb-es’).hidden=l!==’es’;
+  document.documentElement.lang=l;
+  try{localStorage.setItem(‘pa_lang’,l);}catch(e){}
+  updateModalLang(l);
+  var enSel=document.getElementById(‘region-select-en’);
+  var esSel=document.getElementById(‘region-select-es’);
+  if(l===’en’){esSel.value=enSel.value;}else{enSel.value=esSel.value;}
+  updateChipStates();
+  applyFilters();
+}
+
+function setFilter(type, val){
+  if(type===’edibility’) activeEdibility=val;
+  if(type===’growth’) activeGrowth=val;
+  updateChipStates();
+  applyFilters();
+}
+
+function updateChipStates(){
+  document.querySelectorAll(‘.filter-chips .fchip’).forEach(function(btn){
+    var t=btn.getAttribute(‘onclick’)||’’;
+    var isEdibility=t.indexOf("’edibility’")!==-1;
+    var isGrowth=t.indexOf("’growth’")!==-1;
+    if(isEdibility){
+      var v=t.match(/’edibility’,’(\w+)’/);
+      btn.classList.toggle(‘active’,v&&v[1]===activeEdibility);
+    }
+    if(isGrowth){
+      var v2=t.match(/’growth’,’(\w+)’/);
+      btn.classList.toggle(‘active’,v2&&v2[1]===activeGrowth);
+    }
+  });
+}
+
+function applyFilters(){
+  var gridId=currentLang===’en’?’grid-en’:’grid-es’;
+  var countId=currentLang===’en’?’count-en’:’count-es’;
+  var selId=currentLang===’en’?’region-select-en’:’region-select-es’;
+  var stateVal=document.getElementById(selId).value;
+  var cards=document.getElementById(gridId).querySelectorAll(‘.mcard’);
+  var visible=0;
+
+  cards.forEach(function(c){
+    var show=true;
+
+    if(stateVal!==’all’){
+      var sRegions=stateToRegions[stateVal]||[];
+      var cRegions=c.getAttribute(‘data-regions’).split(‘,’);
+      var stateMatch=false;
+      for(var i=0;i<sRegions.length;i++){
+        if(cRegions.indexOf(sRegions[i])!==-1){stateMatch=true;break;}
+      }
+      if(!stateMatch) show=false;
+    }
+
+    if(activeEdibility!==’all’){
+      var status=c.getAttribute(‘data-status’);
+      if(activeEdibility===’edible’&&status!==’edible’) show=false;
+      if(activeEdibility===’toxic’&&status!==’toxic’) show=false;
+    }
+
+    if(activeGrowth!==’all’){
+      var g=c.getAttribute(‘data-growth’);
+      if(g!==activeGrowth) show=false;
+    }
+
+    c.style.display=show?’’:’none’;
+    if(show) visible++;
+  });
+
+  var countEl=document.getElementById(countId);
+  var parts=[];
+  if(stateVal!==’all’) parts.push(stateNames[stateVal]||stateVal);
+  if(activeEdibility!==’all’) parts.push(currentLang===’en’?(activeEdibility===’edible’?’edible’:’toxic’):(activeEdibility===’edible’?’comestibles’:’toxicos’));
+  if(activeGrowth!==’all’) parts.push(currentLang===’en’?(activeGrowth===’soil’?’from soil’:’on wood’):(activeGrowth===’soil’?’del suelo’:’en madera’));
+
+  if(parts.length===0){
+    countEl.textContent=currentLang===’en’?’Showing all 10 mushrooms’:’Mostrando los 10 hongos’;
+  } else {
+    var filterDesc=parts.join(‘ · ‘);
+    countEl.textContent=(currentLang===’en’?
+      visible+’ mushroom’+(visible!==1?’s’:’’)+’ — ‘+filterDesc:
+      visible+’ hongo’+(visible!==1?’s’:’’)+’ — ‘+filterDesc);
+  }
+
+  document.getElementById(‘region-select-en’).value=stateVal;
+  document.getElementById(‘region-select-es’).value=stateVal;
+}
+
+function toggleCard(btn){
+  var details=btn.nextElementSibling;
+  details.classList.toggle(‘show’);
+  btn.classList.toggle(‘open’);
+  var isOpen=details.classList.contains(‘show’);
+  var label=isOpen?(currentLang===’en’?’Close Details’:’Cerrar Detalles’):(currentLang===’en’?’Full ID Details’:’Detalles Completos’);
+  btn.innerHTML=label+’ <span class="arrow">&#9660;</span>’;
+}
+
+function toggleCollapsible(btn){
+  var body=btn.nextElementSibling;
+  body.classList.toggle(‘show’);
+  btn.classList.toggle(‘open’);
+}
+
+var traitMap={
+  ‘Chanterelle’:’Golden funnel · False gills · Apricot smell’,
+  ‘Chanterelle (Rebozuelo)’:’Embudo dorado · Falsas laminas · Olor a albaricoque’,
+  ‘Morel’:’Honeycomb cap · Completely hollow inside’,
+  ‘Morilla (Morel)’:’Sombrero tipo panal · Completamente hueco’,
+  ‘Chicken of the Woods’:’Orange shelves on wood · Pores, no gills’,
+  ‘Pollo del Bosque’:’Repisas naranjas · Poros, sin laminas’,
+  ‘Hen of the Woods (Maitake)’:’Gray-brown fans at tree base · Pores’,
+  ‘Gallina del Bosque (Maitake)’:’Abanicos grises en base de arbol’,
+  "Lion’s Mane":’White pom-pom · Cascading spines · No look-alikes’,
+  "Melena de León":’Pompon blanco · Espinas colgantes’,
+  ‘Oyster Mushroom’:’Fan-shaped on hardwood · Short stem’,
+  ‘Hongo Ostra’:’Forma de abanico · Tallo corto’,
+  ‘Porcini (King Bolete)’:’Brown cap · Spongy pores · Bulbous stem’,
+  ‘Porcini (Boleto Rey)’:’Sombrero marron · Poros esponjosos’,
+  ‘Death Cap’:’Olive cap · White gills · Volva at base’,
+  ‘Hongo de la Muerte (Death Cap)’:’Sombrero oliva · Laminas blancas · Volva’,
+  ‘Destroying Angel’:’Pure white · Gills · Ring · Volva’,
+  "Ángel Destructor":’Todo blanco · Laminas · Anillo · Volva’,
+  "Jack O’Lantern":’Bright orange · True gills · Clusters on wood’,
+  "Jack O’Lantern (Hongo Linterna)":’Naranja brillante · Laminas verdaderas’
+};
+function imgErr(el){
+  el.style.display=’none’;
+  var card=el.closest(‘.mcard’);
+  if(!card) return;
+  var h3=card.querySelector(‘h3’);
+  if(!h3) return;
+  var n=h3.textContent.trim();
+  var isToxic=card.classList.contains(‘toxic’)||card.classList.contains(‘caution’);
+  var emoji=isToxic?’⚠️’:’🍄’;
+  var trait=traitMap[n]||’’;
+  var fb=document.createElement(‘div’);
+  fb.className=’photo-fallback’;
+  fb.innerHTML=’<span class="fb-emoji">’+emoji+’</span>’
+    +’<span class="fb-name">’+n+’</span>’
+    +(trait?’<span class="fb-trait">’+trait+’</span>’:’’)
+    +’<span class="fb-note">📷 Photo on live site</span>’;
+  el.parentElement.appendChild(fb);
+}
+
+document.getElementById(‘unlock-modal’).addEventListener(‘click’,function(e){if(e.target===this)closeModal();});
+
+(function(){
+  document.querySelectorAll(‘#grid-en .mcard’).forEach(function(c,i){c.setAttribute(‘data-growth’,growthOrder[i]);});
+  document.querySelectorAll(‘#grid-es .mcard’).forEach(function(c,i){c.setAttribute(‘data-growth’,growthOrder[i]);});
+
+  var saved=null;
+  try{saved=localStorage.getItem(‘pa_lang’);}catch(e){}
+  if(saved){setLang(saved);}
+  else if(navigator.language&&navigator.language.startsWith(‘es’)){setLang(‘es’);}
+  else{applyFilters();}
+  applyLockState();
+})();
+</script>
+
+</body>
+</html>
