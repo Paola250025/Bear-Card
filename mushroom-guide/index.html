@@ -38,7 +38,7 @@ a{color:inherit;text-decoration:none;}
 .langtoggle button{border:0;background:transparent;color:#faf7f0;font-family:'Oswald',sans-serif;font-weight:700;font-size:12px;padding:5px 12px;border-radius:100px;cursor:pointer;letter-spacing:1px;}
 .langtoggle button.active{background:var(--sun);color:var(--forest);}
 
-.hero{background:linear-gradient(160deg,#0e1f15 0%,#163024 30%,#22432f 60%,#2f5a3a 100%);color:var(--crema);text-align:center;padding:56px 20px 48px;position:relative;overflow:hidden;}
+.hero{background:linear-gradient(rgba(14,31,21,.72),rgba(34,67,47,.8)), url('/assets/27c0af0b-c218-46ce-a819-c5d014d1741d.JPG') center 40%/cover, var(--forest);color:var(--crema);text-align:center;padding:56px 20px 48px;position:relative;overflow:hidden;}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 20%,rgba(232,185,63,.06) 0%,transparent 60%);pointer-events:none;}
 .hero h1{font-family:'Bitter',serif;font-weight:900;font-size:34px;margin:0 0 10px;text-shadow:0 2px 12px rgba(0,0,0,.3);line-height:1.2;max-width:600px;margin-left:auto;margin-right:auto;text-wrap:balance;}
 .hero .sub{font-family:'Oswald',sans-serif;font-weight:500;letter-spacing:3px;font-size:13px;text-transform:uppercase;color:var(--khaki);margin-bottom:18px;}
@@ -64,8 +64,6 @@ a{color:inherit;text-decoration:none;}
 .fchip.active{background:var(--forest);color:#fff;border-color:var(--forest);}
 .fchip.chip-toxic.active{background:var(--toxic);border-color:var(--toxic);}
 
-.preview-note{text-align:center;padding:12px 20px;background:rgba(47,107,69,.08);border-bottom:1px solid rgba(47,107,69,.12);font-size:13px;color:var(--forest);font-weight:600;}
-.preview-note span{color:var(--terra);}
 
 .wrap{max-width:1080px;margin:0 auto;padding:0 20px;}
 .mushroom-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;padding:32px 0 20px;}
@@ -74,43 +72,20 @@ a{color:inherit;text-decoration:none;}
 .mcard{background:#fff;border-radius:18px;overflow:hidden;border:2px solid var(--khaki);box-shadow:0 8px 24px rgba(0,0,0,.07);transition:.15s;display:flex;flex-direction:column;}
 .mcard:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(0,0,0,.12);}
 .mcard.toxic{border-color:var(--toxic);}
-.mcard.toxic .mcard-status{background:var(--toxic);}
+.mcard.toxic .mcard-header{background:linear-gradient(135deg,#c0392b 0%,#96281b 100%);}
 .mcard.caution{border-color:var(--caution);}
-.mcard.caution .mcard-status{background:var(--caution);}
+.mcard.caution .mcard-header{background:linear-gradient(135deg,#d35400 0%,#a84300 100%);}
 
-.mcard-photo{position:relative;aspect-ratio:16/10;overflow:hidden;}
-.mcard-photo.edible-bg{background:linear-gradient(145deg,#c8ddb8 0%,#a8c898 40%,#90b880 100%);}
-.mcard-photo.toxic-bg{background:linear-gradient(145deg,#e8bab3 0%,#d49890 40%,#c48878 100%);}
-.mcard-photo.caution-bg{background:linear-gradient(145deg,#f0ccaa 0%,#e5b482 40%,#d8a470 100%);}
-.mcard-photo::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 70%,rgba(255,255,255,.18) 0%,transparent 60%);pointer-events:none;z-index:0;}
-.mcard-photo img{position:relative;z-index:1;}
-.mcard-photo img{width:100%;height:100%;object-fit:cover;}
-.mcard-status{position:absolute;top:12px;right:12px;font-family:'Oswald',sans-serif;font-weight:700;letter-spacing:1px;text-transform:uppercase;font-size:11px;color:#fff;padding:5px 14px;border-radius:100px;background:var(--edible);z-index:2;}
-.mcard-season{position:absolute;bottom:10px;left:12px;font-family:'Nunito',sans-serif;font-weight:700;font-size:12px;color:var(--cafe);background:rgba(255,255,255,.85);padding:4px 12px;border-radius:100px;z-index:2;}
+.mcard-header{background:linear-gradient(135deg,var(--forest2) 0%,var(--forest) 100%);padding:18px 20px;display:flex;align-items:center;gap:14px;}
+.mcard-header .mh-emoji{font-size:36px;line-height:1;filter:drop-shadow(0 2px 4px rgba(0,0,0,.2));}
+.mcard-header .mh-info{flex:1;min-width:0;}
+.mcard-header .mh-name{font-family:'Bitter',serif;font-weight:900;font-size:18px;color:#fff;line-height:1.2;}
+.mcard-header .mh-sci{font-family:'Nunito',sans-serif;font-style:italic;font-size:12px;color:rgba(255,255,255,.7);}
+.mcard-header .mh-badges{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px;}
+.mcard-header .mh-status{font-family:'Oswald',sans-serif;font-weight:700;letter-spacing:1px;text-transform:uppercase;font-size:10px;color:#fff;padding:3px 10px;border-radius:100px;background:rgba(255,255,255,.2);}
+.mcard-header .mh-season{font-family:'Nunito',sans-serif;font-weight:700;font-size:11px;color:rgba(255,255,255,.8);padding:3px 10px;border-radius:100px;background:rgba(0,0,0,.15);}
 
-.free-badge{position:absolute;top:12px;left:12px;font-family:'Oswald',sans-serif;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;font-size:10px;color:var(--forest);background:var(--sun);padding:4px 12px;border-radius:100px;z-index:4;box-shadow:0 2px 8px rgba(0,0,0,.15);}
-
-.photo-fallback{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:16px;gap:4px;background:repeating-linear-gradient(-45deg,transparent,transparent 10px,rgba(0,0,0,.015) 10px,rgba(0,0,0,.015) 20px);}
-.photo-fallback .fb-emoji{font-size:32px;filter:grayscale(.3);opacity:.6;}
-.photo-fallback .fb-name{font-family:'Bitter',serif;font-weight:900;font-size:14px;color:rgba(0,0,0,.18);letter-spacing:.5px;line-height:1.2;}
-.photo-fallback .fb-trait{font-family:'Nunito',sans-serif;font-size:11px;font-weight:600;color:rgba(0,0,0,.14);line-height:1.3;max-width:180px;}
-.photo-fallback .fb-note{font-family:'Nunito',sans-serif;font-size:9px;font-weight:700;color:rgba(0,0,0,.1);letter-spacing:1px;text-transform:uppercase;margin-top:4px;}
-
-.mcard.locked .mcard-photo img{filter:blur(8px) brightness(.65);transform:scale(1.05);}
-.mcard.locked .mcard-body .quick-id{display:none;}
-.mcard.locked .mcard-toggle{display:none;}
-.mcard.locked .mcard-details{display:none !important;}
-.mcard.locked:hover{transform:none;box-shadow:0 8px 24px rgba(0,0,0,.07);}
-.lock-overlay{display:none;position:absolute;inset:0;background:linear-gradient(160deg,rgba(14,31,21,.85) 0%,rgba(34,67,47,.75) 100%);z-index:3;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;padding:16px;}
-.mcard.locked .lock-overlay{display:flex;}
-.lock-icon{width:36px;height:36px;background:rgba(232,185,63,.2);border:1.5px solid rgba(232,185,63,.4);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;}
-.lock-overlay .tease{font-family:'Nunito',sans-serif;font-weight:600;font-size:12px;color:rgba(255,255,255,.9);line-height:1.4;max-width:200px;text-shadow:0 1px 4px rgba(0,0,0,.4);}
-.lock-overlay .unlock-cta{background:var(--sun);color:var(--forest);border:0;font-family:'Oswald',sans-serif;font-weight:700;letter-spacing:1px;text-transform:uppercase;font-size:12px;padding:10px 22px;border-radius:100px;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.25);margin-top:4px;}
-.lock-overlay .unlock-cta:hover{background:#d4a530;transform:scale(1.03);}
-
-.mcard-body{padding:18px 20px 6px;flex:1;}
-.mcard-body h3{font-family:'Bitter',serif;font-weight:900;color:var(--forest);font-size:20px;margin:0 0 2px;}
-.mcard-body .sciname{font-family:'Nunito',sans-serif;font-style:italic;color:var(--muted);font-size:13px;margin-bottom:10px;}
+.mcard-body{padding:16px 20px 6px;flex:1;}
 .mcard-body .quick-id{font-size:14px;line-height:1.6;color:var(--cafe);margin-bottom:12px;}
 .mcard-body .quick-id strong{color:var(--forest);}
 
@@ -134,39 +109,6 @@ a{color:inherit;text-decoration:none;}
 .compare-tbl td{padding:7px 10px;border-bottom:1px solid #eee;}
 .compare-tbl tr:nth-child(even) td{background:#f8f5ee;}
 
-.unlock-banner{background:linear-gradient(160deg,#0e1f15 0%,var(--forest) 40%,#1a5a35 100%);color:#fff;text-align:center;padding:48px 20px;margin:0;position:relative;overflow:hidden;}
-.unlock-banner::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 80%,rgba(232,185,63,.06) 0%,transparent 60%);pointer-events:none;}
-.unlock-banner h2{font-family:'Bitter',serif;font-weight:900;font-size:26px;color:var(--sun);margin-bottom:6px;position:relative;}
-.unlock-banner .banner-sub{font-size:15px;color:var(--khaki);margin-bottom:24px;position:relative;}
-.missing-list{text-align:left;max-width:420px;margin:0 auto 28px;padding:0;list-style:none;position:relative;}
-.missing-list li{font-size:14px;line-height:2;color:#c8d8c0;padding-left:24px;position:relative;}
-.missing-list li::before{content:'\2192';position:absolute;left:0;color:var(--sun);font-weight:700;}
-.missing-list .n{font-weight:700;color:#fff;}
-.missing-list .more{color:var(--khaki);font-style:italic;padding-left:24px;margin-top:2px;font-size:13px;}
-.unlock-banner .anchor{font-size:13px;color:var(--khaki);margin-bottom:4px;position:relative;}
-.unlock-banner .launch-tag{display:inline-block;background:var(--terra);color:#fff;font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:1px;text-transform:uppercase;font-size:11px;padding:4px 14px;border-radius:100px;margin-bottom:10px;position:relative;}
-.unlock-banner .price{font-family:'Bitter',serif;font-weight:900;font-size:42px;color:#fff;margin-bottom:6px;position:relative;}
-.unlock-banner .price-note{font-size:13px;color:var(--khaki);margin-bottom:20px;position:relative;}
-.unlock-banner .buy-btn{display:inline-block;background:var(--sun);color:var(--forest);border:0;font-family:'Oswald',sans-serif;font-weight:700;letter-spacing:2px;text-transform:uppercase;font-size:16px;padding:16px 40px;border-radius:100px;cursor:pointer;box-shadow:0 6px 20px rgba(0,0,0,.3);margin-bottom:16px;position:relative;}
-.unlock-banner .buy-btn:hover{background:#d4a530;transform:translateY(-2px);}
-.unlock-banner .have-code{color:var(--khaki);font-size:14px;cursor:pointer;text-decoration:underline;background:none;border:none;font-family:'Nunito',sans-serif;position:relative;}
-
-.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:500;align-items:center;justify-content:center;padding:20px;}
-.modal-bg.show{display:flex;}
-.modal{background:#fff;border-radius:20px;max-width:420px;width:100%;padding:36px 32px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.3);position:relative;}
-.modal h3{font-family:'Bitter',serif;font-weight:900;color:var(--forest);font-size:22px;margin-bottom:8px;}
-.modal p{font-size:15px;color:var(--muted);margin-bottom:20px;line-height:1.5;}
-.modal input{width:100%;padding:14px 18px;border:2px solid var(--khaki);border-radius:12px;font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:3px;font-size:18px;text-align:center;text-transform:uppercase;color:var(--forest);margin-bottom:12px;}
-.modal input:focus{outline:none;border-color:var(--forest2);}
-.modal .modal-btn{width:100%;padding:14px;border:0;background:var(--forest);color:#fff;font-family:'Oswald',sans-serif;font-weight:700;letter-spacing:1px;text-transform:uppercase;font-size:15px;border-radius:12px;cursor:pointer;margin-bottom:10px;}
-.modal .modal-btn:hover{background:#1a3a28;}
-.modal .modal-error{color:var(--toxic);font-size:13px;font-weight:700;display:none;margin-bottom:8px;}
-.modal .modal-success{color:var(--edible);font-size:15px;font-weight:700;display:none;margin-bottom:8px;}
-.modal .close-modal{position:absolute;top:14px;right:18px;background:none;border:none;font-size:22px;color:var(--muted);cursor:pointer;}
-.modal .divider{display:flex;align-items:center;gap:12px;margin:16px 0;color:var(--muted);font-size:13px;}
-.modal .divider::before,.modal .divider::after{content:'';flex:1;height:1px;background:var(--khaki);}
-.modal .buy-link{display:block;background:var(--sun);color:var(--forest);font-family:'Oswald',sans-serif;font-weight:700;letter-spacing:1px;text-transform:uppercase;font-size:14px;padding:14px;border-radius:12px;text-align:center;margin-top:4px;cursor:pointer;}
-.modal .buy-link:hover{background:#d4a530;}
 
 .photo-link{display:inline-block;font-size:12px;font-weight:800;color:var(--terra);margin-top:4px;text-decoration:underline;}
 .photo-link:hover{color:var(--forest);}
@@ -202,14 +144,14 @@ footer .back{display:inline-block;margin-top:16px;color:var(--sun);font-family:'
 footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-height:1.5;}
 
 @media print{
-  .navbar,.region-bar,.mcard-toggle,.hero,.emergency,.collapsible,.disclaimer,footer,.no-print,.unlock-banner,.lock-overlay,.modal-bg,.preview-note,.free-badge{display:none !important;}
+  .navbar,.region-bar,.mcard-toggle,.hero,.emergency,.collapsible,.disclaimer,footer,.no-print{display:none !important;}
   body{background:#fff;font-size:11pt;}
   .mushroom-grid{grid-template-columns:1fr !important;gap:16px;}
   .mcard{break-inside:avoid;border:1px solid #999;box-shadow:none;}
-  .mcard.locked{display:none !important;}
+  .mcard-header{background:none !important;color:#000;border-bottom:1px solid #ccc;}
+  .mcard-header .mh-name{color:#000;}
+  .mcard-header .mh-status{color:#000;background:none;border:1px solid #999;}
   .mcard-details{display:block !important;border-top:1px solid #ccc;}
-  .mcard-photo{aspect-ratio:auto;min-height:80px;}
-  .mcard-photo img{height:200px;object-fit:cover;}
 }
 
 @media(max-width:720px){
@@ -233,7 +175,7 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
 
 <nav class="navbar">
   <div class="inner">
-    <a class="brand" href="/">PAOLA ADVENTURER</a>
+    <a class="brand" href="/">&larr; Paola Adventurer</a>
     <div class="links">
       <a href="/">Home</a>
       <a href="/blog/">Blog</a>
@@ -342,19 +284,18 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
 <div class="wrap">
 <div class="mushroom-grid" id="grid-en">
 
-<!-- 1. CHANTERELLE — FREE -->
-<div class="mcard" data-regions="pnw,ne,se,mw" data-status="edible" data-free="true">
-  <div class="mcard-photo edible-bg">
-
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Chanterelle_Cantharellus_cibarius.jpg/600px-Chanterelle_Cantharellus_cibarius.jpg" alt="Chanterelle mushroom — golden funnel shape on forest floor" loading="lazy" onerror="imgErr(this)">
-    <div class="lock-overlay"><div class="lock-icon">&#128274;</div><span class="tease">Golden funnel, apricot smell</span><button class="unlock-cta" onclick="openModal()">Unlock &mdash; $9</button></div>
-    <span class="mcard-status">Edible</span>
-    <span class="mcard-season">Jun–Oct</span>
+<!-- 1. CHANTERELLE -->
+<div class="mcard" data-regions="pnw,ne,se,mw" data-status="edible">
+  <div class="mcard-header">
+    <span class="mh-emoji">🍄</span>
+    <div class="mh-info">
+      <div class="mh-name">Chanterelle</div>
+      <div class="mh-sci">Cantharellus cibarius</div>
+      <div class="mh-badges"><span class="mh-status">Edible</span><span class="mh-season">Jun–Oct</span></div>
+    </div>
   </div>
   <div class="mcard-body">
-    <h3>Chanterelle</h3>
-    <p class="sciname">Cantharellus cibarius</p>
-    <a class="photo-link" href="https://en.wikipedia.org/wiki/Cantharellus_cibarius" target="_blank" rel="noopener">See more photos &rarr;</a>
+    <a class="photo-link" href="https://en.wikipedia.org/wiki/Cantharellus_cibarius" target="_blank" rel="noopener">See photos on Wikipedia &rarr;</a>
     <p class="quick-id"><strong>Key ID:</strong> Golden funnel shape, <strong>false gills</strong> (forked ridges, not blades), fruity apricot smell. Grows from soil, never wood.</p>
   </div>
   <button class="mcard-toggle" onclick="toggleCard(this)">Full ID Details <span class="arrow">&#9660;</span></button>
@@ -381,19 +322,18 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
   </div>
 </div>
 
-<!-- 2. MOREL — FREE -->
-<div class="mcard" data-regions="pnw,ne,se,mw,sw" data-status="edible" data-free="true">
-  <div class="mcard-photo edible-bg">
-
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Morchella_esculenta_300405.jpg/600px-Morchella_esculenta_300405.jpg" alt="Morel mushroom — honeycomb cap with deep pits" loading="lazy" onerror="imgErr(this)">
-    <div class="lock-overlay"><div class="lock-icon">&#128274;</div><span class="tease">Honeycomb cap, completely hollow</span><button class="unlock-cta" onclick="openModal()">Unlock &mdash; $9</button></div>
-    <span class="mcard-status">Edible</span>
-    <span class="mcard-season">Mar–May</span>
+<!-- 2. MOREL -->
+<div class="mcard" data-regions="pnw,ne,se,mw,sw" data-status="edible">
+  <div class="mcard-header">
+    <span class="mh-emoji">🍂</span>
+    <div class="mh-info">
+      <div class="mh-name">Morel</div>
+      <div class="mh-sci">Morchella esculenta</div>
+      <div class="mh-badges"><span class="mh-status">Edible</span><span class="mh-season">Mar–May</span></div>
+    </div>
   </div>
   <div class="mcard-body">
-    <h3>Morel</h3>
-    <p class="sciname">Morchella esculenta</p>
-    <a class="photo-link" href="https://en.wikipedia.org/wiki/Morchella_esculenta" target="_blank" rel="noopener">See more photos &rarr;</a>
+    <a class="photo-link" href="https://en.wikipedia.org/wiki/Morchella_esculenta" target="_blank" rel="noopener">See photos on Wikipedia &rarr;</a>
     <p class="quick-id"><strong>Key ID:</strong> Honeycomb cap with deep pits. <strong>Completely hollow</strong> from top to bottom when sliced. Cone-shaped, tan to dark brown.</p>
   </div>
   <button class="mcard-toggle" onclick="toggleCard(this)">Full ID Details <span class="arrow">&#9660;</span></button>
@@ -412,18 +352,18 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
   </div>
 </div>
 
-<!-- 3. CHICKEN OF THE WOODS — LOCKED -->
+<!-- 3. CHICKEN OF THE WOODS -->
 <div class="mcard" data-regions="pnw,ne,se,mw" data-status="edible">
-  <div class="mcard-photo edible-bg">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Chicken_of_the_Woods_Laetiporus_sulphureus.jpg/600px-Chicken_of_the_Woods_Laetiporus_sulphureus.jpg" alt="Chicken of the woods mushroom" loading="lazy" onerror="imgErr(this)">
-    <div class="lock-overlay"><div class="lock-icon">&#128274;</div><span class="tease">Tastes like chicken. Zero gills to confuse you.</span><button class="unlock-cta" onclick="openModal()">I Want This One &mdash; $9</button></div>
-    <span class="mcard-status">Edible</span>
-    <span class="mcard-season">May–Nov</span>
+  <div class="mcard-header">
+    <span class="mh-emoji">🟠</span>
+    <div class="mh-info">
+      <div class="mh-name">Chicken of the Woods</div>
+      <div class="mh-sci">Laetiporus sulphureus</div>
+      <div class="mh-badges"><span class="mh-status">Edible</span><span class="mh-season">May–Nov</span></div>
+    </div>
   </div>
   <div class="mcard-body">
-    <h3>Chicken of the Woods</h3>
-    <p class="sciname">Laetiporus sulphureus</p>
-    <a class="photo-link" href="https://en.wikipedia.org/wiki/Laetiporus" target="_blank" rel="noopener">See more photos &rarr;</a>
+    <a class="photo-link" href="https://en.wikipedia.org/wiki/Laetiporus" target="_blank" rel="noopener">See photos on Wikipedia &rarr;</a>
     <p class="quick-id"><strong>Key ID:</strong> Bright <strong>orange/yellow shelf fungus</strong> in overlapping layers on tree trunks. Sulfur-yellow underside with tiny pores.</p>
   </div>
   <button class="mcard-toggle" onclick="toggleCard(this)">Full ID Details <span class="arrow">&#9660;</span></button>
@@ -442,18 +382,18 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
   </div>
 </div>
 
-<!-- 4. HEN OF THE WOODS — LOCKED -->
+<!-- 4. HEN OF THE WOODS -->
 <div class="mcard" data-regions="ne,se,mw" data-status="edible">
-  <div class="mcard-photo edible-bg">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Grifola_frondosa.jpg/600px-Grifola_frondosa.jpg" alt="Hen of the woods maitake mushroom" loading="lazy" onerror="imgErr(this)">
-    <div class="lock-overlay"><div class="lock-icon">&#128274;</div><span class="tease">Returns to the same oak every single year.</span><button class="unlock-cta" onclick="openModal()">I Want This One &mdash; $9</button></div>
-    <span class="mcard-status">Edible</span>
-    <span class="mcard-season">Sep–Nov</span>
+  <div class="mcard-header">
+    <span class="mh-emoji">🍃</span>
+    <div class="mh-info">
+      <div class="mh-name">Hen of the Woods (Maitake)</div>
+      <div class="mh-sci">Grifola frondosa</div>
+      <div class="mh-badges"><span class="mh-status">Edible</span><span class="mh-season">Sep–Nov</span></div>
+    </div>
   </div>
   <div class="mcard-body">
-    <h3>Hen of the Woods (Maitake)</h3>
-    <p class="sciname">Grifola frondosa</p>
-    <a class="photo-link" href="https://en.wikipedia.org/wiki/Grifola_frondosa" target="_blank" rel="noopener">See more photos &rarr;</a>
+    <a class="photo-link" href="https://en.wikipedia.org/wiki/Grifola_frondosa" target="_blank" rel="noopener">See photos on Wikipedia &rarr;</a>
     <p class="quick-id"><strong>Key ID:</strong> Large rosette of <strong>gray-brown overlapping fans</strong> at tree bases (especially oaks). White pores underneath. Can grow 10–50+ lbs.</p>
   </div>
   <button class="mcard-toggle" onclick="toggleCard(this)">Full ID Details <span class="arrow">&#9660;</span></button>
@@ -471,18 +411,18 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
   </div>
 </div>
 
-<!-- 5. LION'S MANE — LOCKED -->
+<!-- 5. LION'S MANE -->
 <div class="mcard" data-regions="pnw,ne,se,mw" data-status="edible">
-  <div class="mcard-photo edible-bg">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Lions_Mane_Mushroom_Durham_NC.jpg/600px-Lions_Mane_Mushroom_Durham_NC.jpg" alt="Lion's mane mushroom on tree" loading="lazy" onerror="imgErr(this)">
-    <div class="lock-overlay"><div class="lock-icon">&#128274;</div><span class="tease">No dangerous look-alikes exist. A beginner's dream.</span><button class="unlock-cta" onclick="openModal()">I Want This One &mdash; $9</button></div>
-    <span class="mcard-status">Edible</span>
-    <span class="mcard-season">Aug–Nov</span>
+  <div class="mcard-header">
+    <span class="mh-emoji">🦁</span>
+    <div class="mh-info">
+      <div class="mh-name">Lion's Mane</div>
+      <div class="mh-sci">Hericium erinaceus</div>
+      <div class="mh-badges"><span class="mh-status">Edible</span><span class="mh-season">Aug–Nov</span></div>
+    </div>
   </div>
   <div class="mcard-body">
-    <h3>Lion's Mane</h3>
-    <p class="sciname">Hericium erinaceus</p>
-    <a class="photo-link" href="https://en.wikipedia.org/wiki/Hericium_erinaceus" target="_blank" rel="noopener">See more photos &rarr;</a>
+    <a class="photo-link" href="https://en.wikipedia.org/wiki/Hericium_erinaceus" target="_blank" rel="noopener">See photos on Wikipedia &rarr;</a>
     <p class="quick-id"><strong>Key ID:</strong> White pom-pom with <strong>cascading icicle-like spines</strong>. No cap, no stem, no gills. <strong>Virtually no dangerous look-alikes.</strong></p>
   </div>
   <button class="mcard-toggle" onclick="toggleCard(this)">Full ID Details <span class="arrow">&#9660;</span></button>
@@ -498,18 +438,18 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
   </div>
 </div>
 
-<!-- 6. OYSTER MUSHROOM — LOCKED -->
+<!-- 6. OYSTER MUSHROOM -->
 <div class="mcard" data-regions="pnw,ne,se,mw,sw" data-status="edible">
-  <div class="mcard-photo edible-bg">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Pleurotus_ostreatus.jpg/600px-Pleurotus_ostreatus.jpg" alt="Oyster mushrooms growing on log" loading="lazy" onerror="imgErr(this)">
-    <div class="lock-overlay"><div class="lock-icon">&#128274;</div><span class="tease">Grows year-round. Most versatile wild mushroom.</span><button class="unlock-cta" onclick="openModal()">I Want This One &mdash; $9</button></div>
-    <span class="mcard-status">Edible</span>
-    <span class="mcard-season">Year-round</span>
+  <div class="mcard-header">
+    <span class="mh-emoji">🐚</span>
+    <div class="mh-info">
+      <div class="mh-name">Oyster Mushroom</div>
+      <div class="mh-sci">Pleurotus ostreatus</div>
+      <div class="mh-badges"><span class="mh-status">Edible</span><span class="mh-season">Year-round</span></div>
+    </div>
   </div>
   <div class="mcard-body">
-    <h3>Oyster Mushroom</h3>
-    <p class="sciname">Pleurotus ostreatus</p>
-    <a class="photo-link" href="https://en.wikipedia.org/wiki/Pleurotus_ostreatus" target="_blank" rel="noopener">See more photos &rarr;</a>
+    <a class="photo-link" href="https://en.wikipedia.org/wiki/Pleurotus_ostreatus" target="_blank" rel="noopener">See photos on Wikipedia &rarr;</a>
     <p class="quick-id"><strong>Key ID:</strong> <strong>Fan/shell-shaped</strong>, white to gray, grows in shelf-like clusters on dead hardwood. Short off-center stem. Mild anise smell.</p>
   </div>
   <button class="mcard-toggle" onclick="toggleCard(this)">Full ID Details <span class="arrow">&#9660;</span></button>
@@ -526,18 +466,18 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
   </div>
 </div>
 
-<!-- 7. PORCINI — LOCKED -->
+<!-- 7. PORCINI -->
 <div class="mcard" data-regions="pnw,ne,mw,sw" data-status="edible">
-  <div class="mcard-photo edible-bg">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Boletus_edulis_EtgM.jpg/600px-Boletus_edulis_EtgM.jpg" alt="Porcini mushroom in forest" loading="lazy" onerror="imgErr(this)">
-    <div class="lock-overlay"><div class="lock-icon">&#128274;</div><span class="tease">Worth $50/lb dried. The king of mushrooms.</span><button class="unlock-cta" onclick="openModal()">I Want This One &mdash; $9</button></div>
-    <span class="mcard-status">Edible</span>
-    <span class="mcard-season">Jul–Oct</span>
+  <div class="mcard-header">
+    <span class="mh-emoji">👑</span>
+    <div class="mh-info">
+      <div class="mh-name">Porcini (King Bolete)</div>
+      <div class="mh-sci">Boletus edulis</div>
+      <div class="mh-badges"><span class="mh-status">Edible</span><span class="mh-season">Jul–Oct</span></div>
+    </div>
   </div>
   <div class="mcard-body">
-    <h3>Porcini (King Bolete)</h3>
-    <p class="sciname">Boletus edulis</p>
-    <a class="photo-link" href="https://en.wikipedia.org/wiki/Boletus_edulis" target="_blank" rel="noopener">See more photos &rarr;</a>
+    <a class="photo-link" href="https://en.wikipedia.org/wiki/Boletus_edulis" target="_blank" rel="noopener">See photos on Wikipedia &rarr;</a>
     <p class="quick-id"><strong>Key ID:</strong> Brown convex cap, <strong>spongy pores underneath (NOT gills)</strong>, thick bulbous white stem with fine white netting. Flesh does NOT change color.</p>
   </div>
   <button class="mcard-toggle" onclick="toggleCard(this)">Full ID Details <span class="arrow">&#9660;</span></button>
@@ -554,19 +494,18 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
   </div>
 </div>
 
-<!-- 8. DEATH CAP — FREE -->
-<div class="mcard toxic" data-regions="pnw,ne,se" data-status="toxic" data-free="true">
-  <div class="mcard-photo toxic-bg">
-
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Amanita_phalloides_-_deathcap.JPG/600px-Amanita_phalloides_-_deathcap.JPG" alt="Death cap mushroom — greenish yellow cap, deadly" loading="lazy" onerror="imgErr(this)">
-    <div class="lock-overlay"><div class="lock-icon">&#128274;</div><span class="tease">Half a cap kills an adult</span><button class="unlock-cta" onclick="openModal()">Unlock &mdash; $9</button></div>
-    <span class="mcard-status">Deadly Toxic</span>
-    <span class="mcard-season">Aug–Nov</span>
+<!-- 8. DEATH CAP -->
+<div class="mcard toxic" data-regions="pnw,ne,se" data-status="toxic">
+  <div class="mcard-header">
+    <span class="mh-emoji">☠️</span>
+    <div class="mh-info">
+      <div class="mh-name">Death Cap</div>
+      <div class="mh-sci">Amanita phalloides</div>
+      <div class="mh-badges"><span class="mh-status">Deadly Toxic</span><span class="mh-season">Aug–Nov</span></div>
+    </div>
   </div>
   <div class="mcard-body">
-    <h3>Death Cap</h3>
-    <p class="sciname">Amanita phalloides</p>
-    <a class="photo-link" href="https://en.wikipedia.org/wiki/Amanita_phalloides" target="_blank" rel="noopener">See more photos &rarr;</a>
+    <a class="photo-link" href="https://en.wikipedia.org/wiki/Amanita_phalloides" target="_blank" rel="noopener">See photos on Wikipedia &rarr;</a>
     <p class="quick-id"><strong>Key ID:</strong> Greenish-yellow to olive cap, white gills, <strong>skirt-like ring on stem + cup-shaped volva at base</strong> (dig it up!). Smells like honey. <strong>Half a cap can kill an adult.</strong></p>
   </div>
   <button class="mcard-toggle" onclick="toggleCard(this)">Full ID Details <span class="arrow">&#9660;</span></button>
@@ -592,18 +531,18 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
   </div>
 </div>
 
-<!-- 9. DESTROYING ANGEL — LOCKED -->
+<!-- 9. DESTROYING ANGEL -->
 <div class="mcard toxic" data-regions="pnw,ne,se,mw" data-status="toxic">
-  <div class="mcard-photo toxic-bg">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Amanita_verna_(destroying_angel_mushroom).jpg/600px-Amanita_verna_(destroying_angel_mushroom).jpg" alt="Destroying angel mushroom — all white, deadly" loading="lazy" onerror="imgErr(this)">
-    <div class="lock-overlay"><div class="lock-icon">&#128274;</div><span class="tease">All white. All innocent-looking. All deadly.</span><button class="unlock-cta" onclick="openModal()">I Need to Know This &mdash; $9</button></div>
-    <span class="mcard-status">Deadly Toxic</span>
-    <span class="mcard-season">Jun–Oct</span>
+  <div class="mcard-header">
+    <span class="mh-emoji">⚠️</span>
+    <div class="mh-info">
+      <div class="mh-name">Destroying Angel</div>
+      <div class="mh-sci">Amanita bisporigera / A. virosa / A. ocreata</div>
+      <div class="mh-badges"><span class="mh-status">Deadly Toxic</span><span class="mh-season">Jun–Oct</span></div>
+    </div>
   </div>
   <div class="mcard-body">
-    <h3>Destroying Angel</h3>
-    <p class="sciname">Amanita bisporigera / A. virosa / A. ocreata</p>
-    <a class="photo-link" href="https://en.wikipedia.org/wiki/Destroying_angel" target="_blank" rel="noopener">See more photos &rarr;</a>
+    <a class="photo-link" href="https://en.wikipedia.org/wiki/Destroying_angel" target="_blank" rel="noopener">See photos on Wikipedia &rarr;</a>
     <p class="quick-id"><strong>Key ID:</strong> <strong>Entirely pure white.</strong> White gills, fragile ring on stem, volva at base. Looks elegant and innocent. <strong>As deadly as the Death Cap.</strong></p>
   </div>
   <button class="mcard-toggle" onclick="toggleCard(this)">Full ID Details <span class="arrow">&#9660;</span></button>
@@ -619,18 +558,18 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
   </div>
 </div>
 
-<!-- 10. JACK O'LANTERN — LOCKED -->
+<!-- 10. JACK O'LANTERN -->
 <div class="mcard caution" data-regions="ne,se,mw" data-status="toxic">
-  <div class="mcard-photo caution-bg">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Jack_O%27_Lantern_Mushroom_Closeup%3B_Omphalotus_olearius.JPG/600px-Jack_O%27_Lantern_Mushroom_Closeup%3B_Omphalotus_olearius.JPG" alt="Jack o'lantern mushroom — bright orange, toxic" loading="lazy" onerror="imgErr(this)">
-    <div class="lock-overlay"><div class="lock-icon">&#128274;</div><span class="tease">#1 reason people mistake toxic for edible.</span><button class="unlock-cta" onclick="openModal()">I Need to Know This &mdash; $9</button></div>
-    <span class="mcard-status" style="background:var(--caution)">Toxic</span>
-    <span class="mcard-season">Jul–Nov</span>
+  <div class="mcard-header">
+    <span class="mh-emoji">🎃</span>
+    <div class="mh-info">
+      <div class="mh-name">Jack O'Lantern</div>
+      <div class="mh-sci">Omphalotus olearius</div>
+      <div class="mh-badges"><span class="mh-status">Toxic</span><span class="mh-season">Jul–Nov</span></div>
+    </div>
   </div>
   <div class="mcard-body">
-    <h3>Jack O'Lantern</h3>
-    <p class="sciname">Omphalotus olearius</p>
-    <a class="photo-link" href="https://en.wikipedia.org/wiki/Omphalotus_olearius" target="_blank" rel="noopener">See more photos &rarr;</a>
+    <a class="photo-link" href="https://en.wikipedia.org/wiki/Omphalotus_olearius" target="_blank" rel="noopener">See photos on Wikipedia &rarr;</a>
     <p class="quick-id"><strong>Key ID:</strong> Bright orange, <strong>true sharp gills</strong>, grows <strong>in clusters on/near wood</strong>. Gills glow in the dark. <strong>The #1 Chanterelle impostor.</strong></p>
   </div>
   <button class="mcard-toggle" onclick="toggleCard(this)">Full ID Details <span class="arrow">&#9660;</span></button>
@@ -804,19 +743,18 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
 <div class="wrap">
 <div class="mushroom-grid" id="grid-es">
 
-<!-- 1. CHANTERELLE ES — FREE -->
-<div class="mcard" data-regions="pnw,ne,se,mw" data-status="edible" data-free="true">
-  <div class="mcard-photo edible-bg">
-
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Chanterelle_Cantharellus_cibarius.jpg/600px-Chanterelle_Cantharellus_cibarius.jpg" alt="Chanterelle — hongo dorado en el bosque" loading="lazy" onerror="imgErr(this)">
-    <div class="lock-overlay"><div class="lock-icon">&#128274;</div><span class="tease">Embudo dorado, olor a albaricoque</span><button class="unlock-cta" onclick="openModal()">Desbloquear &mdash; $9</button></div>
-    <span class="mcard-status">Comestible</span>
-    <span class="mcard-season">Jun–Oct</span>
+<!-- 1. CHANTERELLE ES -->
+<div class="mcard" data-regions="pnw,ne,se,mw" data-status="edible">
+  <div class="mcard-header">
+    <span class="mh-emoji">🍄</span>
+    <div class="mh-info">
+      <div class="mh-name">Chanterelle (Rebozuelo)</div>
+      <div class="mh-sci">Cantharellus cibarius</div>
+      <div class="mh-badges"><span class="mh-status">Comestible</span><span class="mh-season">Jun–Oct</span></div>
+    </div>
   </div>
   <div class="mcard-body">
-    <h3>Chanterelle (Rebozuelo)</h3>
-    <p class="sciname">Cantharellus cibarius</p>
-    <a class="photo-link" href="https://es.wikipedia.org/wiki/Cantharellus_cibarius" target="_blank" rel="noopener">Ver m&aacute;s fotos &rarr;</a>
+    <a class="photo-link" href="https://es.wikipedia.org/wiki/Cantharellus_cibarius" target="_blank" rel="noopener">Ver fotos en Wikipedia &rarr;</a>
     <p class="quick-id"><strong>Clave:</strong> Embudo dorado, <strong>falsas l&aacute;minas</strong> (pliegues bifurcados), olor afrutado a albaricoque. Crece del suelo, nunca de madera.</p>
   </div>
   <button class="mcard-toggle" onclick="toggleCard(this)">Detalles Completos <span class="arrow">&#9660;</span></button>
@@ -840,19 +778,18 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
   </div>
 </div>
 
-<!-- 2. MOREL ES — FREE -->
-<div class="mcard" data-regions="pnw,ne,se,mw,sw" data-status="edible" data-free="true">
-  <div class="mcard-photo edible-bg">
-
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Morchella_esculenta_300405.jpg/600px-Morchella_esculenta_300405.jpg" alt="Morilla — hongo tipo panal" loading="lazy" onerror="imgErr(this)">
-    <div class="lock-overlay"><div class="lock-icon">&#128274;</div><span class="tease">Sombrero tipo panal, completamente hueco</span><button class="unlock-cta" onclick="openModal()">Desbloquear &mdash; $9</button></div>
-    <span class="mcard-status">Comestible</span>
-    <span class="mcard-season">Mar–May</span>
+<!-- 2. MOREL ES -->
+<div class="mcard" data-regions="pnw,ne,se,mw,sw" data-status="edible">
+  <div class="mcard-header">
+    <span class="mh-emoji">🍂</span>
+    <div class="mh-info">
+      <div class="mh-name">Morilla (Morel)</div>
+      <div class="mh-sci">Morchella esculenta</div>
+      <div class="mh-badges"><span class="mh-status">Comestible</span><span class="mh-season">Mar–May</span></div>
+    </div>
   </div>
   <div class="mcard-body">
-    <h3>Morilla (Morel)</h3>
-    <p class="sciname">Morchella esculenta</p>
-    <a class="photo-link" href="https://es.wikipedia.org/wiki/Morchella_esculenta" target="_blank" rel="noopener">Ver m&aacute;s fotos &rarr;</a>
+    <a class="photo-link" href="https://es.wikipedia.org/wiki/Morchella_esculenta" target="_blank" rel="noopener">Ver fotos en Wikipedia &rarr;</a>
     <p class="quick-id"><strong>Clave:</strong> Sombrero tipo panal con hoyos profundos. <strong>Completamente hueco</strong> al cortarlo. Forma de cono, canela a marr&oacute;n oscuro.</p>
   </div>
   <button class="mcard-toggle" onclick="toggleCard(this)">Detalles Completos <span class="arrow">&#9660;</span></button>
@@ -869,89 +806,103 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
   </div>
 </div>
 
-<!-- 3. CHICKEN ES — LOCKED -->
+<!-- 3. CHICKEN ES -->
 <div class="mcard" data-regions="pnw,ne,se,mw" data-status="edible">
-  <div class="mcard-photo edible-bg">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Chicken_of_the_Woods_Laetiporus_sulphureus.jpg/600px-Chicken_of_the_Woods_Laetiporus_sulphureus.jpg" alt="Pollo del bosque" loading="lazy" onerror="imgErr(this)">
-    <div class="lock-overlay"><div class="lock-icon">&#128274;</div><span class="tease">Sabe a pollo real. Sin l&aacute;minas que confundan.</span><button class="unlock-cta" onclick="openModal()">Quiero Este &mdash; $9</button></div>
-    <span class="mcard-status">Comestible</span><span class="mcard-season">May–Nov</span>
+  <div class="mcard-header">
+    <span class="mh-emoji">🟠</span>
+    <div class="mh-info">
+      <div class="mh-name">Pollo del Bosque</div>
+      <div class="mh-sci">Laetiporus sulphureus</div>
+      <div class="mh-badges"><span class="mh-status">Comestible</span><span class="mh-season">May–Nov</span></div>
+    </div>
   </div>
-  <div class="mcard-body"><h3>Pollo del Bosque</h3><p class="sciname">Laetiporus sulphureus</p>
-    <a class="photo-link" href="https://es.wikipedia.org/wiki/Laetiporus_sulphureus" target="_blank" rel="noopener">Ver m&aacute;s fotos &rarr;</a>
+  <div class="mcard-body">
+    <a class="photo-link" href="https://es.wikipedia.org/wiki/Laetiporus_sulphureus" target="_blank" rel="noopener">Ver fotos en Wikipedia &rarr;</a>
     <p class="quick-id"><strong>Clave:</strong> <strong>Repisa naranja/amarilla brillante</strong> en capas superpuestas. Parte inferior amarillo azufre con poros diminutos.</p></div>
   <button class="mcard-toggle" onclick="toggleCard(this)">Detalles Completos <span class="arrow">&#9660;</span></button>
   <div class="mcard-details"><h4>C&oacute;mo Se Ve</h4><ul><li><strong>Forma:</strong> Repisas superpuestas en troncos</li><li><strong>Arriba:</strong> Naranja brillante a salm&oacute;n</li><li><strong>Abajo:</strong> Amarillo azufre, poros diminutos</li></ul><h4>D&oacute;nde y Cu&aacute;ndo</h4><p>En maderas duras, especialmente robles. <strong>Final de primavera a oto&ntilde;o.</strong></p><div class="tip"><h4>Si Encuentras Uno</h4><p>Textura similar a pechuga de pollo. Corta los bordes tiernos, saltea con ajo.</p></div></div>
 </div>
 
-<!-- 4. HEN ES — LOCKED -->
+<!-- 4. HEN ES -->
 <div class="mcard" data-regions="ne,se,mw" data-status="edible">
-  <div class="mcard-photo edible-bg">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Grifola_frondosa.jpg/600px-Grifola_frondosa.jpg" alt="Gallina del bosque maitake" loading="lazy" onerror="imgErr(this)">
-    <div class="lock-overlay"><div class="lock-icon">&#128274;</div><span class="tease">Regresa al mismo roble cada a&ntilde;o.</span><button class="unlock-cta" onclick="openModal()">Quiero Este &mdash; $9</button></div>
-    <span class="mcard-status">Comestible</span><span class="mcard-season">Sep–Nov</span>
+  <div class="mcard-header">
+    <span class="mh-emoji">🍃</span>
+    <div class="mh-info">
+      <div class="mh-name">Gallina del Bosque (Maitake)</div>
+      <div class="mh-sci">Grifola frondosa</div>
+      <div class="mh-badges"><span class="mh-status">Comestible</span><span class="mh-season">Sep–Nov</span></div>
+    </div>
   </div>
-  <div class="mcard-body"><h3>Gallina del Bosque (Maitake)</h3><p class="sciname">Grifola frondosa</p>
-    <a class="photo-link" href="https://es.wikipedia.org/wiki/Grifola_frondosa" target="_blank" rel="noopener">Ver m&aacute;s fotos &rarr;</a>
+  <div class="mcard-body">
+    <a class="photo-link" href="https://es.wikipedia.org/wiki/Grifola_frondosa" target="_blank" rel="noopener">Ver fotos en Wikipedia &rarr;</a>
     <p class="quick-id"><strong>Clave:</strong> Roseta de <strong>abanicos gris-marr&oacute;n superpuestos</strong> al pie de &aacute;rboles. Poros blancos debajo.</p></div>
   <button class="mcard-toggle" onclick="toggleCard(this)">Detalles Completos <span class="arrow">&#9660;</span></button>
   <div class="mcard-details"><h4>C&oacute;mo Se Ve</h4><ul><li>Roseta de abanicos superpuestos desde una base</li><li>Gris-marr&oacute;n arriba, blanco abajo</li><li><strong>Regresa al mismo lugar cada a&ntilde;o</strong></li></ul><h4>D&oacute;nde y Cu&aacute;ndo</h4><p>Base de robles. <strong>Oto&ntilde;o (Sep–Nov).</strong></p><div class="tip"><h4>Si Encuentras Uno</h4><p>Desg&aacute;rralo en trozos, saltea hasta crujiente. Sabor umami.</p></div></div>
 </div>
 
-<!-- 5. LION'S MANE ES — LOCKED -->
+<!-- 5. LION'S MANE ES -->
 <div class="mcard" data-regions="pnw,ne,se,mw" data-status="edible">
-  <div class="mcard-photo edible-bg">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Lions_Mane_Mushroom_Durham_NC.jpg/600px-Lions_Mane_Mushroom_Durham_NC.jpg" alt="Melena de le&oacute;n" loading="lazy" onerror="imgErr(this)">
-    <div class="lock-overlay"><div class="lock-icon">&#128274;</div><span class="tease">Sin dobles peligrosos. Ideal para principiantes.</span><button class="unlock-cta" onclick="openModal()">Quiero Este &mdash; $9</button></div>
-    <span class="mcard-status">Comestible</span><span class="mcard-season">Ago–Nov</span>
+  <div class="mcard-header">
+    <span class="mh-emoji">🦁</span>
+    <div class="mh-info">
+      <div class="mh-name">Melena de Le&oacute;n</div>
+      <div class="mh-sci">Hericium erinaceus</div>
+      <div class="mh-badges"><span class="mh-status">Comestible</span><span class="mh-season">Ago–Nov</span></div>
+    </div>
   </div>
-  <div class="mcard-body"><h3>Melena de Le&oacute;n</h3><p class="sciname">Hericium erinaceus</p>
-    <a class="photo-link" href="https://es.wikipedia.org/wiki/Hericium_erinaceus" target="_blank" rel="noopener">Ver m&aacute;s fotos &rarr;</a>
+  <div class="mcard-body">
+    <a class="photo-link" href="https://es.wikipedia.org/wiki/Hericium_erinaceus" target="_blank" rel="noopener">Ver fotos en Wikipedia &rarr;</a>
     <p class="quick-id"><strong>Clave:</strong> Pomp&oacute;n blanco con <strong>espinas colgantes</strong>. Sin sombrero, sin tallo, sin l&aacute;minas. <strong>Sin dobles t&oacute;xicos.</strong></p></div>
   <button class="mcard-toggle" onclick="toggleCard(this)">Detalles Completos <span class="arrow">&#9660;</span></button>
   <div class="mcard-details"><h4>C&oacute;mo Se Ve</h4><ul><li>Bola blanca con espinas largas</li><li>Blanco cuando joven, se amarillenta</li><li>Nada se le parece</li></ul><h4>D&oacute;nde y Cu&aacute;ndo</h4><p>En maderas duras muertas. <strong>Final de verano a oto&ntilde;o.</strong></p><div class="tip"><h4>Si Encuentras Uno</h4><p>Corta en "filetes" y sella en mantequilla. Textura como cangrejo.</p></div></div>
 </div>
 
-<!-- 6. OYSTER ES — LOCKED -->
+<!-- 6. OYSTER ES -->
 <div class="mcard" data-regions="pnw,ne,se,mw,sw" data-status="edible">
-  <div class="mcard-photo edible-bg">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Pleurotus_ostreatus.jpg/600px-Pleurotus_ostreatus.jpg" alt="Hongo ostra" loading="lazy" onerror="imgErr(this)">
-    <div class="lock-overlay"><div class="lock-icon">&#128274;</div><span class="tease">Crece todo el a&ntilde;o. El silvestre m&aacute;s vers&aacute;til.</span><button class="unlock-cta" onclick="openModal()">Quiero Este &mdash; $9</button></div>
-    <span class="mcard-status">Comestible</span><span class="mcard-season">Todo el a&ntilde;o</span>
+  <div class="mcard-header">
+    <span class="mh-emoji">🐚</span>
+    <div class="mh-info">
+      <div class="mh-name">Hongo Ostra</div>
+      <div class="mh-sci">Pleurotus ostreatus</div>
+      <div class="mh-badges"><span class="mh-status">Comestible</span><span class="mh-season">Todo el a&ntilde;o</span></div>
+    </div>
   </div>
-  <div class="mcard-body"><h3>Hongo Ostra</h3><p class="sciname">Pleurotus ostreatus</p>
-    <a class="photo-link" href="https://es.wikipedia.org/wiki/Pleurotus_ostreatus" target="_blank" rel="noopener">Ver m&aacute;s fotos &rarr;</a>
+  <div class="mcard-body">
+    <a class="photo-link" href="https://es.wikipedia.org/wiki/Pleurotus_ostreatus" target="_blank" rel="noopener">Ver fotos en Wikipedia &rarr;</a>
     <p class="quick-id"><strong>Clave:</strong> <strong>Forma de abanico/concha</strong>, blanco a gris, en racimos sobre madera dura muerta.</p></div>
   <button class="mcard-toggle" onclick="toggleCard(this)">Detalles Completos <span class="arrow">&#9660;</span></button>
   <div class="mcard-details"><h4>C&oacute;mo Se Ve</h4><ul><li>Abanico o concha, 5–20 cm, liso</li><li>Blanco, crema, gris o canela</li><li>Crece en madera dura muerta</li></ul><h4>D&oacute;nde y Cu&aacute;ndo</h4><p><strong>Primavera y oto&ntilde;o, pero todo el a&ntilde;o en climas templados.</strong></p><div class="tip"><h4>Si Encuentras Uno</h4><p>Vers&aacute;til. Saltea, agrega a sopas. Sabor suave y dulce.</p></div></div>
 </div>
 
-<!-- 7. PORCINI ES — LOCKED -->
+<!-- 7. PORCINI ES -->
 <div class="mcard" data-regions="pnw,ne,mw,sw" data-status="edible">
-  <div class="mcard-photo edible-bg">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Boletus_edulis_EtgM.jpg/600px-Boletus_edulis_EtgM.jpg" alt="Porcini boleto rey" loading="lazy" onerror="imgErr(this)">
-    <div class="lock-overlay"><div class="lock-icon">&#128274;</div><span class="tease">Vale $50/lb seco. El rey de los hongos.</span><button class="unlock-cta" onclick="openModal()">Quiero Este &mdash; $9</button></div>
-    <span class="mcard-status">Comestible</span><span class="mcard-season">Jul–Oct</span>
+  <div class="mcard-header">
+    <span class="mh-emoji">👑</span>
+    <div class="mh-info">
+      <div class="mh-name">Porcini (Boleto Rey)</div>
+      <div class="mh-sci">Boletus edulis</div>
+      <div class="mh-badges"><span class="mh-status">Comestible</span><span class="mh-season">Jul–Oct</span></div>
+    </div>
   </div>
-  <div class="mcard-body"><h3>Porcini (Boleto Rey)</h3><p class="sciname">Boletus edulis</p>
-    <a class="photo-link" href="https://es.wikipedia.org/wiki/Boletus_edulis" target="_blank" rel="noopener">Ver m&aacute;s fotos &rarr;</a>
+  <div class="mcard-body">
+    <a class="photo-link" href="https://es.wikipedia.org/wiki/Boletus_edulis" target="_blank" rel="noopener">Ver fotos en Wikipedia &rarr;</a>
     <p class="quick-id"><strong>Clave:</strong> Sombrero marr&oacute;n convexo, <strong>poros esponjosos debajo (NO l&aacute;minas)</strong>, tallo grueso con reticulado blanco.</p></div>
   <button class="mcard-toggle" onclick="toggleCard(this)">Detalles Completos <span class="arrow">&#9660;</span></button>
   <div class="mcard-details"><h4>C&oacute;mo Se Ve</h4><ul><li>Liso, convexo, marr&oacute;n, 8–25 cm</li><li>Poros esponjosos blancos a amarillo-verdosos</li><li>Tallo grueso, bulboso</li></ul><h4>D&oacute;nde y Cu&aacute;ndo</h4><p>Bajo con&iacute;feras en bosques monta&ntilde;osos. <strong>Verano a oto&ntilde;o.</strong></p><div class="tip"><h4>Si Encuentras Uno</h4><p>Uno de los m&aacute;s buscados del mundo. Saltea fresco o seca para risottos.</p></div></div>
 </div>
 
-<!-- 8. DEATH CAP ES — FREE -->
-<div class="mcard toxic" data-regions="pnw,ne,se" data-status="toxic" data-free="true">
-  <div class="mcard-photo toxic-bg">
-
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Amanita_phalloides_-_deathcap.JPG/600px-Amanita_phalloides_-_deathcap.JPG" alt="Hongo de la muerte — mortal" loading="lazy" onerror="imgErr(this)">
-    <div class="lock-overlay"><div class="lock-icon">&#128274;</div><span class="tease">Media c&aacute;psula mata a un adulto</span><button class="unlock-cta" onclick="openModal()">Desbloquear &mdash; $9</button></div>
-    <span class="mcard-status">Mortal</span>
-    <span class="mcard-season">Ago–Nov</span>
+<!-- 8. DEATH CAP ES -->
+<div class="mcard toxic" data-regions="pnw,ne,se" data-status="toxic">
+  <div class="mcard-header">
+    <span class="mh-emoji">☠️</span>
+    <div class="mh-info">
+      <div class="mh-name">Hongo de la Muerte (Death Cap)</div>
+      <div class="mh-sci">Amanita phalloides</div>
+      <div class="mh-badges"><span class="mh-status">Mortal</span><span class="mh-season">Ago–Nov</span></div>
+    </div>
   </div>
   <div class="mcard-body">
-    <h3>Hongo de la Muerte (Death Cap)</h3>
-    <p class="sciname">Amanita phalloides</p>
-    <a class="photo-link" href="https://es.wikipedia.org/wiki/Amanita_phalloides" target="_blank" rel="noopener">Ver m&aacute;s fotos &rarr;</a>
+    <a class="photo-link" href="https://es.wikipedia.org/wiki/Amanita_phalloides" target="_blank" rel="noopener">Ver fotos en Wikipedia &rarr;</a>
     <p class="quick-id"><strong>Clave:</strong> Sombrero verde-amarillento a oliva, l&aacute;minas blancas, <strong>anillo tipo falda + volva tipo copa en la base</strong>. Huele a miel. <strong>Media c&aacute;psula mata a un adulto.</strong></p>
   </div>
   <button class="mcard-toggle" onclick="toggleCard(this)">Detalles Completos <span class="arrow">&#9660;</span></button>
@@ -972,29 +923,35 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
   </div>
 </div>
 
-<!-- 9. DESTROYING ANGEL ES — LOCKED -->
+<!-- 9. DESTROYING ANGEL ES -->
 <div class="mcard toxic" data-regions="pnw,ne,se,mw" data-status="toxic">
-  <div class="mcard-photo toxic-bg">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Amanita_verna_(destroying_angel_mushroom).jpg/600px-Amanita_verna_(destroying_angel_mushroom).jpg" alt="&Aacute;ngel destructor — todo blanco, mortal" loading="lazy" onerror="imgErr(this)">
-    <div class="lock-overlay"><div class="lock-icon">&#128274;</div><span class="tease">Todo blanco. Todo inocente. Todo mortal.</span><button class="unlock-cta" onclick="openModal()">Necesito Saber Esto &mdash; $9</button></div>
-    <span class="mcard-status">Mortal</span><span class="mcard-season">Jun–Oct</span>
+  <div class="mcard-header">
+    <span class="mh-emoji">⚠️</span>
+    <div class="mh-info">
+      <div class="mh-name">&Aacute;ngel Destructor</div>
+      <div class="mh-sci">Amanita bisporigera / A. virosa / A. ocreata</div>
+      <div class="mh-badges"><span class="mh-status">Mortal</span><span class="mh-season">Jun–Oct</span></div>
+    </div>
   </div>
-  <div class="mcard-body"><h3>&Aacute;ngel Destructor</h3><p class="sciname">Amanita bisporigera / A. virosa / A. ocreata</p>
-    <a class="photo-link" href="https://es.wikipedia.org/wiki/Amanita_bisporigera" target="_blank" rel="noopener">Ver m&aacute;s fotos &rarr;</a>
+  <div class="mcard-body">
+    <a class="photo-link" href="https://es.wikipedia.org/wiki/Amanita_bisporigera" target="_blank" rel="noopener">Ver fotos en Wikipedia &rarr;</a>
     <p class="quick-id"><strong>Clave:</strong> <strong>Todo blanco puro.</strong> L&aacute;minas blancas, anillo fr&aacute;gil, volva en la base. <strong>Tan letal como el Hongo de la Muerte.</strong></p></div>
   <button class="mcard-toggle" onclick="toggleCard(this)">Detalles Completos <span class="arrow">&#9660;</span></button>
   <div class="mcard-details"><h4>C&oacute;mo Se Ve</h4><ul><li>Sombrero blanco puro, 5–12 cm, liso</li><li>L&aacute;minas blancas, libres del tallo</li><li>Tallo blanco, alto, anillo fr&aacute;gil</li><li>Base bulbosa con volva — <strong>DESENTIERRA</strong></li></ul><div class="danger-note"><h4>Regla #1 con Hongos Blancos</h4><p><strong>Si es blanco, tiene l&aacute;minas y crece del suelo — tr&aacute;talo como mortal.</strong></p></div></div>
 </div>
 
-<!-- 10. JACK O'LANTERN ES — LOCKED -->
+<!-- 10. JACK O'LANTERN ES -->
 <div class="mcard caution" data-regions="ne,se,mw" data-status="toxic">
-  <div class="mcard-photo caution-bg">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Jack_O%27_Lantern_Mushroom_Closeup%3B_Omphalotus_olearius.JPG/600px-Jack_O%27_Lantern_Mushroom_Closeup%3B_Omphalotus_olearius.JPG" alt="Jack o'lantern — naranja brillante, t&oacute;xico" loading="lazy" onerror="imgErr(this)">
-    <div class="lock-overlay"><div class="lock-icon">&#128274;</div><span class="tease">Raz&oacute;n #1 de confundir t&oacute;xico con comestible.</span><button class="unlock-cta" onclick="openModal()">Necesito Saber Esto &mdash; $9</button></div>
-    <span class="mcard-status" style="background:var(--caution)">T&oacute;xico</span><span class="mcard-season">Jul–Nov</span>
+  <div class="mcard-header">
+    <span class="mh-emoji">🎃</span>
+    <div class="mh-info">
+      <div class="mh-name">Jack O'Lantern (Hongo Linterna)</div>
+      <div class="mh-sci">Omphalotus olearius</div>
+      <div class="mh-badges"><span class="mh-status">T&oacute;xico</span><span class="mh-season">Jul–Nov</span></div>
+    </div>
   </div>
-  <div class="mcard-body"><h3>Jack O'Lantern (Hongo Linterna)</h3><p class="sciname">Omphalotus olearius</p>
-    <a class="photo-link" href="https://es.wikipedia.org/wiki/Omphalotus_olearius" target="_blank" rel="noopener">Ver m&aacute;s fotos &rarr;</a>
+  <div class="mcard-body">
+    <a class="photo-link" href="https://es.wikipedia.org/wiki/Omphalotus_olearius" target="_blank" rel="noopener">Ver fotos en Wikipedia &rarr;</a>
     <p class="quick-id"><strong>Clave:</strong> Naranja brillante, <strong>l&aacute;minas verdaderas y filosas</strong>, crece <strong>en racimos sobre madera</strong>. <strong>El impostor #1 del Chanterelle.</strong></p></div>
   <button class="mcard-toggle" onclick="toggleCard(this)">Detalles Completos <span class="arrow">&#9660;</span></button>
   <div class="mcard-details"><h4>Chanterelle vs. Jack O'Lantern</h4>
@@ -1122,44 +1079,11 @@ var stateNames = {
 
 var growthOrder = [‘soil’,’soil’,’wood’,’wood’,’wood’,’wood’,’soil’,’soil’,’soil’,’wood’];
 
-function _h(s){var h=0;for(var i=0;i<s.length;i++){h=((h<<5)-h)+s.charCodeAt(i);h|=0;}return h;}
-var _v=[-1583839050,-738341769,1026505637];
+function isUnlocked(){ return true; }
 
-function isUnlocked(){
-  return true;
-}
-
-function applyLockState(){
-  var unlocked = isUnlocked();
-  document.querySelectorAll(‘.mcard’).forEach(function(c){
-    if(unlocked || c.getAttribute(‘data-free’)===’true’) c.classList.remove(‘locked’);
-    else c.classList.add(‘locked’);
-  });
-  document.querySelectorAll(‘.unlock-banner’).forEach(function(b){ b.style.display = unlocked ? ‘none’ : ‘’; });
-  document.querySelectorAll(‘.preview-note’).forEach(function(n){ n.style.display = unlocked ? ‘none’ : ‘’; });
-}
-
+function applyLockState(){}
 function openModal(){}
 function closeModal(){}
-
-function submitCode(){
-  var code = document.getElementById(‘code-input’).value;
-  if(!code.trim()) return;
-  if(_v.indexOf(_h(code.toUpperCase().trim()))!==-1){
-    try{localStorage.setItem(‘mushroom_unlocked’,’true’);}catch(e){}
-    document.getElementById(‘modal-error’).style.display=’none’;
-    var s=document.getElementById(‘modal-success’);
-    s.textContent=currentLang===’en’?’Guide unlocked! Enjoy all 10 mushrooms.’:’Guia desbloqueada! Disfruta los 10 hongos.’;
-    s.style.display=’block’;
-    setTimeout(function(){closeModal();applyLockState();},1200);
-  } else {
-    document.getElementById(‘modal-success’).style.display=’none’;
-    var e=document.getElementById(‘modal-error’);
-    e.textContent=currentLang===’en’?’Invalid code. Please check and try again.’:’Codigo invalido. Revisa e intenta de nuevo.’;
-    e.style.display=’block’;
-  }
-}
-
 function updateModalLang(l){}
 
 function setLang(l){
@@ -1277,48 +1201,6 @@ function toggleCollapsible(btn){
   btn.classList.toggle(‘open’);
 }
 
-var traitMap={
-  ‘Chanterelle’:’Golden funnel · False gills · Apricot smell’,
-  ‘Chanterelle (Rebozuelo)’:’Embudo dorado · Falsas laminas · Olor a albaricoque’,
-  ‘Morel’:’Honeycomb cap · Completely hollow inside’,
-  ‘Morilla (Morel)’:’Sombrero tipo panal · Completamente hueco’,
-  ‘Chicken of the Woods’:’Orange shelves on wood · Pores, no gills’,
-  ‘Pollo del Bosque’:’Repisas naranjas · Poros, sin laminas’,
-  ‘Hen of the Woods (Maitake)’:’Gray-brown fans at tree base · Pores’,
-  ‘Gallina del Bosque (Maitake)’:’Abanicos grises en base de arbol’,
-  "Lion’s Mane":’White pom-pom · Cascading spines · No look-alikes’,
-  "Melena de León":’Pompon blanco · Espinas colgantes’,
-  ‘Oyster Mushroom’:’Fan-shaped on hardwood · Short stem’,
-  ‘Hongo Ostra’:’Forma de abanico · Tallo corto’,
-  ‘Porcini (King Bolete)’:’Brown cap · Spongy pores · Bulbous stem’,
-  ‘Porcini (Boleto Rey)’:’Sombrero marron · Poros esponjosos’,
-  ‘Death Cap’:’Olive cap · White gills · Volva at base’,
-  ‘Hongo de la Muerte (Death Cap)’:’Sombrero oliva · Laminas blancas · Volva’,
-  ‘Destroying Angel’:’Pure white · Gills · Ring · Volva’,
-  "Ángel Destructor":’Todo blanco · Laminas · Anillo · Volva’,
-  "Jack O’Lantern":’Bright orange · True gills · Clusters on wood’,
-  "Jack O’Lantern (Hongo Linterna)":’Naranja brillante · Laminas verdaderas’
-};
-function imgErr(el){
-  el.style.display=’none’;
-  var card=el.closest(‘.mcard’);
-  if(!card) return;
-  var h3=card.querySelector(‘h3’);
-  if(!h3) return;
-  var n=h3.textContent.trim();
-  var isToxic=card.classList.contains(‘toxic’)||card.classList.contains(‘caution’);
-  var emoji=isToxic?’⚠️’:’🍄’;
-  var trait=traitMap[n]||’’;
-  var fb=document.createElement(‘div’);
-  fb.className=’photo-fallback’;
-  fb.innerHTML=’<span class="fb-emoji">’+emoji+’</span>’
-    +’<span class="fb-name">’+n+’</span>’
-    +(trait?’<span class="fb-trait">’+trait+’</span>’:’’)
-    +’<span class="fb-note">📷 Photo on live site</span>’;
-  el.parentElement.appendChild(fb);
-}
-
-document.getElementById(‘unlock-modal’).addEventListener(‘click’,function(e){if(e.target===this)closeModal();});
 
 (function(){
   document.querySelectorAll(‘#grid-en .mcard’).forEach(function(c,i){c.setAttribute(‘data-growth’,growthOrder[i]);});
