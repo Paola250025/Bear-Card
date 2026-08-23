@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mushroom Guide — Paola Adventurer</title>
-<meta name="description" content="Identify 10 mushrooms every hiker should know — 7 edible, 3 deadly toxic. Search by US state, learn the key ID features, and stay safe on the trail.">
+<meta name="description" content="Identify 15 mushrooms every hiker should know — 10 edible, 5 toxic. Search by US state, learn the key ID features, and stay safe on the trail.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://paolaadventurer.com/mushroom-guide/">
 <meta property="og:title" content="The Hiker's Mushroom Guide — Paola Adventurer">
-<meta property="og:description" content="Identify 10 mushrooms every hiker should know. Search by US state, see what grows near you, and learn the difference between dinner and danger.">
+<meta property="og:description" content="Identify 15 mushrooms every hiker should know. Search by US state, see what grows near you, and learn the difference between dinner and danger.">
 <meta property="og:image" content="https://paolaadventurer.com/assets/icon-512.png">
 <link rel="canonical" href="https://paolaadventurer.com/mushroom-guide/">
 <link rel="icon" href="/assets/icon-192.png" type="image/png">
@@ -86,12 +86,13 @@ a{color:inherit;text-decoration:none;}
 .mcard-header .mh-season{font-family:'Nunito',sans-serif;font-weight:700;font-size:11px;color:rgba(255,255,255,.8);padding:3px 10px;border-radius:100px;background:rgba(0,0,0,.15);}
 
 .mcard-body{padding:16px 20px 6px;flex:1;}
+.mcard-body .intro{font-size:14px;line-height:1.6;color:var(--muted);margin-bottom:10px;}
 .mcard-body .quick-id{font-size:14px;line-height:1.6;color:var(--cafe);margin-bottom:12px;}
 .mcard-body .quick-id strong{color:var(--forest);}
 
 .mcard-toggle{width:100%;border:0;background:var(--forest);color:#fff;font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:1px;text-transform:uppercase;font-size:13px;padding:12px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:auto;}
 .mcard-toggle:hover{background:#1a3a28;}
-.mcard-toggle .arrow{transition:.2s;display:inline-block;}
+.mcard-toggle .arrow{transition:.2s;display:inline-block;pointer-events:none;}
 .mcard-toggle.open .arrow{transform:rotate(180deg);}
 .mcard-details{display:none;padding:0 20px 20px;border-top:2px solid var(--khaki);}
 .mcard-details.show{display:block;}
@@ -104,24 +105,23 @@ a{color:inherit;text-decoration:none;}
 .mcard-details .danger-note h4{color:var(--toxic);border:0;margin-top:0;padding:0;}
 .mcard-details .tip{background:#e8f0e2;border:1px solid #b8d4a8;border-radius:12px;padding:14px 16px;margin:8px 0;}
 .mcard-details .tip h4{color:var(--edible);border:0;margin-top:0;padding:0;}
+.mcard-details .photo-link{display:inline-block;font-size:13px;font-weight:700;color:var(--terra);margin-top:14px;text-decoration:underline;padding:8px 0;}
+.mcard-details .photo-link:hover{color:var(--forest);}
 .compare-tbl{width:100%;border-collapse:collapse;font-size:13px;margin:8px 0;border-radius:10px;overflow:hidden;}
 .compare-tbl th{background:var(--forest);color:#fff;padding:8px 10px;text-align:left;font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:.5px;text-transform:uppercase;font-size:11px;}
 .compare-tbl td{padding:7px 10px;border-bottom:1px solid #eee;}
 .compare-tbl tr:nth-child(even) td{background:#f8f5ee;}
 
 
-.photo-link{display:inline-block;font-size:12px;font-weight:800;color:var(--terra);margin-top:4px;text-decoration:underline;}
-.photo-link:hover{color:var(--forest);}
 .section{max-width:900px;margin:0 auto;padding:40px 20px;}
 .section h2{font-family:'Bitter',serif;font-weight:900;color:var(--forest);font-size:28px;margin:0 0 8px;text-align:center;}
 .section .sub{text-align:center;color:var(--muted);font-size:15px;margin-bottom:24px;}
 
-.emergency{background:var(--toxic);color:#fff;padding:36px 20px;text-align:center;}
-.emergency h2{font-family:'Bitter',serif;font-weight:900;font-size:26px;color:#fff;margin:0 0 8px;}
-.emergency p{max-width:600px;margin:0 auto 16px;font-size:15px;line-height:1.6;}
-.emergency .phone{font-family:'Bitter',serif;font-weight:900;font-size:32px;color:var(--sun);margin:16px 0;}
-.emergency ol{text-align:left;max-width:540px;margin:0 auto;padding-left:20px;list-style:decimal;}
-.emergency li{margin-bottom:8px;font-size:14px;line-height:1.5;}
+.emergency{background:var(--toxic);color:#fff;padding:20px;text-align:center;}
+.emergency h2{font-family:'Bitter',serif;font-weight:900;font-size:20px;color:#fff;margin:0 0 6px;}
+.emergency p{max-width:600px;margin:0 auto 8px;font-size:13px;line-height:1.5;}
+.emergency .phone{font-family:'Bitter',serif;font-weight:900;font-size:24px;color:var(--sun);margin:8px 0;}
+.emergency .steps{text-align:left;max-width:540px;margin:0 auto;font-size:13px;line-height:1.5;}
 
 .collapsible{background:#fff;border:2px solid var(--khaki);border-radius:16px;margin-bottom:16px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.04);}
 .collapsible-header{width:100%;border:0;background:#fff;padding:18px 22px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;font-family:'Bitter',serif;font-weight:900;font-size:18px;color:var(--forest);}
@@ -134,14 +134,13 @@ a{color:inherit;text-decoration:none;}
 .collapsible-body ul{padding-left:20px;list-style:disc;}
 .collapsible-body li{font-size:14px;line-height:1.6;margin-bottom:4px;}
 
-.disclaimer{background:var(--forest);color:var(--khaki);text-align:center;padding:28px 20px;font-size:12px;line-height:1.6;}
-.disclaimer p{margin:0;max-width:700px;margin:0 auto;}
+.disclaimer{background:var(--forest);color:var(--khaki);text-align:center;padding:16px 20px;font-size:11px;line-height:1.5;}
+.disclaimer p{margin:0 auto;max-width:700px;}
 
 footer{background:var(--forest);color:var(--khaki);text-align:center;padding:34px 20px;}
 footer .q{font-family:'Bitter',serif;font-style:italic;font-weight:700;font-size:17px;color:var(--crema);}
 footer .s{font-family:'Oswald',sans-serif;letter-spacing:2px;font-size:11px;text-transform:uppercase;margin-top:12px;}
 footer .back{display:inline-block;margin-top:16px;color:var(--sun);font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:1px;text-transform:uppercase;font-size:12px;border:1.5px solid var(--sun);border-radius:100px;padding:8px 18px;}
-footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-height:1.5;}
 
 @media print{
   .navbar,.region-bar,.mcard-toggle,.hero,.emergency,.collapsible,.disclaimer,footer,.no-print{display:none !important;}
@@ -166,8 +165,6 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
   .region-bar .print-btn{display:block;margin:10px auto 0;}
   .filter-row{margin-top:8px;}
   .fchip{font-size:10px;padding:4px 10px;}
-  .unlock-banner .price{font-size:34px;}
-  .missing-list{padding:0 8px;}
 }
 </style>
 </head>
@@ -197,8 +194,8 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
   <p class="sub">Identify &middot; Eat Safely &middot; Avoid the Deadly</p>
   <p>You see mushrooms on every hike. Some are dinner. Some can kill you.<br>Pick your state, see exactly what grows near you, and know before you eat.</p>
   <div class="stats">
-    <div class="stat"><div class="num">7</div><div class="lbl">Edible</div></div>
-    <div class="stat"><div class="num">3</div><div class="lbl">Deadly</div></div>
+    <div class="stat"><div class="num">10</div><div class="lbl">Edible</div></div>
+    <div class="stat"><div class="num">5</div><div class="lbl">Toxic</div></div>
     <div class="stat"><div class="num">50</div><div class="lbl">States</div></div>
   </div>
   <div class="scroll-hint">&darr; Choose your state below</div>
@@ -295,10 +292,10 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
     </div>
   </div>
   <div class="mcard-body">
-    <a class="photo-link" href="https://en.wikipedia.org/wiki/Cantharellus_cibarius" target="_blank" rel="noopener">See photos on Wikipedia &rarr;</a>
+    <p class="intro">One of the world's most popular wild edible mushrooms, prized for its golden color, fruity apricot aroma, and peppery flavor.</p>
     <p class="quick-id"><strong>Key ID:</strong> Golden funnel shape, <strong>false gills</strong> (forked ridges, not blades), fruity apricot smell. Grows from soil, never wood.</p>
   </div>
-  <button class="mcard-toggle" onclick="toggleCard(this)">Full ID Details <span class="arrow">&#9660;</span></button>
+  <button class="mcard-toggle">Full ID Details <span class="arrow">&#9660;</span></button>
   <div class="mcard-details">
     <h4>What It Looks Like</h4>
     <ul>
@@ -311,7 +308,7 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
     <h4>Where &amp; When</h4>
     <p>Forest floors near oaks, conifers, hardwoods. Scattered or small groups. <strong>Summer–early fall.</strong></p>
     <div class="lookalike">
-      <h4>Watch Out: Jack O'Lantern (Toxic #10)</h4>
+      <h4>Watch Out: Jack O'Lantern (Toxic)</h4>
       <table class="compare-tbl"><tr><th>Feature</th><th>Chanterelle</th><th>Jack O'Lantern</th></tr>
       <tr><td>Gills</td><td>False gills (ridges)</td><td>True, sharp gills</td></tr>
       <tr><td>Growth</td><td>From soil, scattered</td><td>Clusters on/near wood</td></tr>
@@ -319,6 +316,7 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
       <tr><td>Glow</td><td>No</td><td>Yes (bioluminescent)</td></tr></table>
     </div>
     <div class="tip"><h4>If You Find One</h4><p>Cook thoroughly in butter or oil. Never eat raw. Meaty, peppery, slightly fruity — one of the best wild mushrooms in the world.</p></div>
+    <a class="photo-link" href="https://en.wikipedia.org/wiki/Cantharellus_cibarius" target="_blank" rel="noopener">See real photos on Wikipedia &rarr;</a>
   </div>
 </div>
 
@@ -333,10 +331,10 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
     </div>
   </div>
   <div class="mcard-body">
-    <a class="photo-link" href="https://en.wikipedia.org/wiki/Morchella_esculenta" target="_blank" rel="noopener">See photos on Wikipedia &rarr;</a>
+    <p class="intro">A highly sought-after spring mushroom with a distinctive honeycomb cap. Among the most recognizable wild mushrooms and a favorite of foragers worldwide.</p>
     <p class="quick-id"><strong>Key ID:</strong> Honeycomb cap with deep pits. <strong>Completely hollow</strong> from top to bottom when sliced. Cone-shaped, tan to dark brown.</p>
   </div>
-  <button class="mcard-toggle" onclick="toggleCard(this)">Full ID Details <span class="arrow">&#9660;</span></button>
+  <button class="mcard-toggle">Full ID Details <span class="arrow">&#9660;</span></button>
   <div class="mcard-details">
     <h4>What It Looks Like</h4>
     <ul>
@@ -349,6 +347,7 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
     <p>Near dead/dying elms, ash, apple trees. Post-wildfire areas are goldmines. <strong>Spring (Mar–May)</strong>, one of the first mushrooms of the year.</p>
     <div class="lookalike"><h4>Watch Out: False Morel (Deadly)</h4><p><strong>False morels have brain-like wrinkled caps</strong> (not clean honeycomb) and are <strong>NOT hollow</strong> inside — they have cottony, chambered flesh. Slice it in half: hollow = true morel, chambered = walk away.</p></div>
     <div class="tip"><h4>If You Find One</h4><p>Soak in salt water 30 min to remove insects. Cook thoroughly. Nutty, earthy, considered a delicacy.</p></div>
+    <a class="photo-link" href="https://en.wikipedia.org/wiki/Morchella_esculenta" target="_blank" rel="noopener">See real photos on Wikipedia &rarr;</a>
   </div>
 </div>
 
@@ -363,10 +362,10 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
     </div>
   </div>
   <div class="mcard-body">
-    <a class="photo-link" href="https://en.wikipedia.org/wiki/Laetiporus" target="_blank" rel="noopener">See photos on Wikipedia &rarr;</a>
+    <p class="intro">A bright orange shelf fungus that tastes remarkably like chicken when cooked. One of the easiest wild mushrooms to identify thanks to its unmistakable color and growth pattern.</p>
     <p class="quick-id"><strong>Key ID:</strong> Bright <strong>orange/yellow shelf fungus</strong> in overlapping layers on tree trunks. Sulfur-yellow underside with tiny pores.</p>
   </div>
-  <button class="mcard-toggle" onclick="toggleCard(this)">Full ID Details <span class="arrow">&#9660;</span></button>
+  <button class="mcard-toggle">Full ID Details <span class="arrow">&#9660;</span></button>
   <div class="mcard-details">
     <h4>What It Looks Like</h4>
     <ul>
@@ -379,6 +378,7 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
     <p>On dead or living hardwoods, especially oaks. <strong>Late spring–fall.</strong> Always on wood, never from ground.</p>
     <div class="lookalike"><h4>Important Notes</h4><p><strong>Avoid specimens on conifers, eucalyptus, or yew</strong> — can cause GI distress. Only eat young, vibrant ones.</p></div>
     <div class="tip"><h4>If You Find One</h4><p>Texture like actual chicken breast. Slice tender outer edges, saut&eacute; with garlic.</p></div>
+    <a class="photo-link" href="https://en.wikipedia.org/wiki/Laetiporus" target="_blank" rel="noopener">See real photos on Wikipedia &rarr;</a>
   </div>
 </div>
 
@@ -393,10 +393,10 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
     </div>
   </div>
   <div class="mcard-body">
-    <a class="photo-link" href="https://en.wikipedia.org/wiki/Grifola_frondosa" target="_blank" rel="noopener">See photos on Wikipedia &rarr;</a>
+    <p class="intro">A large, gray-brown mushroom that grows in ruffled clusters at the base of oak trees. Known as "Maitake" in Japanese, valued for both culinary and medicinal uses.</p>
     <p class="quick-id"><strong>Key ID:</strong> Large rosette of <strong>gray-brown overlapping fans</strong> at tree bases (especially oaks). White pores underneath. Can grow 10–50+ lbs.</p>
   </div>
-  <button class="mcard-toggle" onclick="toggleCard(this)">Full ID Details <span class="arrow">&#9660;</span></button>
+  <button class="mcard-toggle">Full ID Details <span class="arrow">&#9660;</span></button>
   <div class="mcard-details">
     <h4>What It Looks Like</h4>
     <ul>
@@ -408,6 +408,7 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
     <h4>Where &amp; When</h4><p>Base of living or dead hardwoods, especially oaks. <strong>Fall (Sep–Nov).</strong></p>
     <div class="lookalike"><h4>Watch Out: Black-Staining Polypore</h4><p><strong>Stains black when bruised or cut.</strong> Hen of the woods does not.</p></div>
     <div class="tip"><h4>If You Find One</h4><p>Tear into pieces, saut&eacute; until crispy on edges. Rich umami flavor.</p></div>
+    <a class="photo-link" href="https://en.wikipedia.org/wiki/Grifola_frondosa" target="_blank" rel="noopener">See real photos on Wikipedia &rarr;</a>
   </div>
 </div>
 
@@ -422,10 +423,10 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
     </div>
   </div>
   <div class="mcard-body">
-    <a class="photo-link" href="https://en.wikipedia.org/wiki/Hericium_erinaceus" target="_blank" rel="noopener">See photos on Wikipedia &rarr;</a>
+    <p class="intro">A unique white mushroom that hangs from hardwood trees like a shaggy pom-pom. One of the safest wild mushrooms to identify — nothing else looks like it.</p>
     <p class="quick-id"><strong>Key ID:</strong> White pom-pom with <strong>cascading icicle-like spines</strong>. No cap, no stem, no gills. <strong>Virtually no dangerous look-alikes.</strong></p>
   </div>
-  <button class="mcard-toggle" onclick="toggleCard(this)">Full ID Details <span class="arrow">&#9660;</span></button>
+  <button class="mcard-toggle">Full ID Details <span class="arrow">&#9660;</span></button>
   <div class="mcard-details">
     <h4>What It Looks Like</h4>
     <ul>
@@ -435,6 +436,7 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
     </ul>
     <h4>Where &amp; When</h4><p>On dead/dying hardwoods (beech, oak, maple). <strong>Late summer–fall.</strong></p>
     <div class="tip"><h4>If You Find One</h4><p>Slice into thick "steaks" and sear in butter. Texture like crab or lobster.</p></div>
+    <a class="photo-link" href="https://en.wikipedia.org/wiki/Hericium_erinaceus" target="_blank" rel="noopener">See real photos on Wikipedia &rarr;</a>
   </div>
 </div>
 
@@ -449,10 +451,10 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
     </div>
   </div>
   <div class="mcard-body">
-    <a class="photo-link" href="https://en.wikipedia.org/wiki/Pleurotus_ostreatus" target="_blank" rel="noopener">See photos on Wikipedia &rarr;</a>
+    <p class="intro">One of the most common and versatile wild mushrooms, growing on dead hardwood year-round. A great beginner mushroom with a mild, slightly sweet flavor.</p>
     <p class="quick-id"><strong>Key ID:</strong> <strong>Fan/shell-shaped</strong>, white to gray, grows in shelf-like clusters on dead hardwood. Short off-center stem. Mild anise smell.</p>
   </div>
-  <button class="mcard-toggle" onclick="toggleCard(this)">Full ID Details <span class="arrow">&#9660;</span></button>
+  <button class="mcard-toggle">Full ID Details <span class="arrow">&#9660;</span></button>
   <div class="mcard-details">
     <h4>What It Looks Like</h4>
     <ul>
@@ -463,6 +465,7 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
     <h4>Where &amp; When</h4><p>Dead/dying hardwoods. <strong>Spring &amp; fall primarily, but year-round in mild climates.</strong></p>
     <div class="lookalike"><h4>Watch Out: Angel Wings</h4><p>Angel wings are <strong>pure white, paper-thin</strong>, on <strong>conifer</strong> wood. Oyster mushrooms are thicker, on <strong>hardwood</strong>.</p></div>
     <div class="tip"><h4>If You Find One</h4><p>One of the most versatile wild mushrooms. Saut&eacute;, stir-fry, add to soups. Mild, slightly sweet.</p></div>
+    <a class="photo-link" href="https://en.wikipedia.org/wiki/Pleurotus_ostreatus" target="_blank" rel="noopener">See real photos on Wikipedia &rarr;</a>
   </div>
 </div>
 
@@ -477,10 +480,10 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
     </div>
   </div>
   <div class="mcard-body">
-    <a class="photo-link" href="https://en.wikipedia.org/wiki/Boletus_edulis" target="_blank" rel="noopener">See photos on Wikipedia &rarr;</a>
+    <p class="intro">One of the most prized edible mushrooms in the world, known in Italian cuisine as the "king" of mushrooms. Identified by its brown cap and spongy pore surface instead of gills.</p>
     <p class="quick-id"><strong>Key ID:</strong> Brown convex cap, <strong>spongy pores underneath (NOT gills)</strong>, thick bulbous white stem with fine white netting. Flesh does NOT change color.</p>
   </div>
-  <button class="mcard-toggle" onclick="toggleCard(this)">Full ID Details <span class="arrow">&#9660;</span></button>
+  <button class="mcard-toggle">Full ID Details <span class="arrow">&#9660;</span></button>
   <div class="mcard-details">
     <h4>What It Looks Like</h4>
     <ul>
@@ -491,10 +494,100 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
     <h4>Where &amp; When</h4><p>Under conifers and some hardwoods, in mountainous/northern forests. <strong>Summer–fall.</strong></p>
     <div class="lookalike"><h4>Watch Out: Bitter Bolete</h4><p>Looks identical but tastes <strong>intensely bitter</strong>. Pore surface turns <strong>pinkish</strong> with age. Not toxic, just ruins the dish.</p></div>
     <div class="tip"><h4>If You Find One</h4><p>One of the most sought-after mushrooms worldwide. Slice and saut&eacute; fresh, or dry for risottos and pastas.</p></div>
+    <a class="photo-link" href="https://en.wikipedia.org/wiki/Boletus_edulis" target="_blank" rel="noopener">See real photos on Wikipedia &rarr;</a>
   </div>
 </div>
 
-<!-- 8. DEATH CAP -->
+<!-- 8. GIANT PUFFBALL -->
+<div class="mcard" data-regions="pnw,ne,se,mw,sw" data-status="edible">
+  <div class="mcard-header">
+    <span class="mh-emoji">⚪</span>
+    <div class="mh-info">
+      <div class="mh-name">Giant Puffball</div>
+      <div class="mh-sci">Calvatia gigantea</div>
+      <div class="mh-badges"><span class="mh-status">Edible</span><span class="mh-season">Aug–Oct</span></div>
+    </div>
+  </div>
+  <div class="mcard-body">
+    <p class="intro">A large, white, ball-shaped mushroom that can grow as big as a soccer ball or larger. One of the easiest mushrooms to identify when mature.</p>
+    <p class="quick-id"><strong>Key ID:</strong> Round, white ball, <strong>no stem, no gills, no cap</strong>. Flesh must be <strong>solid pure white</strong> inside. Size: 4–20+ inches across.</p>
+  </div>
+  <button class="mcard-toggle">Full ID Details <span class="arrow">&#9660;</span></button>
+  <div class="mcard-details">
+    <h4>What It Looks Like</h4>
+    <ul>
+      <li><strong>Shape:</strong> Round to slightly oval ball sitting on the ground</li>
+      <li><strong>Color:</strong> White outside when fresh, brownish with age</li>
+      <li><strong>Inside:</strong> Must be solid, pure white, marshmallow-like flesh</li>
+      <li><strong>Size:</strong> Typically 8–20 inches, sometimes larger</li>
+    </ul>
+    <h4>Where &amp; When</h4><p>Meadows, parks, open forests, lawns. <strong>Late summer–fall (Aug–Oct).</strong></p>
+    <div class="danger-note"><h4>CRITICAL Safety Check</h4><p><strong>Always slice in half before eating.</strong> Inside must be solid white with no visible outline of a mushroom shape. If you see any yellow, brown, or the outline of gills/cap forming, it may be an immature Amanita egg — <strong>deadly toxic.</strong></p></div>
+    <div class="tip"><h4>If You Find One</h4><p>Slice into thick steaks, bread and fry, or saut&eacute; in butter. Mild flavor, absorbs seasonings well.</p></div>
+    <a class="photo-link" href="https://en.wikipedia.org/wiki/Calvatia_gigantea" target="_blank" rel="noopener">See real photos on Wikipedia &rarr;</a>
+  </div>
+</div>
+
+<!-- 9. BLACK TRUMPET -->
+<div class="mcard" data-regions="pnw,ne,se,mw" data-status="edible">
+  <div class="mcard-header">
+    <span class="mh-emoji">🎺</span>
+    <div class="mh-info">
+      <div class="mh-name">Black Trumpet</div>
+      <div class="mh-sci">Craterellus cornucopioides</div>
+      <div class="mh-badges"><span class="mh-status">Edible</span><span class="mh-season">Jun–Oct</span></div>
+    </div>
+  </div>
+  <div class="mcard-body">
+    <p class="intro">A dark, funnel-shaped mushroom with a delicate, smoky flavor prized by chefs. Despite its gloomy appearance, it has no dangerous look-alikes — one of the safest wild mushrooms to forage.</p>
+    <p class="quick-id"><strong>Key ID:</strong> Dark gray to black <strong>funnel/trumpet shape</strong>, thin wavy edges, smooth underside (no gills). <strong>No dangerous look-alikes.</strong></p>
+  </div>
+  <button class="mcard-toggle">Full ID Details <span class="arrow">&#9660;</span></button>
+  <div class="mcard-details">
+    <h4>What It Looks Like</h4>
+    <ul>
+      <li><strong>Shape:</strong> Thin funnel or trumpet, 1–4 inches tall</li>
+      <li><strong>Color:</strong> Dark gray, brown, to black</li>
+      <li><strong>Underside:</strong> Smooth to slightly wrinkled — no true gills</li>
+      <li><strong>Flesh:</strong> Thin, fragile, aromatic</li>
+    </ul>
+    <h4>Where &amp; When</h4><p>Forest floors near oaks and beeches, often in mossy areas. Hard to spot due to dark color. <strong>Summer–fall.</strong></p>
+    <div class="tip"><h4>If You Find One</h4><p>Smoky, rich flavor. Excellent dried. Often called "poor man's truffle" due to its intense aroma. Saut&eacute; or add to cream sauces.</p></div>
+    <a class="photo-link" href="https://en.wikipedia.org/wiki/Craterellus_cornucopioides" target="_blank" rel="noopener">See real photos on Wikipedia &rarr;</a>
+  </div>
+</div>
+
+<!-- 10. HONEY MUSHROOM -->
+<div class="mcard" data-regions="pnw,ne,se,mw,sw" data-status="edible">
+  <div class="mcard-header">
+    <span class="mh-emoji">🍯</span>
+    <div class="mh-info">
+      <div class="mh-name">Honey Mushroom</div>
+      <div class="mh-sci">Armillaria mellea</div>
+      <div class="mh-badges"><span class="mh-status">Edible</span><span class="mh-season">Sep–Nov</span></div>
+    </div>
+  </div>
+  <div class="mcard-body">
+    <p class="intro">One of the most common edible mushrooms in North American forests, growing in large clusters on dead or dying trees. Must always be cooked thoroughly — raw causes stomach upset.</p>
+    <p class="quick-id"><strong>Key ID:</strong> Honey-yellow to tan cap, <strong>white ring on stem</strong>, grows in <strong>large clusters on wood</strong>. White spore print. Cap has small dark scales in center.</p>
+  </div>
+  <button class="mcard-toggle">Full ID Details <span class="arrow">&#9660;</span></button>
+  <div class="mcard-details">
+    <h4>What It Looks Like</h4>
+    <ul>
+      <li><strong>Cap:</strong> 1–4 inches, honey-yellow to tan, small dark scales in center</li>
+      <li><strong>Gills:</strong> White to cream, slightly attached to stem</li>
+      <li><strong>Stem:</strong> Tough, fibrous, with a prominent white ring</li>
+      <li><strong>Growth:</strong> Dense clusters on stumps, roots, or tree bases</li>
+    </ul>
+    <h4>Where &amp; When</h4><p>On dead/dying trees and stumps, sometimes appearing to grow from soil (actually from buried roots). <strong>Fall (Sep–Nov).</strong></p>
+    <div class="danger-note"><h4>CRITICAL: Deadly Look-alike</h4><p><strong>Galerina marginata (Funeral Bell)</strong> is deadly and also grows in clusters on wood. Key differences: Galerina has a <strong>rusty brown spore print</strong> (honey mushroom is white), Galerina's ring stains brown, and it grows in <strong>smaller clusters</strong>. Always check spore print.</p></div>
+    <div class="tip"><h4>If You Find One</h4><p><strong>Must cook thoroughly</strong> — raw causes GI distress. Discard tough stems, use only caps. Mild, slightly sweet flavor.</p></div>
+    <a class="photo-link" href="https://en.wikipedia.org/wiki/Armillaria_mellea" target="_blank" rel="noopener">See real photos on Wikipedia &rarr;</a>
+  </div>
+</div>
+
+<!-- 11. DEATH CAP -->
 <div class="mcard toxic" data-regions="pnw,ne,se" data-status="toxic">
   <div class="mcard-header">
     <span class="mh-emoji">☠️</span>
@@ -505,10 +598,10 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
     </div>
   </div>
   <div class="mcard-body">
-    <a class="photo-link" href="https://en.wikipedia.org/wiki/Amanita_phalloides" target="_blank" rel="noopener">See photos on Wikipedia &rarr;</a>
+    <p class="intro">Responsible for more mushroom deaths worldwide than any other species. A single mushroom can kill an adult, and symptoms don't appear until 6–24 hours after eating.</p>
     <p class="quick-id"><strong>Key ID:</strong> Greenish-yellow to olive cap, white gills, <strong>skirt-like ring on stem + cup-shaped volva at base</strong> (dig it up!). Smells like honey. <strong>Half a cap can kill an adult.</strong></p>
   </div>
-  <button class="mcard-toggle" onclick="toggleCard(this)">Full ID Details <span class="arrow">&#9660;</span></button>
+  <button class="mcard-toggle">Full ID Details <span class="arrow">&#9660;</span></button>
   <div class="mcard-details">
     <h4>What It Looks Like</h4>
     <ul>
@@ -528,10 +621,11 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
         <li>No reliable home antidote — ER immediately</li>
       </ul>
     </div>
+    <a class="photo-link" href="https://en.wikipedia.org/wiki/Amanita_phalloides" target="_blank" rel="noopener">See real photos on Wikipedia &rarr;</a>
   </div>
 </div>
 
-<!-- 9. DESTROYING ANGEL -->
+<!-- 12. DESTROYING ANGEL -->
 <div class="mcard toxic" data-regions="pnw,ne,se,mw" data-status="toxic">
   <div class="mcard-header">
     <span class="mh-emoji">⚠️</span>
@@ -542,10 +636,10 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
     </div>
   </div>
   <div class="mcard-body">
-    <a class="photo-link" href="https://en.wikipedia.org/wiki/Destroying_angel" target="_blank" rel="noopener">See photos on Wikipedia &rarr;</a>
+    <p class="intro">One of the deadliest mushrooms in North America. Its pure white, elegant appearance makes it dangerously easy to mistake for edible species.</p>
     <p class="quick-id"><strong>Key ID:</strong> <strong>Entirely pure white.</strong> White gills, fragile ring on stem, volva at base. Looks elegant and innocent. <strong>As deadly as the Death Cap.</strong></p>
   </div>
-  <button class="mcard-toggle" onclick="toggleCard(this)">Full ID Details <span class="arrow">&#9660;</span></button>
+  <button class="mcard-toggle">Full ID Details <span class="arrow">&#9660;</span></button>
   <div class="mcard-details">
     <h4>What It Looks Like</h4>
     <ul>
@@ -555,10 +649,11 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
       <li><strong>Base:</strong> Bulbous with sac-like volva — <strong>DIG IT UP</strong></li>
     </ul>
     <div class="danger-note"><h4>The #1 Rule with White Mushrooms</h4><p><strong>If it's white, has gills, and grows from the ground — treat it as deadly until proven otherwise.</strong> Contains the same amatoxins as the Death Cap.</p></div>
+    <a class="photo-link" href="https://en.wikipedia.org/wiki/Destroying_angel" target="_blank" rel="noopener">See real photos on Wikipedia &rarr;</a>
   </div>
 </div>
 
-<!-- 10. JACK O'LANTERN -->
+<!-- 13. JACK O'LANTERN -->
 <div class="mcard caution" data-regions="ne,se,mw" data-status="toxic">
   <div class="mcard-header">
     <span class="mh-emoji">🎃</span>
@@ -569,10 +664,10 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
     </div>
   </div>
   <div class="mcard-body">
-    <a class="photo-link" href="https://en.wikipedia.org/wiki/Omphalotus_olearius" target="_blank" rel="noopener">See photos on Wikipedia &rarr;</a>
+    <p class="intro">The most common reason people accidentally eat a toxic mushroom in North America. Often confused with Chanterelles, but grows in clusters on wood and has true gills.</p>
     <p class="quick-id"><strong>Key ID:</strong> Bright orange, <strong>true sharp gills</strong>, grows <strong>in clusters on/near wood</strong>. Gills glow in the dark. <strong>The #1 Chanterelle impostor.</strong></p>
   </div>
-  <button class="mcard-toggle" onclick="toggleCard(this)">Full ID Details <span class="arrow">&#9660;</span></button>
+  <button class="mcard-toggle">Full ID Details <span class="arrow">&#9660;</span></button>
   <div class="mcard-details">
     <h4>Chanterelle vs. Jack O'Lantern</h4>
     <table class="compare-tbl"><tr><th>Feature</th><th>Chanterelle (Safe)</th><th>Jack O'Lantern (Toxic)</th></tr>
@@ -582,26 +677,82 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
     <tr><td>Glow</td><td>No</td><td>Yes</td></tr>
     <tr><td>Smell</td><td>Fruity, apricot</td><td>Unpleasant</td></tr></table>
     <div class="danger-note"><h4>If Someone Eats One</h4><p>Severe cramps, vomiting, diarrhea within 1–2 hours. Rarely fatal. <strong>Seek medical attention.</strong></p></div>
+    <a class="photo-link" href="https://en.wikipedia.org/wiki/Omphalotus_olearius" target="_blank" rel="noopener">See real photos on Wikipedia &rarr;</a>
+  </div>
+</div>
+
+<!-- 14. FLY AGARIC -->
+<div class="mcard toxic" data-regions="pnw,ne,se,mw,sw" data-status="toxic">
+  <div class="mcard-header">
+    <span class="mh-emoji">🔴</span>
+    <div class="mh-info">
+      <div class="mh-name">Fly Agaric</div>
+      <div class="mh-sci">Amanita muscaria</div>
+      <div class="mh-badges"><span class="mh-status">Toxic</span><span class="mh-season">Jul–Nov</span></div>
+    </div>
+  </div>
+  <div class="mcard-body">
+    <p class="intro">The iconic red-and-white "fairy tale" mushroom seen in storybooks and video games. Despite its beautiful appearance, it is toxic and causes serious symptoms if eaten.</p>
+    <p class="quick-id"><strong>Key ID:</strong> <strong>Bright red to orange cap with white warts/spots</strong>, white gills, white ring on stem, bulbous base with patches. Unmistakable appearance.</p>
+  </div>
+  <button class="mcard-toggle">Full ID Details <span class="arrow">&#9660;</span></button>
+  <div class="mcard-details">
+    <h4>What It Looks Like</h4>
+    <ul>
+      <li><strong>Cap:</strong> 3–10 in, bright red to orange-red, covered with white to yellowish wart-like patches</li>
+      <li><strong>Gills:</strong> White, free from stem</li>
+      <li><strong>Stem:</strong> White, 4–8 in, with a ring and a bulbous base with concentric scales</li>
+      <li><strong>Note:</strong> Rain can wash off white spots, leaving a plain orange-red cap</li>
+    </ul>
+    <h4>Where &amp; When</h4><p>Under birch, pine, spruce, and fir trees. Found in forests and woodland edges. <strong>Summer–fall (Jul–Nov).</strong></p>
+    <div class="danger-note"><h4>Toxicity</h4><p>Contains <strong>ibotenic acid and muscimol</strong>. Symptoms include nausea, vomiting, confusion, hallucinations, and drowsiness. Rarely fatal in adults but dangerous. <strong>Seek medical attention if ingested.</strong></p></div>
+    <a class="photo-link" href="https://en.wikipedia.org/wiki/Amanita_muscaria" target="_blank" rel="noopener">See real photos on Wikipedia &rarr;</a>
+  </div>
+</div>
+
+<!-- 15. FALSE MOREL -->
+<div class="mcard toxic" data-regions="ne,mw,pnw" data-status="toxic">
+  <div class="mcard-header">
+    <span class="mh-emoji">🧠</span>
+    <div class="mh-info">
+      <div class="mh-name">False Morel</div>
+      <div class="mh-sci">Gyromitra esculenta</div>
+      <div class="mh-badges"><span class="mh-status">Deadly Toxic</span><span class="mh-season">Mar–May</span></div>
+    </div>
+  </div>
+  <div class="mcard-body">
+    <p class="intro">A wrinkled, brain-like mushroom that can be mistaken for a true Morel in spring. Contains gyromitrin, a toxic compound that can cause organ damage or death.</p>
+    <p class="quick-id"><strong>Key ID:</strong> <strong>Brain-like, wrinkled, lobed cap</strong> (NOT honeycomb). <strong>NOT hollow</strong> — chambered, cottony inside when sliced. Reddish-brown, irregular shape.</p>
+  </div>
+  <button class="mcard-toggle">Full ID Details <span class="arrow">&#9660;</span></button>
+  <div class="mcard-details">
+    <h4>What It Looks Like</h4>
+    <ul>
+      <li><strong>Cap:</strong> Wrinkled, brain-like lobes, reddish-brown to dark brown, irregular shape</li>
+      <li><strong>Inside:</strong> Chambered, cottony — NOT hollow like a true Morel</li>
+      <li><strong>Stem:</strong> Short, thick, often folded or furrowed, whitish</li>
+      <li><strong>Size:</strong> 2–5 inches tall</li>
+    </ul>
+    <h4>True Morel vs. False Morel</h4>
+    <table class="compare-tbl"><tr><th>Feature</th><th>True Morel (Safe)</th><th>False Morel (Toxic)</th></tr>
+    <tr><td>Cap</td><td>Clean honeycomb pits</td><td>Brain-like wrinkles</td></tr>
+    <tr><td>Inside</td><td>Completely hollow</td><td>Chambered, cottony</td></tr>
+    <tr><td>Cap attach</td><td>Attached at base of cap</td><td>Attached only at top of stem</td></tr></table>
+    <h4>Where &amp; When</h4><p>Sandy soils near conifers, especially in spring after snowmelt. Same season as true Morels. <strong>Spring (Mar–May).</strong></p>
+    <div class="danger-note"><h4>Why It's Dangerous</h4><p>Contains <strong>gyromitrin</strong>, which converts to monomethylhydrazine (rocket fuel) in the body. Can cause liver failure and death. <strong>Always slice mushrooms in half to check if hollow.</strong></p></div>
+    <a class="photo-link" href="https://en.wikipedia.org/wiki/Gyromitra_esculenta" target="_blank" rel="noopener">See real photos on Wikipedia &rarr;</a>
   </div>
 </div>
 
 </div><!-- grid-en -->
 </div><!-- wrap -->
 
-<!-- UNLOCK BANNER EN -->
-
 <!-- EMERGENCY EN -->
 <div class="emergency" id="emergency-en">
   <h2>If Someone Eats a Toxic Mushroom</h2>
   <div class="phone">1-800-222-1222</div>
   <p>US Poison Control — Call immediately. Do NOT wait for symptoms.</p>
-  <ol>
-    <li><strong>Call now.</strong> With Death Cap/Destroying Angel, symptoms are delayed 6–24 hours — organ damage starts before you feel sick.</li>
-    <li><strong>Save a sample</strong> or take clear photos of the mushroom.</li>
-    <li><strong>Do NOT induce vomiting</strong> unless told to by Poison Control.</li>
-    <li><strong>Go to the ER.</strong> Do not wait it out at home.</li>
-    <li><strong>Note the time</strong> of ingestion and when symptoms appeared.</li>
-  </ol>
+  <p class="steps"><strong>1.</strong> Call now (symptoms can be delayed 6–24 hrs). <strong>2.</strong> Save a sample or take photos. <strong>3.</strong> Do NOT induce vomiting unless told to. <strong>4.</strong> Go to the ER. <strong>5.</strong> Note time of ingestion.</p>
 </div>
 
 <!-- GEAR & CHECKLIST EN -->
@@ -656,8 +807,8 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
   <p class="sub">Identifica &middot; Come Seguro &middot; Evita los Mortales</p>
   <p>Ves hongos en cada caminata. Algunos son cena. Algunos pueden matarte.<br>Elige tu estado, ve exactamente qu&eacute; crece cerca de ti, y conoce antes de comer.</p>
   <div class="stats">
-    <div class="stat"><div class="num">7</div><div class="lbl">Comestibles</div></div>
-    <div class="stat"><div class="num">3</div><div class="lbl">Mortales</div></div>
+    <div class="stat"><div class="num">10</div><div class="lbl">Comestibles</div></div>
+    <div class="stat"><div class="num">5</div><div class="lbl">T&oacute;xicos</div></div>
     <div class="stat"><div class="num">50</div><div class="lbl">Estados</div></div>
   </div>
   <div class="scroll-hint">&darr; Elige tu estado abajo</div>
@@ -754,10 +905,10 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
     </div>
   </div>
   <div class="mcard-body">
-    <a class="photo-link" href="https://es.wikipedia.org/wiki/Cantharellus_cibarius" target="_blank" rel="noopener">Ver fotos en Wikipedia &rarr;</a>
+    <p class="intro">Uno de los hongos silvestres comestibles m&aacute;s populares del mundo, apreciado por su color dorado, aroma afrutado y sabor ligeramente picante.</p>
     <p class="quick-id"><strong>Clave:</strong> Embudo dorado, <strong>falsas l&aacute;minas</strong> (pliegues bifurcados), olor afrutado a albaricoque. Crece del suelo, nunca de madera.</p>
   </div>
-  <button class="mcard-toggle" onclick="toggleCard(this)">Detalles Completos <span class="arrow">&#9660;</span></button>
+  <button class="mcard-toggle">Detalles Completos <span class="arrow">&#9660;</span></button>
   <div class="mcard-details">
     <h4>C&oacute;mo Se Ve</h4>
     <ul>
@@ -768,13 +919,14 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
     </ul>
     <h4>D&oacute;nde y Cu&aacute;ndo</h4><p>Pisos de bosque cerca de robles y con&iacute;feras. <strong>Verano a principios de oto&ntilde;o.</strong></p>
     <div class="lookalike">
-      <h4>Cuidado: Jack O'Lantern (T&oacute;xico #10)</h4>
+      <h4>Cuidado: Jack O'Lantern (T&oacute;xico)</h4>
       <table class="compare-tbl"><tr><th>Caracter&iacute;stica</th><th>Chanterelle</th><th>Jack O'Lantern</th></tr>
       <tr><td>L&aacute;minas</td><td>Falsas (pliegues)</td><td>Verdaderas y filosas</td></tr>
       <tr><td>Crecimiento</td><td>Del suelo</td><td>Racimos sobre madera</td></tr>
       <tr><td>Interior</td><td>Carne p&aacute;lida</td><td>Naranja por completo</td></tr></table>
     </div>
     <div class="tip"><h4>Si Encuentras Uno</h4><p>Cocina bien en mantequilla. Nunca crudo. Uno de los mejores hongos silvestres del mundo.</p></div>
+    <a class="photo-link" href="https://es.wikipedia.org/wiki/Cantharellus_cibarius" target="_blank" rel="noopener">Ver fotos reales en Wikipedia &rarr;</a>
   </div>
 </div>
 
@@ -789,10 +941,10 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
     </div>
   </div>
   <div class="mcard-body">
-    <a class="photo-link" href="https://es.wikipedia.org/wiki/Morchella_esculenta" target="_blank" rel="noopener">Ver fotos en Wikipedia &rarr;</a>
+    <p class="intro">Un hongo de primavera muy buscado con un sombrero tipo panal inconfundible. Entre los hongos silvestres m&aacute;s reconocibles y favoritos de los recolectores.</p>
     <p class="quick-id"><strong>Clave:</strong> Sombrero tipo panal con hoyos profundos. <strong>Completamente hueco</strong> al cortarlo. Forma de cono, canela a marr&oacute;n oscuro.</p>
   </div>
-  <button class="mcard-toggle" onclick="toggleCard(this)">Detalles Completos <span class="arrow">&#9660;</span></button>
+  <button class="mcard-toggle">Detalles Completos <span class="arrow">&#9660;</span></button>
   <div class="mcard-details">
     <h4>C&oacute;mo Se Ve</h4>
     <ul>
@@ -803,6 +955,7 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
     <h4>D&oacute;nde y Cu&aacute;ndo</h4><p>Cerca de olmos y fresnos muertos. &Aacute;reas post-incendio. <strong>Primavera (Mar–May).</strong></p>
     <div class="lookalike"><h4>Cuidado: Falsa Morilla (Mortal)</h4><p>Sombreros <strong>arrugados tipo cerebro</strong>. <strong>NO hueca</strong>. C&oacute;rtala: hueca = verdadera.</p></div>
     <div class="tip"><h4>Si Encuentras Uno</h4><p>Remoja en agua con sal 30 min. Cocina completamente. Un manjar.</p></div>
+    <a class="photo-link" href="https://es.wikipedia.org/wiki/Morchella_esculenta" target="_blank" rel="noopener">Ver fotos reales en Wikipedia &rarr;</a>
   </div>
 </div>
 
@@ -817,10 +970,21 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
     </div>
   </div>
   <div class="mcard-body">
-    <a class="photo-link" href="https://es.wikipedia.org/wiki/Laetiporus_sulphureus" target="_blank" rel="noopener">Ver fotos en Wikipedia &rarr;</a>
-    <p class="quick-id"><strong>Clave:</strong> <strong>Repisa naranja/amarilla brillante</strong> en capas superpuestas. Parte inferior amarillo azufre con poros diminutos.</p></div>
-  <button class="mcard-toggle" onclick="toggleCard(this)">Detalles Completos <span class="arrow">&#9660;</span></button>
-  <div class="mcard-details"><h4>C&oacute;mo Se Ve</h4><ul><li><strong>Forma:</strong> Repisas superpuestas en troncos</li><li><strong>Arriba:</strong> Naranja brillante a salm&oacute;n</li><li><strong>Abajo:</strong> Amarillo azufre, poros diminutos</li></ul><h4>D&oacute;nde y Cu&aacute;ndo</h4><p>En maderas duras, especialmente robles. <strong>Final de primavera a oto&ntilde;o.</strong></p><div class="tip"><h4>Si Encuentras Uno</h4><p>Textura similar a pechuga de pollo. Corta los bordes tiernos, saltea con ajo.</p></div></div>
+    <p class="intro">Un hongo tipo repisa de color naranja brillante que sabe notablemente a pollo cuando se cocina. Uno de los m&aacute;s f&aacute;ciles de identificar por su color y forma inconfundibles.</p>
+    <p class="quick-id"><strong>Clave:</strong> <strong>Repisa naranja/amarilla brillante</strong> en capas superpuestas. Parte inferior amarillo azufre con poros diminutos.</p>
+  </div>
+  <button class="mcard-toggle">Detalles Completos <span class="arrow">&#9660;</span></button>
+  <div class="mcard-details">
+    <h4>C&oacute;mo Se Ve</h4>
+    <ul>
+      <li><strong>Forma:</strong> Repisas superpuestas en troncos</li>
+      <li><strong>Arriba:</strong> Naranja brillante a salm&oacute;n</li>
+      <li><strong>Abajo:</strong> Amarillo azufre, poros diminutos</li>
+    </ul>
+    <h4>D&oacute;nde y Cu&aacute;ndo</h4><p>En maderas duras, especialmente robles. <strong>Final de primavera a oto&ntilde;o.</strong></p>
+    <div class="tip"><h4>Si Encuentras Uno</h4><p>Textura similar a pechuga de pollo. Corta los bordes tiernos, saltea con ajo.</p></div>
+    <a class="photo-link" href="https://es.wikipedia.org/wiki/Laetiporus_sulphureus" target="_blank" rel="noopener">Ver fotos reales en Wikipedia &rarr;</a>
+  </div>
 </div>
 
 <!-- 4. HEN ES -->
@@ -834,10 +998,21 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
     </div>
   </div>
   <div class="mcard-body">
-    <a class="photo-link" href="https://es.wikipedia.org/wiki/Grifola_frondosa" target="_blank" rel="noopener">Ver fotos en Wikipedia &rarr;</a>
-    <p class="quick-id"><strong>Clave:</strong> Roseta de <strong>abanicos gris-marr&oacute;n superpuestos</strong> al pie de &aacute;rboles. Poros blancos debajo.</p></div>
-  <button class="mcard-toggle" onclick="toggleCard(this)">Detalles Completos <span class="arrow">&#9660;</span></button>
-  <div class="mcard-details"><h4>C&oacute;mo Se Ve</h4><ul><li>Roseta de abanicos superpuestos desde una base</li><li>Gris-marr&oacute;n arriba, blanco abajo</li><li><strong>Regresa al mismo lugar cada a&ntilde;o</strong></li></ul><h4>D&oacute;nde y Cu&aacute;ndo</h4><p>Base de robles. <strong>Oto&ntilde;o (Sep–Nov).</strong></p><div class="tip"><h4>Si Encuentras Uno</h4><p>Desg&aacute;rralo en trozos, saltea hasta crujiente. Sabor umami.</p></div></div>
+    <p class="intro">Un hongo grande gris-marr&oacute;n que crece en racimos rizados al pie de robles. Conocido como "Maitake" en japon&eacute;s, valorado tanto en cocina como en medicina.</p>
+    <p class="quick-id"><strong>Clave:</strong> Roseta de <strong>abanicos gris-marr&oacute;n superpuestos</strong> al pie de &aacute;rboles. Poros blancos debajo.</p>
+  </div>
+  <button class="mcard-toggle">Detalles Completos <span class="arrow">&#9660;</span></button>
+  <div class="mcard-details">
+    <h4>C&oacute;mo Se Ve</h4>
+    <ul>
+      <li>Roseta de abanicos superpuestos desde una base</li>
+      <li>Gris-marr&oacute;n arriba, blanco abajo</li>
+      <li><strong>Regresa al mismo lugar cada a&ntilde;o</strong></li>
+    </ul>
+    <h4>D&oacute;nde y Cu&aacute;ndo</h4><p>Base de robles. <strong>Oto&ntilde;o (Sep–Nov).</strong></p>
+    <div class="tip"><h4>Si Encuentras Uno</h4><p>Desg&aacute;rralo en trozos, saltea hasta crujiente. Sabor umami.</p></div>
+    <a class="photo-link" href="https://es.wikipedia.org/wiki/Grifola_frondosa" target="_blank" rel="noopener">Ver fotos reales en Wikipedia &rarr;</a>
+  </div>
 </div>
 
 <!-- 5. LION'S MANE ES -->
@@ -851,10 +1026,21 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
     </div>
   </div>
   <div class="mcard-body">
-    <a class="photo-link" href="https://es.wikipedia.org/wiki/Hericium_erinaceus" target="_blank" rel="noopener">Ver fotos en Wikipedia &rarr;</a>
-    <p class="quick-id"><strong>Clave:</strong> Pomp&oacute;n blanco con <strong>espinas colgantes</strong>. Sin sombrero, sin tallo, sin l&aacute;minas. <strong>Sin dobles t&oacute;xicos.</strong></p></div>
-  <button class="mcard-toggle" onclick="toggleCard(this)">Detalles Completos <span class="arrow">&#9660;</span></button>
-  <div class="mcard-details"><h4>C&oacute;mo Se Ve</h4><ul><li>Bola blanca con espinas largas</li><li>Blanco cuando joven, se amarillenta</li><li>Nada se le parece</li></ul><h4>D&oacute;nde y Cu&aacute;ndo</h4><p>En maderas duras muertas. <strong>Final de verano a oto&ntilde;o.</strong></p><div class="tip"><h4>Si Encuentras Uno</h4><p>Corta en "filetes" y sella en mantequilla. Textura como cangrejo.</p></div></div>
+    <p class="intro">Un hongo blanco que cuelga de &aacute;rboles como un pomp&oacute;n peludo. Uno de los m&aacute;s seguros de identificar — nada m&aacute;s se le parece.</p>
+    <p class="quick-id"><strong>Clave:</strong> Pomp&oacute;n blanco con <strong>espinas colgantes</strong>. Sin sombrero, sin tallo, sin l&aacute;minas. <strong>Sin dobles t&oacute;xicos.</strong></p>
+  </div>
+  <button class="mcard-toggle">Detalles Completos <span class="arrow">&#9660;</span></button>
+  <div class="mcard-details">
+    <h4>C&oacute;mo Se Ve</h4>
+    <ul>
+      <li>Bola blanca con espinas largas</li>
+      <li>Blanco cuando joven, se amarillenta</li>
+      <li>Nada se le parece</li>
+    </ul>
+    <h4>D&oacute;nde y Cu&aacute;ndo</h4><p>En maderas duras muertas. <strong>Final de verano a oto&ntilde;o.</strong></p>
+    <div class="tip"><h4>Si Encuentras Uno</h4><p>Corta en "filetes" y sella en mantequilla. Textura como cangrejo.</p></div>
+    <a class="photo-link" href="https://es.wikipedia.org/wiki/Hericium_erinaceus" target="_blank" rel="noopener">Ver fotos reales en Wikipedia &rarr;</a>
+  </div>
 </div>
 
 <!-- 6. OYSTER ES -->
@@ -868,10 +1054,21 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
     </div>
   </div>
   <div class="mcard-body">
-    <a class="photo-link" href="https://es.wikipedia.org/wiki/Pleurotus_ostreatus" target="_blank" rel="noopener">Ver fotos en Wikipedia &rarr;</a>
-    <p class="quick-id"><strong>Clave:</strong> <strong>Forma de abanico/concha</strong>, blanco a gris, en racimos sobre madera dura muerta.</p></div>
-  <button class="mcard-toggle" onclick="toggleCard(this)">Detalles Completos <span class="arrow">&#9660;</span></button>
-  <div class="mcard-details"><h4>C&oacute;mo Se Ve</h4><ul><li>Abanico o concha, 5–20 cm, liso</li><li>Blanco, crema, gris o canela</li><li>Crece en madera dura muerta</li></ul><h4>D&oacute;nde y Cu&aacute;ndo</h4><p><strong>Primavera y oto&ntilde;o, pero todo el a&ntilde;o en climas templados.</strong></p><div class="tip"><h4>Si Encuentras Uno</h4><p>Vers&aacute;til. Saltea, agrega a sopas. Sabor suave y dulce.</p></div></div>
+    <p class="intro">Uno de los hongos silvestres m&aacute;s comunes y vers&aacute;tiles, crece en madera dura muerta todo el a&ntilde;o. Ideal para principiantes, con sabor suave y dulce.</p>
+    <p class="quick-id"><strong>Clave:</strong> <strong>Forma de abanico/concha</strong>, blanco a gris, en racimos sobre madera dura muerta.</p>
+  </div>
+  <button class="mcard-toggle">Detalles Completos <span class="arrow">&#9660;</span></button>
+  <div class="mcard-details">
+    <h4>C&oacute;mo Se Ve</h4>
+    <ul>
+      <li>Abanico o concha, 5–20 cm, liso</li>
+      <li>Blanco, crema, gris o canela</li>
+      <li>Crece en madera dura muerta</li>
+    </ul>
+    <h4>D&oacute;nde y Cu&aacute;ndo</h4><p><strong>Primavera y oto&ntilde;o, pero todo el a&ntilde;o en climas templados.</strong></p>
+    <div class="tip"><h4>Si Encuentras Uno</h4><p>Vers&aacute;til. Saltea, agrega a sopas. Sabor suave y dulce.</p></div>
+    <a class="photo-link" href="https://es.wikipedia.org/wiki/Pleurotus_ostreatus" target="_blank" rel="noopener">Ver fotos reales en Wikipedia &rarr;</a>
+  </div>
 </div>
 
 <!-- 7. PORCINI ES -->
@@ -885,13 +1082,112 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
     </div>
   </div>
   <div class="mcard-body">
-    <a class="photo-link" href="https://es.wikipedia.org/wiki/Boletus_edulis" target="_blank" rel="noopener">Ver fotos en Wikipedia &rarr;</a>
-    <p class="quick-id"><strong>Clave:</strong> Sombrero marr&oacute;n convexo, <strong>poros esponjosos debajo (NO l&aacute;minas)</strong>, tallo grueso con reticulado blanco.</p></div>
-  <button class="mcard-toggle" onclick="toggleCard(this)">Detalles Completos <span class="arrow">&#9660;</span></button>
-  <div class="mcard-details"><h4>C&oacute;mo Se Ve</h4><ul><li>Liso, convexo, marr&oacute;n, 8–25 cm</li><li>Poros esponjosos blancos a amarillo-verdosos</li><li>Tallo grueso, bulboso</li></ul><h4>D&oacute;nde y Cu&aacute;ndo</h4><p>Bajo con&iacute;feras en bosques monta&ntilde;osos. <strong>Verano a oto&ntilde;o.</strong></p><div class="tip"><h4>Si Encuentras Uno</h4><p>Uno de los m&aacute;s buscados del mundo. Saltea fresco o seca para risottos.</p></div></div>
+    <p class="intro">Uno de los hongos comestibles m&aacute;s apreciados del mundo, conocido en la cocina italiana como el "rey" de los hongos. Se identifica por su sombrero marr&oacute;n y poros esponjosos en vez de l&aacute;minas.</p>
+    <p class="quick-id"><strong>Clave:</strong> Sombrero marr&oacute;n convexo, <strong>poros esponjosos debajo (NO l&aacute;minas)</strong>, tallo grueso con reticulado blanco.</p>
+  </div>
+  <button class="mcard-toggle">Detalles Completos <span class="arrow">&#9660;</span></button>
+  <div class="mcard-details">
+    <h4>C&oacute;mo Se Ve</h4>
+    <ul>
+      <li>Liso, convexo, marr&oacute;n, 8–25 cm</li>
+      <li>Poros esponjosos blancos a amarillo-verdosos</li>
+      <li>Tallo grueso, bulboso</li>
+    </ul>
+    <h4>D&oacute;nde y Cu&aacute;ndo</h4><p>Bajo con&iacute;feras en bosques monta&ntilde;osos. <strong>Verano a oto&ntilde;o.</strong></p>
+    <div class="tip"><h4>Si Encuentras Uno</h4><p>Uno de los m&aacute;s buscados del mundo. Saltea fresco o seca para risottos.</p></div>
+    <a class="photo-link" href="https://es.wikipedia.org/wiki/Boletus_edulis" target="_blank" rel="noopener">Ver fotos reales en Wikipedia &rarr;</a>
+  </div>
 </div>
 
-<!-- 8. DEATH CAP ES -->
+<!-- 8. GIANT PUFFBALL ES -->
+<div class="mcard" data-regions="pnw,ne,se,mw,sw" data-status="edible">
+  <div class="mcard-header">
+    <span class="mh-emoji">⚪</span>
+    <div class="mh-info">
+      <div class="mh-name">Bej&iacute;n Gigante</div>
+      <div class="mh-sci">Calvatia gigantea</div>
+      <div class="mh-badges"><span class="mh-status">Comestible</span><span class="mh-season">Ago–Oct</span></div>
+    </div>
+  </div>
+  <div class="mcard-body">
+    <p class="intro">Un hongo grande, blanco y redondo como un bal&oacute;n de f&uacute;tbol o m&aacute;s grande. Uno de los hongos m&aacute;s f&aacute;ciles de identificar cuando es maduro.</p>
+    <p class="quick-id"><strong>Clave:</strong> Bola redonda y blanca, <strong>sin tallo, sin l&aacute;minas, sin sombrero</strong>. Carne <strong>blanca pura y s&oacute;lida</strong> por dentro. Tama&ntilde;o: 10–50+ cm.</p>
+  </div>
+  <button class="mcard-toggle">Detalles Completos <span class="arrow">&#9660;</span></button>
+  <div class="mcard-details">
+    <h4>C&oacute;mo Se Ve</h4>
+    <ul>
+      <li><strong>Forma:</strong> Bola redonda a ligeramente ovalada sobre el suelo</li>
+      <li><strong>Color:</strong> Blanco por fuera cuando fresco, se oscurece con la edad</li>
+      <li><strong>Interior:</strong> Debe ser blanco s&oacute;lido y puro, como malvavisco</li>
+    </ul>
+    <h4>D&oacute;nde y Cu&aacute;ndo</h4><p>Praderas, parques, bosques abiertos, c&eacute;spedes. <strong>Final de verano a oto&ntilde;o (Ago–Oct).</strong></p>
+    <div class="danger-note"><h4>Revisi&oacute;n de Seguridad ESENCIAL</h4><p><strong>Siempre c&oacute;rtalo a la mitad antes de comer.</strong> Debe ser blanco s&oacute;lido sin contorno visible de un hongo formándose. Si ves amarillo, marr&oacute;n, o el contorno de l&aacute;minas — puede ser un huevo inmaduro de Amanita — <strong>mortal.</strong></p></div>
+    <div class="tip"><h4>Si Encuentras Uno</h4><p>Corta en "filetes" gruesos, empaniza y fr&iacute;e, o saltea en mantequilla. Sabor suave, absorbe bien los condimentos.</p></div>
+    <a class="photo-link" href="https://es.wikipedia.org/wiki/Calvatia_gigantea" target="_blank" rel="noopener">Ver fotos reales en Wikipedia &rarr;</a>
+  </div>
+</div>
+
+<!-- 9. BLACK TRUMPET ES -->
+<div class="mcard" data-regions="pnw,ne,se,mw" data-status="edible">
+  <div class="mcard-header">
+    <span class="mh-emoji">🎺</span>
+    <div class="mh-info">
+      <div class="mh-name">Trompeta Negra</div>
+      <div class="mh-sci">Craterellus cornucopioides</div>
+      <div class="mh-badges"><span class="mh-status">Comestible</span><span class="mh-season">Jun–Oct</span></div>
+    </div>
+  </div>
+  <div class="mcard-body">
+    <p class="intro">Un hongo oscuro en forma de embudo con sabor ahumado y delicado, apreciado por chefs. A pesar de su apariencia, no tiene dobles t&oacute;xicos — uno de los m&aacute;s seguros de recolectar.</p>
+    <p class="quick-id"><strong>Clave:</strong> <strong>Embudo/trompeta gris oscuro a negro</strong>, bordes ondulados finos, parte inferior lisa (sin l&aacute;minas). <strong>Sin dobles peligrosos.</strong></p>
+  </div>
+  <button class="mcard-toggle">Detalles Completos <span class="arrow">&#9660;</span></button>
+  <div class="mcard-details">
+    <h4>C&oacute;mo Se Ve</h4>
+    <ul>
+      <li><strong>Forma:</strong> Embudo o trompeta delgada, 3–10 cm de alto</li>
+      <li><strong>Color:</strong> Gris oscuro, marr&oacute;n a negro</li>
+      <li><strong>Parte inferior:</strong> Lisa a ligeramente arrugada — sin l&aacute;minas verdaderas</li>
+      <li><strong>Carne:</strong> Delgada, fr&aacute;gil, arom&aacute;tica</li>
+    </ul>
+    <h4>D&oacute;nde y Cu&aacute;ndo</h4><p>Pisos de bosque cerca de robles y hayas, en &aacute;reas con musgo. Dif&iacute;cil de ver por su color oscuro. <strong>Verano a oto&ntilde;o.</strong></p>
+    <div class="tip"><h4>Si Encuentras Uno</h4><p>Sabor ahumado e intenso. Excelente seco. Se le llama "trufa del pobre" por su aroma. Saltea o agrega a salsas de crema.</p></div>
+    <a class="photo-link" href="https://es.wikipedia.org/wiki/Craterellus_cornucopioides" target="_blank" rel="noopener">Ver fotos reales en Wikipedia &rarr;</a>
+  </div>
+</div>
+
+<!-- 10. HONEY MUSHROOM ES -->
+<div class="mcard" data-regions="pnw,ne,se,mw,sw" data-status="edible">
+  <div class="mcard-header">
+    <span class="mh-emoji">🍯</span>
+    <div class="mh-info">
+      <div class="mh-name">Hongo de Miel</div>
+      <div class="mh-sci">Armillaria mellea</div>
+      <div class="mh-badges"><span class="mh-status">Comestible</span><span class="mh-season">Sep–Nov</span></div>
+    </div>
+  </div>
+  <div class="mcard-body">
+    <p class="intro">Uno de los hongos comestibles m&aacute;s comunes en bosques de Norteam&eacute;rica, creciendo en racimos grandes sobre &aacute;rboles muertos. Siempre se debe cocinar — crudo causa malestar.</p>
+    <p class="quick-id"><strong>Clave:</strong> Sombrero amarillo miel a canela, <strong>anillo blanco en el tallo</strong>, crece en <strong>racimos grandes sobre madera</strong>. Esporas blancas. Escamas oscuras en el centro del sombrero.</p>
+  </div>
+  <button class="mcard-toggle">Detalles Completos <span class="arrow">&#9660;</span></button>
+  <div class="mcard-details">
+    <h4>C&oacute;mo Se Ve</h4>
+    <ul>
+      <li><strong>Sombrero:</strong> 3–10 cm, amarillo miel a canela, escamas oscuras en el centro</li>
+      <li><strong>L&aacute;minas:</strong> Blancas a crema, ligeramente adheridas al tallo</li>
+      <li><strong>Tallo:</strong> Duro, fibroso, con anillo blanco prominente</li>
+      <li><strong>Crecimiento:</strong> Racimos densos en tocones, ra&iacute;ces o base de &aacute;rboles</li>
+    </ul>
+    <h4>D&oacute;nde y Cu&aacute;ndo</h4><p>En &aacute;rboles muertos y tocones. A veces parece crecer del suelo (de ra&iacute;ces enterradas). <strong>Oto&ntilde;o (Sep–Nov).</strong></p>
+    <div class="danger-note"><h4>PELIGRO: Doble Mortal</h4><p><strong>Galerina marginata (Campana F&uacute;nebre)</strong> es mortal y tambi&eacute;n crece en racimos sobre madera. Diferencias clave: Galerina tiene <strong>esporas marr&oacute;n &oacute;xido</strong> (hongo de miel son blancas), el anillo de Galerina se ti&ntilde;e de marr&oacute;n, y crece en <strong>racimos m&aacute;s peque&ntilde;os</strong>. Siempre verifica la huella de esporas.</p></div>
+    <div class="tip"><h4>Si Encuentras Uno</h4><p><strong>Debe cocinarse bien</strong> — crudo causa malestar estomacal. Descarta los tallos duros, usa solo los sombreros.</p></div>
+    <a class="photo-link" href="https://es.wikipedia.org/wiki/Armillaria_mellea" target="_blank" rel="noopener">Ver fotos reales en Wikipedia &rarr;</a>
+  </div>
+</div>
+
+<!-- 11. DEATH CAP ES -->
 <div class="mcard toxic" data-regions="pnw,ne,se" data-status="toxic">
   <div class="mcard-header">
     <span class="mh-emoji">☠️</span>
@@ -902,10 +1198,10 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
     </div>
   </div>
   <div class="mcard-body">
-    <a class="photo-link" href="https://es.wikipedia.org/wiki/Amanita_phalloides" target="_blank" rel="noopener">Ver fotos en Wikipedia &rarr;</a>
+    <p class="intro">Responsable de m&aacute;s muertes por hongos en el mundo que cualquier otra especie. Un solo hongo puede matar a un adulto, y los s&iacute;ntomas no aparecen hasta 6–24 horas despu&eacute;s.</p>
     <p class="quick-id"><strong>Clave:</strong> Sombrero verde-amarillento a oliva, l&aacute;minas blancas, <strong>anillo tipo falda + volva tipo copa en la base</strong>. Huele a miel. <strong>Media c&aacute;psula mata a un adulto.</strong></p>
   </div>
-  <button class="mcard-toggle" onclick="toggleCard(this)">Detalles Completos <span class="arrow">&#9660;</span></button>
+  <button class="mcard-toggle">Detalles Completos <span class="arrow">&#9660;</span></button>
   <div class="mcard-details">
     <h4>C&oacute;mo Se Ve</h4>
     <ul>
@@ -920,10 +1216,11 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
       <li>Fase enga&ntilde;osa de "mejor&iacute;a" antes de la etapa final</li>
       <li>Sin ant&iacute;doto casero — urgencias inmediatamente</li>
     </ul></div>
+    <a class="photo-link" href="https://es.wikipedia.org/wiki/Amanita_phalloides" target="_blank" rel="noopener">Ver fotos reales en Wikipedia &rarr;</a>
   </div>
 </div>
 
-<!-- 9. DESTROYING ANGEL ES -->
+<!-- 12. DESTROYING ANGEL ES -->
 <div class="mcard toxic" data-regions="pnw,ne,se,mw" data-status="toxic">
   <div class="mcard-header">
     <span class="mh-emoji">⚠️</span>
@@ -934,13 +1231,24 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
     </div>
   </div>
   <div class="mcard-body">
-    <a class="photo-link" href="https://es.wikipedia.org/wiki/Amanita_bisporigera" target="_blank" rel="noopener">Ver fotos en Wikipedia &rarr;</a>
-    <p class="quick-id"><strong>Clave:</strong> <strong>Todo blanco puro.</strong> L&aacute;minas blancas, anillo fr&aacute;gil, volva en la base. <strong>Tan letal como el Hongo de la Muerte.</strong></p></div>
-  <button class="mcard-toggle" onclick="toggleCard(this)">Detalles Completos <span class="arrow">&#9660;</span></button>
-  <div class="mcard-details"><h4>C&oacute;mo Se Ve</h4><ul><li>Sombrero blanco puro, 5–12 cm, liso</li><li>L&aacute;minas blancas, libres del tallo</li><li>Tallo blanco, alto, anillo fr&aacute;gil</li><li>Base bulbosa con volva — <strong>DESENTIERRA</strong></li></ul><div class="danger-note"><h4>Regla #1 con Hongos Blancos</h4><p><strong>Si es blanco, tiene l&aacute;minas y crece del suelo — tr&aacute;talo como mortal.</strong></p></div></div>
+    <p class="intro">Uno de los hongos m&aacute;s mortales de Norteam&eacute;rica. Su apariencia blanca y elegante lo hace peligrosamente f&aacute;cil de confundir con especies comestibles.</p>
+    <p class="quick-id"><strong>Clave:</strong> <strong>Todo blanco puro.</strong> L&aacute;minas blancas, anillo fr&aacute;gil, volva en la base. <strong>Tan letal como el Hongo de la Muerte.</strong></p>
+  </div>
+  <button class="mcard-toggle">Detalles Completos <span class="arrow">&#9660;</span></button>
+  <div class="mcard-details">
+    <h4>C&oacute;mo Se Ve</h4>
+    <ul>
+      <li>Sombrero blanco puro, 5–12 cm, liso</li>
+      <li>L&aacute;minas blancas, libres del tallo</li>
+      <li>Tallo blanco, alto, anillo fr&aacute;gil</li>
+      <li>Base bulbosa con volva — <strong>DESENTIERRA</strong></li>
+    </ul>
+    <div class="danger-note"><h4>Regla #1 con Hongos Blancos</h4><p><strong>Si es blanco, tiene l&aacute;minas y crece del suelo — tr&aacute;talo como mortal.</strong></p></div>
+    <a class="photo-link" href="https://es.wikipedia.org/wiki/Amanita_bisporigera" target="_blank" rel="noopener">Ver fotos reales en Wikipedia &rarr;</a>
+  </div>
 </div>
 
-<!-- 10. JACK O'LANTERN ES -->
+<!-- 13. JACK O'LANTERN ES -->
 <div class="mcard caution" data-regions="ne,se,mw" data-status="toxic">
   <div class="mcard-header">
     <span class="mh-emoji">🎃</span>
@@ -951,34 +1259,92 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
     </div>
   </div>
   <div class="mcard-body">
-    <a class="photo-link" href="https://es.wikipedia.org/wiki/Omphalotus_olearius" target="_blank" rel="noopener">Ver fotos en Wikipedia &rarr;</a>
-    <p class="quick-id"><strong>Clave:</strong> Naranja brillante, <strong>l&aacute;minas verdaderas y filosas</strong>, crece <strong>en racimos sobre madera</strong>. <strong>El impostor #1 del Chanterelle.</strong></p></div>
-  <button class="mcard-toggle" onclick="toggleCard(this)">Detalles Completos <span class="arrow">&#9660;</span></button>
-  <div class="mcard-details"><h4>Chanterelle vs. Jack O'Lantern</h4>
+    <p class="intro">La raz&oacute;n m&aacute;s com&uacute;n por la que la gente come accidentalmente un hongo t&oacute;xico en Norteam&eacute;rica. Se confunde con Chanterelles, pero crece en racimos sobre madera.</p>
+    <p class="quick-id"><strong>Clave:</strong> Naranja brillante, <strong>l&aacute;minas verdaderas y filosas</strong>, crece <strong>en racimos sobre madera</strong>. <strong>El impostor #1 del Chanterelle.</strong></p>
+  </div>
+  <button class="mcard-toggle">Detalles Completos <span class="arrow">&#9660;</span></button>
+  <div class="mcard-details">
+    <h4>Chanterelle vs. Jack O'Lantern</h4>
     <table class="compare-tbl"><tr><th>Caracter&iacute;stica</th><th>Chanterelle</th><th>Jack O'Lantern</th></tr>
     <tr><td>L&aacute;minas</td><td>Falsas (pliegues)</td><td>Verdaderas y filosas</td></tr>
     <tr><td>Crecimiento</td><td>Del suelo</td><td>Racimos sobre madera</td></tr>
     <tr><td>Interior</td><td>Carne p&aacute;lida</td><td>Naranja por completo</td></tr></table>
-    <div class="danger-note"><h4>Si Alguien Come Uno</h4><p>Calambres, v&oacute;mito, diarrea en 1–2 horas. Rara vez fatal. <strong>Busca atenci&oacute;n m&eacute;dica.</strong></p></div></div>
+    <div class="danger-note"><h4>Si Alguien Come Uno</h4><p>Calambres, v&oacute;mito, diarrea en 1–2 horas. Rara vez fatal. <strong>Busca atenci&oacute;n m&eacute;dica.</strong></p></div>
+    <a class="photo-link" href="https://es.wikipedia.org/wiki/Omphalotus_olearius" target="_blank" rel="noopener">Ver fotos reales en Wikipedia &rarr;</a>
+  </div>
+</div>
+
+<!-- 14. FLY AGARIC ES -->
+<div class="mcard toxic" data-regions="pnw,ne,se,mw,sw" data-status="toxic">
+  <div class="mcard-header">
+    <span class="mh-emoji">🔴</span>
+    <div class="mh-info">
+      <div class="mh-name">Matamoscas (Fly Agaric)</div>
+      <div class="mh-sci">Amanita muscaria</div>
+      <div class="mh-badges"><span class="mh-status">T&oacute;xico</span><span class="mh-season">Jul–Nov</span></div>
+    </div>
+  </div>
+  <div class="mcard-body">
+    <p class="intro">El ic&oacute;nico hongo rojo con puntos blancos de los cuentos de hadas y videojuegos. A pesar de su belleza, es t&oacute;xico y causa s&iacute;ntomas serios si se come.</p>
+    <p class="quick-id"><strong>Clave:</strong> <strong>Sombrero rojo brillante a naranja con verrugas/puntos blancos</strong>, l&aacute;minas blancas, anillo en el tallo, base bulbosa con parches. Apariencia inconfundible.</p>
+  </div>
+  <button class="mcard-toggle">Detalles Completos <span class="arrow">&#9660;</span></button>
+  <div class="mcard-details">
+    <h4>C&oacute;mo Se Ve</h4>
+    <ul>
+      <li><strong>Sombrero:</strong> 8–25 cm, rojo brillante a naranja-rojo, cubierto de verrugas blancas a amarillentas</li>
+      <li><strong>L&aacute;minas:</strong> Blancas, libres del tallo</li>
+      <li><strong>Tallo:</strong> Blanco, 10–20 cm, con anillo y base bulbosa con escamas</li>
+      <li><strong>Nota:</strong> La lluvia puede lavar los puntos blancos, dejando un sombrero naranja-rojo liso</li>
+    </ul>
+    <h4>D&oacute;nde y Cu&aacute;ndo</h4><p>Bajo abedules, pinos, abetos. En bosques y bordes de arboledas. <strong>Verano a oto&ntilde;o (Jul–Nov).</strong></p>
+    <div class="danger-note"><h4>Toxicidad</h4><p>Contiene <strong>&aacute;cido ibot&eacute;nico y muscimol</strong>. S&iacute;ntomas: n&aacute;useas, v&oacute;mitos, confusi&oacute;n, alucinaciones, somnolencia. Rara vez fatal en adultos pero peligroso. <strong>Busca atenci&oacute;n m&eacute;dica si se ingiere.</strong></p></div>
+    <a class="photo-link" href="https://es.wikipedia.org/wiki/Amanita_muscaria" target="_blank" rel="noopener">Ver fotos reales en Wikipedia &rarr;</a>
+  </div>
+</div>
+
+<!-- 15. FALSE MOREL ES -->
+<div class="mcard toxic" data-regions="ne,mw,pnw" data-status="toxic">
+  <div class="mcard-header">
+    <span class="mh-emoji">🧠</span>
+    <div class="mh-info">
+      <div class="mh-name">Falsa Morilla</div>
+      <div class="mh-sci">Gyromitra esculenta</div>
+      <div class="mh-badges"><span class="mh-status">Mortal</span><span class="mh-season">Mar–May</span></div>
+    </div>
+  </div>
+  <div class="mcard-body">
+    <p class="intro">Un hongo arrugado tipo cerebro que puede confundirse con la Morilla verdadera en primavera. Contiene giromitrín, una toxina que puede causar da&ntilde;o a &oacute;rganos o la muerte.</p>
+    <p class="quick-id"><strong>Clave:</strong> <strong>Sombrero tipo cerebro, arrugado y lobulado</strong> (NO panal). <strong>NO hueco</strong> — por dentro tiene carne algodonosa dividida en c&aacute;maras. Marr&oacute;n rojizo, forma irregular.</p>
+  </div>
+  <button class="mcard-toggle">Detalles Completos <span class="arrow">&#9660;</span></button>
+  <div class="mcard-details">
+    <h4>C&oacute;mo Se Ve</h4>
+    <ul>
+      <li><strong>Sombrero:</strong> L&oacute;bulos arrugados tipo cerebro, marr&oacute;n rojizo a oscuro, forma irregular</li>
+      <li><strong>Interior:</strong> Con c&aacute;maras, algodonoso — NO hueco como una Morilla verdadera</li>
+      <li><strong>Tallo:</strong> Corto, grueso, arrugado, blanquecino</li>
+    </ul>
+    <h4>Morilla Verdadera vs. Falsa Morilla</h4>
+    <table class="compare-tbl"><tr><th>Caracter&iacute;stica</th><th>Morilla (Segura)</th><th>Falsa Morilla (T&oacute;xica)</th></tr>
+    <tr><td>Sombrero</td><td>Hoyos tipo panal limpios</td><td>Arrugas tipo cerebro</td></tr>
+    <tr><td>Interior</td><td>Completamente hueco</td><td>C&aacute;maras, algodonoso</td></tr>
+    <tr><td>Uni&oacute;n</td><td>Adherido en la base</td><td>Solo en la punta del tallo</td></tr></table>
+    <h4>D&oacute;nde y Cu&aacute;ndo</h4><p>Suelos arenosos cerca de con&iacute;feras, especialmente en primavera. Misma temporada que las Morillas verdaderas. <strong>Primavera (Mar–May).</strong></p>
+    <div class="danger-note"><h4>Por Qu&eacute; Es Peligroso</h4><p>Contiene <strong>giromitr&iacute;n</strong>, que se convierte en monometilhidrazina en el cuerpo. Puede causar fallo hep&aacute;tico y muerte. <strong>Siempre corta los hongos a la mitad para verificar si son huecos.</strong></p></div>
+    <a class="photo-link" href="https://es.wikipedia.org/wiki/Gyromitra_esculenta" target="_blank" rel="noopener">Ver fotos reales en Wikipedia &rarr;</a>
+  </div>
 </div>
 
 </div><!-- grid-es -->
 </div><!-- wrap -->
-
-<!-- UNLOCK BANNER ES -->
 
 <!-- EMERGENCY ES -->
 <div class="emergency" id="emergency-es">
   <h2>Si Alguien Come un Hongo T&oacute;xico</h2>
   <div class="phone">1-800-222-1222</div>
   <p>Control de Envenenamientos de EE.UU. — Llama inmediatamente. NO esperes s&iacute;ntomas.</p>
-  <ol>
-    <li><strong>Llama ahora.</strong> Con el Hongo de la Muerte, los s&iacute;ntomas se retrasan 6–24 horas.</li>
-    <li><strong>Guarda una muestra</strong> o toma fotos claras.</li>
-    <li><strong>NO provoques el v&oacute;mito</strong> a menos que te lo indique un m&eacute;dico.</li>
-    <li><strong>Ve a urgencias.</strong> No intentes esperar en casa.</li>
-    <li><strong>Anota la hora</strong> de ingesti&oacute;n y cu&aacute;ndo aparecieron los s&iacute;ntomas.</li>
-  </ol>
+  <p class="steps"><strong>1.</strong> Llama ahora (s&iacute;ntomas pueden retrasarse 6–24 hrs). <strong>2.</strong> Guarda una muestra o toma fotos. <strong>3.</strong> NO provoques el v&oacute;mito. <strong>4.</strong> Ve a urgencias. <strong>5.</strong> Anota la hora de ingesti&oacute;n.</p>
 </div>
 
 <!-- GEAR ES -->
@@ -1026,125 +1392,115 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
 
 <!-- DISCLAIMER -->
 <div class="disclaimer">
-  <p id="disc-en"><strong>Safety notice:</strong> This guide is for educational purposes. Never eat a wild mushroom based solely on a written guide. When in doubt, leave it alone. If you suspect poisoning, call emergency services immediately.</p>
-  <p id="disc-es" hidden><strong>Aviso de seguridad:</strong> Esta gu&iacute;a es para fines educativos. Nunca comas un hongo silvestre bas&aacute;ndote &uacute;nicamente en una gu&iacute;a. Ante la duda, d&eacute;jalo donde est&aacute;.</p>
+  <p id="disc-en"><strong>Safety:</strong> This guide is for educational purposes. Never eat a wild mushroom based solely on a written guide. When in doubt, leave it alone.</p>
+  <p id="disc-es" hidden><strong>Seguridad:</strong> Esta gu&iacute;a es educativa. Nunca comas un hongo silvestre bas&aacute;ndote solo en una gu&iacute;a. Ante la duda, d&eacute;jalo.</p>
 </div>
 
 <footer>
   <div class="q" id="fq-en">"It doesn't have to be perfect. It just has to happen."</div>
   <div class="q" id="fq-es" hidden>"No tiene que ser perfecto, tiene que pasar."</div>
   <div class="s">Paola Adventurer &middot; Archery &middot; Camping &middot; Explore</div>
-  <a class="back" href="/" id="fb-en">Back to Shop</a>
-  <a class="back" href="/" id="fb-es" hidden>Volver a la Tienda</a>
-  <p class="attr">Photos: Wikimedia Commons (CC BY-SA). See individual image pages for photographer credits.</p>
+  <a class="back" href="/" id="fb-en">Back to Home</a>
+  <a class="back" href="/" id="fb-es" hidden>Volver al Inicio</a>
 </footer>
 
 <script>
-var CHECKOUT_URL = null; // guide is free
-var currentLang = ‘en’;
-var activeEdibility = ‘all’;
-var activeGrowth = ‘all’;
+var currentLang = 'en';
+var activeEdibility = 'all';
+var activeGrowth = 'all';
 
 var stateToRegions = {
-  ‘AL’:[‘se’],’AK’:[‘pnw’],’AZ’:[‘sw’],’AR’:[‘se’],
-  ‘CA’:[‘pnw’,’sw’],’CO’:[‘sw’],’CT’:[‘ne’],’DC’:[‘ne’],’DE’:[‘ne’],
-  ‘FL’:[‘se’],’GA’:[‘se’],’HI’:[‘sw’],’ID’:[‘pnw’],
-  ‘IL’:[‘mw’],’IN’:[‘mw’],’IA’:[‘mw’],’KS’:[‘mw’],
-  ‘KY’:[‘se’,’ne’],’LA’:[‘se’],’ME’:[‘ne’],’MD’:[‘ne’],
-  ‘MA’:[‘ne’],’MI’:[‘mw’],’MN’:[‘mw’],’MS’:[‘se’],
-  ‘MO’:[‘mw’],’MT’:[‘pnw’,’sw’],’NE’:[‘mw’],’NV’:[‘sw’],
-  ‘NH’:[‘ne’],’NJ’:[‘ne’],’NM’:[‘sw’],’NY’:[‘ne’],
-  ‘NC’:[‘se’,’ne’],’ND’:[‘mw’],’OH’:[‘mw’,’ne’],’OK’:[‘mw’,’sw’],
-  ‘OR’:[‘pnw’],’PA’:[‘ne’],’RI’:[‘ne’],’SC’:[‘se’],
-  ‘SD’:[‘mw’],’TN’:[‘se’],’TX’:[‘sw’,’se’],’UT’:[‘sw’],
-  ‘VT’:[‘ne’],’VA’:[‘ne’,’se’],’WA’:[‘pnw’],’WV’:[‘ne’],
-  ‘WI’:[‘mw’],’WY’:[‘sw’]
+  'AL':['se'],'AK':['pnw'],'AZ':['sw'],'AR':['se'],
+  'CA':['pnw','sw'],'CO':['sw'],'CT':['ne'],'DC':['ne'],'DE':['ne'],
+  'FL':['se'],'GA':['se'],'HI':['sw'],'ID':['pnw'],
+  'IL':['mw'],'IN':['mw'],'IA':['mw'],'KS':['mw'],
+  'KY':['se','ne'],'LA':['se'],'ME':['ne'],'MD':['ne'],
+  'MA':['ne'],'MI':['mw'],'MN':['mw'],'MS':['se'],
+  'MO':['mw'],'MT':['pnw','sw'],'NE':['mw'],'NV':['sw'],
+  'NH':['ne'],'NJ':['ne'],'NM':['sw'],'NY':['ne'],
+  'NC':['se','ne'],'ND':['mw'],'OH':['mw','ne'],'OK':['mw','sw'],
+  'OR':['pnw'],'PA':['ne'],'RI':['ne'],'SC':['se'],
+  'SD':['mw'],'TN':['se'],'TX':['sw','se'],'UT':['sw'],
+  'VT':['ne'],'VA':['ne','se'],'WA':['pnw'],'WV':['ne'],
+  'WI':['mw'],'WY':['sw']
 };
 
 var stateNames = {
-  ‘AL’:’Alabama’,’AK’:’Alaska’,’AZ’:’Arizona’,’AR’:’Arkansas’,
-  ‘CA’:’California’,’CO’:’Colorado’,’CT’:’Connecticut’,’DC’:’Washington D.C.’,
-  ‘DE’:’Delaware’,’FL’:’Florida’,’GA’:’Georgia’,’HI’:’Hawaii’,
-  ‘ID’:’Idaho’,’IL’:’Illinois’,’IN’:’Indiana’,’IA’:’Iowa’,
-  ‘KS’:’Kansas’,’KY’:’Kentucky’,’LA’:’Louisiana’,’ME’:’Maine’,
-  ‘MD’:’Maryland’,’MA’:’Massachusetts’,’MI’:’Michigan’,’MN’:’Minnesota’,
-  ‘MS’:’Mississippi’,’MO’:’Missouri’,’MT’:’Montana’,’NE’:’Nebraska’,
-  ‘NV’:’Nevada’,’NH’:’New Hampshire’,’NJ’:’New Jersey’,’NM’:’New Mexico’,
-  ‘NY’:’New York’,’NC’:’North Carolina’,’ND’:’North Dakota’,’OH’:’Ohio’,
-  ‘OK’:’Oklahoma’,’OR’:’Oregon’,’PA’:’Pennsylvania’,’RI’:’Rhode Island’,
-  ‘SC’:’South Carolina’,’SD’:’South Dakota’,’TN’:’Tennessee’,’TX’:’Texas’,
-  ‘UT’:’Utah’,’VT’:’Vermont’,’VA’:’Virginia’,’WA’:’Washington’,
-  ‘WV’:’West Virginia’,’WI’:’Wisconsin’,’WY’:’Wyoming’
+  'AL':'Alabama','AK':'Alaska','AZ':'Arizona','AR':'Arkansas',
+  'CA':'California','CO':'Colorado','CT':'Connecticut','DC':'Washington D.C.',
+  'DE':'Delaware','FL':'Florida','GA':'Georgia','HI':'Hawaii',
+  'ID':'Idaho','IL':'Illinois','IN':'Indiana','IA':'Iowa',
+  'KS':'Kansas','KY':'Kentucky','LA':'Louisiana','ME':'Maine',
+  'MD':'Maryland','MA':'Massachusetts','MI':'Michigan','MN':'Minnesota',
+  'MS':'Mississippi','MO':'Missouri','MT':'Montana','NE':'Nebraska',
+  'NV':'Nevada','NH':'New Hampshire','NJ':'New Jersey','NM':'New Mexico',
+  'NY':'New York','NC':'North Carolina','ND':'North Dakota','OH':'Ohio',
+  'OK':'Oklahoma','OR':'Oregon','PA':'Pennsylvania','RI':'Rhode Island',
+  'SC':'South Carolina','SD':'South Dakota','TN':'Tennessee','TX':'Texas',
+  'UT':'Utah','VT':'Vermont','VA':'Virginia','WA':'Washington',
+  'WV':'West Virginia','WI':'Wisconsin','WY':'Wyoming'
 };
 
-var growthOrder = [‘soil’,’soil’,’wood’,’wood’,’wood’,’wood’,’soil’,’soil’,’soil’,’wood’];
-
-function isUnlocked(){ return true; }
-
-function applyLockState(){}
-function openModal(){}
-function closeModal(){}
-function updateModalLang(l){}
+var growthOrder = ['soil','soil','wood','wood','wood','wood','soil','soil','soil','wood','soil','soil','wood','soil','soil'];
 
 function setLang(l){
   currentLang=l;
-  document.getElementById(‘lang-en’).hidden=l!==’en’;
-  document.getElementById(‘lang-es’).hidden=l!==’es’;
-  document.getElementById(‘btn-en’).classList.toggle(‘active’,l===’en’);
-  document.getElementById(‘btn-es’).classList.toggle(‘active’,l===’es’);
-  document.getElementById(‘disc-en’).hidden=l!==’en’;
-  document.getElementById(‘disc-es’).hidden=l!==’es’;
-  document.getElementById(‘fq-en’).hidden=l!==’en’;
-  document.getElementById(‘fq-es’).hidden=l!==’es’;
-  document.getElementById(‘fb-en’).hidden=l!==’en’;
-  document.getElementById(‘fb-es’).hidden=l!==’es’;
+  document.getElementById('lang-en').hidden=l!=='en';
+  document.getElementById('lang-es').hidden=l!=='es';
+  document.getElementById('btn-en').classList.toggle('active',l==='en');
+  document.getElementById('btn-es').classList.toggle('active',l==='es');
+  document.getElementById('disc-en').hidden=l!=='en';
+  document.getElementById('disc-es').hidden=l!=='es';
+  document.getElementById('fq-en').hidden=l!=='en';
+  document.getElementById('fq-es').hidden=l!=='es';
+  document.getElementById('fb-en').hidden=l!=='en';
+  document.getElementById('fb-es').hidden=l!=='es';
   document.documentElement.lang=l;
-  try{localStorage.setItem(‘pa_lang’,l);}catch(e){}
-  updateModalLang(l);
-  var enSel=document.getElementById(‘region-select-en’);
-  var esSel=document.getElementById(‘region-select-es’);
-  if(l===’en’){esSel.value=enSel.value;}else{enSel.value=esSel.value;}
+  try{localStorage.setItem('pa_lang',l);}catch(e){}
+  var enSel=document.getElementById('region-select-en');
+  var esSel=document.getElementById('region-select-es');
+  if(l==='en'){esSel.value=enSel.value;}else{enSel.value=esSel.value;}
   updateChipStates();
   applyFilters();
 }
 
 function setFilter(type, val){
-  if(type===’edibility’) activeEdibility=val;
-  if(type===’growth’) activeGrowth=val;
+  if(type==='edibility') activeEdibility=val;
+  if(type==='growth') activeGrowth=val;
   updateChipStates();
   applyFilters();
 }
 
 function updateChipStates(){
-  document.querySelectorAll(‘.filter-chips .fchip’).forEach(function(btn){
-    var t=btn.getAttribute(‘onclick’)||’’;
-    var isEdibility=t.indexOf("’edibility’")!==-1;
-    var isGrowth=t.indexOf("’growth’")!==-1;
+  document.querySelectorAll('.filter-chips .fchip').forEach(function(btn){
+    var t=btn.getAttribute('onclick')||'';
+    var isEdibility=t.indexOf("'edibility'")!==-1;
+    var isGrowth=t.indexOf("'growth'")!==-1;
     if(isEdibility){
-      var v=t.match(/’edibility’,’(\w+)’/);
-      btn.classList.toggle(‘active’,v&&v[1]===activeEdibility);
+      var v=t.match(/'edibility','(\w+)'/);
+      btn.classList.toggle('active',v&&v[1]===activeEdibility);
     }
     if(isGrowth){
-      var v2=t.match(/’growth’,’(\w+)’/);
-      btn.classList.toggle(‘active’,v2&&v2[1]===activeGrowth);
+      var v2=t.match(/'growth','(\w+)'/);
+      btn.classList.toggle('active',v2&&v2[1]===activeGrowth);
     }
   });
 }
 
 function applyFilters(){
-  var gridId=currentLang===’en’?’grid-en’:’grid-es’;
-  var countId=currentLang===’en’?’count-en’:’count-es’;
-  var selId=currentLang===’en’?’region-select-en’:’region-select-es’;
+  var gridId=currentLang==='en'?'grid-en':'grid-es';
+  var countId=currentLang==='en'?'count-en':'count-es';
+  var selId=currentLang==='en'?'region-select-en':'region-select-es';
   var stateVal=document.getElementById(selId).value;
-  var cards=document.getElementById(gridId).querySelectorAll(‘.mcard’);
+  var cards=document.getElementById(gridId).querySelectorAll('.mcard');
   var visible=0;
 
   cards.forEach(function(c){
     var show=true;
 
-    if(stateVal!==’all’){
+    if(stateVal!=='all'){
       var sRegions=stateToRegions[stateVal]||[];
-      var cRegions=c.getAttribute(‘data-regions’).split(‘,’);
+      var cRegions=c.getAttribute('data-regions').split(',');
       var stateMatch=false;
       for(var i=0;i<sRegions.length;i++){
         if(cRegions.indexOf(sRegions[i])!==-1){stateMatch=true;break;}
@@ -1152,66 +1508,71 @@ function applyFilters(){
       if(!stateMatch) show=false;
     }
 
-    if(activeEdibility!==’all’){
-      var status=c.getAttribute(‘data-status’);
-      if(activeEdibility===’edible’&&status!==’edible’) show=false;
-      if(activeEdibility===’toxic’&&status!==’toxic’) show=false;
+    if(activeEdibility!=='all'){
+      var status=c.getAttribute('data-status');
+      if(activeEdibility==='edible'&&status!=='edible') show=false;
+      if(activeEdibility==='toxic'&&status!=='toxic') show=false;
     }
 
-    if(activeGrowth!==’all’){
-      var g=c.getAttribute(‘data-growth’);
+    if(activeGrowth!=='all'){
+      var g=c.getAttribute('data-growth');
       if(g!==activeGrowth) show=false;
     }
 
-    c.style.display=show?’’:’none’;
+    c.style.display=show?'':'none';
     if(show) visible++;
   });
 
   var countEl=document.getElementById(countId);
   var parts=[];
-  if(stateVal!==’all’) parts.push(stateNames[stateVal]||stateVal);
-  if(activeEdibility!==’all’) parts.push(currentLang===’en’?(activeEdibility===’edible’?’edible’:’toxic’):(activeEdibility===’edible’?’comestibles’:’toxicos’));
-  if(activeGrowth!==’all’) parts.push(currentLang===’en’?(activeGrowth===’soil’?’from soil’:’on wood’):(activeGrowth===’soil’?’del suelo’:’en madera’));
+  if(stateVal!=='all') parts.push(stateNames[stateVal]||stateVal);
+  if(activeEdibility!=='all') parts.push(currentLang==='en'?(activeEdibility==='edible'?'edible':'toxic'):(activeEdibility==='edible'?'comestibles':'toxicos'));
+  if(activeGrowth!=='all') parts.push(currentLang==='en'?(activeGrowth==='soil'?'from soil':'on wood'):(activeGrowth==='soil'?'del suelo':'en madera'));
 
   if(parts.length===0){
-    countEl.textContent=currentLang===’en’?’Showing all 10 mushrooms’:’Mostrando los 10 hongos’;
+    countEl.textContent=currentLang==='en'?'Showing all 15 mushrooms':'Mostrando los 15 hongos';
   } else {
-    var filterDesc=parts.join(‘ · ‘);
-    countEl.textContent=(currentLang===’en’?
-      visible+’ mushroom’+(visible!==1?’s’:’’)+’ — ‘+filterDesc:
-      visible+’ hongo’+(visible!==1?’s’:’’)+’ — ‘+filterDesc);
+    var filterDesc=parts.join(' · ');
+    countEl.textContent=(currentLang==='en'?
+      visible+' mushroom'+(visible!==1?'s':'')+' — '+filterDesc:
+      visible+' hongo'+(visible!==1?'s':'')+' — '+filterDesc);
   }
 
-  document.getElementById(‘region-select-en’).value=stateVal;
-  document.getElementById(‘region-select-es’).value=stateVal;
+  document.getElementById('region-select-en').value=stateVal;
+  document.getElementById('region-select-es').value=stateVal;
 }
 
 function toggleCard(btn){
   var details=btn.nextElementSibling;
-  details.classList.toggle(‘show’);
-  btn.classList.toggle(‘open’);
-  var isOpen=details.classList.contains(‘show’);
-  var label=isOpen?(currentLang===’en’?’Close Details’:’Cerrar Detalles’):(currentLang===’en’?’Full ID Details’:’Detalles Completos’);
-  btn.innerHTML=label+’ <span class="arrow">&#9660;</span>’;
+  if(!details) return;
+  details.classList.toggle('show');
+  btn.classList.toggle('open');
+  var isOpen=details.classList.contains('show');
+  var label=isOpen?(currentLang==='en'?'Close Details':'Cerrar Detalles'):(currentLang==='en'?'Full ID Details':'Detalles Completos');
+  btn.innerHTML=label+' <span class="arrow">&#9660;</span>';
 }
 
 function toggleCollapsible(btn){
   var body=btn.nextElementSibling;
-  body.classList.toggle(‘show’);
-  btn.classList.toggle(‘open’);
+  body.classList.toggle('show');
+  btn.classList.toggle('open');
 }
 
-
 (function(){
-  document.querySelectorAll(‘#grid-en .mcard’).forEach(function(c,i){c.setAttribute(‘data-growth’,growthOrder[i]);});
-  document.querySelectorAll(‘#grid-es .mcard’).forEach(function(c,i){c.setAttribute(‘data-growth’,growthOrder[i]);});
+  // Attach toggle handlers via event delegation for reliability
+  document.addEventListener('click', function(e){
+    var btn = e.target.closest('.mcard-toggle');
+    if(btn) toggleCard(btn);
+  });
+
+  document.querySelectorAll('#grid-en .mcard').forEach(function(c,i){c.setAttribute('data-growth',growthOrder[i]);});
+  document.querySelectorAll('#grid-es .mcard').forEach(function(c,i){c.setAttribute('data-growth',growthOrder[i]);});
 
   var saved=null;
-  try{saved=localStorage.getItem(‘pa_lang’);}catch(e){}
+  try{saved=localStorage.getItem('pa_lang');}catch(e){}
   if(saved){setLang(saved);}
-  else if(navigator.language&&navigator.language.startsWith(‘es’)){setLang(‘es’);}
+  else if(navigator.language&&navigator.language.startsWith('es')){setLang('es');}
   else{applyFilters();}
-  applyLockState();
 })();
 </script>
 
