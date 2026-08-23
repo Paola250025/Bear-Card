@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mushroom Guide — Paola Adventurer</title>
 <meta name="description" content="Identify 10 mushrooms every hiker should know — 7 edible, 3 deadly toxic. Search by US state, learn the key ID features, and stay safe on the trail.">
-<meta property="og:type" content="product">
+<meta property="og:type" content="article">
 <meta property="og:url" content="https://paolaadventurer.com/mushroom-guide/">
 <meta property="og:title" content="The Hiker's Mushroom Guide — Paola Adventurer">
 <meta property="og:description" content="Identify 10 mushrooms every hiker should know. Search by US state, see what grows near you, and learn the difference between dinner and danger.">
@@ -168,6 +168,8 @@ a{color:inherit;text-decoration:none;}
 .modal .buy-link{display:block;background:var(--sun);color:var(--forest);font-family:'Oswald',sans-serif;font-weight:700;letter-spacing:1px;text-transform:uppercase;font-size:14px;padding:14px;border-radius:12px;text-align:center;margin-top:4px;cursor:pointer;}
 .modal .buy-link:hover{background:#d4a530;}
 
+.photo-link{display:inline-block;font-size:12px;font-weight:800;color:var(--terra);margin-top:4px;text-decoration:underline;}
+.photo-link:hover{color:var(--forest);}
 .section{max-width:900px;margin:0 auto;padding:40px 20px;}
 .section h2{font-family:'Bitter',serif;font-weight:900;color:var(--forest);font-size:28px;margin:0 0 8px;text-align:center;}
 .section .sub{text-align:center;color:var(--muted);font-size:15px;margin-bottom:24px;}
@@ -244,19 +246,6 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
   </div>
 </nav>
 
-<div class="modal-bg" id="unlock-modal">
-  <div class="modal">
-    <button class="close-modal" onclick="closeModal()">&times;</button>
-    <h3 id="modal-title">Unlock Your Guide</h3>
-    <p id="modal-desc">Purchased the guide? Enter the code from your confirmation page.</p>
-    <div class="modal-error" id="modal-error"></div>
-    <div class="modal-success" id="modal-success"></div>
-    <input type="text" id="code-input" placeholder="YOUR CODE" maxlength="20" onkeyup="if(event.key==='Enter')submitCode()">
-    <button class="modal-btn" onclick="submitCode()" id="modal-submit">Unlock My Guide</button>
-    <div class="divider" id="modal-divider">or</div>
-    <a class="buy-link" id="modal-buy" href="javascript:void(0)" onclick="window.open(CHECKOUT_URL,'_blank')">Get the Full Guide &mdash; $9</a>
-  </div>
-</div>
 
 <!-- ================= ENGLISH ================= -->
 <div id="lang-en">
@@ -349,7 +338,6 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
   <div class="count" id="count-en"></div>
 </div>
 
-<div class="preview-note no-print" id="preview-en">Free preview: 3 mushrooms below. <span>Like what you see? Unlock all 10 for $9.</span></div>
 
 <div class="wrap">
 <div class="mushroom-grid" id="grid-en">
@@ -357,7 +345,7 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
 <!-- 1. CHANTERELLE — FREE -->
 <div class="mcard" data-regions="pnw,ne,se,mw" data-status="edible" data-free="true">
   <div class="mcard-photo edible-bg">
-    <span class="free-badge">Free Preview</span>
+
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Chanterelle_Cantharellus_cibarius.jpg/600px-Chanterelle_Cantharellus_cibarius.jpg" alt="Chanterelle mushroom — golden funnel shape on forest floor" loading="lazy" onerror="imgErr(this)">
     <div class="lock-overlay"><div class="lock-icon">&#128274;</div><span class="tease">Golden funnel, apricot smell</span><button class="unlock-cta" onclick="openModal()">Unlock &mdash; $9</button></div>
     <span class="mcard-status">Edible</span>
@@ -366,6 +354,7 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
   <div class="mcard-body">
     <h3>Chanterelle</h3>
     <p class="sciname">Cantharellus cibarius</p>
+    <a class="photo-link" href="https://en.wikipedia.org/wiki/Cantharellus_cibarius" target="_blank" rel="noopener">See more photos &rarr;</a>
     <p class="quick-id"><strong>Key ID:</strong> Golden funnel shape, <strong>false gills</strong> (forked ridges, not blades), fruity apricot smell. Grows from soil, never wood.</p>
   </div>
   <button class="mcard-toggle" onclick="toggleCard(this)">Full ID Details <span class="arrow">&#9660;</span></button>
@@ -395,7 +384,7 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
 <!-- 2. MOREL — FREE -->
 <div class="mcard" data-regions="pnw,ne,se,mw,sw" data-status="edible" data-free="true">
   <div class="mcard-photo edible-bg">
-    <span class="free-badge">Free Preview</span>
+
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Morchella_esculenta_300405.jpg/600px-Morchella_esculenta_300405.jpg" alt="Morel mushroom — honeycomb cap with deep pits" loading="lazy" onerror="imgErr(this)">
     <div class="lock-overlay"><div class="lock-icon">&#128274;</div><span class="tease">Honeycomb cap, completely hollow</span><button class="unlock-cta" onclick="openModal()">Unlock &mdash; $9</button></div>
     <span class="mcard-status">Edible</span>
@@ -404,6 +393,7 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
   <div class="mcard-body">
     <h3>Morel</h3>
     <p class="sciname">Morchella esculenta</p>
+    <a class="photo-link" href="https://en.wikipedia.org/wiki/Morchella_esculenta" target="_blank" rel="noopener">See more photos &rarr;</a>
     <p class="quick-id"><strong>Key ID:</strong> Honeycomb cap with deep pits. <strong>Completely hollow</strong> from top to bottom when sliced. Cone-shaped, tan to dark brown.</p>
   </div>
   <button class="mcard-toggle" onclick="toggleCard(this)">Full ID Details <span class="arrow">&#9660;</span></button>
@@ -433,6 +423,7 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
   <div class="mcard-body">
     <h3>Chicken of the Woods</h3>
     <p class="sciname">Laetiporus sulphureus</p>
+    <a class="photo-link" href="https://en.wikipedia.org/wiki/Laetiporus" target="_blank" rel="noopener">See more photos &rarr;</a>
     <p class="quick-id"><strong>Key ID:</strong> Bright <strong>orange/yellow shelf fungus</strong> in overlapping layers on tree trunks. Sulfur-yellow underside with tiny pores.</p>
   </div>
   <button class="mcard-toggle" onclick="toggleCard(this)">Full ID Details <span class="arrow">&#9660;</span></button>
@@ -462,6 +453,7 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
   <div class="mcard-body">
     <h3>Hen of the Woods (Maitake)</h3>
     <p class="sciname">Grifola frondosa</p>
+    <a class="photo-link" href="https://en.wikipedia.org/wiki/Grifola_frondosa" target="_blank" rel="noopener">See more photos &rarr;</a>
     <p class="quick-id"><strong>Key ID:</strong> Large rosette of <strong>gray-brown overlapping fans</strong> at tree bases (especially oaks). White pores underneath. Can grow 10–50+ lbs.</p>
   </div>
   <button class="mcard-toggle" onclick="toggleCard(this)">Full ID Details <span class="arrow">&#9660;</span></button>
@@ -490,6 +482,7 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
   <div class="mcard-body">
     <h3>Lion's Mane</h3>
     <p class="sciname">Hericium erinaceus</p>
+    <a class="photo-link" href="https://en.wikipedia.org/wiki/Hericium_erinaceus" target="_blank" rel="noopener">See more photos &rarr;</a>
     <p class="quick-id"><strong>Key ID:</strong> White pom-pom with <strong>cascading icicle-like spines</strong>. No cap, no stem, no gills. <strong>Virtually no dangerous look-alikes.</strong></p>
   </div>
   <button class="mcard-toggle" onclick="toggleCard(this)">Full ID Details <span class="arrow">&#9660;</span></button>
@@ -516,6 +509,7 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
   <div class="mcard-body">
     <h3>Oyster Mushroom</h3>
     <p class="sciname">Pleurotus ostreatus</p>
+    <a class="photo-link" href="https://en.wikipedia.org/wiki/Pleurotus_ostreatus" target="_blank" rel="noopener">See more photos &rarr;</a>
     <p class="quick-id"><strong>Key ID:</strong> <strong>Fan/shell-shaped</strong>, white to gray, grows in shelf-like clusters on dead hardwood. Short off-center stem. Mild anise smell.</p>
   </div>
   <button class="mcard-toggle" onclick="toggleCard(this)">Full ID Details <span class="arrow">&#9660;</span></button>
@@ -543,6 +537,7 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
   <div class="mcard-body">
     <h3>Porcini (King Bolete)</h3>
     <p class="sciname">Boletus edulis</p>
+    <a class="photo-link" href="https://en.wikipedia.org/wiki/Boletus_edulis" target="_blank" rel="noopener">See more photos &rarr;</a>
     <p class="quick-id"><strong>Key ID:</strong> Brown convex cap, <strong>spongy pores underneath (NOT gills)</strong>, thick bulbous white stem with fine white netting. Flesh does NOT change color.</p>
   </div>
   <button class="mcard-toggle" onclick="toggleCard(this)">Full ID Details <span class="arrow">&#9660;</span></button>
@@ -562,7 +557,7 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
 <!-- 8. DEATH CAP — FREE -->
 <div class="mcard toxic" data-regions="pnw,ne,se" data-status="toxic" data-free="true">
   <div class="mcard-photo toxic-bg">
-    <span class="free-badge">Free Preview</span>
+
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Amanita_phalloides_-_deathcap.JPG/600px-Amanita_phalloides_-_deathcap.JPG" alt="Death cap mushroom — greenish yellow cap, deadly" loading="lazy" onerror="imgErr(this)">
     <div class="lock-overlay"><div class="lock-icon">&#128274;</div><span class="tease">Half a cap kills an adult</span><button class="unlock-cta" onclick="openModal()">Unlock &mdash; $9</button></div>
     <span class="mcard-status">Deadly Toxic</span>
@@ -571,6 +566,7 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
   <div class="mcard-body">
     <h3>Death Cap</h3>
     <p class="sciname">Amanita phalloides</p>
+    <a class="photo-link" href="https://en.wikipedia.org/wiki/Amanita_phalloides" target="_blank" rel="noopener">See more photos &rarr;</a>
     <p class="quick-id"><strong>Key ID:</strong> Greenish-yellow to olive cap, white gills, <strong>skirt-like ring on stem + cup-shaped volva at base</strong> (dig it up!). Smells like honey. <strong>Half a cap can kill an adult.</strong></p>
   </div>
   <button class="mcard-toggle" onclick="toggleCard(this)">Full ID Details <span class="arrow">&#9660;</span></button>
@@ -607,6 +603,7 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
   <div class="mcard-body">
     <h3>Destroying Angel</h3>
     <p class="sciname">Amanita bisporigera / A. virosa / A. ocreata</p>
+    <a class="photo-link" href="https://en.wikipedia.org/wiki/Destroying_angel" target="_blank" rel="noopener">See more photos &rarr;</a>
     <p class="quick-id"><strong>Key ID:</strong> <strong>Entirely pure white.</strong> White gills, fragile ring on stem, volva at base. Looks elegant and innocent. <strong>As deadly as the Death Cap.</strong></p>
   </div>
   <button class="mcard-toggle" onclick="toggleCard(this)">Full ID Details <span class="arrow">&#9660;</span></button>
@@ -633,6 +630,7 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
   <div class="mcard-body">
     <h3>Jack O'Lantern</h3>
     <p class="sciname">Omphalotus olearius</p>
+    <a class="photo-link" href="https://en.wikipedia.org/wiki/Omphalotus_olearius" target="_blank" rel="noopener">See more photos &rarr;</a>
     <p class="quick-id"><strong>Key ID:</strong> Bright orange, <strong>true sharp gills</strong>, grows <strong>in clusters on/near wood</strong>. Gills glow in the dark. <strong>The #1 Chanterelle impostor.</strong></p>
   </div>
   <button class="mcard-toggle" onclick="toggleCard(this)">Full ID Details <span class="arrow">&#9660;</span></button>
@@ -652,23 +650,6 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
 </div><!-- wrap -->
 
 <!-- UNLOCK BANNER EN -->
-<div class="unlock-banner no-print" id="unlock-banner-en">
-  <h2>You've Seen 3. Here's What You're Missing:</h2>
-  <p class="banner-sub">5 more edible species + 2 more deadly ones you need to recognize</p>
-  <ul class="missing-list">
-    <li><span class="n">Chicken of the Woods</span> — tastes like chicken, no gills to confuse you</li>
-    <li><span class="n">Lion's Mane</span> — zero dangerous look-alikes, tastes like lobster</li>
-    <li><span class="n">Porcini</span> — worth $50/lb dried, the king of mushrooms</li>
-    <li><span class="n">Destroying Angel</span> — pure white, looks innocent, kills in days</li>
-    <li class="more">+ 3 more essential species</li>
-  </ul>
-  <p class="anchor">A mushroom field guide costs $15–$25</p>
-  <span class="launch-tag">Launch Price</span>
-  <div class="price">$9</div>
-  <p class="price-note">Less than a trail snack. All 10 species. Yours forever.</p>
-  <button class="buy-btn" onclick="window.open(CHECKOUT_URL,'_blank')">I Want the Full Guide</button><br>
-  <button class="have-code" onclick="openModal()">Already have a code? Enter it here</button>
-</div>
 
 <!-- EMERGENCY EN -->
 <div class="emergency" id="emergency-en">
@@ -819,7 +800,6 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
   <div class="count" id="count-es"></div>
 </div>
 
-<div class="preview-note no-print" id="preview-es">Vista previa gratis: 3 hongos abajo. <span>&iquest;Te gusta? Desbloquea los 10 por $9.</span></div>
 
 <div class="wrap">
 <div class="mushroom-grid" id="grid-es">
@@ -827,7 +807,7 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
 <!-- 1. CHANTERELLE ES — FREE -->
 <div class="mcard" data-regions="pnw,ne,se,mw" data-status="edible" data-free="true">
   <div class="mcard-photo edible-bg">
-    <span class="free-badge">Vista Previa</span>
+
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Chanterelle_Cantharellus_cibarius.jpg/600px-Chanterelle_Cantharellus_cibarius.jpg" alt="Chanterelle — hongo dorado en el bosque" loading="lazy" onerror="imgErr(this)">
     <div class="lock-overlay"><div class="lock-icon">&#128274;</div><span class="tease">Embudo dorado, olor a albaricoque</span><button class="unlock-cta" onclick="openModal()">Desbloquear &mdash; $9</button></div>
     <span class="mcard-status">Comestible</span>
@@ -836,6 +816,7 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
   <div class="mcard-body">
     <h3>Chanterelle (Rebozuelo)</h3>
     <p class="sciname">Cantharellus cibarius</p>
+    <a class="photo-link" href="https://es.wikipedia.org/wiki/Cantharellus_cibarius" target="_blank" rel="noopener">Ver m&aacute;s fotos &rarr;</a>
     <p class="quick-id"><strong>Clave:</strong> Embudo dorado, <strong>falsas l&aacute;minas</strong> (pliegues bifurcados), olor afrutado a albaricoque. Crece del suelo, nunca de madera.</p>
   </div>
   <button class="mcard-toggle" onclick="toggleCard(this)">Detalles Completos <span class="arrow">&#9660;</span></button>
@@ -862,7 +843,7 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
 <!-- 2. MOREL ES — FREE -->
 <div class="mcard" data-regions="pnw,ne,se,mw,sw" data-status="edible" data-free="true">
   <div class="mcard-photo edible-bg">
-    <span class="free-badge">Vista Previa</span>
+
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Morchella_esculenta_300405.jpg/600px-Morchella_esculenta_300405.jpg" alt="Morilla — hongo tipo panal" loading="lazy" onerror="imgErr(this)">
     <div class="lock-overlay"><div class="lock-icon">&#128274;</div><span class="tease">Sombrero tipo panal, completamente hueco</span><button class="unlock-cta" onclick="openModal()">Desbloquear &mdash; $9</button></div>
     <span class="mcard-status">Comestible</span>
@@ -871,6 +852,7 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
   <div class="mcard-body">
     <h3>Morilla (Morel)</h3>
     <p class="sciname">Morchella esculenta</p>
+    <a class="photo-link" href="https://es.wikipedia.org/wiki/Morchella_esculenta" target="_blank" rel="noopener">Ver m&aacute;s fotos &rarr;</a>
     <p class="quick-id"><strong>Clave:</strong> Sombrero tipo panal con hoyos profundos. <strong>Completamente hueco</strong> al cortarlo. Forma de cono, canela a marr&oacute;n oscuro.</p>
   </div>
   <button class="mcard-toggle" onclick="toggleCard(this)">Detalles Completos <span class="arrow">&#9660;</span></button>
@@ -895,6 +877,7 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
     <span class="mcard-status">Comestible</span><span class="mcard-season">May–Nov</span>
   </div>
   <div class="mcard-body"><h3>Pollo del Bosque</h3><p class="sciname">Laetiporus sulphureus</p>
+    <a class="photo-link" href="https://es.wikipedia.org/wiki/Laetiporus_sulphureus" target="_blank" rel="noopener">Ver m&aacute;s fotos &rarr;</a>
     <p class="quick-id"><strong>Clave:</strong> <strong>Repisa naranja/amarilla brillante</strong> en capas superpuestas. Parte inferior amarillo azufre con poros diminutos.</p></div>
   <button class="mcard-toggle" onclick="toggleCard(this)">Detalles Completos <span class="arrow">&#9660;</span></button>
   <div class="mcard-details"><h4>C&oacute;mo Se Ve</h4><ul><li><strong>Forma:</strong> Repisas superpuestas en troncos</li><li><strong>Arriba:</strong> Naranja brillante a salm&oacute;n</li><li><strong>Abajo:</strong> Amarillo azufre, poros diminutos</li></ul><h4>D&oacute;nde y Cu&aacute;ndo</h4><p>En maderas duras, especialmente robles. <strong>Final de primavera a oto&ntilde;o.</strong></p><div class="tip"><h4>Si Encuentras Uno</h4><p>Textura similar a pechuga de pollo. Corta los bordes tiernos, saltea con ajo.</p></div></div>
@@ -908,6 +891,7 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
     <span class="mcard-status">Comestible</span><span class="mcard-season">Sep–Nov</span>
   </div>
   <div class="mcard-body"><h3>Gallina del Bosque (Maitake)</h3><p class="sciname">Grifola frondosa</p>
+    <a class="photo-link" href="https://es.wikipedia.org/wiki/Grifola_frondosa" target="_blank" rel="noopener">Ver m&aacute;s fotos &rarr;</a>
     <p class="quick-id"><strong>Clave:</strong> Roseta de <strong>abanicos gris-marr&oacute;n superpuestos</strong> al pie de &aacute;rboles. Poros blancos debajo.</p></div>
   <button class="mcard-toggle" onclick="toggleCard(this)">Detalles Completos <span class="arrow">&#9660;</span></button>
   <div class="mcard-details"><h4>C&oacute;mo Se Ve</h4><ul><li>Roseta de abanicos superpuestos desde una base</li><li>Gris-marr&oacute;n arriba, blanco abajo</li><li><strong>Regresa al mismo lugar cada a&ntilde;o</strong></li></ul><h4>D&oacute;nde y Cu&aacute;ndo</h4><p>Base de robles. <strong>Oto&ntilde;o (Sep–Nov).</strong></p><div class="tip"><h4>Si Encuentras Uno</h4><p>Desg&aacute;rralo en trozos, saltea hasta crujiente. Sabor umami.</p></div></div>
@@ -921,6 +905,7 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
     <span class="mcard-status">Comestible</span><span class="mcard-season">Ago–Nov</span>
   </div>
   <div class="mcard-body"><h3>Melena de Le&oacute;n</h3><p class="sciname">Hericium erinaceus</p>
+    <a class="photo-link" href="https://es.wikipedia.org/wiki/Hericium_erinaceus" target="_blank" rel="noopener">Ver m&aacute;s fotos &rarr;</a>
     <p class="quick-id"><strong>Clave:</strong> Pomp&oacute;n blanco con <strong>espinas colgantes</strong>. Sin sombrero, sin tallo, sin l&aacute;minas. <strong>Sin dobles t&oacute;xicos.</strong></p></div>
   <button class="mcard-toggle" onclick="toggleCard(this)">Detalles Completos <span class="arrow">&#9660;</span></button>
   <div class="mcard-details"><h4>C&oacute;mo Se Ve</h4><ul><li>Bola blanca con espinas largas</li><li>Blanco cuando joven, se amarillenta</li><li>Nada se le parece</li></ul><h4>D&oacute;nde y Cu&aacute;ndo</h4><p>En maderas duras muertas. <strong>Final de verano a oto&ntilde;o.</strong></p><div class="tip"><h4>Si Encuentras Uno</h4><p>Corta en "filetes" y sella en mantequilla. Textura como cangrejo.</p></div></div>
@@ -934,6 +919,7 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
     <span class="mcard-status">Comestible</span><span class="mcard-season">Todo el a&ntilde;o</span>
   </div>
   <div class="mcard-body"><h3>Hongo Ostra</h3><p class="sciname">Pleurotus ostreatus</p>
+    <a class="photo-link" href="https://es.wikipedia.org/wiki/Pleurotus_ostreatus" target="_blank" rel="noopener">Ver m&aacute;s fotos &rarr;</a>
     <p class="quick-id"><strong>Clave:</strong> <strong>Forma de abanico/concha</strong>, blanco a gris, en racimos sobre madera dura muerta.</p></div>
   <button class="mcard-toggle" onclick="toggleCard(this)">Detalles Completos <span class="arrow">&#9660;</span></button>
   <div class="mcard-details"><h4>C&oacute;mo Se Ve</h4><ul><li>Abanico o concha, 5–20 cm, liso</li><li>Blanco, crema, gris o canela</li><li>Crece en madera dura muerta</li></ul><h4>D&oacute;nde y Cu&aacute;ndo</h4><p><strong>Primavera y oto&ntilde;o, pero todo el a&ntilde;o en climas templados.</strong></p><div class="tip"><h4>Si Encuentras Uno</h4><p>Vers&aacute;til. Saltea, agrega a sopas. Sabor suave y dulce.</p></div></div>
@@ -947,6 +933,7 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
     <span class="mcard-status">Comestible</span><span class="mcard-season">Jul–Oct</span>
   </div>
   <div class="mcard-body"><h3>Porcini (Boleto Rey)</h3><p class="sciname">Boletus edulis</p>
+    <a class="photo-link" href="https://es.wikipedia.org/wiki/Boletus_edulis" target="_blank" rel="noopener">Ver m&aacute;s fotos &rarr;</a>
     <p class="quick-id"><strong>Clave:</strong> Sombrero marr&oacute;n convexo, <strong>poros esponjosos debajo (NO l&aacute;minas)</strong>, tallo grueso con reticulado blanco.</p></div>
   <button class="mcard-toggle" onclick="toggleCard(this)">Detalles Completos <span class="arrow">&#9660;</span></button>
   <div class="mcard-details"><h4>C&oacute;mo Se Ve</h4><ul><li>Liso, convexo, marr&oacute;n, 8–25 cm</li><li>Poros esponjosos blancos a amarillo-verdosos</li><li>Tallo grueso, bulboso</li></ul><h4>D&oacute;nde y Cu&aacute;ndo</h4><p>Bajo con&iacute;feras en bosques monta&ntilde;osos. <strong>Verano a oto&ntilde;o.</strong></p><div class="tip"><h4>Si Encuentras Uno</h4><p>Uno de los m&aacute;s buscados del mundo. Saltea fresco o seca para risottos.</p></div></div>
@@ -955,7 +942,7 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
 <!-- 8. DEATH CAP ES — FREE -->
 <div class="mcard toxic" data-regions="pnw,ne,se" data-status="toxic" data-free="true">
   <div class="mcard-photo toxic-bg">
-    <span class="free-badge">Vista Previa</span>
+
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Amanita_phalloides_-_deathcap.JPG/600px-Amanita_phalloides_-_deathcap.JPG" alt="Hongo de la muerte — mortal" loading="lazy" onerror="imgErr(this)">
     <div class="lock-overlay"><div class="lock-icon">&#128274;</div><span class="tease">Media c&aacute;psula mata a un adulto</span><button class="unlock-cta" onclick="openModal()">Desbloquear &mdash; $9</button></div>
     <span class="mcard-status">Mortal</span>
@@ -964,6 +951,7 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
   <div class="mcard-body">
     <h3>Hongo de la Muerte (Death Cap)</h3>
     <p class="sciname">Amanita phalloides</p>
+    <a class="photo-link" href="https://es.wikipedia.org/wiki/Amanita_phalloides" target="_blank" rel="noopener">Ver m&aacute;s fotos &rarr;</a>
     <p class="quick-id"><strong>Clave:</strong> Sombrero verde-amarillento a oliva, l&aacute;minas blancas, <strong>anillo tipo falda + volva tipo copa en la base</strong>. Huele a miel. <strong>Media c&aacute;psula mata a un adulto.</strong></p>
   </div>
   <button class="mcard-toggle" onclick="toggleCard(this)">Detalles Completos <span class="arrow">&#9660;</span></button>
@@ -992,6 +980,7 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
     <span class="mcard-status">Mortal</span><span class="mcard-season">Jun–Oct</span>
   </div>
   <div class="mcard-body"><h3>&Aacute;ngel Destructor</h3><p class="sciname">Amanita bisporigera / A. virosa / A. ocreata</p>
+    <a class="photo-link" href="https://es.wikipedia.org/wiki/Amanita_bisporigera" target="_blank" rel="noopener">Ver m&aacute;s fotos &rarr;</a>
     <p class="quick-id"><strong>Clave:</strong> <strong>Todo blanco puro.</strong> L&aacute;minas blancas, anillo fr&aacute;gil, volva en la base. <strong>Tan letal como el Hongo de la Muerte.</strong></p></div>
   <button class="mcard-toggle" onclick="toggleCard(this)">Detalles Completos <span class="arrow">&#9660;</span></button>
   <div class="mcard-details"><h4>C&oacute;mo Se Ve</h4><ul><li>Sombrero blanco puro, 5–12 cm, liso</li><li>L&aacute;minas blancas, libres del tallo</li><li>Tallo blanco, alto, anillo fr&aacute;gil</li><li>Base bulbosa con volva — <strong>DESENTIERRA</strong></li></ul><div class="danger-note"><h4>Regla #1 con Hongos Blancos</h4><p><strong>Si es blanco, tiene l&aacute;minas y crece del suelo — tr&aacute;talo como mortal.</strong></p></div></div>
@@ -1005,6 +994,7 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
     <span class="mcard-status" style="background:var(--caution)">T&oacute;xico</span><span class="mcard-season">Jul–Nov</span>
   </div>
   <div class="mcard-body"><h3>Jack O'Lantern (Hongo Linterna)</h3><p class="sciname">Omphalotus olearius</p>
+    <a class="photo-link" href="https://es.wikipedia.org/wiki/Omphalotus_olearius" target="_blank" rel="noopener">Ver m&aacute;s fotos &rarr;</a>
     <p class="quick-id"><strong>Clave:</strong> Naranja brillante, <strong>l&aacute;minas verdaderas y filosas</strong>, crece <strong>en racimos sobre madera</strong>. <strong>El impostor #1 del Chanterelle.</strong></p></div>
   <button class="mcard-toggle" onclick="toggleCard(this)">Detalles Completos <span class="arrow">&#9660;</span></button>
   <div class="mcard-details"><h4>Chanterelle vs. Jack O'Lantern</h4>
@@ -1019,23 +1009,6 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
 </div><!-- wrap -->
 
 <!-- UNLOCK BANNER ES -->
-<div class="unlock-banner no-print" id="unlock-banner-es">
-  <h2>Has Visto 3. Esto Es Lo Que Te Falta:</h2>
-  <p class="banner-sub">5 comestibles m&aacute;s + 2 mortales que necesitas reconocer</p>
-  <ul class="missing-list">
-    <li><span class="n">Pollo del Bosque</span> — sabe a pollo, sin l&aacute;minas que confundan</li>
-    <li><span class="n">Melena de Le&oacute;n</span> — sin dobles peligrosos, sabe a langosta</li>
-    <li><span class="n">Porcini</span> — vale $50/lb seco, el rey de los hongos</li>
-    <li><span class="n">&Aacute;ngel Destructor</span> — todo blanco, parece inocente, mata en d&iacute;as</li>
-    <li class="more">+ 3 especies esenciales m&aacute;s</li>
-  </ul>
-  <p class="anchor">Una gu&iacute;a de campo cuesta $15–$25</p>
-  <span class="launch-tag">Precio de Lanzamiento</span>
-  <div class="price">$9</div>
-  <p class="price-note">Menos que un snack de sendero. Las 10 especies. Tuyas para siempre.</p>
-  <button class="buy-btn" onclick="window.open(CHECKOUT_URL,'_blank')">Quiero la Gu&iacute;a Completa</button><br>
-  <button class="have-code" onclick="openModal()">&iquest;Ya tienes un c&oacute;digo? Ingr&eacute;salo aqu&iacute;</button>
-</div>
 
 <!-- EMERGENCY ES -->
 <div class="emergency" id="emergency-es">
@@ -1110,7 +1083,7 @@ footer .attr{margin-top:18px;font-size:10px;color:rgba(216,201,163,.6);line-heig
 </footer>
 
 <script>
-var CHECKOUT_URL = ‘https://payhip.com/b/XXXXX’;
+var CHECKOUT_URL = null; // guide is free
 var currentLang = ‘en’;
 var activeEdibility = ‘all’;
 var activeGrowth = ‘all’;
@@ -1153,7 +1126,7 @@ function _h(s){var h=0;for(var i=0;i<s.length;i++){h=((h<<5)-h)+s.charCodeAt(i);
 var _v=[-1583839050,-738341769,1026505637];
 
 function isUnlocked(){
-  try{return localStorage.getItem(‘mushroom_unlocked’)===’true’;}catch(e){return false;}
+  return true;
 }
 
 function applyLockState(){
@@ -1166,14 +1139,8 @@ function applyLockState(){
   document.querySelectorAll(‘.preview-note’).forEach(function(n){ n.style.display = unlocked ? ‘none’ : ‘’; });
 }
 
-function openModal(){
-  document.getElementById(‘unlock-modal’).classList.add(‘show’);
-  document.getElementById(‘code-input’).value=’’;
-  document.getElementById(‘modal-error’).style.display=’none’;
-  document.getElementById(‘modal-success’).style.display=’none’;
-  setTimeout(function(){document.getElementById(‘code-input’).focus();},100);
-}
-function closeModal(){document.getElementById(‘unlock-modal’).classList.remove(‘show’);}
+function openModal(){}
+function closeModal(){}
 
 function submitCode(){
   var code = document.getElementById(‘code-input’).value;
@@ -1193,13 +1160,7 @@ function submitCode(){
   }
 }
 
-function updateModalLang(l){
-  document.getElementById(‘modal-title’).textContent = l===’en’ ? ‘Unlock Your Guide’ : ‘Desbloquea Tu Guia’;
-  document.getElementById(‘modal-desc’).textContent = l===’en’ ? ‘Purchased the guide? Enter the code from your confirmation page.’ : ‘Compraste la guia? Ingresa el codigo de tu pagina de confirmacion.’;
-  document.getElementById(‘modal-submit’).textContent = l===’en’ ? ‘Unlock My Guide’ : ‘Desbloquear Mi Guia’;
-  document.getElementById(‘modal-divider’).textContent = l===’en’ ? ‘or’ : ‘o’;
-  document.getElementById(‘modal-buy’).textContent = l===’en’ ? ‘Get the Full Guide — $9’ : ‘Obtener la Guia Completa — $9’;
-}
+function updateModalLang(l){}
 
 function setLang(l){
   currentLang=l;
