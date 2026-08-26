@@ -107,21 +107,17 @@ a{color:inherit;text-decoration:none;}
 .mcard-details .tip h4{color:var(--edible);border:0;margin-top:0;padding:0;}
 .mcard-details .photo-link{display:inline-block;font-size:13px;font-weight:700;color:var(--terra);margin-top:14px;text-decoration:underline;padding:8px 0;}
 .mcard-details .photo-link:hover{color:var(--forest);}
-.compare-tbl{width:100%;border-collapse:collapse;font-size:13px;margin:8px 0;border-radius:10px;overflow:hidden;}
-.compare-tbl th{background:var(--forest);color:#fff;padding:8px 10px;text-align:left;font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:.5px;text-transform:uppercase;font-size:11px;}
-.compare-tbl td{padding:7px 10px;border-bottom:1px solid #eee;}
-.compare-tbl tr:nth-child(even) td{background:#f8f5ee;}
 
 
 .section{max-width:900px;margin:0 auto;padding:40px 20px;}
 .section h2{font-family:'Bitter',serif;font-weight:900;color:var(--forest);font-size:28px;margin:0 0 8px;text-align:center;}
 .section .sub{text-align:center;color:var(--muted);font-size:15px;margin-bottom:24px;}
 
-.emergency{background:var(--toxic);color:#fff;padding:20px;text-align:center;}
-.emergency h2{font-family:'Bitter',serif;font-weight:900;font-size:20px;color:#fff;margin:0 0 6px;}
-.emergency p{max-width:600px;margin:0 auto 8px;font-size:13px;line-height:1.5;}
-.emergency .phone{font-family:'Bitter',serif;font-weight:900;font-size:24px;color:var(--sun);margin:8px 0;}
-.emergency .steps{text-align:left;max-width:540px;margin:0 auto;font-size:13px;line-height:1.5;}
+.emergency{background:var(--toxic);color:#fff;padding:10px 16px;text-align:center;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:4px 14px;}
+.emergency h2{font-family:'Bitter',serif;font-weight:800;font-size:13px;color:#fff;margin:0;}
+.emergency p{margin:0;font-size:11px;line-height:1.3;opacity:.9;}
+.emergency .phone{font-family:'Bitter',serif;font-weight:900;font-size:15px;color:var(--sun);margin:0;}
+.emergency .steps{display:none;}
 
 .collapsible{background:#fff;border:2px solid var(--khaki);border-radius:16px;margin-bottom:16px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.04);}
 .collapsible-header{width:100%;border:0;background:#fff;padding:18px 22px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;font-family:'Bitter',serif;font-weight:900;font-size:18px;color:var(--forest);}
@@ -191,7 +187,7 @@ footer .back{display:inline-block;margin-top:16px;color:var(--sun);font-family:'
 <div class="hero">
   <h1>Is That Mushroom Safe to Eat?</h1>
   <p class="sub">Identify &middot; Eat Safely &middot; Avoid the Deadly</p>
-  <p>You see mushrooms on every hike. Some are dinner. Some can kill you.<br>Pick your state, see exactly what grows near you, and know before you eat.</p>
+  <p>You see mushrooms on every hike. Learn to tell edible from toxic.<br>Pick your state, see what grows near you, and ID with confidence.</p>
   <div class="stats">
     <div class="stat"><div class="num">10</div><div class="lbl">Edible</div></div>
     <div class="stat"><div class="num">5</div><div class="lbl">Toxic</div></div>
@@ -368,7 +364,7 @@ footer .back{display:inline-block;margin-top:16px;color:var(--sun);font-family:'
     </ul>
     <h4>Where &amp; When</h4>
     <p>On dead or living hardwoods, especially oaks. <strong>Late spring–fall.</strong> Always on wood, never from ground.</p>
-    <div class="lookalike"><h4>Important Notes</h4><p><strong>Avoid specimens on conifers, eucalyptus, or yew</strong> — can cause GI distress. Only eat young, vibrant ones.</p></div>
+    <div class="lookalike"><h4>Confirm It's Real Chicken of the Woods</h4><p><strong>Avoid specimens on conifers, eucalyptus, or yew</strong> &mdash; can cause GI distress. Must be growing on <strong>hardwood</strong>. Only eat young, vibrant ones with bright color.</p></div>
     <div class="tip"><h4>How to Cook</h4><p>Texture like actual chicken breast. Slice tender outer edges, saut&eacute; with garlic.</p></div>
     <a class="photo-link" href="https://en.wikipedia.org/wiki/Laetiporus" target="_blank" rel="noopener">See real photos on Wikipedia &rarr;</a>
   </div>
@@ -733,10 +729,9 @@ footer .back{display:inline-block;margin-top:16px;color:var(--sun);font-family:'
 
 <!-- EMERGENCY EN -->
 <div class="emergency" id="emergency-en">
-  <h2>If Someone Eats a Toxic Mushroom</h2>
+  <h2>Toxic mushroom?</h2>
   <div class="phone">1-800-222-1222</div>
-  <p>US Poison Control — Call immediately. Do NOT wait for symptoms.</p>
-  <p class="steps"><strong>1.</strong> Call now (symptoms can be delayed 6–24 hrs). <strong>2.</strong> Save a sample or take photos. <strong>3.</strong> Do NOT induce vomiting unless told to. <strong>4.</strong> Go to the ER. <strong>5.</strong> Note time of ingestion.</p>
+  <p>Poison Control &mdash; call now, don't wait for symptoms.</p>
 </div>
 
 <!-- GEAR & CHECKLIST EN -->
@@ -789,7 +784,7 @@ footer .back{display:inline-block;margin-top:16px;color:var(--sun);font-family:'
 <div class="hero">
   <h1>&iquest;Ese Hongo Se Puede Comer?</h1>
   <p class="sub">Identifica &middot; Come Seguro &middot; Evita los Mortales</p>
-  <p>Ves hongos en cada caminata. Algunos son cena. Algunos pueden matarte.<br>Elige tu estado, ve exactamente qu&eacute; crece cerca de ti, y conoce antes de comer.</p>
+  <p>Ves hongos en cada caminata. Aprende a identificar los comestibles y los t&oacute;xicos.<br>Elige tu estado, ve qu&eacute; crece cerca de ti, e identifica con confianza.</p>
   <div class="stats">
     <div class="stat"><div class="num">10</div><div class="lbl">Comestibles</div></div>
     <div class="stat"><div class="num">5</div><div class="lbl">T&oacute;xicos</div></div>
@@ -960,6 +955,7 @@ footer .back{display:inline-block;margin-top:16px;color:var(--sun);font-family:'
       <li><strong>Abajo:</strong> Amarillo azufre, poros diminutos</li>
     </ul>
     <h4>D&oacute;nde y Cu&aacute;ndo</h4><p>En maderas duras, especialmente robles. <strong>Final de primavera a oto&ntilde;o.</strong></p>
+    <div class="lookalike"><h4>Confirma que es Pollo del Bosque Real</h4><p><strong>Evita ejemplares en con&iacute;feras, eucalipto o tejo</strong> &mdash; pueden causar malestar estomacal. Debe crecer en <strong>madera dura</strong>. Solo come los j&oacute;venes y vibrantes con color brillante.</p></div>
     <div class="tip"><h4>C&oacute;mo Cocinarlo</h4><p>Textura similar a pechuga de pollo. Corta los bordes tiernos, saltea con ajo.</p></div>
     <a class="photo-link" href="https://es.wikipedia.org/wiki/Laetiporus_sulphureus" target="_blank" rel="noopener">Ver fotos reales en Wikipedia &rarr;</a>
   </div>
@@ -988,6 +984,7 @@ footer .back{display:inline-block;margin-top:16px;color:var(--sun);font-family:'
       <li><strong>Regresa al mismo lugar cada a&ntilde;o</strong></li>
     </ul>
     <h4>D&oacute;nde y Cu&aacute;ndo</h4><p>Base de robles. <strong>Oto&ntilde;o (Sep–Nov).</strong></p>
+    <div class="lookalike"><h4>Confirma que es Gallina del Bosque</h4><p>Presiona o corta la carne &mdash; <strong>no debe mancharse de negro</strong>. Si se pone negra, es otra especie. Desc&aacute;rtala.</p></div>
     <div class="tip"><h4>C&oacute;mo Cocinarlo</h4><p>Desg&aacute;rralo en trozos, saltea hasta crujiente. Sabor umami.</p></div>
     <a class="photo-link" href="https://es.wikipedia.org/wiki/Grifola_frondosa" target="_blank" rel="noopener">Ver fotos reales en Wikipedia &rarr;</a>
   </div>
@@ -1044,6 +1041,7 @@ footer .back{display:inline-block;margin-top:16px;color:var(--sun);font-family:'
       <li>Crece en madera dura muerta</li>
     </ul>
     <h4>D&oacute;nde y Cu&aacute;ndo</h4><p><strong>Primavera y oto&ntilde;o, pero todo el a&ntilde;o en climas templados.</strong></p>
+    <div class="lookalike"><h4>Confirma que es un Hongo Ostra</h4><p>Los Hongos Ostra reales son <strong>gruesos y carnosos</strong>, creciendo en <strong>madera dura</strong>. Si es <strong>delgado como papel</strong> y en madera de <strong>con&iacute;fera</strong>, es otra especie &mdash; desc&aacute;rtalo.</p></div>
     <div class="tip"><h4>C&oacute;mo Cocinarlo</h4><p>Vers&aacute;til. Saltea, agrega a sopas. Sabor suave y dulce.</p></div>
     <a class="photo-link" href="https://es.wikipedia.org/wiki/Pleurotus_ostreatus" target="_blank" rel="noopener">Ver fotos reales en Wikipedia &rarr;</a>
   </div>
@@ -1072,6 +1070,7 @@ footer .back{display:inline-block;margin-top:16px;color:var(--sun);font-family:'
       <li>Tallo grueso, bulboso</li>
     </ul>
     <h4>D&oacute;nde y Cu&aacute;ndo</h4><p>Bajo con&iacute;feras en bosques monta&ntilde;osos. <strong>Verano a oto&ntilde;o.</strong></p>
+    <div class="lookalike"><h4>Confirma que es un Porcini Real</h4><p>Toca un pedacito con tu lengua &mdash; un Porcini real sabe <strong>suave y avellanado</strong>. Si es <strong>intensamente amargo</strong>, es otra especie (no t&oacute;xica, pero incomible). Los poros deben ser <strong>blancos a amarillo-verdosos</strong>, no rosados.</p></div>
     <div class="tip"><h4>C&oacute;mo Cocinarlo</h4><p>Uno de los m&aacute;s buscados del mundo. Saltea fresco o seca para risottos.</p></div>
     <a class="photo-link" href="https://es.wikipedia.org/wiki/Boletus_edulis" target="_blank" rel="noopener">Ver fotos reales en Wikipedia &rarr;</a>
   </div>
@@ -1313,10 +1312,9 @@ footer .back{display:inline-block;margin-top:16px;color:var(--sun);font-family:'
 
 <!-- EMERGENCY ES -->
 <div class="emergency" id="emergency-es">
-  <h2>Si Alguien Come un Hongo T&oacute;xico</h2>
+  <h2>&iquest;Hongo t&oacute;xico?</h2>
   <div class="phone">1-800-222-1222</div>
-  <p>Control de Envenenamientos de EE.UU. — Llama inmediatamente. NO esperes s&iacute;ntomas.</p>
-  <p class="steps"><strong>1.</strong> Llama ahora (s&iacute;ntomas pueden retrasarse 6–24 hrs). <strong>2.</strong> Guarda una muestra o toma fotos. <strong>3.</strong> NO provoques el v&oacute;mito. <strong>4.</strong> Ve a urgencias. <strong>5.</strong> Anota la hora de ingesti&oacute;n.</p>
+  <p>Control de Envenenamientos &mdash; llama ahora, no esperes s&iacute;ntomas.</p>
 </div>
 
 <!-- GEAR ES -->
